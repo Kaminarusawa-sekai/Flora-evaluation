@@ -1,0 +1,102 @@
+[
+  {
+    "task_id": 41,
+    "level": 3,
+    "prompt": "产品分类需要整理，请先获取产品分类列表，更新分类信息，然后导出产品分类Excel供各部门参考。",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category_list",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product_category",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_category_excel"
+    ]
+  },
+  {
+    "task_id": 42,
+    "level": 2,
+    "prompt": "采购退货需要处理，请先导出采购退货Excel查看详情，然后更新退货处理状态。",
+    "expected_agents": [
+      "erp_procurement_system__buyer__exception_handling_plan_coordination__export_purchase_return_excel",
+      "erp_procurement_system__buyer__exception_handling_plan_coordination__update_purchase_return_status"
+    ]
+  },
+  {
+    "task_id": 43,
+    "level": 4,
+    "prompt": "跨部门协调会议需要准备资料，请先获取产品详细信息，查看产品分类简单列表，获取产品单位简单列表，然后协调解决产品部门与销售部门之间的定价分歧。",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category_simple_list",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_unit_simple_list",
+      "erp_product_system__product_director__cross_department_coordination_conflict_resolution"
+    ]
+  },
+  {
+    "task_id": 44,
+    "level": 3,
+    "prompt": "出库操作需要完成，请先获取其他出库单列表，导出出库单Excel进行核对，然后更新出库单完成状态。",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__get_other_outbound_order_page",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__export_other_outbound_order_excel",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__update_other_outbound_order"
+    ]
+  },
+  {
+    "task_id": 45,
+    "level": 2,
+    "prompt": "新客户开户需要录入系统，请创建客户基本信息，然后获取客户名单确认录入成功。",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__create_customer",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_name_list"
+    ]
+  },
+  {
+    "task_id": 46,
+    "level": 4,
+    "prompt": "采购流程需要完整执行，请先获取采购订单详情，管理交货时间表催促供应商发货，查看供应商准时交货率，最后更新采购订单状态。",
+    "expected_agents": [
+      "erp_procurement_system__buyer__pr_to_po_order_generation__get_purchase_order",
+      "erp_procurement_system__buyer__delivery_schedule_management",
+      "erp_procurement_system__srm_specialist__performance_appraisal_qcds__on_time_delivery",
+      "erp_procurement_system__buyer__pr_to_po_order_generation__update_purchase_order_status"
+    ]
+  },
+  {
+    "task_id": 47,
+    "level": 3,
+    "prompt": "产品主数据需要完善，请获取产品分页列表，更新产品信息，然后为新产品生成SKU编码。",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_page",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product",
+      "erp_product_system__sku_master_data_specialist__sku_code_management"
+    ]
+  },
+  {
+    "task_id": 48,
+    "level": 2,
+    "prompt": "仓库需要关闭，请先获取仓库分页列表确认要关闭的仓库，然后删除该仓库记录。",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_page",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__delete_warehouse"
+    ]
+  },
+  {
+    "task_id": 49,
+    "level": 4,
+    "prompt": "销售发货流程需要完整处理，请先获取发货单信息，更新发货单内容，创建新的发货指令，最后更新发货单状态为已发出。",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__get_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__update_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__create_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__export_sales_shipment_excel"
+    ]
+  },
+  {
+    "task_id": 50,
+    "level": 3,
+    "prompt": "库存调拨需要取消，请先获取库存调拨单详情确认，然后删除该调拨单，最后查看库存调拨单分页列表确认删除成功。",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__delete_inventory_transfer_order",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order_page"
+    ]
+  }
+]

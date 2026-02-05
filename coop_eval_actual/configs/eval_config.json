@@ -1,0 +1,27 @@
+{
+  "global_config": {
+    "log_level": "INFO",
+    "extensions": ["eval_extensions"]
+  },
+  "capabilities": {
+    "llm": {
+      "active_impl": "qwen_llm",
+      "qwen_llm": {
+        "model_name": "qwen-max"
+      }
+    },
+    "task_planning": {
+      "active_impl": "common_task_planning",
+      "common_task_planning": {},
+      "mock_task_planning": {}
+    },
+    "excution": {
+      "active_impl": "eval_execution",
+      "eval_execution": {
+        "model_name": "COOP",
+        "seed": 42,
+        "error_injection_rate": 0.1
+      }
+    }
+  }
+}

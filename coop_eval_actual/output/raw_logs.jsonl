@@ -1,0 +1,12 @@
+{"task_id": "4", "model": "CoT", "agent_id": "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page", "status": "ok", "error_type": null, "timestamp_ms": 1770017568678}
+{"task_id": "4", "model": "CoT", "agent_id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_page", "status": "error", "error_type": "500", "timestamp_ms": 1770017568678}
+{"task_id": "5", "model": "CoT", "agent_id": "erp_product_system__sku_master_data_specialist__sku_code_management", "status": "ok", "error_type": null, "timestamp_ms": 1770017656336}
+{"task_id": "5", "model": "CoT", "agent_id": "erp_product_system__sku_master_data_specialist__export_product_unit_excel", "status": "error", "error_type": "invalid_tool", "timestamp_ms": 1770017656336}
+{"task_id": "4", "model": "ReAct", "agent_id": "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order", "status": "error", "error_type": "500", "timestamp_ms": 1770017591926}
+{"task_id": "4", "model": "ReAct", "agent_id": "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order", "status": "ok", "error_type": null, "timestamp_ms": 1770017591926}
+{"task_id": "4", "model": "ReAct", "agent_id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse", "status": "ok", "error_type": null, "timestamp_ms": 1770017591926}
+{"task_id": "5", "model": "ReAct", "agent_id": "erp_product_system__sku_master_data_specialist__sku_code_management", "status": "ok", "error_type": null, "timestamp_ms": 1770017679068}
+{"task_id": "5", "model": "ReAct", "agent_id": "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_unit_excel", "status": "ok", "error_type": null, "timestamp_ms": 1770017679068}
+{"task_id": "4", "model": "LangChain", "agent_id": "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page", "status": "ok", "error_type": null, "timestamp_ms": 1770017596001}
+{"task_id": "4", "model": "LangChain", "agent_id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_page", "status": "ok", "error_type": null, "timestamp_ms": 1770017596001}
+{"task_id": "5", "model": "LangChain", "agent_id": "erp_product_system__sku_master_data_specialist__sku_code_management", "status": "error", "error_type": "500", "timestamp_ms": 1770017684044}

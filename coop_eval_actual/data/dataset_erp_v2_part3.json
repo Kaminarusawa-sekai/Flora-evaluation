@@ -1,0 +1,102 @@
+[
+  {
+    "task_id": 21,
+    "level": 3,
+    "prompt": "我们需要对仓库进行优化管理，请先获取仓库列表信息，然后更新仓库布局配置，并确保先进先出管理策略正确执行。",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_simple_list",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__update_warehouse",
+      "erp_supply_chain_system__warehouse_manager__fifo_management"
+    ]
+  },
+  {
+    "task_id": 22,
+    "level": 2,
+    "prompt": "销售团队发现了一个新的商机，需要先记录潜在客户信息，然后为其准备一份详细的报价单。",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__opportunity_prospecting",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__quotation_and_negotiation_quote_sheet"
+    ]
+  },
+  {
+    "task_id": 23,
+    "level": 4,
+    "prompt": "产品部门需要进行年度产品规划，请先制定战略规划路线图，进行市场调研分析，然后输出产品需求文档给研发部门，最后确认产品的BOM物料清单。",
+    "expected_agents": [
+      "erp_product_system__product_director__strategic_planning_annual_roadmap",
+      "erp_product_system__product_planner_merchandiser__market_insight_mrd",
+      "erp_product_system__product_planner_merchandiser__product_definition__inhouse_prd_output_to_rd",
+      "erp_product_system__sku_master_data_specialist__bom_management_kit_hierarchy"
+    ]
+  },
+  {
+    "task_id": 24,
+    "level": 3,
+    "prompt": "财务部门需要进行月度对账工作，请获取应收账款管理数据，进行月度对账核销，并更新收款单据状态。",
+    "expected_agents": [
+      "erp_sales_system__ar_reconciliation_specialist__accounts_receivable_management",
+      "erp_sales_system__ar_reconciliation_specialist__monthly_reconciliation",
+      "erp_sales_system__ar_reconciliation_specialist__payment_verification_credit_release__update_receipt_order"
+    ]
+  },
+  {
+    "task_id": 25,
+    "level": 2,
+    "prompt": "仓库收到一批新货物，需要进行入库操作。请先进行收货检验核对采购订单，然后创建其他入库单据。",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__receiving_inspection_po_check",
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__system_receipt_ap_trigger__create_other_inbound_order"
+    ]
+  },
+  {
+    "task_id": 26,
+    "level": 4,
+    "prompt": "销售运营需要处理一批新订单，请先创建销售订单，检查库存预留情况并反馈缺货信息，然后创建发货指令，最后导出发货单Excel给物流部门。",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__create_sales_order",
+      "erp_sales_system__sales_ops_admin__inventory_reservation_shortage_feedback",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__create_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__export_sales_shipment_excel"
+    ]
+  },
+  {
+    "task_id": 27,
+    "level": 3,
+    "prompt": "供应链部门需要进行物料需求计划，请先运行MRP计算，然后查看库存调拨单列表，并创建新的库存调拨单来平衡各仓库库存。",
+    "expected_agents": [
+      "erp_supply_chain_system__supply_planner__mrp_calculation",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order_page",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__create_inventory_transfer_order"
+    ]
+  },
+  {
+    "task_id": 28,
+    "level": 2,
+    "prompt": "产品经理需要管理产品生命周期，请查看产品状态并进行状态变更（正常、促销、清仓、停产），同时设置产品的底价控制策略。",
+    "expected_agents": [
+      "erp_product_system__lifecycle_manager__status_management__normal_promote_clearance_eol",
+      "erp_product_system__pricing_specialist__floor_price_control"
+    ]
+  },
+  {
+    "task_id": 29,
+    "level": 4,
+    "prompt": "客户关系管理需要更新重要客户信息，请先获取客户分页列表，更新客户资料，然后导出客户信息Excel，并查看该客户的渠道政策和返利协议。",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_page",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__update_customer",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__export_customer_excel",
+      "erp_sales_system__sales_director__channel_policy_rebate_key_account_agreement"
+    ]
+  },
+  {
+    "task_id": 30,
+    "level": 3,
+    "prompt": "仓库需要进行单据审核，确保没有未开票的发货单。同时请获取其他入库单列表，并更新入库单状态以触发应付账款流程。",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__document_audit_no_unbilled_shipments",
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__system_receipt_ap_trigger__get_other_inbound_order_page",
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__system_receipt_ap_trigger__update_other_inbound_order_status"
+    ]
+  }
+]

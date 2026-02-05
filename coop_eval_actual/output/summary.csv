@@ -1,0 +1,5 @@
+model,level,n_tasks,success_rate,avg_tokens_total,hallucination_rate,recovery_rate,avg_duration_ms,avg_planning_time_ms,avg_tool_calls,compatibility_rate,workflow_complexity_score,workflow_nodes,workflow_branches,tool_rules,config_loc
+COOP,1,2,0.5,4395.5,0.0,0.0,46386.0,0.0,0.0,1.0,,,,,
+CoT,1,2,0.0,17976.0,0.5,0.0,3487.0,3487.0,1.0,1.0,,,,,
+LangChain,1,2,0.5,17965.5,0.0,0.0,4524.5,4524.5,1.0,1.0,,,,,
+ReAct,1,2,0.5,54515.5,0.0,1.0,22989.0,22989.0,2.0,1.0,11.9,5,2,1,19

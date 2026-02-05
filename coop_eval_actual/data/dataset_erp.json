@@ -1,0 +1,575 @@
+[
+  {
+    "task_id": 1,
+    "level": 2,
+    "prompt": "请帮我完成产品管理任务：1) 进行市场调研分析、2) 维护SKU主数据",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__delete_product",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_simple_list"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 2
+    "level": 2,
+    "prompt": "请帮我完成产品管理任务：1) 制定产品年度规划、2) 维护SKU主数据",
+    "expected_agents": [
+      "erp_product_system__pricing_specialist__price_list_definition__internal_settlement_price",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 3,
+    "level": 3,
+    "prompt": "请帮我完成产品管理任务：1) 制定产品年度规划、2) 进行市场调研分析、3) 管理产品生命周期",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_page",
+      "erp_product_system__sku_master_data_specialist__bom_management_kit_hierarchy",
+      "erp_product_system__pricing_specialist__floor_price_control"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 4,
+    "level": 3,
+    "prompt": "请完成财务处理任务：1) 处理付款申请、2) 进行账务核对、3) 进行收款确认",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__receiving_inspection_po_check",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order",
+      "erp_sales_system__sales_ops_admin__credit_control_over_limit_orders"
+    ],
+    "domain": "erp_finance_system"
+  },
+  {
+    "task_id": 5,
+    "level": 4,
+    "prompt": "请执行供应链管理流程：1) 制定需求计划、2) 协调物流配送、3) 管理采购订单、4) 进行库存盘点",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__update_warehouse",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_simple_list",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page",
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__system_receipt_ap_trigger__update_other_inbound_order_status"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 6,
+    "level": 4,
+    "prompt": "请执行供应链管理流程：1) 进行库存盘点、2) 制定需求计划、3) 管理采购订单、4) 协调物流配送",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__cycle_counting__get_product_inventory_page",
+      "erp_supply_chain_system__warehouse_manager__fifo_management",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__create_inventory_transfer_order",
+      "erp_supply_chain_system__supply_chain_director__kpi_ownership__inventory_overview_stats"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 7,
+    "level": 4,
+    "prompt": "请执行供应链管理流程：1) 制定需求计划、2) 管理采购订单、3) 进行库存盘点、4) 协调物流配送",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__cycle_counting__get_product_inventory",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_page",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__update_inventory_transfer_order",
+      "erp_supply_chain_system__demand_planner__stockout_alert_hot_sales_trend"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 8,
+    "level": 2,
+    "prompt": "请处理以下销售业务：1) 进行应收账款对账、2) 处理销售订单",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__get_sales_order",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__delete_customer"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 9,
+    "level": 4,
+    "prompt": "请处理以下销售业务：1) 分解销售目标、2) 管理客户关系、3) 处理销售订单、4) 审批特殊价格申请",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__update_sales_order",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_page",
+      "erp_sales_system__ar_reconciliation_specialist__payment_verification_credit_release__get_receipt_order",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__delete_customer"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 10,
+    "level": 5,
+    "prompt": "请处理以下销售业务：1) 管理客户关系、2) 处理销售订单、3) 分解销售目标、4) 进行应收账款对账、5) 审批特殊价格申请",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__get_sales_order",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__delete_customer",
+      "erp_sales_system__ar_reconciliation_specialist__payment_verification_credit_release__update_receipt_order",
+      "erp_sales_system__ar_reconciliation_specialist__payment_verification_credit_release__export_receipt_order_excel",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__export_sales_shipment_excel"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 11,
+    "level": 5,
+    "prompt": "请执行供应链管理流程：1) 处理入库出库、2) 管理采购订单、3) 协调物流配送、4) 进行库存盘点、5) 制定需求计划",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__document_audit_no_unbilled_shipments",
+      "erp_supply_chain_system__demand_planner__stockout_alert_hot_sales_trend",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_simple_list",
+      "erp_supply_chain_system__inventory_controller__cycle_counting__get_product_inventory",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__export_inventory_transfer_order_excel"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 12,
+    "level": 3,
+    "prompt": "请完成财务处理任务：1) 生成财务凭证、2) 进行账务核对、3) 进行收款确认",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__get_sales_order_page",
+      "erp_product_system__pricing_specialist__price_list_definition__msrp",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__create_sales_order"
+    ],
+    "domain": "erp_finance_system"
+  },
+  {
+    "task_id": 13,
+    "level": 4,
+    "prompt": "请完成财务处理任务：1) 处理付款申请、2) 进行账务核对、3) 生成财务凭证、4) 进行收款确认",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_simple_list",
+      "erp_product_system__pricing_specialist__price_list_definition__msrp",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__export_other_outbound_order_excel",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__update_other_outbound_order"
+    ],
+    "domain": "erp_finance_system"
+  },
+  {
+    "task_id": 14,
+    "level": 5,
+    "prompt": "请处理以下销售业务：1) 处理销售订单、2) 分解销售目标、3) 审批特殊价格申请、4) 进行应收账款对账、5) 管理客户关系",
+    "expected_agents": [
+      "erp_sales_system__ar_reconciliation_specialist__monthly_reconciliation",
+      "erp_sales_system__sales_director__target_decomposition_team_region__data_overview_stats",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__get_sales_order",
+      "erp_sales_system__sales_ops_admin__credit_control_over_limit_orders",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__get_sales_shipment"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 15,
+    "level": 2,
+    "prompt": "请执行供应链管理流程：1) 管理采购订单、2) 进行库存盘点",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__receiving_inspection_po_check",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__wave_picking"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 16,
+    "level": 4,
+    "prompt": "请帮我完成产品管理任务：1) 管理产品生命周期、2) 进行市场调研分析、3) 制定产品年度规划、4) 设置产品定价策略",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__bom_management_kit_hierarchy",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__create_product",
+      "erp_product_system__product_planner_merchandiser__sample_confirmation_for_bulk_order",
+      "erp_product_system__lifecycle_manager__status_management__normal_promote_clearance_eol"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 17,
+    "level": 2,
+    "prompt": "请处理以下销售业务：1) 进行应收账款对账、2) 分解销售目标",
+    "expected_agents": [
+      "erp_sales_system__ar_reconciliation_specialist__monthly_reconciliation",
+      "erp_sales_system__bd_account_manager__channel_distribution_manager__price_control_anti_channel_conflict"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 18,
+    "level": 4,
+    "prompt": "请帮我完成产品管理任务：1) 制定产品年度规划、2) 维护SKU主数据、3) 管理产品生命周期、4) 进行市场调研分析",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product_unit",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_simple_list",
+      "erp_product_system__product_planner_merchandiser__market_insight_mrd",
+      "erp_product_system__pricing_specialist__price_list_definition__channel_distribution_price"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 19,
+    "level": 3,
+    "prompt": "请帮我完成产品管理任务：1) 进行市场调研分析、2) 管理产品生命周期、3) 设置产品定价策略",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__logistics_attributes_dimensions_weight",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_category_excel",
+      "erp_product_system__pricing_specialist__price_list_definition__msrp"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 20,
+    "level": 3,
+    "prompt": "请完成财务处理任务：1) 进行收款确认、2) 生成财务凭证、3) 进行账务核对",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__cycle_counting__export_product_inventory_excel_detail",
+      "erp_procurement_system__srm_specialist__performance_appraisal_qcds__on_time_delivery",
+      "erp_procurement_system__buyer__exception_handling_plan_coordination__update_purchase_return_status"
+    ],
+    "domain": "erp_finance_system"
+  },
+  {
+    "task_id": 21,
+    "level": 4,
+    "prompt": "请完成财务处理任务：1) 进行收款确认、2) 处理付款申请、3) 生成财务凭证、4) 进行账务核对",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__fifo_management",
+      "erp_supply_chain_system__inventory_controller__cycle_counting__get_product_inventory",
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__system_receipt_ap_trigger__create_other_inbound_order",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_category_excel"
+    ],
+    "domain": "erp_finance_system"
+  },
+  {
+    "task_id": 22,
+    "level": 3,
+    "prompt": "请帮我完成产品管理任务：1) 制定产品年度规划、2) 维护SKU主数据、3) 设置产品定价策略",
+    "expected_agents": [
+      "erp_product_system__pricing_specialist__price_list_definition__internal_settlement_price",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_page",
+      "erp_product_system__product_director__strategic_planning_annual_roadmap"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 23,
+    "level": 2,
+    "prompt": "请帮我完成产品管理任务：1) 维护SKU主数据、2) 进行市场调研分析",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_unit_page",
+      "erp_product_system__product_planner_merchandiser__product_definition__inhouse_prd_output_to_rd"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 24,
+    "level": 5,
+    "prompt": "请执行供应链管理流程：1) 协调物流配送、2) 进行库存盘点、3) 制定需求计划、4) 管理采购订单、5) 处理入库出库",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_simple_list",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__export_other_outbound_order_excel",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__create_warehouse",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__update_inventory_transfer_order_status",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__export_inventory_transfer_order_excel"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 25,
+    "level": 2,
+    "prompt": "请处理以下销售业务：1) 进行应收账款对账、2) 处理销售订单",
+    "expected_agents": [
+      "erp_sales_system__sales_director__channel_policy_rebate_key_account_agreement",
+      "erp_sales_system__ar_reconciliation_specialist__payment_verification_credit_release__get_receipt_order"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 26,
+    "level": 5,
+    "prompt": "请完成财务处理任务：1) 处理付款申请、2) 进行账务核对、3) 进行收款确认、4) 生成财务凭证",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__system_receipt_ap_trigger__get_other_inbound_order_page",
+      "erp_procurement_system__buyer__exception_handling_plan_coordination__update_purchase_return_status",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product",
+      "erp_procurement_system__strategic_sourcing_manager__supplier_onboarding_master_data__get_supplier_simple_list",
+      "erp_procurement_system__strategic_sourcing_manager__contract_negotiation_price_terms_moq"
+    ],
+    "domain": "erp_finance_system"
+  },
+  {
+    "task_id": 27,
+    "level": 3,
+    "prompt": "请帮我完成产品管理任务：1) 进行市场调研分析、2) 设置产品定价策略、3) 制定产品年度规划",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product",
+      "erp_product_system__pricing_specialist__cost_accounting_landed_cost",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category_list"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 28,
+    "level": 5,
+    "prompt": "请执行供应链管理流程：1) 协调物流配送、2) 制定需求计划、3) 进行库存盘点、4) 处理入库出库、5) 管理采购订单",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__delete_warehouse",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order_page",
+      "erp_supply_chain_system__demand_planner__stockout_alert_hot_sales_trend",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__packing_verification_scan",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__create_inventory_transfer_order"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 29,
+    "level": 3,
+    "prompt": "请处理以下销售业务：1) 管理客户关系、2) 进行应收账款对账、3) 分解销售目标",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__export_sales_order_excel",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__update_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__create_sales_shipment"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 30,
+    "level": 5,
+    "prompt": "请处理以下销售业务：1) 处理销售订单、2) 进行应收账款对账、3) 审批特殊价格申请、4) 管理客户关系、5) 分解销售目标",
+    "expected_agents": [
+      "erp_sales_system__sales_director__target_decomposition_team_region__get_sales_stats",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__get_sales_order",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__export_customer_excel",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__get_sales_return_page",
+      "erp_sales_system__sales_ops_admin__credit_control_over_limit_orders"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 31,
+    "level": 4,
+    "prompt": "请处理以下销售业务：1) 审批特殊价格申请、2) 分解销售目标、3) 处理销售订单、4) 管理客户关系",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_page",
+      "erp_sales_system__sales_director__target_decomposition_team_region__receipt_time_range_stats",
+      "erp_sales_system__ar_reconciliation_specialist__accounts_receivable_management",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__update_sales_return"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 32,
+    "level": 2,
+    "prompt": "请帮我完成产品管理任务：1) 维护SKU主数据、2) 进行市场调研分析",
+    "expected_agents": [
+      "erp_product_system__pricing_specialist__price_list_definition__internal_settlement_price",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_category_excel"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 33,
+    "level": 2,
+    "prompt": "请帮我完成产品管理任务：1) 维护SKU主数据、2) 制定产品年度规划",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__create_product",
+      "erp_product_system__product_planner_merchandiser__product_definition__inhouse_prd_output_to_rd"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 34,
+    "level": 5,
+    "prompt": "请处理以下销售业务：1) 分解销售目标、2) 审批特殊价格申请、3) 管理客户关系、4) 处理销售订单、5) 进行应收账款对账",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__opportunity_prospecting",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__delete_sales_shipment",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_name_list",
+      "erp_sales_system__ar_reconciliation_specialist__accounts_receivable_management",
+      "erp_sales_system__ar_reconciliation_specialist__monthly_reconciliation"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 35,
+    "level": 4,
+    "prompt": "请处理以下销售业务：1) 处理销售订单、2) 进行应收账款对账、3) 管理客户关系、4) 分解销售目标",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_name_list",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__export_customer_excel",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__get_sales_order_page",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__quotation_and_negotiation_quote_sheet"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 36,
+    "level": 5,
+    "prompt": "请帮我完成产品管理任务：1) 进行市场调研分析、2) 管理产品生命周期、3) 制定产品年度规划、4) 维护SKU主数据、5) 设置产品定价策略",
+    "expected_agents": [
+      "erp_product_system__lifecycle_manager__new_product_introduction_enablement",
+      "erp_product_system__pricing_specialist__price_list_definition__channel_distribution_price",
+      "erp_product_system__product_planner_merchandiser__sample_confirmation_for_bulk_order",
+      "erp_product_system__product_planner_merchandiser__product_definition__inhouse_prd_output_to_rd",
+      "erp_product_system__pricing_specialist__cost_accounting_landed_cost"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 37,
+    "level": 4,
+    "prompt": "请处理以下销售业务：1) 审批特殊价格申请、2) 处理销售订单、3) 进行应收账款对账、4) 分解销售目标",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__channel_distribution_manager__channel_recruitment",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__create_customer",
+      "erp_sales_system__sales_ops_admin__inventory_reservation_shortage_feedback",
+      "erp_sales_system__after_sales_customer_success__customer_complaint_handling"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 38,
+    "level": 2,
+    "prompt": "请执行供应链管理流程：1) 处理入库出库、2) 制定需求计划",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__export_inventory_transfer_order_excel",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__create_warehouse"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 39,
+    "level": 3,
+    "prompt": "请帮我完成产品管理任务：1) 进行市场调研分析、2) 管理产品生命周期、3) 制定产品年度规划",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__delete_product",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__create_product_unit",
+      "erp_product_system__pricing_specialist__floor_price_control"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 40,
+    "level": 5,
+    "prompt": "请执行供应链管理流程：1) 进行库存盘点、2) 处理入库出库、3) 制定需求计划、4) 协调物流配送、5) 管理采购订单",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__fifo_management",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__delete_inventory_transfer_order",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order",
+      "erp_supply_chain_system__demand_planner__sales_forecast_management_final_plan",
+      "erp_supply_chain_system__supply_planner__mrp_calculation"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 41,
+    "level": 4,
+    "prompt": "请处理以下销售业务：1) 进行应收账款对账、2) 分解销售目标、3) 审批特殊价格申请、4) 处理销售订单",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__create_customer",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__update_sales_return",
+      "erp_sales_system__sales_ops_admin__inventory_reservation_shortage_feedback",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__export_sales_shipment_excel"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 42,
+    "level": 2,
+    "prompt": "请处理以下销售业务：1) 审批特殊价格申请、2) 管理客户关系",
+    "expected_agents": [
+      "erp_sales_system__after_sales_customer_success__customer_complaint_handling",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__update_sales_order_status"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 43,
+    "level": 3,
+    "prompt": "请完成财务处理任务：1) 处理付款申请、2) 进行收款确认、3) 进行账务核对",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__packaging_attributes_carton_spec",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__delete_sales_shipment",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__export_sales_return_excel"
+    ],
+    "domain": "erp_finance_system"
+  },
+  {
+    "task_id": 44,
+    "level": 2,
+    "prompt": "请处理以下销售业务：1) 审批特殊价格申请、2) 进行应收账款对账",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__update_sales_order",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__get_sales_return"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 45,
+    "level": 3,
+    "prompt": "请处理以下销售业务：1) 进行应收账款对账、2) 分解销售目标、3) 审批特殊价格申请",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__create_customer",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__export_sales_return_excel",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__update_customer"
+    ],
+    "domain": "erp_sales_system"
+  },
+  {
+    "task_id": 46,
+    "level": 5,
+    "prompt": "请执行供应链管理流程：1) 处理入库出库、2) 管理采购订单、3) 协调物流配送、4) 制定需求计划、5) 进行库存盘点",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__create_inventory_transfer_order",
+      "erp_supply_chain_system__inventory_controller__cycle_counting__export_product_inventory_excel_detail",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order_page",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__delete_warehouse"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 47,
+    "level": 5,
+    "prompt": "请帮我完成产品管理任务：1) 进行市场调研分析、2) 维护SKU主数据、3) 制定产品年度规划、4) 管理产品生命周期、5) 设置产品定价策略",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_page",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category_simple_list",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_unit_simple_list",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product_unit"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 48,
+    "level": 4,
+    "prompt": "请执行供应链管理流程：1) 处理入库出库、2) 进行库存盘点、3) 协调物流配送、4) 管理采购订单",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order_page",
+      "erp_supply_chain_system__demand_planner__stockout_alert_hot_sales_trend",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__export_inventory_transfer_order_excel",
+      "erp_supply_chain_system__warehouse_manager__document_audit_no_unbilled_shipments"
+    ],
+    "domain": "erp_supply_chain_system"
+  },
+  {
+    "task_id": 49,
+    "level": 2,
+    "prompt": "请帮我完成产品管理任务：1) 维护SKU主数据、2) 管理产品生命周期",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_excel",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__create_product"
+    ],
+    "domain": "erp_product_system"
+  },
+  {
+    "task_id": 50,
+    "level": 2,
+    "prompt": "请帮我完成产品管理任务：1) 管理产品生命周期、2) 维护SKU主数据",
+    "expected_agents": [
+      "erp_product_system__pricing_specialist__floor_price_control",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category"
+    ],
+    "domain": "erp_product_system"
+  }
+]

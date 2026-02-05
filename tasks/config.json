@@ -1,0 +1,31 @@
+{
+  "global_config": {
+    "log_level": "INFO"
+  },
+  "capabilities": {
+    "llm": {
+      "active_impl": "qwen_llm",
+      "qwen_llm": {}
+    },
+    "task_planning": {
+      "active_impl": "common_task_planning",
+      "common_task_planning": {}
+    },
+    "excution": {
+      "active_impl": "universal_execution",
+      "universal_execution": {}
+    },
+    "context_resolver": {
+      "active_impl": "tree_context_resolver",
+      "tree_context_resolver": {}
+    },
+    "text_to_sql": {
+      "active_impl": "vanna_text_to_sql",
+      "vanna_text_to_sql": {}
+    },
+    "llm_memory": {
+      "active_impl": "unified_memory",
+      "unified_memory": {}
+    }
+  }
+}

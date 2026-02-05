@@ -1,0 +1,1753 @@
+Reverting to nvm default version
+Now using node v24.12.0 (npm v11.7.0)
+luming@192 COOP % python -m coop_eval_actual.run_experiment --dataset coop_eval_actual/data/dataset_erp_v3.json --max_tasks 2
+2026-02-02 15:32:41,422 - events.event_bus.EventPublisher - INFO - EventBus initialized successfully with lifecycle base URL: http://localhost:8004
+2026-02-02 15:32:43,768 - agents.tree.node_service - WARNING - Neo4j配置未找到，使用内存存储
+2026-02-02 15:32:43,768 - agents.tree.relationship_service - WARNING - Neo4j配置未找到，使用内存存储
+2026-02-02 15:32:43,768 - agents.tree.tree_manager - INFO - 树形结构管理器初始化成功
+2026-02-02 15:32:43,770 - __main__ - INFO - Loaded 2 tasks from coop_eval_actual/data/dataset_erp_v3.json
+2026-02-02 15:32:43,774 - __main__ - INFO - Loaded 250 agents, 197 leaves
+2026-02-02 15:32:43,803 - tasks.events.event_bus.EventPublisher - INFO - EventBus initialized successfully with lifecycle base URL: http://localhost:8004
+2026-02-02 15:32:44,244 - tasks.agents.tree.node_service - WARNING - Neo4j配置未找到，使用内存存储
+2026-02-02 15:32:44,244 - tasks.agents.tree.relationship_service - WARNING - Neo4j配置未找到，使用内存存储
+2026-02-02 15:32:44,244 - tasks.agents.tree.tree_manager - INFO - 树形结构管理器初始化成功
+DashScope API key loaded
+2026-02-02 15:32:44,441 - __main__ - INFO - LLM initialized successfully
+2026-02-02 15:32:44,441 - coop_eval_actual.real_planners - INFO - BaseLLMPlanner initialized with 250 agents, 197 leaves
+2026-02-02 15:32:44,441 - coop_eval_actual.real_planners - INFO - BaseLLMPlanner initialized with 250 agents, 197 leaves
+2026-02-02 15:32:44,441 - coop_eval_actual.real_planners - INFO - BaseLLMPlanner initialized with 250 agents, 197 leaves
+2026-02-02 15:32:44,444 - capabilities.capability_manager - INFO - Starting dynamic discovery of capabilities...
+2026-02-02 15:32:44,446 - capabilities.capability_manager - INFO - Discovery completed. Found 18 capability classes.
+2026-02-02 15:32:44,446 - capabilities.capability_manager - INFO - Starting initialization based on Config...
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - [llm] Active implementation selected: qwen_llm
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - [llm] Initializing: qwen_llm
+DashScope API key loaded
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - Registered 'qwen_llm' as default handler for 'llm'
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - Initialized: qwen_llm
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - [task_planning] Active implementation selected: common_task_planning
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - [task_planning] Initializing: common_task_planning
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - Registered 'common_task_planning' as default handler for 'task_planning'
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - Initialized: common_task_planning
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - [excution] Active implementation selected: eval_execution
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - [excution] Initializing: eval_execution
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - Registered 'eval_execution' as default handler for 'excution'
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - Initialized: eval_execution
+2026-02-02 15:32:44,447 - capabilities.capability_manager - INFO - Initialization completed.
+2026-02-02 15:32:44,451 INFO    =>  COOP Runner initialized  [run_experiment.py:237]
+2026-02-02 15:32:44,451 INFO    =>  [1/2] Processing task 4  [run_experiment.py:250]
+2026-02-02 15:32:44,451 INFO    =>    Running CoT...  [run_experiment.py:255]
+2026-02-02 15:32:48,678 INFO    =>      CoT: planned=2, executed=1, success=False  [run_experiment.py:280]
+2026-02-02 15:32:48,678 INFO    =>    Running ReAct...  [run_experiment.py:287]
+2026-02-02 15:33:11,926 INFO    =>      ReAct: iterations=3, planned=2, success=False  [run_experiment.py:312]
+2026-02-02 15:33:11,926 INFO    =>    Running Workflow...  [run_experiment.py:319]
+2026-02-02 15:33:16,001 INFO    =>      Workflow: planned=2, success=True  [run_experiment.py:344]
+2026-02-02 15:33:16,001 INFO    =>    Running COOP...  [run_experiment.py:351]
+2026-02-02 15:33:16,002 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [agent_actor.py:105]
+2026-02-02 15:33:16,002 INFO    =>  AgentActor initialized for erp_company_core_roles_overview  [agent_actor.py:110]
+2026-02-02 15:33:16,003 INFO    =>  [AgentActor] Handling task 4: 内容："我需要查看我们不同仓库之间的库存调拨情况，同时了解一下各个仓库的 布局以及拣货路径，请帮我获取...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:16,006 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_product_system",
+    "seq": 1,
+    "name": "产品体系",
+    "capabilities": "职责：1. 产品总监 (Director of Product)；2. 商品企划/选品专员 (Product Planner / Merchandiser)；3. SKU数据专员 (Master Data Specialist)；4. 定价专员 (Pricing Specialist)；5. 生命周期/运营专员 (Lifecycle Manager)；说明：覆盖产品规划、选品企划、选品、SKU主 数据等功能",
+    "description": "职责：1. 产品总监 (Director of Product)；2. 商品企划/选品专员 (Product Planner / Merchandiser)；3. SKU数据专员 (Master Data Specialist)；4. 定价专员 (Pricing Specialist)；5. 生命周期/运营专员 (Lifecycle Manager)；说明：覆盖产品规划、选品企划、选品、SKU主数据等功能"
+  },
+  {
+    "id": "erp_sales_system",
+    "seq": 2,
+    "name": "销售体系",
+    "capabilities": "职责：1. 销售总监 (Sales Director)；2. 业务拓展/客户经理 (BD / Account Manager)；3. 销售运营/跟单员 (Sales Ops / Admin)；4. 往来会计/对账专员 (AR Specialist)；5. 售后/客户成功专员 (After-Sales / CS)；说明：覆盖销售管理、客户管理、售后服务、对账等功能",
+    "description": "职责：1. 销售总监 (Sales Director)；2. 业务拓展/客户经理 (BD / Account Manager)；3. 销售运营/跟单员 (Sales Ops / Admin)；4. 往来会计/对账专员 (AR Specialist)；5. 售后/客户成功专员 (After-Sales / CS)；说明：覆盖销售管理、客户管理、售后服务、对账等功能"
+  },
+  {
+    "id": "erp_supply_chain_system",
+    "seq": 3,
+    "name": "供应链体系",
+    "capabilities": "职责：1. 供应链/计划总监 (Supply Chain Director)；2. 需求计划员 (Demand Planner)；3. 物料/供应计划员 (Supply Planner)；4. 仓储经理 (Warehouse Manager)；5. 仓储作业组 (Warehouse Ops)；6. 库存控制/盘点专员 (Inventory Controller)；说明：覆盖供应链计划、需求 计划、供应计划、仓储作业等功能",
+    "description": "职责：1. 供应链/计划总监 (Supply Chain Director)；2. 需求计划员 (Demand Planner)；3. 物料/供应计划员 (Supply Planner) ；4. 仓储经理 (Warehouse Manager)；5. 仓储作业组 (Warehouse Ops)；6. 库存控制/盘点专员 (Inventory Controller)；说明：覆盖供应链计划、需求 计划、供应计划、仓储作业等功能"
+  },
+  {
+    "id": "erp_procurement_system",
+    "seq": 4,
+    "name": "采购体系",
+    "capabilities": "职责：1. 采购总监 (Procurement Director)；2. 战略寻源/开发经理 (Sourcing Manager)；3. 采购执行/跟单员 (Buyer)；4. 供 应商管理专员 (SRM Specialist)；5. 采购结算/助理 (Settlement)；说明：覆盖采购管理、供应商管理、结算等功能",
+    "description": "职责：1. 采购总监 (Procurement Director)；2. 战略寻源/开发经理 (Sourcing Manager)；3. 采购执行/跟单员 (Buyer)；4. 供应商管理专员 (SRM Specialist)；5. 采购结算/助理 (Settlement)；说明：覆盖采购管理、供应商管理、结算等功能"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:33:19,214 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_supply_chain_system', 'content': '请提供不同仓库之间的库存调拨情况报告，包括但不限于调拨的 时间、数量以及涉及的SKU信息。另外，请一并整理出各个仓库的布局图和拣货路径设计。', 'description': '获取库存调拨情况及仓库布局信息'}]  [common_task_planner.py:173]
+2026-02-02 15:33:19,214 INFO    =>  Final plan generated with 1 steps (expanded from 1).  [common_task_planner.py:124]
+2026-02-02 15:33:19,214 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_supply_chain_system', 'content': '请提供不同仓库之间的库存调拨情况报告，包括但不限于调拨的 时间、数量以及涉及的SKU信息。另外，请一并整理出各个仓库的布局图和拣货路径设计。', 'description': '获取库存调拨情况及仓库布局信息'}]  [agent_actor.py:208]
+2026-02-02 15:33:19,220 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:19,220 INFO    =>  Starting TaskGroup Workflow: 4  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:19,220 INFO    =>  Executing Step 1: '获取库存调拨情况及仓库布局信息' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:19,220 INFO    =>  --> Route: ResultAggregator for Step 1 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:33:19,220 WARNING =>  _get_merged_context called before task step_1 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:33:19,228 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:33:19,229 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:33:19,229 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:19,229 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system  [result_aggregator_actor.py:187]
+2026-02-02 15:33:19,230 INFO    =>  Created new AgentActor for erp_supply_chain_system  [result_aggregator_actor.py:244]
+2026-02-02 15:33:19,230 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [agent_actor.py:105]
+2026-02-02 15:33:19,230 INFO    =>  AgentActor initialized for erp_supply_chain_system  [agent_actor.py:110]
+2026-02-02 15:33:19,230 INFO    =>  [AgentActor] Handling task step_1: 内容：请提供不同仓库之间的库存调拨情况报告，包括但不限于调拨的时间 、数量以及涉及的SKU信息。另外，...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:19,230 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_supply_chain_system__supply_chain_director",
+    "seq": 1,
+    "name": "供应链/计划总监 (Supply Chain Director)",
+    "capabilities": "职责：S&OP会议：产销协同拍板预测；库存策略：MTS vs MTO；KPI负责：库存周转率、订单满足率；说明：覆盖订单管理、库存控制等功能",
+    "description": "职责：S&OP会议：产销协同拍板预测；库存策略：MTS vs MTO；KPI负责：库存周转率、订单满足率；说明：覆盖订单管理、库存控制 等功能"
+  },
+  {
+    "id": "erp_supply_chain_system__demand_planner",
+    "seq": 2,
+    "name": "需求计划员 (Demand Planner)",
+    "capabilities": "职责：销售预测管理：清洗数据，输出《最终需求计划》；缺货预警：监控热销品趋势；说明：覆盖销售预测、销售管理、需求计划 等功能",
+    "description": "职责：销售预测管理：清洗数据，输出《最终需求计划》；缺货预警：监控热销品趋势；说明：覆盖销售预测、销售管理、需求计划等功能"
+  },
+  {
+    "id": "erp_supply_chain_system__supply_planner",
+    "seq": 3,
+    "name": "物料/供应计划员 (Supply Planner)",
+    "capabilities": "职责：MRP运算：建议购买量 = (预测+安全库存+已订) - (现有+在途)；请购审批：生成《请购单(PR)》给采购；呆滞料分析：推动 销售或研发消耗；说明：覆盖销售管理、采购管理、库存控制等功能",
+    "description": "职责：MRP运算：建议购买量 = (预测+安全库存+已订) - (现有+在途)；请购审批：生成《请购单(PR)》给采购；呆滞料分析：推动销售或研发消耗；说明：覆盖销售管理、采购管理、库存控制等功能"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_manager",
+    "seq": 4,
+    "name": "仓储经理 (Warehouse Manager)",
+    "capabilities": "职责：库房规划：货架布局、拣货路径；FIFO管理：先进先出防过期；单据稽核：杜绝“白条出库”；说明：覆盖出库等功能",
+    "description": "职责：库房规划：货架布局、拣货路径；FIFO管理：先进先出防过期；单据稽核：杜绝“白条出库”；说明：覆盖出库等功能"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_ops_team",
+    "seq": 5,
+    "name": "仓储作业组 (Warehouse Ops)",
+    "capabilities": "职责：A. 入库管理员；B. 出库管理员；说明：覆盖入库、出库等功能",
+    "description": "职责：A. 入库管理员；B. 出库管理员；说明：覆盖入库、出库等功能"
+  },
+  {
+    "id": "erp_supply_chain_system__inventory_controller",
+    "seq": 6,
+    "name": "库存控制/盘点专员 (Inventory Controller)",
+    "capabilities": "职责：周期盘点：每日抽盘；全盘：季度/年度大盘点；差异调整：查明原因，申请《库存调整单》；说明：覆盖库存控制、库存盘点等功能",
+    "description": "职责：周期盘点：每日抽盘；全盘：季度/年度大盘点；差异调整：查明原因，申请《库存调整单》；说明：覆盖库存控制、库存盘点 等功能"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:33:27,294 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__supply_chain_director', 'content': '请准备一份关于不同仓库之间库存调拨情况的报告，报告中应包括调拨的时间、数量以及涉及的SKU信息。同时，请整理出各个仓库的布局图和拣货路径设计。', 'description': '请求库存调拨报告及仓库布局信息'}, {'step': 2, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__warehouse_manager', 'content': '根据供应链总监的要 求，提供各仓库当前最新的布局图和拣货路径设计方案。', 'description': '收集仓库布局与拣货路径数据'}, {'step': 3, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__inventory_controller', 'content': '协助供应链总监完成库存调拨情况报告中的具体细节，特别是有关调拨时间、数量及SKU的信息部分。', 'description': '支持库存调拨详情编制'}]  [common_task_planner.py:173]
+2026-02-02 15:33:27,295 INFO    =>  Final plan generated with 3 steps (expanded from 3).  [common_task_planner.py:124]
+2026-02-02 15:33:27,295 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__supply_chain_director', 'content': '请准备一份关于不同仓库之间库存调拨情况的报告，报告中应包括调拨的时间、数量以及涉及的SKU信息。同时，请整理出各个仓库的布局图和拣货路径设计。', 'description': '请求库存调拨报告及仓库布局信息'}, {'step': 2, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__warehouse_manager', 'content': '根据供应链总监的要 求，提供各仓库当前最新的布局图和拣货路径设计方案。', 'description': '收集仓库布局与拣货路径数据'}, {'step': 3, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__inventory_controller', 'content': '协助供应链总监完成库存调拨情况报告中的具体细节，特别是有关调拨时间、数量及SKU的信息部分。', 'description': '支持库存调拨详情编制'}]  [agent_actor.py:208]
+2026-02-02 15:33:27,296 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:27,296 INFO    =>  Starting TaskGroup Workflow: step_1  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:27,296 INFO    =>  Executing Step 1: '请求库存调拨报告及仓库布局信息' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:27,296 INFO    =>  --> Route: ResultAggregator for Step 1 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:33:27,296 WARNING =>  _get_merged_context called before task step_1 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:33:27,303 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:33:27,304 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:33:27,304 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:27,304 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__supply_chain_director  [result_aggregator_actor.py:187]
+2026-02-02 15:33:27,304 INFO    =>  Created new AgentActor for erp_supply_chain_system__supply_chain_director  [result_aggregator_actor.py:244]
+2026-02-02 15:33:27,304 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [agent_actor.py:105]
+2026-02-02 15:33:27,304 INFO    =>  AgentActor initialized for erp_supply_chain_system__supply_chain_director  [agent_actor.py:110]
+2026-02-02 15:33:27,304 INFO    =>  [AgentActor] Handling task step_1: 内容：请准备一份关于不同仓库之间库存调拨情况的报告，报告中应包括调 拨的时间、数量以及涉及的SKU信息...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:27,304 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_supply_chain_system__supply_chain_director__sop_meeting",
+    "seq": 1,
+    "name": "S&OP会议：产销协同拍板预测",
+    "capabilities": "S&OP会议：产销协同拍板预测",
+    "description": "S&OP会议：产销协同拍板预测"
+  },
+  {
+    "id": "erp_supply_chain_system__supply_chain_director__inventory_strategy_mts_mto",
+    "seq": 2,
+    "name": "库存策略：MTS vs MTO",
+    "capabilities": "库存策略：MTS vs MTO",
+    "description": "库存策略：MTS vs MTO"
+  },
+  {
+    "id": "erp_supply_chain_system__supply_chain_director__kpi_ownership",
+    "seq": 3,
+    "name": "KPI负责：库存周转率、订单满足率",
+    "capabilities": "接口能力：库存概览统计；说明：包含新增、更新、查询、导出等接口",
+    "description": "接口能力：库存概览统计；说明：包含新增、更新、查询、导出等接口"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:33:38,078 WARNING =>  [CommonTaskPlanner] Prevented recursion: executor 'report_generator' -> LEAF execution for 'erp_supply_chain_system__supply_chain_director'  [common_task_planner.py:172]
+2026-02-02 15:33:38,078 WARNING =>  [CommonTaskPlanner] Prevented recursion: executor 'document_compiler' -> LEAF execution for 'erp_supply_chain_system__supply_chain_director'  [common_task_planner.py:172]
+2026-02-02 15:33:38,078 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'MCP', 'executor': 'inventory_system_query', 'content': '从库存管理系统中提取所有仓库之间的调拨记录，包括每次调拨的时间、数量以及涉及的SKU信息。', 'description': '获取库存调拨数据'}, {'step': 2, 'type': 'LEAF', 'executor': 'erp_supply_chain_system__supply_chain_director', 'content': '基于第一步收集的数据，生成一份详细的报告。报告应包含每个调拨事件的具体时间、数量和SKU信息。同时，请确保报告 格式清晰易读。', 'description': '创建库存调拨报告'}, {'step': 3, 'type': 'MCP', 'executor': 'warehouse_layout_retrieval', 'content': '从仓储管理系统中检索各个仓库的布局图以及拣货路径设计的相关资料。', 'description': '获取仓库布局与拣货路径信息'}, {'step': 4, 'type': 'LEAF', 'executor': 'erp_supply_chain_system__supply_chain_director', 'content': '将第二步生成的库存调拨报告与第三步得到的仓库布局图及拣货路径设计 整合成一个完整的文档。确保文档结构合理，易于理解。', 'description': '编译综合文档'}]  [common_task_planner.py:173]
+2026-02-02 15:33:38,078 INFO    =>  Final plan generated with 4 steps (expanded from 4).  [common_task_planner.py:124]
+2026-02-02 15:33:38,078 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'MCP', 'executor': 'inventory_system_query', 'content': '从库存管理系统中提取所有仓库之间的调拨记录，包括每次调拨的时间、数量以及涉及的SKU信息。', 'description': '获取库存调拨数据', 'is_parallel': False}, {'step': 2, 'type': 'LEAF', 'executor': 'erp_supply_chain_system__supply_chain_director', 'content': '基于第一步收集的数据，生成一份详细的报告。报告应包含每个调拨事件的具体时间、数量和SKU 信息。同时，请确保报告格式清晰易读。', 'description': '创建库存调拨报告', 'is_parallel': False}, {'step': 3, 'type': 'MCP', 'executor': 'warehouse_layout_retrieval', 'content': '从仓储管理系统中检索各个仓库的布局图以及拣货路径设计的相关资料。', 'description': '获取仓库布局与 拣货路径信息', 'is_parallel': False}, {'step': 4, 'type': 'LEAF', 'executor': 'erp_supply_chain_system__supply_chain_director', 'content': '将第二步生成的库存调拨报告与第三步得到的仓库布局图及拣货路径设计整合成一个完整的文档。确保文档结构合理，易于理解。', 'description': '编 译综合文档', 'is_parallel': False}]  [agent_actor.py:208]
+2026-02-02 15:33:38,079 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,079 INFO    =>  Starting TaskGroup Workflow: step_1  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,079 INFO    =>  Executing Step 1: '获取库存调拨数据' (type=MCP)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,079 INFO    =>  --> Route: MCP Executor for Step 1  [task_group_aggregator_actor.py:305]
+2026-02-02 15:33:38,079 INFO    =>  No skills loaded.  [mcp_actor.py:201]
+2026-02-02 15:33:38,079 INFO    =>  [1] Received task: 获取库存调拨数据  [mcp_actor.py:49]
+2026-02-02 15:33:38,740 ERROR   =>  Context resolver query failed: Capability context_resolver not found  [mcp_actor.py:124]
+Traceback (most recent call last):
+  File "/Users/luming/PycharmProjects/COOP/tasks/capability_actors/mcp_actor.py", line 94, in _execute_data_query_via_context_resolver
+    context_resolver: IContextResolverCapbility = get_capability(
+                                                  ^^^^^^^^^^^^^^^
+  File "/Users/luming/PycharmProjects/COOP/tasks/capabilities/__init__.py", line 99, in get_capability
+    return manager.get_capability(name, expected_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/luming/PycharmProjects/COOP/tasks/capabilities/capability_manager.py", line 196, in get_capability
+    return self.registry.get_capability(name, expected_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/luming/PycharmProjects/COOP/tasks/capabilities/registry.py", line 80, in get_capability
+    raise ValueError(f"Capability {name} not found")
+ValueError: Capability context_resolver not found
+2026-02-02 15:33:38,741 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,741 INFO    =>  Executing Step 2: '创建库存调拨报告' (type=LEAF)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,741 INFO    =>  --> Route: LEAF execution for Step 2 (forced leaf)  [task_group_aggregator_actor.py:239]
+2026-02-02 15:33:38,741 INFO    =>  --> Route: ResultAggregator for Step 2 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:33:38,742 WARNING =>  _get_merged_context called before task step_2 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:33:38,744 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:33:38,744 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:33:38,744 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,744 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__supply_chain_director  [result_aggregator_actor.py:187]
+2026-02-02 15:33:38,744 INFO    =>  Created new LeafActor for erp_supply_chain_system__supply_chain_director  [result_aggregator_actor.py:244]
+2026-02-02 15:33:38,744 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:33:38,744 INFO    =>  LeafActor initialized for erp_supply_chain_system__supply_chain_director  [leaf_actor.py:77]
+2026-02-02 15:33:38,744 INFO    =>  [LeafActor] Handling task step_2: 内容：基于第一步收集的数据，生成一份详细的报告。报告应包含每个调拨事件的具体时间、数量和SKU信息。...  [leaf_actor.py:101]
+2026-02-02 15:33:38,744 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,745 INFO    =>  ⑪ 具体执行: task=step_2, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,745 INFO    =>  Executing Dify workflow for task step_2  [execution_actor.py:196]
+2026-02-02 15:33:38,745 INFO    =>  [EVAL MODE] Mock execution for agent erp_supply_chain_system__supply_chain_director  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,745 INFO    =>  Received TaskCompletedMessage for step_2: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,745 INFO    =>  Step 2 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,746 INFO    =>  Executing Step 3: '获取仓库布局与拣货路径信息' (type=MCP)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:38,746 INFO    =>  --> Route: MCP Executor for Step 3  [task_group_aggregator_actor.py:305]
+2026-02-02 15:33:38,746 INFO    =>  No skills loaded.  [mcp_actor.py:201]
+2026-02-02 15:33:38,746 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:33:38,746 INFO    =>  [3] Received task: 获取仓库布局与拣货路径信息  [mcp_actor.py:49]
+2026-02-02 15:33:39,320 ERROR   =>  Context resolver query failed: Capability context_resolver not found  [mcp_actor.py:124]
+Traceback (most recent call last):
+  File "/Users/luming/PycharmProjects/COOP/tasks/capability_actors/mcp_actor.py", line 94, in _execute_data_query_via_context_resolver
+    context_resolver: IContextResolverCapbility = get_capability(
+                                                  ^^^^^^^^^^^^^^^
+  File "/Users/luming/PycharmProjects/COOP/tasks/capabilities/__init__.py", line 99, in get_capability
+    return manager.get_capability(name, expected_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/luming/PycharmProjects/COOP/tasks/capabilities/capability_manager.py", line 196, in get_capability
+    return self.registry.get_capability(name, expected_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/luming/PycharmProjects/COOP/tasks/capabilities/registry.py", line 80, in get_capability
+    raise ValueError(f"Capability {name} not found")
+ValueError: Capability context_resolver not found
+2026-02-02 15:33:39,321 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~a~a~a~b, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x13274df50>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:33:39,321 INFO    =>  Step 3 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,322 INFO    =>  Executing Step 4: '编译综合文档' (type=LEAF)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,322 INFO    =>  --> Route: LEAF execution for Step 4 (forced leaf)  [task_group_aggregator_actor.py:239]
+2026-02-02 15:33:39,322 INFO    =>  --> Route: ResultAggregator for Step 4 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:33:39,322 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:33:39,322 WARNING =>  _get_merged_context called before task step_4 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:33:39,326 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:33:39,326 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:33:39,327 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,327 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__supply_chain_director  [result_aggregator_actor.py:187]
+2026-02-02 15:33:39,327 INFO    =>  Created new LeafActor for erp_supply_chain_system__supply_chain_director  [result_aggregator_actor.py:244]
+2026-02-02 15:33:39,327 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:33:39,327 INFO    =>  LeafActor initialized for erp_supply_chain_system__supply_chain_director  [leaf_actor.py:77]
+2026-02-02 15:33:39,327 INFO    =>  [LeafActor] Handling task step_4: 内容：将第二步生成的库存调拨报告与第三步得到的仓库布局图及拣货路径设计整合成一个完整的文档。确保文档...  [leaf_actor.py:101]
+2026-02-02 15:33:39,327 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,327 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:33:39,328 INFO    =>  ⑪ 具体执行: task=step_4, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,328 INFO    =>  Executing Dify workflow for task step_4  [execution_actor.py:196]
+2026-02-02 15:33:39,328 INFO    =>  [EVAL MODE] Mock execution for agent erp_supply_chain_system__supply_chain_director  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,328 INFO    =>  Received TaskCompletedMessage for step_4: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,328 INFO    =>  Step 4 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,328 INFO    =>  Workflow step_1 Completed.  [task_group_aggregator_actor.py:496]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:499: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,328 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:531: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,329 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:33:39,329 INFO    =>  Received TaskCompletedMessage for step_1: SUCCESS  [result_aggregator_actor.py:249]
+2026-02-02 15:33:39,329 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x132972210>}  [agent_actor.py:69]
+2026-02-02 15:33:39,329 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:33:39,329 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+2026-02-02 15:33:39,329 INFO    =>  Executing Step 2: '收集仓库布局与拣货路径数据' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,329 INFO    =>  --> Route: ResultAggregator for Step 2 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:33:39,329 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:33:39,329 WARNING =>  _get_merged_context called before task step_2 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:33:39,332 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:33:39,332 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:33:39,332 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,332 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__warehouse_manager  [result_aggregator_actor.py:187]
+2026-02-02 15:33:39,332 INFO    =>  Created new AgentActor for erp_supply_chain_system__warehouse_manager  [result_aggregator_actor.py:244]
+2026-02-02 15:33:39,332 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x13295bf90>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:33:39,332 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:33:39,333 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [agent_actor.py:105]
+2026-02-02 15:33:39,333 INFO    =>  AgentActor initialized for erp_supply_chain_system__warehouse_manager  [agent_actor.py:110]
+2026-02-02 15:33:39,333 INFO    =>  [AgentActor] Handling task step_2: 内容：根据供应链总监的要求，提供各仓库当前最新的布局图和拣货路径设 计方案。 描述：收集仓库布局与拣货...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:39,333 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths",
+    "seq": 1,
+    "name": "库房规划：货架布局、拣货路径",
+    "capabilities": "接口能力：创建仓库、更新仓库、更新仓库默认状态、获得仓库、获得仓库分页、获得仓库精简列表、导出仓库 Excel、删除仓库； 说明：包含新增、更新、查询、导出等接口",
+    "description": "接口能力：创建仓库、更新仓库、更新仓库默认状态、获得仓库、获得仓库分页、获得仓库精简列表、导出仓库 Excel、删除仓库；说明：包含新增、更新、查询、导出等接口"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__fifo_management",
+    "seq": 2,
+    "name": "FIFO管理：先进先出防过期",
+    "capabilities": "FIFO管理：先进先出防过期",
+    "description": "FIFO管理：先进先出防过期"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__document_audit_no_unbilled_shipments",
+    "seq": 3,
+    "name": "单据稽核：杜绝“白条出库”",
+    "capabilities": "单据稽核：杜绝“白条出库”",
+    "description": "单据稽核：杜绝“白条出库”"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:33:44,147 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths', 'content': '收集所有仓库当前最新的布局图和拣货路径设计方案，并整理成一份报告。', 'description': '获取并整理仓库布局与拣货路径数据'}]  [common_task_planner.py:173]
+2026-02-02 15:33:44,147 INFO    =>  Final plan generated with 1 steps (expanded from 1).  [common_task_planner.py:124]
+2026-02-02 15:33:44,147 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths', 'content': '收集所有仓库当前最新的布局图和拣货路径设计方案，并整理成一份报告。', 'description': '获取并整理仓库布局与拣货路径数据'}]  [agent_actor.py:208]
+2026-02-02 15:33:44,148 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:44,149 INFO    =>  Received ActorExitRequest, shutting down.  [agent_actor.py:65]
+2026-02-02 15:33:44,149 INFO    =>  Starting TaskGroup Workflow: step_2  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:44,150 INFO    =>  Executing Step 1: '获取并整理仓库布局与拣货路径数据' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:44,151 INFO    =>  --> Route: ResultAggregator for Step 1 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:33:44,152 WARNING =>  _get_merged_context called before task step_1 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:33:44,163 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:33:44,163 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:33:44,163 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:44,163 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [result_aggregator_actor.py:187]
+2026-02-02 15:33:44,164 INFO    =>  Created new AgentActor for erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [result_aggregator_actor.py:244]
+2026-02-02 15:33:44,164 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [agent_actor.py:105]
+2026-02-02 15:33:44,164 INFO    =>  AgentActor initialized for erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [agent_actor.py:110]
+2026-02-02 15:33:44,164 INFO    =>  [AgentActor] Handling task step_1: 内容：收集所有仓库当前最新的布局图和拣货路径设计方案，并整理成一份 报告。 描述：获取并整理仓库布局与...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:44,164 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__create_warehouse",
+    "seq": 1,
+    "name": "创建仓库",
+    "capabilities": "接口能力: 创建仓库。",
+    "description": "接口能力: 创建仓库。"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__update_warehouse",
+    "seq": 2,
+    "name": "更新仓库",
+    "capabilities": "接口能力: 更新仓库。",
+    "description": "接口能力: 更新仓库。"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__update_warehouse_default_status",
+    "seq": 3,
+    "name": "更新仓库默认状态",
+    "capabilities": "接口能力: 更新仓库默认状态。",
+    "description": "接口能力: 更新仓库默认状态。"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse",
+    "seq": 4,
+    "name": "获得仓库",
+    "capabilities": "接口能力: 获得仓库。",
+    "description": "接口能力: 获得仓库。"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_page",
+    "seq": 5,
+    "name": "获得仓库分页",
+    "capabilities": "接口能力: 获得仓库分页。",
+    "description": "接口能力: 获得仓库分页。"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_simple_list",
+    "seq": 6,
+    "name": "获得仓库精简列表",
+    "capabilities": "接口能力: 获得仓库精简列表。",
+    "description": "接口能力: 获得仓库精简列表。"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__export_warehouse_excel",
+    "seq": 7,
+    "name": "导出仓库 Excel",
+    "capabilities": "接口能力: 导出仓库 Excel。",
+    "description": "接口能力: 导出仓库 Excel。"
+  },
+  {
+    "id": "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__delete_warehouse",
+    "seq": 8,
+    "name": "删除仓库",
+    "capabilities": "接口能力: 删除仓库。",
+    "description": "接口能力: 删除仓库。"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:33:53,479 WARNING =>  [CommonTaskPlanner] Prevented recursion: executor 'data_collector' -> LEAF execution for 'erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths'  [common_task_planner.py:172]
+2026-02-02 15:33:53,479 WARNING =>  [CommonTaskPlanner] Prevented recursion: executor 'report_generator' -> LEAF execution for 'erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths'  [common_task_planner.py:172]
+2026-02-02 15:33:53,479 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'LEAF', 'executor': 'erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths', 'content': "使用可 用的内部节点，首先通过'获得仓库精简列表'获取所有仓库的基本信息。然后对每个仓库使用'获得仓库'接口来获取详细的布局图和拣货路径设计方案。", 'description': '收集仓库数据'}, {'step': 2, 'type': 'LEAF', 'executor': 'erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths', 'content': '基于上一步收集到的所有仓库的最新布局图和拣货路径设计方案，整理并生成一份综合报告。报告应包括每个仓库的关键信息及其 当前的布局与拣货路径设计。', 'description': '生成仓库布局与拣货路径报告'}]  [common_task_planner.py:173]
+2026-02-02 15:33:53,479 INFO    =>  Final plan generated with 2 steps (expanded from 2).  [common_task_planner.py:124]
+2026-02-02 15:33:53,479 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'LEAF', 'executor': 'erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths', 'content': "使用可 用的内部节点，首先通过'获得仓库精简列表'获取所有仓库的基本信息。然后对每个仓库使用'获得仓库'接口来获取详细的布局图和拣货路径设计方案。", 'description': '收集仓库数据', 'is_parallel': False}, {'step': 2, 'type': 'LEAF', 'executor': 'erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths', 'content': '基于上一步收集到的所有仓库的最新布局图和拣货路径设计方案，整理并生成一份综合报告。报告应包括 每个仓库的关键信息及其当前的布局与拣货路径设计。', 'description': '生成仓库布局与拣货路径报告', 'is_parallel': False}]  [agent_actor.py:208]
+2026-02-02 15:33:53,482 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,482 INFO    =>  Starting TaskGroup Workflow: step_1  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,482 INFO    =>  Executing Step 1: '收集仓库数据' (type=LEAF)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,482 INFO    =>  --> Route: LEAF execution for Step 1 (forced leaf)  [task_group_aggregator_actor.py:239]
+2026-02-02 15:33:53,482 INFO    =>  --> Route: ResultAggregator for Step 1 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:33:53,483 WARNING =>  _get_merged_context called before task step_1 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:33:53,488 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:33:53,488 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:33:53,489 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,489 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [result_aggregator_actor.py:187]
+2026-02-02 15:33:53,489 INFO    =>  Created new LeafActor for erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [result_aggregator_actor.py:244]
+2026-02-02 15:33:53,489 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:33:53,489 INFO    =>  LeafActor initialized for erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [leaf_actor.py:77]
+2026-02-02 15:33:53,489 INFO    =>  [LeafActor] Handling task step_1: 内容：使用可用的内部节点，首先通过'获得仓库精简列表'获取所有仓库的基本信息。然后对每个仓库使用'获...  [leaf_actor.py:101]
+2026-02-02 15:33:53,489 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,489 INFO    =>  ⑪ 具体执行: task=step_1, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,489 INFO    =>  Executing Dify workflow for task step_1  [execution_actor.py:196]
+2026-02-02 15:33:53,489 INFO    =>  [EVAL MODE] Mock execution for agent erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,489 INFO    =>  Received TaskCompletedMessage for step_1: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,490 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,490 INFO    =>  Executing Step 2: '生成仓库布局与拣货路径报告' (type=LEAF)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,490 INFO    =>  --> Route: LEAF execution for Step 2 (forced leaf)  [task_group_aggregator_actor.py:239]
+2026-02-02 15:33:53,490 INFO    =>  --> Route: ResultAggregator for Step 2 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:33:53,490 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:33:53,490 WARNING =>  _get_merged_context called before task step_2 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:33:53,492 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:33:53,493 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:33:53,493 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,493 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [result_aggregator_actor.py:187]
+2026-02-02 15:33:53,493 INFO    =>  Created new LeafActor for erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [result_aggregator_actor.py:244]
+2026-02-02 15:33:53,493 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~b~a~a~a~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x13279f4d0>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:33:53,493 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:33:53,493 INFO    =>  LeafActor initialized for erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [leaf_actor.py:77]
+2026-02-02 15:33:53,493 INFO    =>  [LeafActor] Handling task step_2: 内容：基于上一步收集到的所有仓库的最新布局图和拣货路径设计方案，整理并生成一份综合报告。报告应包括每...  [leaf_actor.py:101]
+2026-02-02 15:33:53,493 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,493 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:33:53,493 INFO    =>  ⑪ 具体执行: task=step_2, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,493 INFO    =>  Executing Dify workflow for task step_2  [execution_actor.py:196]
+2026-02-02 15:33:53,493 INFO    =>  [EVAL MODE] Mock execution for agent erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,493 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:33:53,494 INFO    =>  Received TaskCompletedMessage for step_2: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,494 INFO    =>  Step 2 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,494 INFO    =>  Workflow step_1 Completed.  [task_group_aggregator_actor.py:496]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:499: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,494 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:531: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,494 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:33:53,494 INFO    =>  Received TaskCompletedMessage for step_1: SUCCESS  [result_aggregator_actor.py:249]
+2026-02-02 15:33:53,494 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~b~a~a~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x132989b90>}  [agent_actor.py:69]
+2026-02-02 15:33:53,494 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:33:53,494 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+2026-02-02 15:33:53,494 INFO    =>  Workflow step_2 Completed.  [task_group_aggregator_actor.py:496]
+2026-02-02 15:33:53,494 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:33:53,494 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:33:53,494 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:33:53,494 INFO    =>  Received TaskCompletedMessage for step_2: SUCCESS  [result_aggregator_actor.py:249]
+2026-02-02 15:33:53,494 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~b~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1329bdcd0>}  [agent_actor.py:69]
+2026-02-02 15:33:53,494 INFO    =>  Received ActorExitRequest, shutting down.  [agent_actor.py:65]
+2026-02-02 15:33:53,494 INFO    =>  Step 2 succeeded.  [task_group_aggregator_actor.py:333]
+2026-02-02 15:33:53,494 INFO    =>  Executing Step 3: '支持库存调拨详情编制' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,494 INFO    =>  --> Route: ResultAggregator for Step 3 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:33:53,494 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:33:53,494 WARNING =>  _get_merged_context called before task step_3 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:33:53,496 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:33:53,497 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:33:53,497 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,497 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__inventory_controller  [result_aggregator_actor.py:187]
+2026-02-02 15:33:53,497 INFO    =>  Created new AgentActor for erp_supply_chain_system__inventory_controller  [result_aggregator_actor.py:244]
+2026-02-02 15:33:53,497 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~b, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1329b7150>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:33:53,497 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [agent_actor.py:105]
+2026-02-02 15:33:53,497 INFO    =>  AgentActor initialized for erp_supply_chain_system__inventory_controller  [agent_actor.py:110]
+2026-02-02 15:33:53,497 INFO    =>  [AgentActor] Handling task step_3: 内容：协助供应链总监完成库存调拨情况报告中的具体细节，特别是有关调 拨时间、数量及SKU的信息部分。 ...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:33:53,497 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_supply_chain_system__inventory_controller__cycle_counting",
+    "seq": 1,
+    "name": "周期盘点：每日抽盘",
+    "capabilities": "接口能力：获得产品库存、获得产品库存数量、获得产品库存分页、导出产品库存 Excel、获得产品库存明细、获得产品库存明细分 页、导出产品库存明细 Excel、库存看板-出入库明细-时间段统计；说明：包含新增、更新、查询、导出等接口",
+    "description": "接口能力：获得产品库存、获得产品库存数量、获得产品库存分页、导出产品库存 Excel、获得产品库存明细、获得产品库存明细分页、导出产品库存明细 Excel、库存看板-出入库明细-时间段统计；说明：包含新增、更新、查询、导出等接口"
+  },
+  {
+    "id": "erp_supply_chain_system__inventory_controller__full_inventory_count",
+    "seq": 2,
+    "name": "全盘：季度/年度大盘点",
+    "capabilities": "接口能力：创建库存调拨单、更新库存调拨单、更新库存调拨单的状态、获得库存调拨单、获得库存调拨单分页、导出库存调拨单 Excel、删除库存调拨单；说明：包含新增、更新、查询、导出等接口",
+    "description": "接口能力：创建库存调拨单、更新库存调拨单、更新库存调拨单的状态、获得库存调拨单、获得库存调拨单分页、导出库存调拨单 Excel、删除库存调拨单；说明：包含新增、更新、查询、导出等接口"
+  },
+  {
+    "id": "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request",
+    "seq": 3,
+    "name": "差异调整：查明原因，申请《库存调整单》",
+    "capabilities": "接口能力：创建库存调拨单、更新库存调拨单、更新库存调拨单的状态、获得库存调拨单、获得库存调拨单分页、导出库存调拨单 Excel、删除库存调拨单；说明：包含新增、更新、查询、导出等接口",
+    "description": "接口能力：创建库存调拨单、更新库存调拨单、更新库存调拨单的状态、获得库存调拨单、获得库存调拨单分页、导出库存调拨单 Excel、删除库存调拨单；说明：包含新增、更新、查询、导出等接口"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:34:02,589 WARNING =>  [CommonTaskPlanner] Prevented recursion: executor 'doc_writer' -> LEAF execution for 'erp_supply_chain_system__inventory_controller'  [common_task_planner.py:172]
+2026-02-02 15:34:02,589 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__inventory_controller__full_inventory_count', 'content': '收集过去一个 季度内所有库存调拨单的信息，包括调拨时间、数量及SKU详情。请确保数据准确无误，并按照时间顺序整理好。', 'description': '获取并整理库存调拨信息'}, {'step': 2, 'type': 'LEAF', 'executor': 'erp_supply_chain_system__inventory_controller', 'content': '基于上一步骤收集到的数据，撰写 一份详细的库存调拨情况报告。报告中需要包含调拨时间、数量以及SKU的具体信息。文档格式要求清晰易读，便于供应链总监审阅。', 'description': '编写库存调拨报告'}]  [common_task_planner.py:173]
+2026-02-02 15:34:02,589 INFO    =>  Final plan generated with 2 steps (expanded from 2).  [common_task_planner.py:124]
+2026-02-02 15:34:02,589 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__inventory_controller__full_inventory_count', 'content': '收集过去一个 季度内所有库存调拨单的信息，包括调拨时间、数量及SKU详情。请确保数据准确无误，并按照时间顺序整理好。', 'description': '获取并整理库存调拨信息'}, {'step': 2, 'type': 'LEAF', 'executor': 'erp_supply_chain_system__inventory_controller', 'content': '基于上一步骤收集到的数据，撰写 一份详细的库存调拨情况报告。报告中需要包含调拨时间、数量以及SKU的具体信息。文档格式要求清晰易读，便于供应链总监审阅。', 'description': '编写库存调拨报告', 'is_parallel': False}]  [agent_actor.py:208]
+2026-02-02 15:34:02,590 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:02,590 INFO    =>  Received ActorExitRequest, shutting down.  [agent_actor.py:65]
+2026-02-02 15:34:02,590 INFO    =>  Starting TaskGroup Workflow: step_3  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:02,591 INFO    =>  Executing Step 1: '获取并整理库存调拨信息' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:02,591 INFO    =>  --> Route: ResultAggregator for Step 1 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:34:02,591 WARNING =>  _get_merged_context called before task step_1 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:34:02,596 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:34:02,596 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:34:02,596 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:02,597 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__inventory_controller__full_inventory_count  [result_aggregator_actor.py:187]
+2026-02-02 15:34:02,597 INFO    =>  Created new AgentActor for erp_supply_chain_system__inventory_controller__full_inventory_count  [result_aggregator_actor.py:244]
+2026-02-02 15:34:02,597 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [agent_actor.py:105]
+2026-02-02 15:34:02,597 INFO    =>  AgentActor initialized for erp_supply_chain_system__inventory_controller__full_inventory_count  [agent_actor.py:110]
+2026-02-02 15:34:02,597 INFO    =>  [AgentActor] Handling task step_1: 内容：收集过去一个季度内所有库存调拨单的信息，包括调拨时间、数量及SKU详情。请确保数据准确无误，并...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:02,597 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_supply_chain_system__inventory_controller__full_inventory_count__create_inventory_transfer_order",
+    "seq": 1,
+    "name": "创建库存调拨单",
+    "capabilities": "接口能力: 创建库存调拨单。",
+    "description": "接口能力: 创建库存调拨单。"
+  },
+  {
+    "id": "erp_supply_chain_system__inventory_controller__full_inventory_count__update_inventory_transfer_order",
+    "seq": 2,
+    "name": "更新库存调拨单",
+    "capabilities": "接口能力: 更新库存调拨单。",
+    "description": "接口能力: 更新库存调拨单。"
+  },
+  {
+    "id": "erp_supply_chain_system__inventory_controller__full_inventory_count__update_inventory_transfer_order_status",
+    "seq": 3,
+    "name": "更新库存调拨单的状态",
+    "capabilities": "接口能力: 更新库存调拨单的状态。",
+    "description": "接口能力: 更新库存调拨单的状态。"
+  },
+  {
+    "id": "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order",
+    "seq": 4,
+    "name": "获得库存调拨单",
+    "capabilities": "接口能力: 获得库存调拨单。",
+    "description": "接口能力: 获得库存调拨单。"
+  },
+  {
+    "id": "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page",
+    "seq": 5,
+    "name": "获得库存调拨单分页",
+    "capabilities": "接口能力: 获得库存调拨单分页。",
+    "description": "接口能力: 获得库存调拨单分页。"
+  },
+  {
+    "id": "erp_supply_chain_system__inventory_controller__full_inventory_count__export_inventory_transfer_order_excel",
+    "seq": 6,
+    "name": "导出库存调拨单 Excel",
+    "capabilities": "接口能力: 导出库存调拨单 Excel。",
+    "description": "接口能力: 导出库存调拨单 Excel。"
+  },
+  {
+    "id": "erp_supply_chain_system__inventory_controller__full_inventory_count__delete_inventory_transfer_order",
+    "seq": 7,
+    "name": "删除库存调拨单",
+    "capabilities": "接口能力: 删除库存调拨单。",
+    "description": "接口能力: 删除库存调拨单。"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:34:13,570 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page', 'content': '查询过去一个季度内所有的库存调拨单，确保包含每张单据的调拨时间、数量及SKU详情。按照时间顺序对这些信息进行排序。', 'description': '获取并整理库存调拨信息'}, {'step': 2, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__inventory_controller__full_inventory_count__export_inventory_transfer_order_excel', 'content': '基于上一步收集到的数据，导出所有相关库存调拨单的信息至Excel文件中，保持数据的时间顺序不变。', 'description': '导出库存调拨单为Excel'}]  [common_task_planner.py:173]
+2026-02-02 15:34:13,570 INFO    =>  Final plan generated with 2 steps (expanded from 2).  [common_task_planner.py:124]
+2026-02-02 15:34:13,571 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page', 'content': '查询过去一个季度内所有的库存调拨单，确保包含每张单据的调拨时间、数量及SKU详情。按照时间顺序对这些信息进行排序。', 'description': '获取并整理库存调拨信息'}, {'step': 2, 'type': 'AGENT', 'executor': 'erp_supply_chain_system__inventory_controller__full_inventory_count__export_inventory_transfer_order_excel', 'content': '基于上一步收集到的数据，导出所有相关库存调拨单的信息至Excel文件中，保持数据的时间顺序不变。', 'description': '导出库存调拨单为Excel'}]  [agent_actor.py:208]
+2026-02-02 15:34:13,571 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,571 INFO    =>  Starting TaskGroup Workflow: step_1  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,572 INFO    =>  Executing Step 1: '获取并整理库存调拨信息' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,572 INFO    =>  --> Route: ResultAggregator for Step 1 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:34:13,572 WARNING =>  _get_merged_context called before task step_1 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:34:13,576 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:34:13,577 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:34:13,577 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,577 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page  [result_aggregator_actor.py:187]
+2026-02-02 15:34:13,578 INFO    =>  Created new LeafActor for erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page  [result_aggregator_actor.py:244]
+2026-02-02 15:34:13,578 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:34:13,578 INFO    =>  LeafActor initialized for erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page  [leaf_actor.py:77]
+2026-02-02 15:34:13,578 INFO    =>  [LeafActor] Handling task step_1: 内容：查询过去一个季度内所有的库存调拨单，确保包含每张单据的调拨时间、数量及SKU详情。按照时间顺序...  [leaf_actor.py:101]
+2026-02-02 15:34:13,578 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,578 INFO    =>  ⑪ 具体执行: task=step_1, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,578 INFO    =>  Executing Dify workflow for task step_1  [execution_actor.py:196]
+2026-02-02 15:34:13,578 INFO    =>  [EVAL MODE] Mock execution for agent erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,578 INFO    =>  Received TaskCompletedMessage for step_1: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,578 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,578 INFO    =>  Executing Step 2: '导出库存调拨单为Excel' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,578 INFO    =>  --> Route: ResultAggregator for Step 2 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:34:13,578 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:34:13,579 WARNING =>  _get_merged_context called before task step_2 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:34:13,581 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:34:13,582 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:34:13,582 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,582 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__inventory_controller__full_inventory_count__export_inventory_transfer_order_excel  [result_aggregator_actor.py:187]
+2026-02-02 15:34:13,582 INFO    =>  Created new LeafActor for erp_supply_chain_system__inventory_controller__full_inventory_count__export_inventory_transfer_order_excel  [result_aggregator_actor.py:244]
+2026-02-02 15:34:13,583 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~c~a~a~a~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1329b7090>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:34:13,583 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:34:13,583 INFO    =>  LeafActor initialized for erp_supply_chain_system__inventory_controller__full_inventory_count__export_inventory_transfer_order_excel  [leaf_actor.py:77]
+2026-02-02 15:34:13,583 INFO    =>  [LeafActor] Handling task step_2: 内容：基于上一步收集到的数据，导出所有相关库存调拨单的信息至Excel文 件中，保持数据的时间顺序不变...  [leaf_actor.py:101]
+2026-02-02 15:34:13,583 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,583 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:34:13,583 INFO    =>  ⑪ 具体执行: task=step_2, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,583 INFO    =>  Executing Dify workflow for task step_2  [execution_actor.py:196]
+2026-02-02 15:34:13,583 INFO    =>  [EVAL MODE] Mock execution for agent erp_supply_chain_system__inventory_controller__full_inventory_count__export_inventory_transfer_order_excel  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,583 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:34:13,583 INFO    =>  Received TaskCompletedMessage for step_2: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,583 INFO    =>  Step 2 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,583 INFO    =>  Workflow step_1 Completed.  [task_group_aggregator_actor.py:496]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:499: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,583 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:531: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,583 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:34:13,583 INFO    =>  Received TaskCompletedMessage for step_1: SUCCESS  [result_aggregator_actor.py:249]
+2026-02-02 15:34:13,583 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~c~a~a~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1329b5110>}  [agent_actor.py:69]
+2026-02-02 15:34:13,583 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:34:13,583 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+2026-02-02 15:34:13,584 INFO    =>  Executing Step 2: '编写库存调拨报告' (type=LEAF)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,584 INFO    =>  --> Route: LEAF execution for Step 2 (forced leaf)  [task_group_aggregator_actor.py:239]
+2026-02-02 15:34:13,584 INFO    =>  --> Route: ResultAggregator for Step 2 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:34:13,584 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:34:13,584 WARNING =>  _get_merged_context called before task step_2 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:34:13,586 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/4/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:34:13,586 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:34:13,586 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/4/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,586 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_supply_chain_system__inventory_controller  [result_aggregator_actor.py:187]
+2026-02-02 15:34:13,587 INFO    =>  Created new LeafActor for erp_supply_chain_system__inventory_controller  [result_aggregator_actor.py:244]
+2026-02-02 15:34:13,587 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~c~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x13279dc10>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:34:13,587 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:34:13,587 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:34:13,587 INFO    =>  LeafActor initialized for erp_supply_chain_system__inventory_controller  [leaf_actor.py:77]
+2026-02-02 15:34:13,587 INFO    =>  [LeafActor] Handling task step_2: 内容：基于上一步骤收集到的数据，撰写一份详细的库存调拨情况报告。报告中需要包含调拨时间、数量以及SK...  [leaf_actor.py:101]
+2026-02-02 15:34:13,587 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,587 INFO    =>  Received ActorExitRequest, shutting down.  [agent_actor.py:65]
+2026-02-02 15:34:13,587 INFO    =>  ⑪ 具体执行: task=step_2, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,587 INFO    =>  Executing Dify workflow for task step_2  [execution_actor.py:196]
+2026-02-02 15:34:13,587 INFO    =>  [EVAL MODE] Mock execution for agent erp_supply_chain_system__inventory_controller  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,587 INFO    =>  Received TaskCompletedMessage for step_2: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,587 INFO    =>  Step 2 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,587 INFO    =>  Workflow step_3 Completed.  [task_group_aggregator_actor.py:496]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:499: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,587 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:531: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:13,587 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:34:13,587 INFO    =>  Received TaskCompletedMessage for step_3: SUCCESS  [result_aggregator_actor.py:249]
+2026-02-02 15:34:13,587 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a~c~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1329d1b50>}  [agent_actor.py:69]
+2026-02-02 15:34:13,587 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:34:13,587 INFO    =>  Step 3 succeeded.  [task_group_aggregator_actor.py:333]
+2026-02-02 15:34:13,588 INFO    =>  Workflow step_1 Completed.  [task_group_aggregator_actor.py:496]
+2026-02-02 15:34:13,588 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:34:13,588 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:34:13,588 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:34:13,588 INFO    =>  Received TaskCompletedMessage for step_1: SUCCESS  [result_aggregator_actor.py:249]
+2026-02-02 15:34:13,588 INFO    =>  Child actor exited: ActorAddr-/A~a~a~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x13295b2d0>}  [agent_actor.py:69]
+2026-02-02 15:34:13,588 INFO    =>  Received ActorExitRequest, shutting down.  [agent_actor.py:65]
+2026-02-02 15:34:13,588 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+2026-02-02 15:34:13,588 INFO    =>  Workflow 4 Completed.  [task_group_aggregator_actor.py:496]
+2026-02-02 15:34:13,588 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:34:13,588 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:34:13,588 INFO    =>  [COOP Response] status=SUCCESS, result_data keys=dict_keys(['step_results'])  [coop_runner.py:102]
+2026-02-02 15:34:13,588 INFO    =>  [COOP Response] step_results keys=['step_1_output']  [coop_runner.py:107]
+2026-02-02 15:34:13,588 INFO    =>  [COOP Response] step step_1_output: type=<class 'dict'>, content={'result': {'step_results': {'step_1_output': {'result': {'step_results': {'step_1_output': {'result': '查询执行异常: Capability context_resolver not found', 'agent_id': None, 'executor': 'inventory_system_  [coop_runner.py:110]
+2026-02-02 15:34:13,588 INFO    =>      COOP: executed=17, coverage=0%, success=False  [run_experiment.py:390]
+2026-02-02 15:34:13,588 INFO    =>  [2/2] Processing task 5  [run_experiment.py:250]
+2026-02-02 15:34:13,588 INFO    =>    Running CoT...  [run_experiment.py:255]
+2026-02-02 15:34:16,336 INFO    =>      CoT: planned=2, executed=1, success=False  [run_experiment.py:280]
+2026-02-02 15:34:16,336 INFO    =>    Running ReAct...  [run_experiment.py:287]
+2026-02-02 15:34:39,068 INFO    =>      ReAct: iterations=3, planned=2, success=True  [run_experiment.py:312]
+2026-02-02 15:34:39,069 INFO    =>    Running Workflow...  [run_experiment.py:319]
+2026-02-02 15:34:44,044 INFO    =>      Workflow: planned=3, success=False  [run_experiment.py:344]
+2026-02-02 15:34:44,044 INFO    =>    Running COOP...  [run_experiment.py:351]
+2026-02-02 15:34:44,044 INFO    =>  Child actor exited: ActorAddr-/A~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x13279fc90>}  [agent_actor.py:69]
+2026-02-02 15:34:44,044 INFO    =>  Received ActorExitRequest, shutting down.  [agent_actor.py:65]
+2026-02-02 15:34:44,044 INFO    =>  [AgentActor] Handling task 5: 内容："我们需要为新引进的一系列产品生成唯一的SKU编码，并且希望能够导出包含这些产品单位信息的Ex...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:44,045 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_product_system",
+    "seq": 1,
+    "name": "产品体系",
+    "capabilities": "职责：1. 产品总监 (Director of Product)；2. 商品企划/选品专员 (Product Planner / Merchandiser)；3. SKU数据专员 (Master Data Specialist)；4. 定价专员 (Pricing Specialist)；5. 生命周期/运营专员 (Lifecycle Manager)；说明：覆盖产品规划、选品企划、选品、SKU主 数据等功能",
+    "description": "职责：1. 产品总监 (Director of Product)；2. 商品企划/选品专员 (Product Planner / Merchandiser)；3. SKU数据专员 (Master Data Specialist)；4. 定价专员 (Pricing Specialist)；5. 生命周期/运营专员 (Lifecycle Manager)；说明：覆盖产品规划、选品企划、选品、SKU主数据等功能"
+  },
+  {
+    "id": "erp_sales_system",
+    "seq": 2,
+    "name": "销售体系",
+    "capabilities": "职责：1. 销售总监 (Sales Director)；2. 业务拓展/客户经理 (BD / Account Manager)；3. 销售运营/跟单员 (Sales Ops / Admin)；4. 往来会计/对账专员 (AR Specialist)；5. 售后/客户成功专员 (After-Sales / CS)；说明：覆盖销售管理、客户管理、售后服务、对账等功能",
+    "description": "职责：1. 销售总监 (Sales Director)；2. 业务拓展/客户经理 (BD / Account Manager)；3. 销售运营/跟单员 (Sales Ops / Admin)；4. 往来会计/对账专员 (AR Specialist)；5. 售后/客户成功专员 (After-Sales / CS)；说明：覆盖销售管理、客户管理、售后服务、对账等功能"
+  },
+  {
+    "id": "erp_supply_chain_system",
+    "seq": 3,
+    "name": "供应链体系",
+    "capabilities": "职责：1. 供应链/计划总监 (Supply Chain Director)；2. 需求计划员 (Demand Planner)；3. 物料/供应计划员 (Supply Planner)；4. 仓储经理 (Warehouse Manager)；5. 仓储作业组 (Warehouse Ops)；6. 库存控制/盘点专员 (Inventory Controller)；说明：覆盖供应链计划、需求 计划、供应计划、仓储作业等功能",
+    "description": "职责：1. 供应链/计划总监 (Supply Chain Director)；2. 需求计划员 (Demand Planner)；3. 物料/供应计划员 (Supply Planner) ；4. 仓储经理 (Warehouse Manager)；5. 仓储作业组 (Warehouse Ops)；6. 库存控制/盘点专员 (Inventory Controller)；说明：覆盖供应链计划、需求 计划、供应计划、仓储作业等功能"
+  },
+  {
+    "id": "erp_procurement_system",
+    "seq": 4,
+    "name": "采购体系",
+    "capabilities": "职责：1. 采购总监 (Procurement Director)；2. 战略寻源/开发经理 (Sourcing Manager)；3. 采购执行/跟单员 (Buyer)；4. 供 应商管理专员 (SRM Specialist)；5. 采购结算/助理 (Settlement)；说明：覆盖采购管理、供应商管理、结算等功能",
+    "description": "职责：1. 采购总监 (Procurement Director)；2. 战略寻源/开发经理 (Sourcing Manager)；3. 采购执行/跟单员 (Buyer)；4. 供应商管理专员 (SRM Specialist)；5. 采购结算/助理 (Settlement)；说明：覆盖采购管理、供应商管理、结算等功能"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:34:51,457 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_product_system', 'content': '为新引进的一系列产品生成唯一的SKU编码，并确保每个产品都有完整 的单位信息记录。', 'description': '生成SKU编码'}, {'step': 2, 'type': 'MCP', 'executor': 'excel_exporter', 'content': '从ERP系统中导出包含新产品及其唯一SKU编码和单位信息的Excel文件，确保格式清晰易于管理。', 'description': '导出Excel文件'}]  [common_task_planner.py:173]
+2026-02-02 15:34:51,458 INFO    =>  Final plan generated with 2 steps (expanded from 2).  [common_task_planner.py:124]
+2026-02-02 15:34:51,458 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_product_system', 'content': '为新引进的一系列产品生成唯一的SKU编码，并确保每个产品都有完整 的单位信息记录。', 'description': '生成SKU编码'}, {'step': 2, 'type': 'MCP', 'executor': 'excel_exporter', 'content': '从ERP系统中导出包含新产品及其唯一SKU编码和单位信息的Excel文件，确保格式清晰易于管理。', 'description': '导出Excel文件', 'is_parallel': False}]  [agent_actor.py:208]
+2026-02-02 15:34:51,458 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:51,459 INFO    =>  Starting TaskGroup Workflow: 5  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:51,459 INFO    =>  Executing Step 1: '生成SKU编码' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:51,459 INFO    =>  --> Route: ResultAggregator for Step 1 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:34:51,459 WARNING =>  _get_merged_context called before task step_1 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:34:51,463 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/5/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:34:51,464 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:34:51,465 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/5/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:51,466 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_product_system  [result_aggregator_actor.py:187]
+2026-02-02 15:34:51,466 INFO    =>  Created new AgentActor for erp_product_system  [result_aggregator_actor.py:244]
+2026-02-02 15:34:51,466 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [agent_actor.py:105]
+2026-02-02 15:34:51,466 INFO    =>  AgentActor initialized for erp_product_system  [agent_actor.py:110]
+2026-02-02 15:34:51,466 INFO    =>  [AgentActor] Handling task step_1: 内容：为新引进的一系列产品生成唯一的SKU编码，并确保每个产品都有完整的单位信息记录。 描述：生成S...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:51,466 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_product_system__product_director",
+    "seq": 1,
+    "name": "产品总监 (Director of Product)",
+    "capabilities": "职责：战略规划：制定年度产品路线图（Roadmap）；跨部门协调：解决销售/财务、采购/仓库等矛盾；KPI设定：对毛利率、库存周 转率、新品成功率负责；说明：覆盖产品规划、销售管理、采购管理、库存控制等功能",
+    "description": "职责：战略规划：制定年度产品路线图（Roadmap）；跨部门协调：解决销售/财务、采购/仓库等矛盾；KPI设定：对毛利率、库存周转率、新品成功率负责；说明：覆盖产品规划、销售管理、采购管理、库存控制等功能"
+  },
+  {
+    "id": "erp_product_system__product_planner_merchandiser",
+    "seq": 2,
+    "name": "商品企划/选品专员 (Product Planner / Merchandiser)",
+    "capabilities": "职责：市场洞察：输出《市场需求文档 (MRD)》；定义产品；样板确认：封样后采购方可大批量下单；说明：覆盖产品规划、采购管 理等功能",
+    "description": "职责：市场洞察：输出《市场需求文档 (MRD)》；定义产品；样板确认：封样后采购方可大批量下单；说明：覆盖产品规划、采购管理等功能"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist",
+    "seq": 3,
+    "name": "SKU数据专员 (Master Data Specialist)",
+    "capabilities": "职责：编码管理：生成唯一 SKU 编码；基础资料录入；BOM管理（如有）：维护套装父子关系；条码管理：维护 EAN/UPC 与 SKU 对 应；说明：覆盖SKU主数据等功能",
+    "description": "职责：编码管理：生成唯一 SKU 编码；基础资料录入；BOM管理（如有）：维护套装父子关系；条码管理：维护 EAN/UPC 与 SKU 对应；说明：覆盖SKU主数据等功能"
+  },
+  {
+    "id": "erp_product_system__pricing_specialist",
+    "seq": 4,
+    "name": "定价专员 (Pricing Specialist)",
+    "capabilities": "职责：成本核算：计算“落地成本”；制定价表；限价管控：设定销售底价红线；说明：覆盖定价管理、销售管理、成本管理等功能",
+    "description": "职责：成本核算：计算“落地成本”；制定价表；限价管控：设定销售底价红线；说明：覆盖定价管理、销售管理、成本管理等功能"
+  },
+  {
+    "id": "erp_product_system__lifecycle_manager",
+    "seq": 5,
+    "name": "生命周期/运营专员 (Lifecycle Manager)",
+    "capabilities": "职责：新品上市 (NPI)：协调培训、卖点传达；状态管理；呆滞处理：提出打折或报废建议；说明：覆盖岗位核心职责与关键流程",
+    "description": "职责：新品上市 (NPI)：协调培训、卖点传达；状态管理；呆滞处理：提出打折或报废建议；说明：覆盖岗位核心职责与关键流程"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:34:55,464 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist', 'content': '为新引进的一系列产品生成唯一的SKU 编码，并确保每个产品都有完整的单位信息记录。请根据最新的产品信息完成这项任务。', 'description': '生成SKU编码'}]  [common_task_planner.py:173]
+2026-02-02 15:34:55,464 INFO    =>  Final plan generated with 1 steps (expanded from 1).  [common_task_planner.py:124]
+2026-02-02 15:34:55,464 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist', 'content': '为新引进的一系列产品生成唯一的SKU 编码，并确保每个产品都有完整的单位信息记录。请根据最新的产品信息完成这项任务。', 'description': '生成SKU编码'}]  [agent_actor.py:208]
+2026-02-02 15:34:55,465 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:55,465 INFO    =>  Starting TaskGroup Workflow: step_1  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:55,465 INFO    =>  Executing Step 1: '生成SKU编码' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:55,465 INFO    =>  --> Route: ResultAggregator for Step 1 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:34:55,465 WARNING =>  _get_merged_context called before task step_1 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:34:55,468 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/5/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:34:55,468 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:34:55,469 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/5/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:55,469 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_product_system__sku_master_data_specialist  [result_aggregator_actor.py:187]
+2026-02-02 15:34:55,469 INFO    =>  Created new AgentActor for erp_product_system__sku_master_data_specialist  [result_aggregator_actor.py:244]
+2026-02-02 15:34:55,469 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [agent_actor.py:105]
+2026-02-02 15:34:55,469 INFO    =>  AgentActor initialized for erp_product_system__sku_master_data_specialist  [agent_actor.py:110]
+2026-02-02 15:34:55,469 INFO    =>  [AgentActor] Handling task step_1: 内容：为新引进的一系列产品生成唯一的SKU编码，并确保每个产品都有完整的单位信息记录。请根据最新的产...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:34:55,469 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_product_system__sku_master_data_specialist__sku_code_management",
+    "seq": 1,
+    "name": "编码管理：生成唯一 SKU 编码",
+    "capabilities": "编码管理：生成唯一 SKU 编码",
+    "description": "编码管理：生成唯一 SKU 编码"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry",
+    "seq": 2,
+    "name": "基础资料录入",
+    "capabilities": "职责：物流属性（长宽高、重量）；物理属性（材质、原产地）；包装属性（箱规）接口能力：创建产品、更新产品、获得产品、获 得产品分页、获得产品精简列表、导出产品 Excel、删除产品、创建产品单位、更新产品单位、获得产品单位、获得产品单位分页、获得产品单位精简列表、导出产品单位 Excel、删除产品单位、创建产品分类、更新产品分类、获得产品分类、获得产品分类列表、获得产品分类精简列表、导出产品分类 Excel、删除产品分类；说明：覆盖产品规划等功能",
+    "description": "职责：物流属性（长宽高、重量）；物理属性（材质、原产地）；包装属性（箱规）接口能力：创建产品、更新产品、获得产品、获得产品分页、获得产品精简列表、导出产品 Excel、删除产品、创建产品单位、更新产品单位、获得产品单位、获得产品单位分页、获得产品单位精简列表、导出产品单位 Excel、删除产品单位、创建产品分类、更新产品分类、获得产品分类、获得产品分类列表、获得产品分类精简列表、导出产品分类 Excel、删除产品分类；说明：覆盖产品规划等功能"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__bom_management_kit_hierarchy",
+    "seq": 3,
+    "name": "BOM管理（如有）：维护套装父子关系",
+    "capabilities": "BOM管理（如有）：维护套装父子关系",
+    "description": "BOM管理（如有）：维护套装父子关系"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__barcode_management_ean_upc_sku",
+    "seq": 4,
+    "name": "条码管理：维护 EAN/UPC 与 SKU 对应",
+    "capabilities": "条码管理：维护 EAN/UPC 与 SKU 对应",
+    "description": "条码管理：维护 EAN/UPC 与 SKU 对应"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:35:03,849 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__sku_code_management', 'content': '请为新引进的 一系列产品生成唯一的SKU编码。确保每个产品的编码都是独一无二的。', 'description': '生成唯一SKU编码'}, {'step': 2, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__master_data_entry', 'content': '基于最新的产品信息，录入所有必要的单位信息到系统中， 包括但不限于物流属性（如长宽高、重量）、物理属性（如材质、原产地）以及包装属性（如箱规）。对于刚刚生成了SKU编码的新产品，请特别注意它们的 信息完整性和准确性。', 'description': '录入新产品单位信息'}]  [common_task_planner.py:173]
+2026-02-02 15:35:03,849 INFO    =>  Final plan generated with 2 steps (expanded from 2).  [common_task_planner.py:124]
+2026-02-02 15:35:03,849 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__sku_code_management', 'content': '请为新引进的 一系列产品生成唯一的SKU编码。确保每个产品的编码都是独一无二的。', 'description': '生成唯一SKU编码'}, {'step': 2, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__master_data_entry', 'content': '基于最新的产品信息，录入所有必要的单位信息到系统中， 包括但不限于物流属性（如长宽高、重量）、物理属性（如材质、原产地）以及包装属性（如箱规）。对于刚刚生成了SKU编码的新产品，请特别注意它们的 信息完整性和准确性。', 'description': '录入新产品单位信息'}]  [agent_actor.py:208]
+2026-02-02 15:35:03,850 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,850 INFO    =>  Starting TaskGroup Workflow: step_1  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,850 INFO    =>  Executing Step 1: '生成唯一SKU编码' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,850 INFO    =>  --> Route: ResultAggregator for Step 1 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:35:03,851 WARNING =>  _get_merged_context called before task step_1 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:35:03,856 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/5/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:35:03,857 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:35:03,857 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/5/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,858 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_product_system__sku_master_data_specialist__sku_code_management  [result_aggregator_actor.py:187]
+2026-02-02 15:35:03,858 INFO    =>  Created new LeafActor for erp_product_system__sku_master_data_specialist__sku_code_management  [result_aggregator_actor.py:244]
+2026-02-02 15:35:03,858 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:35:03,858 INFO    =>  LeafActor initialized for erp_product_system__sku_master_data_specialist__sku_code_management  [leaf_actor.py:77]
+2026-02-02 15:35:03,858 INFO    =>  [LeafActor] Handling task step_1: 内容：请为新引进的一系列产品生成唯一的SKU编码。确保每个产品的编码都 是独一无二的。 描述：生成唯一...  [leaf_actor.py:101]
+2026-02-02 15:35:03,858 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,858 INFO    =>  ⑪ 具体执行: task=step_1, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,858 INFO    =>  Executing Dify workflow for task step_1  [execution_actor.py:196]
+2026-02-02 15:35:03,858 INFO    =>  [EVAL MODE] Mock execution for agent erp_product_system__sku_master_data_specialist__sku_code_management  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,858 INFO    =>  Received TaskCompletedMessage for step_1: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,858 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,858 INFO    =>  Executing Step 2: '录入新产品单位信息' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,858 INFO    =>  --> Route: ResultAggregator for Step 2 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:35:03,858 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:35:03,858 WARNING =>  _get_merged_context called before task step_2 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:35:03,861 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/5/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:35:03,861 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:35:03,861 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/5/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,861 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_product_system__sku_master_data_specialist__master_data_entry  [result_aggregator_actor.py:187]
+2026-02-02 15:35:03,861 INFO    =>  Created new AgentActor for erp_product_system__sku_master_data_specialist__master_data_entry  [result_aggregator_actor.py:244]
+2026-02-02 15:35:03,861 INFO    =>  Child actor exited: ActorAddr-/A~a~b~a~a~a~a~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1329e3d10>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:35:03,861 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [agent_actor.py:105]
+2026-02-02 15:35:03,861 INFO    =>  AgentActor initialized for erp_product_system__sku_master_data_specialist__master_data_entry  [agent_actor.py:110]
+2026-02-02 15:35:03,861 INFO    =>  [AgentActor] Handling task step_2: 内容：基于最新的产品信息，录入所有必要的单位信息到系统中，包括但不 限于物流属性（如长宽高、重量）、物...  [agent_actor.py:146]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:149: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:184: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:03,862 INFO    =>  [CommonTaskPlanner] agents:
+[
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__logistics_attributes_dimensions_weight",
+    "seq": 1,
+    "name": "物流属性（长宽高、重量）",
+    "capabilities": "物流属性（长宽高、重量）",
+    "description": "物流属性（长宽高、重量）"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__physical_attributes_material_origin",
+    "seq": 2,
+    "name": "物理属性（材质、原产地）",
+    "capabilities": "物理属性（材质、原产地）",
+    "description": "物理属性（材质、原产地）"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__packaging_attributes_carton_spec",
+    "seq": 3,
+    "name": "包装属性（箱规）",
+    "capabilities": "包装属性（箱规）",
+    "description": "包装属性（箱规）"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__create_product",
+    "seq": 4,
+    "name": "创建产品",
+    "capabilities": "接口能力: 创建产品。",
+    "description": "接口能力: 创建产品。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__update_product",
+    "seq": 5,
+    "name": "更新产品",
+    "capabilities": "接口能力: 更新产品。",
+    "description": "接口能力: 更新产品。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__get_product",
+    "seq": 6,
+    "name": "获得产品",
+    "capabilities": "接口能力: 获得产品。",
+    "description": "接口能力: 获得产品。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_page",
+    "seq": 7,
+    "name": "获得产品分页",
+    "capabilities": "接口能力: 获得产品分页。",
+    "description": "接口能力: 获得产品分页。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_simple_list",
+    "seq": 8,
+    "name": "获得产品精简列表",
+    "capabilities": "接口能力: 获得产品精简列表。",
+    "description": "接口能力: 获得产品精简列表。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_excel",
+    "seq": 9,
+    "name": "导出产品 Excel",
+    "capabilities": "接口能力: 导出产品 Excel。",
+    "description": "接口能力: 导出产品 Excel。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__delete_product",
+    "seq": 10,
+    "name": "删除产品",
+    "capabilities": "接口能力: 删除产品。",
+    "description": "接口能力: 删除产品。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__create_product_unit",
+    "seq": 11,
+    "name": "创建产品单位",
+    "capabilities": "接口能力: 创建产品单位。",
+    "description": "接口能力: 创建产品单位。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__update_product_unit",
+    "seq": 12,
+    "name": "更新产品单位",
+    "capabilities": "接口能力: 更新产品单位。",
+    "description": "接口能力: 更新产品单位。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_unit",
+    "seq": 13,
+    "name": "获得产品单位",
+    "capabilities": "接口能力: 获得产品单位。",
+    "description": "接口能力: 获得产品单位。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_unit_page",
+    "seq": 14,
+    "name": "获得产品单位分页",
+    "capabilities": "接口能力: 获得产品单位分页。",
+    "description": "接口能力: 获得产品单位分页。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_unit_simple_list",
+    "seq": 15,
+    "name": "获得产品单位精简列表",
+    "capabilities": "接口能力: 获得产品单位精简列表。",
+    "description": "接口能力: 获得产品单位精简列表。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_unit_excel",
+    "seq": 16,
+    "name": "导出产品单位 Excel",
+    "capabilities": "接口能力: 导出产品单位 Excel。",
+    "description": "接口能力: 导出产品单位 Excel。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__delete_product_unit",
+    "seq": 17,
+    "name": "删除产品单位",
+    "capabilities": "接口能力: 删除产品单位。",
+    "description": "接口能力: 删除产品单位。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__create_product_category",
+    "seq": 18,
+    "name": "创建产品分类",
+    "capabilities": "接口能力: 创建产品分类。",
+    "description": "接口能力: 创建产品分类。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__update_product_category",
+    "seq": 19,
+    "name": "更新产品分类",
+    "capabilities": "接口能力: 更新产品分类。",
+    "description": "接口能力: 更新产品分类。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category",
+    "seq": 20,
+    "name": "获得产品分类",
+    "capabilities": "接口能力: 获得产品分类。",
+    "description": "接口能力: 获得产品分类。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category_list",
+    "seq": 21,
+    "name": "获得产品分类列表",
+    "capabilities": "接口能力: 获得产品分类列表。",
+    "description": "接口能力: 获得产品分类列表。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category_simple_list",
+    "seq": 22,
+    "name": "获得产品分类精简列表",
+    "capabilities": "接口能力: 获得产品分类精简列表。",
+    "description": "接口能力: 获得产品分类精简列表。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_category_excel",
+    "seq": 23,
+    "name": "导出产品分类 Excel",
+    "capabilities": "接口能力: 导出产品分类 Excel。",
+    "description": "接口能力: 导出产品分类 Excel。"
+  },
+  {
+    "id": "erp_product_system__sku_master_data_specialist__master_data_entry__delete_product_category",
+    "seq": 24,
+    "name": "删除产品分类",
+    "capabilities": "接口能力: 删除产品分类。",
+    "description": "接口能力: 删除产品分类。"
+  }
+]  [common_task_planner.py:179]
+2026-02-02 15:35:17,972 INFO    =>  [CommonTaskPlanner] LLM response:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__master_data_entry__logistics_attributes_dimensions_weight', 'content': '录入所有新产品的物流属性，包括长宽高和重量信息。请确保数据的准确性和完整性。', 'description': '录入物流属性'}, {'step': 2, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__master_data_entry__physical_attributes_material_origin', 'content': '为所有新产品添加物理属性，如材质和原产地等信息。确认这些信息已经被正确无误地记录。', 'description': '录入物理属性'}, {'step': 3, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__master_data_entry__packaging_attributes_carton_spec', 'content': '输入所有新产品的包装规格（箱规）信息到系统中。保证这部分资料的准确性。', 'description': '录入包装属性'}, {'step': 4, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__master_data_entry__create_product_unit', 'content': '基于上述已录入的信息，创建与之对应的产品单位记录。这一步骤应当针对那些刚刚生成了SKU编码的新产品进行。', 'description': '创建产品单位'}]  [common_task_planner.py:173]
+2026-02-02 15:35:17,972 INFO    =>  Final plan generated with 4 steps (expanded from 4).  [common_task_planner.py:124]
+2026-02-02 15:35:17,972 INFO    =>  [AgentActor] Task planning result:
+[{'step': 1, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__master_data_entry__logistics_attributes_dimensions_weight', 'content': '录入所有新产品的物流属性，包括长宽高和重量信息。请确保数据的准确性和完整性。', 'description': '录入物流属性'}, {'step': 2, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__master_data_entry__physical_attributes_material_origin', 'content': '为所有新产品添加物理属性，如材质和原产地等信息。确认这些信息已经被正确无误地记录。', 'description': '录入物理属性'}, {'step': 3, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__master_data_entry__packaging_attributes_carton_spec', 'content': '输入所有新产品的包装规格（箱规）信息到系统中。保证这部分资料的准确性。', 'description': '录入包装属性'}, {'step': 4, 'type': 'AGENT', 'executor': 'erp_product_system__sku_master_data_specialist__master_data_entry__create_product_unit', 'content': '基于上述已录入的信息，创建与之对应的产品单位记录。这一步骤应当针对那些刚刚生成了SKU编码的新产品进行。', 'description': '创建产品单位'}]  [agent_actor.py:208]
+2026-02-02 15:35:17,973 INFO    =>  Sending task group to aggregator  [agent_actor.py:487]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:216: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,974 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:35:17,974 INFO    =>  Starting TaskGroup Workflow: step_2  [task_group_aggregator_actor.py:134]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:153: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,974 INFO    =>  Executing Step 1: '录入物流属性' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,974 INFO    =>  --> Route: ResultAggregator for Step 1 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:35:17,974 WARNING =>  _get_merged_context called before task step_1 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:35:17,979 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/5/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:35:17,980 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:35:17,980 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/5/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,981 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_product_system__sku_master_data_specialist__master_data_entry__logistics_attributes_dimensions_weight  [result_aggregator_actor.py:187]
+2026-02-02 15:35:17,981 INFO    =>  Created new LeafActor for erp_product_system__sku_master_data_specialist__master_data_entry__logistics_attributes_dimensions_weight  [result_aggregator_actor.py:244]
+2026-02-02 15:35:17,981 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:35:17,981 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:35:17,981 INFO    =>  LeafActor initialized for erp_product_system__sku_master_data_specialist__master_data_entry__logistics_attributes_dimensions_weight  [leaf_actor.py:77]
+2026-02-02 15:35:17,981 INFO    =>  [LeafActor] Handling task step_1: 内容：录入所有新产品的物流属性，包括长宽高和重量信息。请确保数据的准确性和完整性。 描述：录入物流属...  [leaf_actor.py:101]
+2026-02-02 15:35:17,981 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,982 INFO    =>  ⑪ 具体执行: task=step_1, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,982 INFO    =>  Executing Dify workflow for task step_1  [execution_actor.py:196]
+2026-02-02 15:35:17,982 INFO    =>  [EVAL MODE] Mock execution for agent erp_product_system__sku_master_data_specialist__master_data_entry__logistics_attributes_dimensions_weight  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,982 INFO    =>  Received TaskCompletedMessage for step_1: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,982 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,982 INFO    =>  Executing Step 2: '录入物理属性' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,982 INFO    =>  --> Route: ResultAggregator for Step 2 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:35:17,982 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:35:17,982 WARNING =>  _get_merged_context called before task step_2 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:35:17,985 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/5/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:35:17,985 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:35:17,985 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/5/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,985 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_product_system__sku_master_data_specialist__master_data_entry__physical_attributes_material_origin  [result_aggregator_actor.py:187]
+2026-02-02 15:35:17,986 INFO    =>  Created new LeafActor for erp_product_system__sku_master_data_specialist__master_data_entry__physical_attributes_material_origin  [result_aggregator_actor.py:244]
+2026-02-02 15:35:17,986 INFO    =>  Child actor exited: ActorAddr-/A~a~b~a~a~a~a~a~a~b~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x132300510>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:35:17,986 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:35:17,986 INFO    =>  LeafActor initialized for erp_product_system__sku_master_data_specialist__master_data_entry__physical_attributes_material_origin  [leaf_actor.py:77]
+2026-02-02 15:35:17,986 INFO    =>  [LeafActor] Handling task step_2: 内容：为所有新产品添加物理属性，如材质和原产地等信息。确认这些信息已经被正确无误地记录。 描述：录入...  [leaf_actor.py:101]
+2026-02-02 15:35:17,986 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,986 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:35:17,986 INFO    =>  ⑪ 具体执行: task=step_2, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,986 INFO    =>  Executing Dify workflow for task step_2  [execution_actor.py:196]
+2026-02-02 15:35:17,986 INFO    =>  [EVAL MODE] Mock execution for agent erp_product_system__sku_master_data_specialist__master_data_entry__physical_attributes_material_origin  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,986 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:35:17,986 INFO    =>  Received TaskCompletedMessage for step_2: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,986 INFO    =>  Step 2 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,986 INFO    =>  Executing Step 3: '录入包装属性' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,986 INFO    =>  --> Route: ResultAggregator for Step 3 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:35:17,987 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:35:17,987 WARNING =>  _get_merged_context called before task step_3 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:35:17,989 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/5/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:35:17,990 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:35:17,990 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/5/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,990 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_product_system__sku_master_data_specialist__master_data_entry__packaging_attributes_carton_spec  [result_aggregator_actor.py:187]
+2026-02-02 15:35:17,990 INFO    =>  Created new LeafActor for erp_product_system__sku_master_data_specialist__master_data_entry__packaging_attributes_carton_spec  [result_aggregator_actor.py:244]
+2026-02-02 15:35:17,990 INFO    =>  Child actor exited: ActorAddr-/A~a~b~a~a~a~a~a~a~b~a~a~b, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1329e1890>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:35:17,991 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:35:17,991 INFO    =>  LeafActor initialized for erp_product_system__sku_master_data_specialist__master_data_entry__packaging_attributes_carton_spec  [leaf_actor.py:77]
+2026-02-02 15:35:17,991 INFO    =>  [LeafActor] Handling task step_3: 内容：输入所有新产品的包装规格（箱规）信息到系统中。保证这部分资料的准确性。 描述：录入包装属性...  [leaf_actor.py:101]
+2026-02-02 15:35:17,991 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,991 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:35:17,991 INFO    =>  ⑪ 具体执行: task=step_3, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,991 INFO    =>  Executing Dify workflow for task step_3  [execution_actor.py:196]
+2026-02-02 15:35:17,991 INFO    =>  [EVAL MODE] Mock execution for agent erp_product_system__sku_master_data_specialist__master_data_entry__packaging_attributes_carton_spec  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,991 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:35:17,991 INFO    =>  Received TaskCompletedMessage for step_3: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,991 INFO    =>  Step 3 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,991 INFO    =>  Executing Step 4: '创建产品单位' (type=AGENT)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,991 INFO    =>  --> Route: ResultAggregator for Step 4 (Agent)  [task_group_aggregator_actor.py:281]
+2026-02-02 15:35:17,991 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:35:17,991 WARNING =>  _get_merged_context called before task step_4 was registered  [result_aggregator_actor.py:564]
+2026-02-02 15:35:17,993 INFO    =>  HTTP Request: GET http://localhost:8004/v1/commands/5/status "HTTP/1.1 502 Bad Gateway"  [_client.py:1740]
+2026-02-02 15:35:17,994 ERROR   =>  Failed to get signal status: 502 -   [event_bus.py:332]
+2026-02-02 15:35:17,994 WARNING =>  Error checking signal status: Server error '502 Bad Gateway' for url 'http://localhost:8004/v1/commands/5/status'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502, continuing execution...  [result_aggregator_actor.py:103]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:167: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,994 INFO    =>  ResultAggregator: Received task request for AgentActor: erp_product_system__sku_master_data_specialist__master_data_entry__create_product_unit  [result_aggregator_actor.py:187]
+2026-02-02 15:35:17,994 INFO    =>  Created new LeafActor for erp_product_system__sku_master_data_specialist__master_data_entry__create_product_unit  [result_aggregator_actor.py:244]
+2026-02-02 15:35:17,994 INFO    =>  Child actor exited: ActorAddr-/A~a~b~a~a~a~a~a~a~b~a~a~c, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1329d07d0>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:35:17,994 WARNING =>  llm_memory unavailable, using NoopMemory: Capability llm_memory not found  [leaf_actor.py:74]
+2026-02-02 15:35:17,994 INFO    =>  LeafActor initialized for erp_product_system__sku_master_data_specialist__master_data_entry__create_product_unit  [leaf_actor.py:77]
+2026-02-02 15:35:17,994 INFO    =>  [LeafActor] Handling task step_4: 内容：基于上述已录入的信息，创建与之对应的产品单位记录。这一步骤应当针对那些刚刚生成了SKU编码的新...  [leaf_actor.py:101]
+2026-02-02 15:35:17,994 INFO    =>  ExecutionActor initialized  [execution_actor.py:38]
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:181: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,994 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:35:17,994 INFO    =>  ⑪ 具体执行: task=step_4, capability=dify  [execution_actor.py:164]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:174: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,994 INFO    =>  Executing Dify workflow for task step_4  [execution_actor.py:196]
+2026-02-02 15:35:17,994 INFO    =>  [EVAL MODE] Mock execution for agent erp_product_system__sku_master_data_specialist__master_data_entry__create_product_unit  [execution_actor.py:209]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/execution_actor.py:348: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/agents/leaf_actor.py:249: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,994 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:35:17,994 INFO    =>  Received TaskCompletedMessage for step_4: SUCCESS  [result_aggregator_actor.py:249]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:288: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/result_aggregator_actor.py:449: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,995 INFO    =>  Step 4 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,995 INFO    =>  Workflow step_2 Completed.  [task_group_aggregator_actor.py:496]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:499: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,995 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:531: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,995 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:35:17,995 INFO    =>  Received TaskCompletedMessage for step_2: SUCCESS  [result_aggregator_actor.py:249]
+2026-02-02 15:35:17,995 INFO    =>  Child actor exited: ActorAddr-/A~a~b~a~a~a~a~a~a~b~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1323fa690>}  [agent_actor.py:69]
+2026-02-02 15:35:17,995 INFO    =>  Received ActorExitRequest, shutting down.  [leaf_actor.py:26]
+2026-02-02 15:35:17,995 INFO    =>  Step 2 succeeded.  [task_group_aggregator_actor.py:333]
+2026-02-02 15:35:17,995 INFO    =>  Workflow step_1 Completed.  [task_group_aggregator_actor.py:496]
+2026-02-02 15:35:17,995 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:35:17,995 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:35:17,995 WARNING =>  Unknown message format: <class 'thespian.actors.ActorExitRequest'>  [execution_actor.py:59]
+2026-02-02 15:35:17,995 INFO    =>  Received TaskCompletedMessage for step_1: SUCCESS  [result_aggregator_actor.py:249]
+2026-02-02 15:35:17,995 INFO    =>  Child actor exited: ActorAddr-/A~a~b~a~a~a~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1329e3c10>}  [agent_actor.py:69]
+2026-02-02 15:35:17,995 INFO    =>  Received ActorExitRequest, shutting down.  [agent_actor.py:65]
+2026-02-02 15:35:17,995 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+2026-02-02 15:35:17,995 INFO    =>  Workflow step_1 Completed.  [task_group_aggregator_actor.py:496]
+2026-02-02 15:35:17,995 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:35:17,995 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:35:17,995 INFO    =>  Received TaskCompletedMessage for step_1: SUCCESS  [result_aggregator_actor.py:249]
+2026-02-02 15:35:17,995 INFO    =>  Child actor exited: ActorAddr-/A~a~b~a~a~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x1329e0f90>}  [agent_actor.py:69]
+2026-02-02 15:35:17,995 INFO    =>  Received ActorExitRequest, shutting down.  [agent_actor.py:65]
+2026-02-02 15:35:17,995 INFO    =>  Step 1 succeeded.  [task_group_aggregator_actor.py:333]
+2026-02-02 15:35:17,995 INFO    =>  Executing Step 2: '导出Excel文件' (type=MCP)  [task_group_aggregator_actor.py:204]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:207: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:17,995 INFO    =>  --> Route: MCP Executor for Step 2  [task_group_aggregator_actor.py:305]
+2026-02-02 15:35:17,995 INFO    =>  No skills loaded.  [mcp_actor.py:201]
+2026-02-02 15:35:17,995 INFO    =>  Received ActorExitRequest, shutting down.  [result_aggregator_actor.py:113]
+2026-02-02 15:35:17,995 INFO    =>  [2] Received task: 导出Excel文件  [mcp_actor.py:49]
+2026-02-02 15:35:19,228 ERROR   =>  Context resolver query failed: Capability context_resolver not found  [mcp_actor.py:124]
+Traceback (most recent call last):
+  File "/Users/luming/PycharmProjects/COOP/tasks/capability_actors/mcp_actor.py", line 94, in _execute_data_query_via_context_resolver
+    context_resolver: IContextResolverCapbility = get_capability(
+                                                  ^^^^^^^^^^^^^^^
+  File "/Users/luming/PycharmProjects/COOP/tasks/capabilities/__init__.py", line 99, in get_capability
+    return manager.get_capability(name, expected_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/luming/PycharmProjects/COOP/tasks/capabilities/capability_manager.py", line 196, in get_capability
+    return self.registry.get_capability(name, expected_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/luming/PycharmProjects/COOP/tasks/capabilities/registry.py", line 80, in get_capability
+    raise ValueError(f"Capability {name} not found")
+ValueError: Capability context_resolver not found
+2026-02-02 15:35:19,229 INFO    =>  Child actor exited: ActorAddr-/A~a~b~a, reason: {'_childAddr': <thespian.actors.ActorAddress object at 0x132970b10>}  [task_group_aggregator_actor.py:77]
+2026-02-02 15:35:19,229 INFO    =>  Step 2 succeeded.  [task_group_aggregator_actor.py:333]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:340: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:19,230 INFO    =>  Workflow 5 Completed.  [task_group_aggregator_actor.py:496]
+/Users/luming/PycharmProjects/COOP/tasks/capability_actors/task_group_aggregator_actor.py:499: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:19,230 INFO    =>  Received ActorExitRequest, shutting down.  [agent_actor.py:65]
+/Users/luming/PycharmProjects/COOP/tasks/agents/agent_actor.py:531: RuntimeWarning: coroutine 'EventPublisher.publish_task_event' was never awaited
+  event_bus.publish_task_event(
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2026-02-02 15:35:19,230 INFO    =>  Received ActorExitRequest, shutting down.  [task_group_aggregator_actor.py:73]
+2026-02-02 15:35:19,231 INFO    =>  [COOP Response] status=SUCCESS, result_data keys=dict_keys(['step_results'])  [coop_runner.py:102]
+2026-02-02 15:35:19,231 INFO    =>  [COOP Response] step_results keys=['step_1_output', 'step_2_output']  [coop_runner.py:107]
+2026-02-02 15:35:19,231 INFO    =>  [COOP Response] step step_1_output: type=<class 'dict'>, content={'result': {'step_results': {'step_1_output': {'result': {'step_results': {'step_1_output': {'result': {'agent_id': 'erp_product_system__sku_master_data_specialist__sku_code_management', 'status': 'mo  [coop_runner.py:110]
+2026-02-02 15:35:19,231 INFO    =>  [COOP Response] step step_2_output: type=<class 'dict'>, content={'result': '查询执行异常: Capability context_resolver not found', 'agent_id': None, 'executor': 'excel_exporter'}  [coop_runner.py:110]
+2026-02-02 15:35:19,231 INFO    =>      COOP: executed=14, coverage=50%, success=True  [run_experiment.py:390]
+2026-02-02 15:35:19,236 INFO    =>  Wrote 8 rows to coop_eval_actual/output  [run_experiment.py:431]
+
+============================================================
+EXPERIMENT SUMMARY
+============================================================
+COOP         Level 1: success_rate=50.00%, avg_tokens=4396, hallucination=0.00%
+CoT          Level 1: success_rate=0.00%, avg_tokens=17976, hallucination=50.00%
+LangChain    Level 1: success_rate=50.00%, avg_tokens=17966, hallucination=0.00%
+ReAct        Level 1: success_rate=50.00%, avg_tokens=54516, hallucination=0.00%
+============================================================
+luming@192 COOP %

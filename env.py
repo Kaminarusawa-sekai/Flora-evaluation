@@ -1,0 +1,11 @@
+# Local defaults for evaluation (no external services).
+DASHSCOPE_API_KEY = ""
+DIFY_API_KEY = ""
+DIFY_BASE_URL = ""
+NEO4J_URI = ""
+NEO4J_USER = ""
+NEO4J_PASSWORD = ""
+REDIS_HOST = ""
+REDIS_PORT = ""
+REDIS_DATABASE = ""
+REDIS_PASSWORD = ""

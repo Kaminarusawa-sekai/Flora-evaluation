@@ -1,0 +1,1222 @@
+[
+  {
+    "task_id": 1,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 制定标签规则；2) 用户分层裂变设计；3) 执行分级干预措施；4) 设定阈值与等级；5) 竞品分析*；6) 效能监控与路径优化流程；7) 目标客户分析；8) 价值观输出。",
+    "original_prompt": "请按顺序执行以下步骤：1) 制定标签规则 [agent:define_tag_rules]；2)  用户分层裂变设计 [agent:user_strat_fission]；3) 执行分级干预措施 [agent:execute_tiered_interventions]；4) 设定阈值与等级 [agent:set_thresholds_and_levels]；5) 竞品分析* [agent:competitor_analysis]；6) 效能监控与路径优化流程 [agent:performance_monitoring_and_path_optimization_process]；7) 目标客户分析 [agent:target_customer_analysis]；8) 价值观输出 [agent:values_output]。",
+    "expected_agents": [
+      "define_tag_rules",
+      "user_strat_fission",
+      "execute_tiered_interventions",
+      "set_thresholds_and_levels",
+      "competitor_analysis",
+      "performance_monitoring_and_path_optimization_process",
+      "target_customer_analysis",
+      "values_output"
+    ]
+  },
+  {
+    "task_id": 2,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 文案策划；2) 定制沟通话术与素材；3) 销售反馈与闭环优化流程。",
+    "original_prompt": "请按顺序执行以下步骤：1)  文案策划 [agent:copy_planning]；2)  定制沟通话术与素材 [agent:comm_scripts]；3) 销售反馈与闭环优化流程 [agent:sales_feedback_and_closed_loop_optimization_process]。",
+    "expected_agents": [
+      "copy_planning",
+      "comm_scripts",
+      "sales_feedback_and_closed_loop_optimization_process"
+    ]
+  },
+  {
+    "task_id": 3,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 建议定价策略；2) MQL判定标准制定；3) 制定标签规则；4) 目标客户分析；5) 品牌故事；6) 匹配内容与渠道；7) 确定健康度维度；8) 价值验证。",
+    "original_prompt": "请按顺序执行以下步骤：1) 建议定价策略 [agent:pricing_strategy_recommendation]；2) MQL判定标准制定 [agent:mql_qualification_criteria_definition]；3) 制定标签规则 [agent:define_tag_rules]；4) 目标客户分析 [agent:target_customer_analysis]；5) 品牌故事 [agent:brand_story]；6) 匹配内容与渠道 [agent:match_content_and_channels]；7) 确定健康度维度 [agent:determine_health_dimensions]；8) 价值验证 [agent:value_validation]。",
+    "expected_agents": [
+      "pricing_strategy_recommendation",
+      "mql_qualification_criteria_definition",
+      "define_tag_rules",
+      "target_customer_analysis",
+      "brand_story",
+      "match_content_and_channels",
+      "determine_health_dimensions",
+      "value_validation"
+    ]
+  },
+  {
+    "task_id": 4,
+    "level": 1,
+    "prompt": "请调用代理 差异化机会 完成任务。",
+    "original_prompt": "请调用代理 差异化机会 完成任务。[agent:differentiation_opportunities]",
+    "expected_agents": [
+      "differentiation_opportunities"
+    ]
+  },
+  {
+    "task_id": 5,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 定制沟通话术与素材；2) 自动化打标与分层；3) 文案策划。",
+    "original_prompt": "请按顺序执行以下步骤：1)  定制沟通话术与素材 [agent:comm_scripts]；2) 自动化打标与分层 [agent:automated_tagging_and_segmentation]；3)  文案策划 [agent:copy_planning]。",
+    "expected_agents": [
+      "comm_scripts",
+      "automated_tagging_and_segmentation",
+      "copy_planning"
+    ]
+  },
+  {
+    "task_id": 6,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 用户分层裂变设计；2) 定义触发事件；3) 根因调查；4) 定制沟通话术与素材；5) 竞品分析*。",
+    "original_prompt": "请按顺序执行以下步骤：1)  用户分层裂变设计 [agent:user_strat_fission]；2) 定义触发事件 [agent:define_trigger_events]；3) 根因调查 [agent:root_cause_investigation]；4)  定制沟通话术与素材 [agent:comm_scripts]；5) 竞品分析* [agent:competitor_analysis]。",
+    "expected_agents": [
+      "user_strat_fission",
+      "define_trigger_events",
+      "root_cause_investigation",
+      "comm_scripts",
+      "competitor_analysis"
+    ]
+  },
+  {
+    "task_id": 7,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 制定沟通策略；2) 匹配裂变玩法；3) 定义触发事件；4) 自动化打标与分层；5) 分层裂变策略设计。",
+    "original_prompt": "请按顺序执行以下步骤：1) 制定沟通策略 [agent:define_communication_strategy]；2)  匹配裂变玩法 [agent:fission_game_match]；3) 定义触发事件 [agent:define_trigger_events]；4) 自动化打标与分层 [agent:automated_tagging_and_segmentation]；5)  分层裂变策略设计 [agent:strat_fission_strat]。",
+    "expected_agents": [
+      "define_communication_strategy",
+      "fission_game_match",
+      "define_trigger_events",
+      "automated_tagging_and_segmentation",
+      "strat_fission_strat"
+    ]
+  },
+  {
+    "task_id": 8,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 设计分层激励；2) 制定标签规则；3) MQL判定标准制定。",
+    "original_prompt": "请按顺序执行以下步骤：1)  设计分层激励 [agent:strat_incentives]；2) 制定标签规则 [agent:define_tag_rules]；3) MQL判定标准制定 [agent:mql_qualification_criteria_definition]。",
+    "expected_agents": [
+      "strat_incentives",
+      "define_tag_rules",
+      "mql_qualification_criteria_definition"
+    ]
+  },
+  {
+    "task_id": 9,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 定义标签维度；2) 设计分层激励；3) 自动化判定与触发流转流程；4) 绘制分层画像；5) 设定阈值与等级。",
+    "original_prompt": "请按顺序执行以下步骤：1) 定义标签维度 [agent:define_tag_dimensions]；2)  设计分层激励 [agent:strat_incentives]；3) 自动化判定与触发流转流程 [agent:automated_assessment_and_triggered_handoff_process]；4)  绘制分层画像 [agent:strat_portraits]；5) 设定阈值与等级 [agent:set_thresholds_and_levels]。",
+    "expected_agents": [
+      "define_tag_dimensions",
+      "strat_incentives",
+      "automated_assessment_and_triggered_handoff_process",
+      "strat_portraits",
+      "set_thresholds_and_levels"
+    ]
+  },
+  {
+    "task_id": 10,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 记录干预结果；2) 品牌故事；3) 绘制分层画像。",
+    "original_prompt": "请按顺序执行以下步骤：1) 记录干预结果 [agent:record_intervention_results]；2) 品牌故事 [agent:brand_story]；3)  绘制分层画像 [agent:strat_portraits]。",
+    "expected_agents": [
+      "record_intervention_results",
+      "brand_story",
+      "strat_portraits"
+    ]
+  },
+  {
+    "task_id": 11,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 确定健康度维度；2) 文案策划；3) 品牌故事；4) 绘制培育路径蓝图；5) 记录干预结果。",
+    "original_prompt": "请按顺序执行以下步骤：1) 确定健康度维度 [agent:determine_health_dimensions]；2)  文案策划 [agent:copy_planning]；3) 品牌故事 [agent:brand_story]；4) 绘制培育路径蓝图 [agent:draw_nurturing_path_blueprint]；5) 记录干预结果 [agent:record_intervention_results]。",
+    "expected_agents": [
+      "determine_health_dimensions",
+      "copy_planning",
+      "brand_story",
+      "draw_nurturing_path_blueprint",
+      "record_intervention_results"
+    ]
+  },
+  {
+    "task_id": 12,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 制定沟通策略；2) 自动化监控与预警触发流程；3) 文案策划；4) 用户分层裂变设计；5) 价值观输出；6) 设定阈值与等级；7) 规则与系统构建-新增活动中心；8) 定制沟通话术与素材。",
+    "original_prompt": "请按顺序执行以下步骤：1) 制定沟通策略 [agent:define_communication_strategy]；2) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]；3)  文案策划 [agent:copy_planning]；4)  用户分层裂变设计 [agent:user_strat_fission]；5) 价值观输出 [agent:values_output]；6) 设定阈值与等级 [agent:set_thresholds_and_levels]；7)  规则与系统构建-新增活动中心 [agent:rules_system_create_active_center]；8)  定制沟通话术与素材 [agent:comm_scripts]。",
+    "expected_agents": [
+      "define_communication_strategy",
+      "automated_monitoring_and_alert_trigger_process",
+      "copy_planning",
+      "user_strat_fission",
+      "values_output",
+      "set_thresholds_and_levels",
+      "rules_system_create_active_center",
+      "comm_scripts"
+    ]
+  },
+  {
+    "task_id": 13,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 设定阈值与等级；2) 系统扫描；3) 自动化打标与分层。",
+    "original_prompt": "请按顺序执行以下步骤：1) 设定阈值与等级 [agent:set_thresholds_and_levels]；2) 系统扫描 [agent:system_scanning]；3) 自动化打标与分层 [agent:automated_tagging_and_segmentation]。",
+    "expected_agents": [
+      "set_thresholds_and_levels",
+      "system_scanning",
+      "automated_tagging_and_segmentation"
+    ]
+  },
+  {
+    "task_id": 14,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) MQL判定标准制定；2) 分层裂变策略设计；3) 确定健康度维度；4) 定义触发事件；5) 制定时机规则。",
+    "original_prompt": "请按顺序执行以下步骤：1) MQL判定标准制定 [agent:mql_qualification_criteria_definition]；2)  分层裂变策略设计 [agent:strat_fission_strat]；3) 确定健康度维度 [agent:determine_health_dimensions]；4) 定义触发事件 [agent:define_trigger_events]；5) 制定时机规则 [agent:define_timing_rules]。",
+    "expected_agents": [
+      "mql_qualification_criteria_definition",
+      "strat_fission_strat",
+      "determine_health_dimensions",
+      "define_trigger_events",
+      "define_timing_rules"
+    ]
+  },
+  {
+    "task_id": 15,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 效能监控与路径优化流程；2) 用户分层裂变设计；3) 自动化打标与分层。",
+    "original_prompt": "请按顺序执行以下步骤：1) 效能监控与路径优化流程 [agent:performance_monitoring_and_path_optimization_process]；2)  用户分层裂变设计 [agent:user_strat_fission]；3) 自动化打标与分层 [agent:automated_tagging_and_segmentation]。",
+    "expected_agents": [
+      "performance_monitoring_and_path_optimization_process",
+      "user_strat_fission",
+      "automated_tagging_and_segmentation"
+    ]
+  },
+  {
+    "task_id": 16,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 自动化判定与触发流转流程；2) 根因调查；3) 定义标签维度。",
+    "original_prompt": "请按顺序执行以下步骤：1) 自动化判定与触发流转流程 [agent:automated_assessment_and_triggered_handoff_process]；2) 根因调查 [agent:root_cause_investigation]；3) 定义标签维度 [agent:define_tag_dimensions]。",
+    "expected_agents": [
+      "automated_assessment_and_triggered_handoff_process",
+      "root_cause_investigation",
+      "define_tag_dimensions"
+    ]
+  },
+  {
+    "task_id": 17,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 规则与系统构建-新增活动中心；2) 绘制分层画像；3) 核心卖点提炼。",
+    "original_prompt": "请按顺序执行以下步骤：1)  规则与系统构建-新增活动中心 [agent:rules_system_create_active_center]；2)  绘制分层画像 [agent:strat_portraits]；3) 核心卖点提炼 [agent:core_selling_point_refinement]。",
+    "expected_agents": [
+      "rules_system_create_active_center",
+      "strat_portraits",
+      "core_selling_point_refinement"
+    ]
+  },
+  {
+    "task_id": 18,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 设定阈值与等级；2) 竞品分析*；3) 定义触发事件。",
+    "original_prompt": "请按顺序执行以下步骤：1) 设定阈值与等级 [agent:set_thresholds_and_levels]；2) 竞品分析* [agent:competitor_analysis]；3) 定义触发事件 [agent:define_trigger_events]。",
+    "expected_agents": [
+      "set_thresholds_and_levels",
+      "competitor_analysis",
+      "define_trigger_events"
+    ]
+  },
+  {
+    "task_id": 19,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 私域营销；2) 匹配裂变玩法；3) 自动化判定与触发流转流程；4) 绘制培育路径蓝图；5) 定义触发事件。",
+    "original_prompt": "请按顺序执行以下步骤：1)  私域营销 [agent:private_domain]；2)  匹配裂变玩法 [agent:fission_game_match]；3) 自动化判定与触发流转流程 [agent:automated_assessment_and_triggered_handoff_process]；4) 绘制培育路径蓝图 [agent:draw_nurturing_path_blueprint]；5) 定义触发事件 [agent:define_trigger_events]。",
+    "expected_agents": [
+      "private_domain",
+      "fission_game_match",
+      "automated_assessment_and_triggered_handoff_process",
+      "draw_nurturing_path_blueprint",
+      "define_trigger_events"
+    ]
+  },
+  {
+    "task_id": 20,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 制定沟通策略；2) 目标设定；3) 机会分配；4) 数据采集与整合；5) 制定时机规则；6) 多渠道触达；7) 定义触发事件；8) 分层裂变策略设计。",
+    "original_prompt": "请按顺序执行以下步骤：1) 制定沟通策略 [agent:define_communication_strategy]；2)  目标设定 [agent:goal_setting]；3) 机会分配 [agent:opportunity_allocation]；4) 数据采集与整合 [agent:data_collection_and_integration]；5) 制定时机规则 [agent:define_timing_rules]；6) 多渠道触达 [agent:multi_channel_reach]；7) 定义触发事件 [agent:define_trigger_events]；8)  分层裂变策略设计 [agent:strat_fission_strat]。",
+    "expected_agents": [
+      "define_communication_strategy",
+      "goal_setting",
+      "opportunity_allocation",
+      "data_collection_and_integration",
+      "define_timing_rules",
+      "multi_channel_reach",
+      "define_trigger_events",
+      "strat_fission_strat"
+    ]
+  },
+  {
+    "task_id": 21,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 核心卖点提炼；2) 竞品分析*；3) 自动化监控与预警触发流程；4) 市场洞察；5) 价值验证；6) 设计分层激励；7) 定义标签维度；8) 定义培育目标。",
+    "original_prompt": "请按顺序执行以下步骤：1) 核心卖点提炼 [agent:core_selling_point_refinement]；2) 竞品分析* [agent:competitor_analysis]；3) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]；4) 市场洞察 [agent:market_insight]；5) 价值验证 [agent:value_validation]；6)  设计分层激励 [agent:strat_incentives]；7) 定义标签维度 [agent:define_tag_dimensions]；8) 定义培育目标 [agent:define_nurturing_goals]。",
+    "expected_agents": [
+      "core_selling_point_refinement",
+      "competitor_analysis",
+      "automated_monitoring_and_alert_trigger_process",
+      "market_insight",
+      "value_validation",
+      "strat_incentives",
+      "define_tag_dimensions",
+      "define_nurturing_goals"
+    ]
+  },
+  {
+    "task_id": 22,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 销售反馈与闭环优化流程；2) 记录干预结果；3) 多渠道触达；4) 定义指标与权重；5) 匹配内容与渠道。",
+    "original_prompt": "请按顺序执行以下步骤：1) 销售反馈与闭环优化流程 [agent:sales_feedback_and_closed_loop_optimization_process]；2) 记录干预结果 [agent:record_intervention_results]；3) 多渠道触达 [agent:multi_channel_reach]；4) 定义指标与权重 [agent:define_metrics_and_weights]；5) 匹配内容与渠道 [agent:match_content_and_channels]。",
+    "expected_agents": [
+      "sales_feedback_and_closed_loop_optimization_process",
+      "record_intervention_results",
+      "multi_channel_reach",
+      "define_metrics_and_weights",
+      "match_content_and_channels"
+    ]
+  },
+  {
+    "task_id": 23,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 自动化监控与预警触发流程；2) 规则与系统构建-新增活动中心；3) 目标客户分析；4) 竞品分析*；5) 匹配裂变玩法。",
+    "original_prompt": "请按顺序执行以下步骤：1) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]；2)  规则与系统构建-新增活动中心 [agent:rules_system_create_active_center]；3) 目标客户分析 [agent:target_customer_analysis]；4) 竞品分析* [agent:competitor_analysis]；5)  匹配裂变玩法 [agent:fission_game_match]。",
+    "expected_agents": [
+      "automated_monitoring_and_alert_trigger_process",
+      "rules_system_create_active_center",
+      "target_customer_analysis",
+      "competitor_analysis",
+      "fission_game_match"
+    ]
+  },
+  {
+    "task_id": 24,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 销售反馈与闭环优化流程；2) 制定时机规则；3) 多渠道触达。",
+    "original_prompt": "请按顺序执行以下步骤：1) 销售反馈与闭环优化流程 [agent:sales_feedback_and_closed_loop_optimization_process]；2) 制定时机规则 [agent:define_timing_rules]；3) 多渠道触达 [agent:multi_channel_reach]。",
+    "expected_agents": [
+      "sales_feedback_and_closed_loop_optimization_process",
+      "define_timing_rules",
+      "multi_channel_reach"
+    ]
+  },
+  {
+    "task_id": 25,
+    "level": 1,
+    "prompt": "请调用代理 差异化机会 完成任务。",
+    "original_prompt": "请调用代理 差异化机会 完成任务。[agent:differentiation_opportunities]",
+    "expected_agents": [
+      "differentiation_opportunities"
+    ]
+  },
+  {
+    "task_id": 26,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 市场洞察；2) 制定时机规则；3) 核心卖点提炼。",
+    "original_prompt": "请按顺序执行以下步骤：1) 市场洞察 [agent:market_insight]；2) 制定时机规则 [agent:define_timing_rules]；3) 核心卖点提炼 [agent:core_selling_point_refinement]。",
+    "expected_agents": [
+      "market_insight",
+      "define_timing_rules",
+      "core_selling_point_refinement"
+    ]
+  },
+  {
+    "task_id": 27,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 目标客户分析；2) 设定阈值与等级；3) 制定时机规则；4) 价值观输出；5) MQL判定标准制定。",
+    "original_prompt": "请按顺序执行以下步骤：1) 目标客户分析 [agent:target_customer_analysis]；2) 设定阈值与等级 [agent:set_thresholds_and_levels]；3) 制定时机规则 [agent:define_timing_rules]；4) 价值观输出 [agent:values_output]；5) MQL判定标准制定 [agent:mql_qualification_criteria_definition]。",
+    "expected_agents": [
+      "target_customer_analysis",
+      "set_thresholds_and_levels",
+      "define_timing_rules",
+      "values_output",
+      "mql_qualification_criteria_definition"
+    ]
+  },
+  {
+    "task_id": 28,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 自动化判定与触发流转流程；2) 自动化判定；3) 制定标签规则。",
+    "original_prompt": "请按顺序执行以下步骤：1) 自动化判定与触发流转流程 [agent:automated_assessment_and_triggered_handoff_process]；2) 自动化判定 [agent:automated_assessment]；3) 制定标签规则 [agent:define_tag_rules]。",
+    "expected_agents": [
+      "automated_assessment_and_triggered_handoff_process",
+      "automated_assessment",
+      "define_tag_rules"
+    ]
+  },
+  {
+    "task_id": 29,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 价值验证；2) 分层裂变策略设计；3) 设定阈值与等级；4) 目标设定；5) 市场洞察。",
+    "original_prompt": "请按顺序执行以下步骤：1) 价值验证 [agent:value_validation]；2)  分层裂变策略设计 [agent:strat_fission_strat]；3) 设定阈值与等级 [agent:set_thresholds_and_levels]；4)  目标设定 [agent:goal_setting]；5) 市场洞察 [agent:market_insight]。",
+    "expected_agents": [
+      "value_validation",
+      "strat_fission_strat",
+      "set_thresholds_and_levels",
+      "goal_setting",
+      "market_insight"
+    ]
+  },
+  {
+    "task_id": 30,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 市场洞察；2) 执行分级干预措施；3) 根因调查；4) 定义指标与权重；5) 效能监控与路径优化流程；6) 匹配内容与渠道；7) 制定标签规则；8) 目标客户分析。",
+    "original_prompt": "请按顺序执行以下步骤：1) 市场洞察 [agent:market_insight]；2) 执行分级干预措施 [agent:execute_tiered_interventions]；3) 根因调查 [agent:root_cause_investigation]；4) 定义指标与权重 [agent:define_metrics_and_weights]；5) 效能监控与路径优化流程 [agent:performance_monitoring_and_path_optimization_process]；6) 匹配内容与渠道 [agent:match_content_and_channels]；7) 制定标签规则 [agent:define_tag_rules]；8) 目标客户分析 [agent:target_customer_analysis]。",
+    "expected_agents": [
+      "market_insight",
+      "execute_tiered_interventions",
+      "root_cause_investigation",
+      "define_metrics_and_weights",
+      "performance_monitoring_and_path_optimization_process",
+      "match_content_and_channels",
+      "define_tag_rules",
+      "target_customer_analysis"
+    ]
+  },
+  {
+    "task_id": 31,
+    "level": 1,
+    "prompt": "请调用代理 目标设定 完成任务。",
+    "original_prompt": "请调用代理  目标设定 完成任务。[agent:goal_setting]",
+    "expected_agents": [
+      "goal_setting"
+    ]
+  },
+  {
+    "task_id": 32,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 市场洞察；2) 自动化打标与分层；3) 定义培育目标。",
+    "original_prompt": "请按顺序执行以下步骤：1) 市场洞察 [agent:market_insight]；2) 自动化打标与分层 [agent:automated_tagging_and_segmentation]；3) 定义培育目标 [agent:define_nurturing_goals]。",
+    "expected_agents": [
+      "market_insight",
+      "automated_tagging_and_segmentation",
+      "define_nurturing_goals"
+    ]
+  },
+  {
+    "task_id": 33,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 竞品分析*；2) 根因调查；3) 设计验证指标；4) 定义触发事件；5) 系统扫描。",
+    "original_prompt": "请按顺序执行以下步骤：1) 竞品分析* [agent:competitor_analysis]；2) 根因调查 [agent:root_cause_investigation]；3) 设计验证指标 [agent:design_validation_metrics]；4) 定义触发事件 [agent:define_trigger_events]；5) 系统扫描 [agent:system_scanning]。",
+    "expected_agents": [
+      "competitor_analysis",
+      "root_cause_investigation",
+      "design_validation_metrics",
+      "define_trigger_events",
+      "system_scanning"
+    ]
+  },
+  {
+    "task_id": 34,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 规则与系统构建-新增活动中心；2) 竞品分析*；3) 匹配内容与渠道；4) 确定健康度维度；5) 数据采集与整合。",
+    "original_prompt": "请按顺序执行以下步骤：1)  规则与系统构建-新增活动中心 [agent:rules_system_create_active_center]；2) 竞品分析* [agent:competitor_analysis]；3) 匹配内容与渠道 [agent:match_content_and_channels]；4) 确定健康度维度 [agent:determine_health_dimensions]；5) 数据采集与整合 [agent:data_collection_and_integration]。",
+    "expected_agents": [
+      "rules_system_create_active_center",
+      "competitor_analysis",
+      "match_content_and_channels",
+      "determine_health_dimensions",
+      "data_collection_and_integration"
+    ]
+  },
+  {
+    "task_id": 35,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 文案策划；2) 自动化判定；3) 记录干预结果。",
+    "original_prompt": "请按顺序执行以下步骤：1)  文案策划 [agent:copy_planning]；2) 自动化判定 [agent:automated_assessment]；3) 记录干预结果 [agent:record_intervention_results]。",
+    "expected_agents": [
+      "copy_planning",
+      "automated_assessment",
+      "record_intervention_results"
+    ]
+  },
+  {
+    "task_id": 36,
+    "level": 1,
+    "prompt": "请调用代理 设定阈值与等级 完成任务。",
+    "original_prompt": "请调用代理 设定阈值与等级 完成任务。[agent:set_thresholds_and_levels]",
+    "expected_agents": [
+      "set_thresholds_and_levels"
+    ]
+  },
+  {
+    "task_id": 37,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 执行分级干预措施；2) 设计验证指标；3) 确定健康度维度；4) 定义指标与权重；5) 绘制分层画像；6) 用户分层裂变设计；7) 建议定价策略；8) 定制沟通话术与素材。",
+    "original_prompt": "请按顺序执行以下步骤：1) 执行分级干预措施 [agent:execute_tiered_interventions]；2) 设计验证指标 [agent:design_validation_metrics]；3) 确定健康度维度 [agent:determine_health_dimensions]；4) 定义指标与权重 [agent:define_metrics_and_weights]；5)  绘制分层画像 [agent:strat_portraits]；6)  用户分层裂变设计 [agent:user_strat_fission]；7) 建议定价策略 [agent:pricing_strategy_recommendation]；8)  定制沟通话术与素材 [agent:comm_scripts]。",
+    "expected_agents": [
+      "execute_tiered_interventions",
+      "design_validation_metrics",
+      "determine_health_dimensions",
+      "define_metrics_and_weights",
+      "strat_portraits",
+      "user_strat_fission",
+      "pricing_strategy_recommendation",
+      "comm_scripts"
+    ]
+  },
+  {
+    "task_id": 38,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 匹配内容与渠道；2) 裂变机制设计；3) 竞品分析*。",
+    "original_prompt": "请按顺序执行以下步骤：1) 匹配内容与渠道 [agent:match_content_and_channels]；2)  裂变机制设计 [agent:fission_mech_design]；3) 竞品分析* [agent:competitor_analysis]。",
+    "expected_agents": [
+      "match_content_and_channels",
+      "fission_mech_design",
+      "competitor_analysis"
+    ]
+  },
+  {
+    "task_id": 39,
+    "level": 1,
+    "prompt": "请调用代理 私域营销 完成任务。",
+    "original_prompt": "请调用代理  私域营销 完成任务。[agent:private_domain]",
+    "expected_agents": [
+      "private_domain"
+    ]
+  },
+  {
+    "task_id": 40,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 制定沟通策略；2) 执行分级干预措施；3) 制定时机规则。",
+    "original_prompt": "请按顺序执行以下步骤：1) 制定沟通策略 [agent:define_communication_strategy]；2) 执行分级干预措施 [agent:execute_tiered_interventions]；3) 制定时机规则 [agent:define_timing_rules]。",
+    "expected_agents": [
+      "define_communication_strategy",
+      "execute_tiered_interventions",
+      "define_timing_rules"
+    ]
+  },
+  {
+    "task_id": 41,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 匹配裂变玩法；2) 文案策划；3) 自动化监控与预警触发流程；4) 设计分层激励；5) 制定时机规则；6) 定义培育目标；7) 记录干预结果；8) 制定标签规则。",
+    "original_prompt": "请按顺序执行以下步骤：1)  匹配裂变玩法 [agent:fission_game_match]；2)  文案策划 [agent:copy_planning]；3) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]；4)  设计分层激励 [agent:strat_incentives]；5) 制定时机规则 [agent:define_timing_rules]；6) 定义培育目标 [agent:define_nurturing_goals]；7) 记录干预结果 [agent:record_intervention_results]；8) 制定标签规则 [agent:define_tag_rules]。",
+    "expected_agents": [
+      "fission_game_match",
+      "copy_planning",
+      "automated_monitoring_and_alert_trigger_process",
+      "strat_incentives",
+      "define_timing_rules",
+      "define_nurturing_goals",
+      "record_intervention_results",
+      "define_tag_rules"
+    ]
+  },
+  {
+    "task_id": 42,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 价值观输出；2) 多渠道触达；3) 设计分层激励；4) 匹配内容与渠道；5) 目标设定。",
+    "original_prompt": "请按顺序执行以下步骤：1) 价值观输出 [agent:values_output]；2) 多渠道触达 [agent:multi_channel_reach]；3)  设计分层激励 [agent:strat_incentives]；4) 匹配内容与渠道 [agent:match_content_and_channels]；5)  目标设定 [agent:goal_setting]。",
+    "expected_agents": [
+      "values_output",
+      "multi_channel_reach",
+      "strat_incentives",
+      "match_content_and_channels",
+      "goal_setting"
+    ]
+  },
+  {
+    "task_id": 43,
+    "level": 1,
+    "prompt": "请调用代理 私域营销 完成任务。",
+    "original_prompt": "请调用代理  私域营销 完成任务。[agent:private_domain]",
+    "expected_agents": [
+      "private_domain"
+    ]
+  },
+  {
+    "task_id": 44,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 定义触发事件；2) 差异化机会；3) 自动化监控与预警触发流程；4) 设定阈值与等级；5) 匹配内容与渠道。",
+    "original_prompt": "请按顺序执行以下步骤：1) 定义触发事件 [agent:define_trigger_events]；2) 差异化机会 [agent:differentiation_opportunities]；3) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]；4) 设定阈值与等级 [agent:set_thresholds_and_levels]；5) 匹配内容与渠道 [agent:match_content_and_channels]。",
+    "expected_agents": [
+      "define_trigger_events",
+      "differentiation_opportunities",
+      "automated_monitoring_and_alert_trigger_process",
+      "set_thresholds_and_levels",
+      "match_content_and_channels"
+    ]
+  },
+  {
+    "task_id": 45,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 根因调查；2) 定义触发事件；3) 执行分级干预措施；4) 记录干预结果；5) 裂变机制设计；6) 品牌定位；7) 定制沟通话术与素材；8) 系统扫描。",
+    "original_prompt": "请按顺序执行以下步骤：1) 根因调查 [agent:root_cause_investigation]；2) 定义触发事件 [agent:define_trigger_events]；3) 执行分级干预措施 [agent:execute_tiered_interventions]；4) 记录干预结果 [agent:record_intervention_results]；5)  裂变机制设计 [agent:fission_mech_design]；6) 品牌定位 [agent:brand_positioning]；7)  定制沟通话术与素材 [agent:comm_scripts]；8) 系统扫描 [agent:system_scanning]。",
+    "expected_agents": [
+      "root_cause_investigation",
+      "define_trigger_events",
+      "execute_tiered_interventions",
+      "record_intervention_results",
+      "fission_mech_design",
+      "brand_positioning",
+      "comm_scripts",
+      "system_scanning"
+    ]
+  },
+  {
+    "task_id": 46,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 匹配裂变玩法；2) 定义培育目标；3) 机会分配；4) 绘制分层画像；5) 多渠道触达。",
+    "original_prompt": "请按顺序执行以下步骤：1)  匹配裂变玩法 [agent:fission_game_match]；2) 定义培育目标 [agent:define_nurturing_goals]；3) 机会分配 [agent:opportunity_allocation]；4)  绘制分层画像 [agent:strat_portraits]；5) 多渠道触达 [agent:multi_channel_reach]。",
+    "expected_agents": [
+      "fission_game_match",
+      "define_nurturing_goals",
+      "opportunity_allocation",
+      "strat_portraits",
+      "multi_channel_reach"
+    ]
+  },
+  {
+    "task_id": 47,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 私域营销；2) 自动化监控与预警触发流程；3) 定义标签维度。",
+    "original_prompt": "请按顺序执行以下步骤：1)  私域营销 [agent:private_domain]；2) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]；3) 定义标签维度 [agent:define_tag_dimensions]。",
+    "expected_agents": [
+      "private_domain",
+      "automated_monitoring_and_alert_trigger_process",
+      "define_tag_dimensions"
+    ]
+  },
+  {
+    "task_id": 48,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 制定时机规则；2) 分层裂变策略设计；3) 制定标签规则；4) 根因调查；5) 建议定价策略。",
+    "original_prompt": "请按顺序执行以下步骤：1) 制定时机规则 [agent:define_timing_rules]；2)  分层裂变策略设计 [agent:strat_fission_strat]；3) 制定标签规则 [agent:define_tag_rules]；4) 根因调查 [agent:root_cause_investigation]；5) 建议定价策略 [agent:pricing_strategy_recommendation]。",
+    "expected_agents": [
+      "define_timing_rules",
+      "strat_fission_strat",
+      "define_tag_rules",
+      "root_cause_investigation",
+      "pricing_strategy_recommendation"
+    ]
+  },
+  {
+    "task_id": 49,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 定义机会规则；2) 竞品分析*；3) MQL判定标准制定；4) 文案策划；5) 定义触发事件；6) 定义标签维度；7) 市场洞察；8) 设定阈值与等级。",
+    "original_prompt": "请按顺序执行以下步骤：1) 定义机会规则 [agent:define_opportunity_rules]；2) 竞品分析* [agent:competitor_analysis]；3) MQL判定标准制定 [agent:mql_qualification_criteria_definition]；4)  文案策划 [agent:copy_planning]；5) 定义触发事件 [agent:define_trigger_events]；6) 定义标签维度 [agent:define_tag_dimensions]；7) 市场洞察 [agent:market_insight]；8) 设定阈值与等级 [agent:set_thresholds_and_levels]。",
+    "expected_agents": [
+      "define_opportunity_rules",
+      "competitor_analysis",
+      "mql_qualification_criteria_definition",
+      "copy_planning",
+      "define_trigger_events",
+      "define_tag_dimensions",
+      "market_insight",
+      "set_thresholds_and_levels"
+    ]
+  },
+  {
+    "task_id": 50,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 目标客户分析；2) 机会分配；3) 记录干预结果；4) 分层裂变策略设计；5) 销售反馈与闭环优化流程。",
+    "original_prompt": "请按顺序执行以下步骤：1) 目标客户分析 [agent:target_customer_analysis]；2) 机会分配 [agent:opportunity_allocation]；3) 记录干预结果 [agent:record_intervention_results]；4)  分层裂变策略设计 [agent:strat_fission_strat]；5) 销售反馈与闭环优化流程 [agent:sales_feedback_and_closed_loop_optimization_process]。",
+    "expected_agents": [
+      "target_customer_analysis",
+      "opportunity_allocation",
+      "record_intervention_results",
+      "strat_fission_strat",
+      "sales_feedback_and_closed_loop_optimization_process"
+    ]
+  },
+  {
+    "task_id": 51,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 规则与系统构建-新增活动中心；2) 市场洞察；3) 自动化监控与预警触发流程；4) 绘制培育路径蓝图；5) 竞品分析*；6) 文案策划；7) 目标设定；8) 匹配内容与渠道。",
+    "original_prompt": "请按顺序执行以下步骤：1)  规则与系统构建-新增活动中心 [agent:rules_system_create_active_center]；2) 市场洞察 [agent:market_insight]；3) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]；4) 绘制培育路径蓝图 [agent:draw_nurturing_path_blueprint]；5) 竞品分析* [agent:competitor_analysis]；6)  文案策划 [agent:copy_planning]；7)  目标设定 [agent:goal_setting]；8) 匹配内容与渠道 [agent:match_content_and_channels]。",
+    "expected_agents": [
+      "rules_system_create_active_center",
+      "market_insight",
+      "automated_monitoring_and_alert_trigger_process",
+      "draw_nurturing_path_blueprint",
+      "competitor_analysis",
+      "copy_planning",
+      "goal_setting",
+      "match_content_and_channels"
+    ]
+  },
+  {
+    "task_id": 52,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 效能监控与路径优化流程；2) 制定标签规则；3) 价值观输出；4) 价值验证；5) 定义机会规则。",
+    "original_prompt": "请按顺序执行以下步骤：1) 效能监控与路径优化流程 [agent:performance_monitoring_and_path_optimization_process]；2) 制定标签规则 [agent:define_tag_rules]；3) 价值观输出 [agent:values_output]；4) 价值验证 [agent:value_validation]；5) 定义机会规则 [agent:define_opportunity_rules]。",
+    "expected_agents": [
+      "performance_monitoring_and_path_optimization_process",
+      "define_tag_rules",
+      "values_output",
+      "value_validation",
+      "define_opportunity_rules"
+    ]
+  },
+  {
+    "task_id": 53,
+    "level": 1,
+    "prompt": "请调用代理 目标客户分析 完成任务。",
+    "original_prompt": "请调用代理 目标客户分析 完成任务。[agent:target_customer_analysis]",
+    "expected_agents": [
+      "target_customer_analysis"
+    ]
+  },
+  {
+    "task_id": 54,
+    "level": 1,
+    "prompt": "请调用代理 机会分配 完成任务。",
+    "original_prompt": "请调用代理 机会分配 完成任务。[agent:opportunity_allocation]",
+    "expected_agents": [
+      "opportunity_allocation"
+    ]
+  },
+  {
+    "task_id": 55,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 定义标签维度；2) 文案策划；3) 竞品分析*；4) 市场洞察；5) 机会分配；6) 自动化判定；7) 目标客户分析；8) 系统扫描。",
+    "original_prompt": "请按顺序执行以下步骤：1) 定义标签维度 [agent:define_tag_dimensions]；2)  文案策划 [agent:copy_planning]；3) 竞品分析* [agent:competitor_analysis]；4) 市场洞察 [agent:market_insight]；5) 机会分配 [agent:opportunity_allocation]；6) 自动化判定 [agent:automated_assessment]；7) 目标客户分析 [agent:target_customer_analysis]；8) 系统扫描 [agent:system_scanning]。",
+    "expected_agents": [
+      "define_tag_dimensions",
+      "copy_planning",
+      "competitor_analysis",
+      "market_insight",
+      "opportunity_allocation",
+      "automated_assessment",
+      "target_customer_analysis",
+      "system_scanning"
+    ]
+  },
+  {
+    "task_id": 56,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 品牌故事；2) 用户分层裂变设计；3) 自动化打标与分层；4) 分层裂变策略设计；5) 裂变机制设计。",
+    "original_prompt": "请按顺序执行以下步骤：1) 品牌故事 [agent:brand_story]；2)  用户分层裂变设计 [agent:user_strat_fission]；3) 自动化打标与分层 [agent:automated_tagging_and_segmentation]；4)  分层裂变策略设计 [agent:strat_fission_strat]；5)  裂变机制设计 [agent:fission_mech_design]。",
+    "expected_agents": [
+      "brand_story",
+      "user_strat_fission",
+      "automated_tagging_and_segmentation",
+      "strat_fission_strat",
+      "fission_mech_design"
+    ]
+  },
+  {
+    "task_id": 57,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 市场洞察；2) 价值验证；3) 制定标签规则；4) 设定阈值与等级；5) 目标设定。",
+    "original_prompt": "请按顺序执行以下步骤：1) 市场洞察 [agent:market_insight]；2) 价值验证 [agent:value_validation]；3) 制定标签规则 [agent:define_tag_rules]；4) 设定阈值与等级 [agent:set_thresholds_and_levels]；5)  目标设定 [agent:goal_setting]。",
+    "expected_agents": [
+      "market_insight",
+      "value_validation",
+      "define_tag_rules",
+      "set_thresholds_and_levels",
+      "goal_setting"
+    ]
+  },
+  {
+    "task_id": 58,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 定义指标与权重；2) 规则与系统构建-新增活动中心；3) 记录干预结果；4) 效能监控与路径优化流程；5) 价值验证。",
+    "original_prompt": "请按顺序执行以下步骤：1) 定义指标与权重 [agent:define_metrics_and_weights]；2)  规则与系统构建-新增活动中心 [agent:rules_system_create_active_center]；3) 记录干预结果 [agent:record_intervention_results]；4) 效能监控与路径优化流程 [agent:performance_monitoring_and_path_optimization_process]；5) 价值验证 [agent:value_validation]。",
+    "expected_agents": [
+      "define_metrics_and_weights",
+      "rules_system_create_active_center",
+      "record_intervention_results",
+      "performance_monitoring_and_path_optimization_process",
+      "value_validation"
+    ]
+  },
+  {
+    "task_id": 59,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 市场洞察；2) 价值观输出；3) 自动化判定与触发流转流程；4) 制定沟通策略；5) 定义指标与权重。",
+    "original_prompt": "请按顺序执行以下步骤：1) 市场洞察 [agent:market_insight]；2) 价值观输出 [agent:values_output]；3) 自动化判定与触发流转流程 [agent:automated_assessment_and_triggered_handoff_process]；4) 制定沟通策略 [agent:define_communication_strategy]；5) 定义指标与权重 [agent:define_metrics_and_weights]。",
+    "expected_agents": [
+      "market_insight",
+      "values_output",
+      "automated_assessment_and_triggered_handoff_process",
+      "define_communication_strategy",
+      "define_metrics_and_weights"
+    ]
+  },
+  {
+    "task_id": 60,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 绘制分层画像；2) 销售反馈与闭环优化流程；3) 规则与系统构建-新增活动中心；4) 竞品分析*；5) 匹配内容与渠道；6) 多渠道触达；7) 定义培育目标；8) 机会分配。",
+    "original_prompt": "请按顺序执行以下步骤：1)  绘制分层画像 [agent:strat_portraits]；2) 销售反馈与闭环优化流程 [agent:sales_feedback_and_closed_loop_optimization_process]；3)  规则与系统构建-新增活动中心 [agent:rules_system_create_active_center]；4) 竞品分析* [agent:competitor_analysis]；5) 匹配内容与渠道 [agent:match_content_and_channels]；6) 多渠道触达 [agent:multi_channel_reach]；7) 定义培育目标 [agent:define_nurturing_goals]；8) 机会分配 [agent:opportunity_allocation]。",
+    "expected_agents": [
+      "strat_portraits",
+      "sales_feedback_and_closed_loop_optimization_process",
+      "rules_system_create_active_center",
+      "competitor_analysis",
+      "match_content_and_channels",
+      "multi_channel_reach",
+      "define_nurturing_goals",
+      "opportunity_allocation"
+    ]
+  },
+  {
+    "task_id": 61,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 效能监控与路径优化流程；2) 分层裂变策略设计；3) 规则与系统构建-新增活动中心；4) 多渠道触达；5) 品牌定位；6) 根因调查；7) 文案策划；8) 竞品分析*。",
+    "original_prompt": "请按顺序执行以下步骤：1) 效能监控与路径优化流程 [agent:performance_monitoring_and_path_optimization_process]；2)  分层裂变策略设计 [agent:strat_fission_strat]；3)  规则与系统构建-新增活动中心 [agent:rules_system_create_active_center]；4) 多渠道触达 [agent:multi_channel_reach]；5) 品牌定位 [agent:brand_positioning]；6) 根因调查 [agent:root_cause_investigation]；7)  文案策划 [agent:copy_planning]；8) 竞品分析* [agent:competitor_analysis]。",
+    "expected_agents": [
+      "performance_monitoring_and_path_optimization_process",
+      "strat_fission_strat",
+      "rules_system_create_active_center",
+      "multi_channel_reach",
+      "brand_positioning",
+      "root_cause_investigation",
+      "copy_planning",
+      "competitor_analysis"
+    ]
+  },
+  {
+    "task_id": 62,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 裂变机制设计；2) 效能监控与路径优化流程；3) 定义机会规则。",
+    "original_prompt": "请按顺序执行以下步骤：1)  裂变机制设计 [agent:fission_mech_design]；2) 效能监控与路径优化流程 [agent:performance_monitoring_and_path_optimization_process]；3) 定义机会规则 [agent:define_opportunity_rules]。",
+    "expected_agents": [
+      "fission_mech_design",
+      "performance_monitoring_and_path_optimization_process",
+      "define_opportunity_rules"
+    ]
+  },
+  {
+    "task_id": 63,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 建议定价策略；2) 价值观输出；3) 核心卖点提炼。",
+    "original_prompt": "请按顺序执行以下步骤：1) 建议定价策略 [agent:pricing_strategy_recommendation]；2) 价值观输出 [agent:values_output]；3) 核心卖点提炼 [agent:core_selling_point_refinement]。",
+    "expected_agents": [
+      "pricing_strategy_recommendation",
+      "values_output",
+      "core_selling_point_refinement"
+    ]
+  },
+  {
+    "task_id": 64,
+    "level": 1,
+    "prompt": "请调用代理 定制沟通话术与素材 完成任务。",
+    "original_prompt": "请调用代理  定制沟通话术与素材 完成任务。[agent:comm_scripts]",
+    "expected_agents": [
+      "comm_scripts"
+    ]
+  },
+  {
+    "task_id": 65,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 多渠道触达；2) 设定阈值与等级；3) 匹配裂变玩法。",
+    "original_prompt": "请按顺序执行以下步骤：1) 多渠道触达 [agent:multi_channel_reach]；2) 设定阈值与等级 [agent:set_thresholds_and_levels]；3)  匹配裂变玩法 [agent:fission_game_match]。",
+    "expected_agents": [
+      "multi_channel_reach",
+      "set_thresholds_and_levels",
+      "fission_game_match"
+    ]
+  },
+  {
+    "task_id": 66,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 机会分配；2) MQL判定标准制定；3) 制定时机规则。",
+    "original_prompt": "请按顺序执行以下步骤：1) 机会分配 [agent:opportunity_allocation]；2) MQL判定标准制定 [agent:mql_qualification_criteria_definition]；3) 制定时机规则 [agent:define_timing_rules]。",
+    "expected_agents": [
+      "opportunity_allocation",
+      "mql_qualification_criteria_definition",
+      "define_timing_rules"
+    ]
+  },
+  {
+    "task_id": 67,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 绘制分层画像；2) 多渠道触达；3) 销售反馈与闭环优化流程。",
+    "original_prompt": "请按顺序执行以下步骤：1)  绘制分层画像 [agent:strat_portraits]；2) 多渠道触达 [agent:multi_channel_reach]；3) 销售反馈与闭环优化流程 [agent:sales_feedback_and_closed_loop_optimization_process]。",
+    "expected_agents": [
+      "strat_portraits",
+      "multi_channel_reach",
+      "sales_feedback_and_closed_loop_optimization_process"
+    ]
+  },
+  {
+    "task_id": 68,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 执行分级干预措施；2) 自动化打标与分层；3) 规则与系统构建-新增活动中心；4) 分层裂变策略设计；5) 建议定价策略。",
+    "original_prompt": "请按顺序执行以下步骤：1) 执行分级干预措施 [agent:execute_tiered_interventions]；2) 自动化打标与分层 [agent:automated_tagging_and_segmentation]；3)  规则与系统构建-新增活动中心 [agent:rules_system_create_active_center]；4)  分层裂变策略设计 [agent:strat_fission_strat]；5) 建议定价策略 [agent:pricing_strategy_recommendation]。",
+    "expected_agents": [
+      "execute_tiered_interventions",
+      "automated_tagging_and_segmentation",
+      "rules_system_create_active_center",
+      "strat_fission_strat",
+      "pricing_strategy_recommendation"
+    ]
+  },
+  {
+    "task_id": 69,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 制定时机规则；2) 品牌故事；3) 核心卖点提炼。",
+    "original_prompt": "请按顺序执行以下步骤：1) 制定时机规则 [agent:define_timing_rules]；2) 品牌故事 [agent:brand_story]；3) 核心卖点提炼 [agent:core_selling_point_refinement]。",
+    "expected_agents": [
+      "define_timing_rules",
+      "brand_story",
+      "core_selling_point_refinement"
+    ]
+  },
+  {
+    "task_id": 70,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 品牌故事；2) 自动化判定与触发流转流程；3) 绘制分层画像。",
+    "original_prompt": "请按顺序执行以下步骤：1) 品牌故事 [agent:brand_story]；2) 自动化判定与触发流转流程 [agent:automated_assessment_and_triggered_handoff_process]；3)  绘制分层画像 [agent:strat_portraits]。",
+    "expected_agents": [
+      "brand_story",
+      "automated_assessment_and_triggered_handoff_process",
+      "strat_portraits"
+    ]
+  },
+  {
+    "task_id": 71,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 定义触发事件；2) 匹配内容与渠道；3) 定义机会规则；4) 目标设定；5) 市场洞察；6) 价值观输出；7) 绘制培育路径蓝图；8) 多渠道触达。",
+    "original_prompt": "请按顺序执行以下步骤：1) 定义触发事件 [agent:define_trigger_events]；2) 匹配内容与渠道 [agent:match_content_and_channels]；3) 定义机会规则 [agent:define_opportunity_rules]；4)  目标设定 [agent:goal_setting]；5) 市场洞察 [agent:market_insight]；6) 价值观输出 [agent:values_output]；7) 绘制培育路径蓝图 [agent:draw_nurturing_path_blueprint]；8) 多渠道触达 [agent:multi_channel_reach]。",
+    "expected_agents": [
+      "define_trigger_events",
+      "match_content_and_channels",
+      "define_opportunity_rules",
+      "goal_setting",
+      "market_insight",
+      "values_output",
+      "draw_nurturing_path_blueprint",
+      "multi_channel_reach"
+    ]
+  },
+  {
+    "task_id": 72,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 数据采集与整合；2) 分层裂变策略设计；3) 记录干预结果；4) 竞品分析*；5) 目标客户分析；6) 定义触发事件；7) 定义机会规则；8) 匹配裂变玩法。",
+    "original_prompt": "请按顺序执行以下步骤：1) 数据采集与整合 [agent:data_collection_and_integration]；2)  分层裂变策略设计 [agent:strat_fission_strat]；3) 记录干预结果 [agent:record_intervention_results]；4) 竞品分析* [agent:competitor_analysis]；5) 目标客户分析 [agent:target_customer_analysis]；6) 定义触发事件 [agent:define_trigger_events]；7) 定义机会规则 [agent:define_opportunity_rules]；8)  匹配裂变玩法 [agent:fission_game_match]。",
+    "expected_agents": [
+      "data_collection_and_integration",
+      "strat_fission_strat",
+      "record_intervention_results",
+      "competitor_analysis",
+      "target_customer_analysis",
+      "define_trigger_events",
+      "define_opportunity_rules",
+      "fission_game_match"
+    ]
+  },
+  {
+    "task_id": 73,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 自动化打标与分层；2) 目标设定；3) 确定健康度维度；4) 价值验证；5) 定制沟通话术与素材。",
+    "original_prompt": "请按顺序执行以下步骤：1) 自动化打标与分层 [agent:automated_tagging_and_segmentation]；2)  目标设定 [agent:goal_setting]；3) 确定健康度维度 [agent:determine_health_dimensions]；4) 价值验证 [agent:value_validation]；5)  定制沟通话术与素材 [agent:comm_scripts]。",
+    "expected_agents": [
+      "automated_tagging_and_segmentation",
+      "goal_setting",
+      "determine_health_dimensions",
+      "value_validation",
+      "comm_scripts"
+    ]
+  },
+  {
+    "task_id": 74,
+    "level": 1,
+    "prompt": "请调用代理 定制沟通话术与素材 完成任务。",
+    "original_prompt": "请调用代理  定制沟通话术与素材 完成任务。[agent:comm_scripts]",
+    "expected_agents": [
+      "comm_scripts"
+    ]
+  },
+  {
+    "task_id": 75,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 定义触发事件；2) 绘制分层画像；3) 系统扫描；4) 价值验证；5) 设计验证指标；6) 制定标签规则；7) 定义机会规则；8) 用户分层裂变设计。",
+    "original_prompt": "请按顺序执行以下步骤：1) 定义触发事件 [agent:define_trigger_events]；2)  绘制分层画像 [agent:strat_portraits]；3) 系统扫描 [agent:system_scanning]；4) 价值验证 [agent:value_validation]；5) 设计验证指标 [agent:design_validation_metrics]；6) 制定标签规则 [agent:define_tag_rules]；7) 定义机会规则 [agent:define_opportunity_rules]；8)  用户分层裂变设计 [agent:user_strat_fission]。",
+    "expected_agents": [
+      "define_trigger_events",
+      "strat_portraits",
+      "system_scanning",
+      "value_validation",
+      "design_validation_metrics",
+      "define_tag_rules",
+      "define_opportunity_rules",
+      "user_strat_fission"
+    ]
+  },
+  {
+    "task_id": 76,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) MQL判定标准制定；2) 私域营销；3) 执行分级干预措施；4) 自动化监控与预警触发流程；5) 自动化打标与分层。",
+    "original_prompt": "请按顺序执行以下步骤：1) MQL判定标准制定 [agent:mql_qualification_criteria_definition]；2)  私域营销 [agent:private_domain]；3) 执行分级干预措施 [agent:execute_tiered_interventions]；4) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]；5) 自动化打标与分层 [agent:automated_tagging_and_segmentation]。",
+    "expected_agents": [
+      "mql_qualification_criteria_definition",
+      "private_domain",
+      "execute_tiered_interventions",
+      "automated_monitoring_and_alert_trigger_process",
+      "automated_tagging_and_segmentation"
+    ]
+  },
+  {
+    "task_id": 77,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 自动化监控与预警触发流程；2) 自动化打标与分层；3) 目标客户分析。",
+    "original_prompt": "请按顺序执行以下步骤：1) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]；2) 自动化打标与分层 [agent:automated_tagging_and_segmentation]；3) 目标客户分析 [agent:target_customer_analysis]。",
+    "expected_agents": [
+      "automated_monitoring_and_alert_trigger_process",
+      "automated_tagging_and_segmentation",
+      "target_customer_analysis"
+    ]
+  },
+  {
+    "task_id": 78,
+    "level": 1,
+    "prompt": "请调用代理 制定时机规则 完成任务。",
+    "original_prompt": "请调用代理 制定时机规则 完成任务。[agent:define_timing_rules]",
+    "expected_agents": [
+      "define_timing_rules"
+    ]
+  },
+  {
+    "task_id": 79,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 设计验证指标；2) 自动化监控与预警触发流程；3) 绘制分层画像；4) 匹配内容与渠道；5) 定义指标与权重。",
+    "original_prompt": "请按顺序执行以下步骤：1) 设计验证指标 [agent:design_validation_metrics]；2) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]；3)  绘制分层画像 [agent:strat_portraits]；4) 匹配内容与渠道 [agent:match_content_and_channels]；5) 定义指标与权重 [agent:define_metrics_and_weights]。",
+    "expected_agents": [
+      "design_validation_metrics",
+      "automated_monitoring_and_alert_trigger_process",
+      "strat_portraits",
+      "match_content_and_channels",
+      "define_metrics_and_weights"
+    ]
+  },
+  {
+    "task_id": 80,
+    "level": 1,
+    "prompt": "请调用代理 制定标签规则 完成任务。",
+    "original_prompt": "请调用代理 制定标签规则 完成任务。[agent:define_tag_rules]",
+    "expected_agents": [
+      "define_tag_rules"
+    ]
+  },
+  {
+    "task_id": 81,
+    "level": 1,
+    "prompt": "请调用代理 文案策划 完成任务。",
+    "original_prompt": "请调用代理  文案策划 完成任务。[agent:copy_planning]",
+    "expected_agents": [
+      "copy_planning"
+    ]
+  },
+  {
+    "task_id": 82,
+    "level": 1,
+    "prompt": "请调用代理 执行分级干预措施 完成任务。",
+    "original_prompt": "请调用代理 执行分级干预措施 完成任务。[agent:execute_tiered_interventions]",
+    "expected_agents": [
+      "execute_tiered_interventions"
+    ]
+  },
+  {
+    "task_id": 83,
+    "level": 1,
+    "prompt": "请调用代理 匹配裂变玩法 完成任务。",
+    "original_prompt": "请调用代理  匹配裂变玩法 完成任务。[agent:fission_game_match]",
+    "expected_agents": [
+      "fission_game_match"
+    ]
+  },
+  {
+    "task_id": 84,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 核心卖点提炼；2) 定义标签维度；3) 建议定价策略；4) 绘制培育路径蓝图；5) 定义机会规则。",
+    "original_prompt": "请按顺序执行以下步骤：1) 核心卖点提炼 [agent:core_selling_point_refinement]；2) 定义标签维度 [agent:define_tag_dimensions]；3) 建议定价策略 [agent:pricing_strategy_recommendation]；4) 绘制培育路径蓝图 [agent:draw_nurturing_path_blueprint]；5) 定义机会规则 [agent:define_opportunity_rules]。",
+    "expected_agents": [
+      "core_selling_point_refinement",
+      "define_tag_dimensions",
+      "pricing_strategy_recommendation",
+      "draw_nurturing_path_blueprint",
+      "define_opportunity_rules"
+    ]
+  },
+  {
+    "task_id": 85,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 设定阈值与等级；2) 制定标签规则；3) 确定健康度维度；4) 匹配内容与渠道；5) 目标设定；6) 自动化判定；7) 分层裂变策略设计；8) 定义触发事件。",
+    "original_prompt": "请按顺序执行以下步骤：1) 设定阈值与等级 [agent:set_thresholds_and_levels]；2) 制定标签规则 [agent:define_tag_rules]；3) 确定健康度维度 [agent:determine_health_dimensions]；4) 匹配内容与渠道 [agent:match_content_and_channels]；5)  目标设定 [agent:goal_setting]；6) 自动化判定 [agent:automated_assessment]；7)  分层裂变策略设计 [agent:strat_fission_strat]；8) 定义触发事件 [agent:define_trigger_events]。",
+    "expected_agents": [
+      "set_thresholds_and_levels",
+      "define_tag_rules",
+      "determine_health_dimensions",
+      "match_content_and_channels",
+      "goal_setting",
+      "automated_assessment",
+      "strat_fission_strat",
+      "define_trigger_events"
+    ]
+  },
+  {
+    "task_id": 86,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 记录干预结果；2) 机会分配；3) 制定标签规则；4) 设定阈值与等级；5) 竞品分析*。",
+    "original_prompt": "请按顺序执行以下步骤：1) 记录干预结果 [agent:record_intervention_results]；2) 机会分配 [agent:opportunity_allocation]；3) 制定标签规则 [agent:define_tag_rules]；4) 设定阈值与等级 [agent:set_thresholds_and_levels]；5) 竞品分析* [agent:competitor_analysis]。",
+    "expected_agents": [
+      "record_intervention_results",
+      "opportunity_allocation",
+      "define_tag_rules",
+      "set_thresholds_and_levels",
+      "competitor_analysis"
+    ]
+  },
+  {
+    "task_id": 87,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 用户分层裂变设计；2) 匹配裂变玩法；3) 设计分层激励；4) 品牌故事；5) 绘制分层画像。",
+    "original_prompt": "请按顺序执行以下步骤：1)  用户分层裂变设计 [agent:user_strat_fission]；2)  匹配裂变玩法 [agent:fission_game_match]；3)  设计分层激励 [agent:strat_incentives]；4) 品牌故事 [agent:brand_story]；5)  绘制分层画像 [agent:strat_portraits]。",
+    "expected_agents": [
+      "user_strat_fission",
+      "fission_game_match",
+      "strat_incentives",
+      "brand_story",
+      "strat_portraits"
+    ]
+  },
+  {
+    "task_id": 88,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 自动化打标与分层；2) 确定健康度维度；3) 记录干预结果。",
+    "original_prompt": "请按顺序执行以下步骤：1) 自动化打标与分层 [agent:automated_tagging_and_segmentation]；2) 确定健康度维度 [agent:determine_health_dimensions]；3) 记录干预结果 [agent:record_intervention_results]。",
+    "expected_agents": [
+      "automated_tagging_and_segmentation",
+      "determine_health_dimensions",
+      "record_intervention_results"
+    ]
+  },
+  {
+    "task_id": 89,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 定义培育目标；2) 品牌故事；3) 品牌定位。",
+    "original_prompt": "请按顺序执行以下步骤：1) 定义培育目标 [agent:define_nurturing_goals]；2) 品牌故事 [agent:brand_story]；3) 品牌定位 [agent:brand_positioning]。",
+    "expected_agents": [
+      "define_nurturing_goals",
+      "brand_story",
+      "brand_positioning"
+    ]
+  },
+  {
+    "task_id": 90,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 自动化判定与触发流转流程；2) 定义培育目标；3) 绘制分层画像；4) 制定沟通策略；5) 设定阈值与等级；6) 绘制培育路径蓝图；7) 品牌定位；8) 定义指标与权重。",
+    "original_prompt": "请按顺序执行以下步骤：1) 自动化判定与触发流转流程 [agent:automated_assessment_and_triggered_handoff_process]；2) 定义培育目标 [agent:define_nurturing_goals]；3)  绘制分层画像 [agent:strat_portraits]；4) 制定沟通策略 [agent:define_communication_strategy]；5) 设定阈值与等级 [agent:set_thresholds_and_levels]；6) 绘制培育路径蓝图 [agent:draw_nurturing_path_blueprint]；7) 品牌定位 [agent:brand_positioning]；8) 定义指标与权重 [agent:define_metrics_and_weights]。",
+    "expected_agents": [
+      "automated_assessment_and_triggered_handoff_process",
+      "define_nurturing_goals",
+      "strat_portraits",
+      "define_communication_strategy",
+      "set_thresholds_and_levels",
+      "draw_nurturing_path_blueprint",
+      "brand_positioning",
+      "define_metrics_and_weights"
+    ]
+  },
+  {
+    "task_id": 91,
+    "level": 1,
+    "prompt": "请调用代理 裂变机制设计 完成任务。",
+    "original_prompt": "请调用代理  裂变机制设计 完成任务。[agent:fission_mech_design]",
+    "expected_agents": [
+      "fission_mech_design"
+    ]
+  },
+  {
+    "task_id": 92,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 目标客户分析；2) 价值观输出；3) 分层裂变策略设计。",
+    "original_prompt": "请按顺序执行以下步骤：1) 目标客户分析 [agent:target_customer_analysis]；2) 价值观输出 [agent:values_output]；3)  分层裂变策略设计 [agent:strat_fission_strat]。",
+    "expected_agents": [
+      "target_customer_analysis",
+      "values_output",
+      "strat_fission_strat"
+    ]
+  },
+  {
+    "task_id": 93,
+    "level": 1,
+    "prompt": "请调用代理 品牌故事 完成任务。",
+    "original_prompt": "请调用代理 品牌故事 完成任务。[agent:brand_story]",
+    "expected_agents": [
+      "brand_story"
+    ]
+  },
+  {
+    "task_id": 94,
+    "level": 1,
+    "prompt": "请调用代理 定义触发事件 完成任务。",
+    "original_prompt": "请调用代理 定义触发事件 完成任务。[agent:define_trigger_events]",
+    "expected_agents": [
+      "define_trigger_events"
+    ]
+  },
+  {
+    "task_id": 95,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 建议定价策略；2) 分层裂变策略设计；3) 裂变机制设计。",
+    "original_prompt": "请按顺序执行以下步骤：1) 建议定价策略 [agent:pricing_strategy_recommendation]；2)  分层裂变策略设计 [agent:strat_fission_strat]；3)  裂变机制设计 [agent:fission_mech_design]。",
+    "expected_agents": [
+      "pricing_strategy_recommendation",
+      "strat_fission_strat",
+      "fission_mech_design"
+    ]
+  },
+  {
+    "task_id": 96,
+    "level": 5,
+    "prompt": "请按顺序执行以下步骤：1) 差异化机会；2) 执行分级干预措施；3) 机会分配；4) 定义机会规则；5) 自动化判定与触发流转流程。",
+    "original_prompt": "请按顺序执行以下步骤：1) 差异化机会 [agent:differentiation_opportunities]；2) 执行分级干预措施 [agent:execute_tiered_interventions]；3) 机会分配 [agent:opportunity_allocation]；4) 定义机会规则 [agent:define_opportunity_rules]；5) 自动化判定与触发流转流程 [agent:automated_assessment_and_triggered_handoff_process]。",
+    "expected_agents": [
+      "differentiation_opportunities",
+      "execute_tiered_interventions",
+      "opportunity_allocation",
+      "define_opportunity_rules",
+      "automated_assessment_and_triggered_handoff_process"
+    ]
+  },
+  {
+    "task_id": 97,
+    "level": 8,
+    "prompt": "请按顺序执行以下步骤：1) 多渠道触达；2) 竞品分析*；3) 用户分层裂变设计；4) 目标客户分析；5) 价值观输出；6) 核心卖点提炼；7) 文案策划；8) 建议定价策略。",
+    "original_prompt": "请按顺序执行以下步骤：1) 多渠道触达 [agent:multi_channel_reach]；2) 竞品分析* [agent:competitor_analysis]；3)  用户分层裂变设计 [agent:user_strat_fission]；4) 目标客户分析 [agent:target_customer_analysis]；5) 价值观输出 [agent:values_output]；6) 核心卖点提炼 [agent:core_selling_point_refinement]；7)  文案策划 [agent:copy_planning]；8) 建议定价策略 [agent:pricing_strategy_recommendation]。",
+    "expected_agents": [
+      "multi_channel_reach",
+      "competitor_analysis",
+      "user_strat_fission",
+      "target_customer_analysis",
+      "values_output",
+      "core_selling_point_refinement",
+      "copy_planning",
+      "pricing_strategy_recommendation"
+    ]
+  },
+  {
+    "task_id": 98,
+    "level": 1,
+    "prompt": "请调用代理 差异化机会 完成任务。",
+    "original_prompt": "请调用代理 差异化机会 完成任务。[agent:differentiation_opportunities]",
+    "expected_agents": [
+      "differentiation_opportunities"
+    ]
+  },
+  {
+    "task_id": 99,
+    "level": 1,
+    "prompt": "请调用代理 自动化打标与分层 完成任务。",
+    "original_prompt": "请调用代理 自动化打标与分层 完成任务。[agent:automated_tagging_and_segmentation]",
+    "expected_agents": [
+      "automated_tagging_and_segmentation"
+    ]
+  },
+  {
+    "task_id": 100,
+    "level": 3,
+    "prompt": "请按顺序执行以下步骤：1) 销售反馈与闭环优化流程；2) 定制沟通话术与素材；3) 自动化监控与预警触发流程。",
+    "original_prompt": "请按顺序执行以下步骤：1) 销售反馈与闭环优化流程 [agent:sales_feedback_and_closed_loop_optimization_process]；2)  定制沟通话术与素材 [agent:comm_scripts]；3) 自动化监控与预警触发流程 [agent:automated_monitoring_and_alert_trigger_process]。",
+    "expected_agents": [
+      "sales_feedback_and_closed_loop_optimization_process",
+      "comm_scripts",
+      "automated_monitoring_and_alert_trigger_process"
+    ]
+  }
+]

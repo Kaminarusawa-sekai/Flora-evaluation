@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(pip3 install:*)",
+      "Bash(xargs:*)",
+      "Bash(TZ='Asia/Shanghai' date:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(python:*)",
+      "Bash(column -t -s',' __NEW_LINE_98d788f85fa1b9ca__ echo \"\" echo \"=== DETAILED RESULTS \\(first 5 rows\\) ===\")",
+      "Bash(__NEW_LINE_af85ebffbbec3faa__ echo \"\")",
+      "Bash(tee:*)",
+      "Bash(tree:*)"
+    ]
+  }
+}

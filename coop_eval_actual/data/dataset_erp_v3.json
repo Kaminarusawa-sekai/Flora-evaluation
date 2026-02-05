@@ -1,0 +1,765 @@
+[
+  {
+    "task_id": 4,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 2,
+    "prompt": "\"我需要查看我们不同仓库之间的库存调拨情况，同时了解一下各个仓库的布局以及拣货路径，请帮我获取相关信息。\"",
+    "prompt_brief": "看看仓库调拨和布局",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order_page",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_page"
+    ]
+  },
+  {
+    "task_id": 5,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 2,
+    "prompt": "\"我们需要为新引进的一系列产品生成唯一的SKU编码，并且希望能够导出包含这些产品单位信息的Excel文件以便于后续管理。\"",
+    "prompt_brief": "给新产品生成SKU",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__sku_code_management",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_unit_excel"
+    ]
+  },
+  {
+    "task_id": 11,
+    "level": 1,
+    "systems": [
+      "erp_procurement_system"
+    ],
+    "num_agents": 3,
+    "prompt": "我们公司准备对供应商进行季度评估，请先获取供应商名单，然后查看他们的准时交货率数据。另外，我还需要导出最近的采购退货记录以便分析供应商的质量问题。",
+    "prompt_brief": "季度供应商评估",
+    "expected_agents": [
+      "erp_procurement_system__strategic_sourcing_manager__supplier_onboarding_master_data__get_supplier_name_list",
+      "erp_procurement_system__srm_specialist__performance_appraisal_qcds__on_time_delivery",
+      "erp_procurement_system__buyer__exception_handling_plan_coordination__export_purchase_return_excel"
+    ]
+  },
+  {
+    "task_id": 12,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 2,
+    "prompt": "销售部门需要了解本月的收款情况，请提供收款单据列表，同时导出收款明细的Excel文件供财务核对。",
+    "prompt_brief": "查本月收款情况",
+    "expected_agents": [
+      "erp_sales_system__ar_reconciliation_specialist__payment_verification_credit_release__get_receipt_order",
+      "erp_sales_system__ar_reconciliation_specialist__payment_verification_credit_release__export_receipt_order_excel"
+    ]
+  },
+  {
+    "task_id": 13,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 4,
+    "prompt": "我们即将启动年度大促活动，需要先查看当前的产品库存情况，确认热销商品的备货量。同时请检查是否有缺货预警，并获取销售预测数据来制定补货计划。最后，请提供仓库的整体库存统计概览。",
+    "prompt_brief": "大促备货检查",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__cycle_counting__get_product_inventory_page",
+      "erp_supply_chain_system__demand_planner__stockout_alert_hot_sales_trend",
+      "erp_supply_chain_system__demand_planner__sales_forecast_management_final_plan",
+      "erp_supply_chain_system__supply_chain_director__kpi_ownership__inventory_overview_stats"
+    ]
+  },
+  {
+    "task_id": 14,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 3,
+    "prompt": "有客户投诉产品质量问题，需要处理退货申请。请先查看该客户的退货单详情，更新退货处理状态，并记录客户投诉信息以便后续跟进。",
+    "prompt_brief": "处理客户退货投诉",
+    "expected_agents": [
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__get_sales_return",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__update_sales_return",
+      "erp_sales_system__after_sales_customer_success__customer_complaint_handling"
+    ]
+  },
+  {
+    "task_id": 15,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 2,
+    "prompt": "我们需要为新产品设置定价策略，请先查看产品的成本核算信息，然后设置建议零售价。",
+    "prompt_brief": "新品定价",
+    "expected_agents": [
+      "erp_product_system__pricing_specialist__cost_accounting_landed_cost",
+      "erp_product_system__pricing_specialist__price_list_definition__msrp"
+    ]
+  },
+  {
+    "task_id": 16,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 4,
+    "prompt": "月底需要进行销售业绩汇总，请获取本月的销售统计数据和收款时间段统计。同时，我需要查看销售目标完成情况的数据概览，并导出销售订单Excel供管理层审阅。",
+    "prompt_brief": "月底销售汇总",
+    "expected_agents": [
+      "erp_sales_system__sales_director__target_decomposition_team_region__get_sales_stats",
+      "erp_sales_system__sales_director__target_decomposition_team_region__receipt_time_range_stats",
+      "erp_sales_system__sales_director__target_decomposition_team_region__data_overview_stats",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__export_sales_order_excel"
+    ]
+  },
+  {
+    "task_id": 17,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 3,
+    "prompt": "仓库需要进行货物出库操作，请先进行拣货波次处理，然后完成包装验证扫描，最后更新出库单状态。",
+    "prompt_brief": "出库操作",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__wave_picking",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__packing_verification_scan",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__update_other_outbound_order"
+    ]
+  },
+  {
+    "task_id": 18,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 2,
+    "prompt": "我们正在拓展新的销售渠道，需要进行渠道招商工作，同时制定渠道价格政策以防止窜货问题。",
+    "prompt_brief": "渠道拓展",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__channel_distribution_manager__channel_recruitment",
+      "erp_sales_system__bd_account_manager__channel_distribution_manager__price_control_anti_channel_conflict"
+    ]
+  },
+  {
+    "task_id": 19,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 4,
+    "prompt": "新产品即将上市，需要完成产品导入流程。请先创建产品主数据，设置产品的物流属性（尺寸重量），配置包装规格信息，最后启动新品上市流程。",
+    "prompt_brief": "新品导入",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__create_product",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__logistics_attributes_dimensions_weight",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__packaging_attributes_carton_spec",
+      "erp_product_system__lifecycle_manager__new_product_introduction_enablement"
+    ]
+  },
+  {
+    "task_id": 20,
+    "level": 1,
+    "systems": [
+      "erp_procurement_system"
+    ],
+    "num_agents": 3,
+    "prompt": "采购部门需要与供应商谈判新的采购合同，请先获取供应商列表，然后进行合同谈判确定价格条款和最小起订量。同时更新相关采购订单的状态。",
+    "prompt_brief": "供应商合同谈判",
+    "expected_agents": [
+      "erp_procurement_system__strategic_sourcing_manager__supplier_onboarding_master_data__get_supplier_simple_list",
+      "erp_procurement_system__strategic_sourcing_manager__contract_negotiation_price_terms_moq",
+      "erp_procurement_system__buyer__pr_to_po_order_generation__update_purchase_order_status"
+    ]
+  },
+  {
+    "task_id": 21,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 3,
+    "prompt": "我们需要对仓库进行优化管理，请先获取仓库列表信息，然后更新仓库布局配置，并确保先进先出管理策略正确执行。",
+    "prompt_brief": "优化仓库管理",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_simple_list",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__update_warehouse",
+      "erp_supply_chain_system__warehouse_manager__fifo_management"
+    ]
+  },
+  {
+    "task_id": 22,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 2,
+    "prompt": "销售团队发现了一个新的商机，需要先记录潜在客户信息，然后为其准备一份详细的报价单。",
+    "prompt_brief": "跟进新商机",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__opportunity_prospecting",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__quotation_and_negotiation_quote_sheet"
+    ]
+  },
+  {
+    "task_id": 23,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 4,
+    "prompt": "产品部门需要进行年度产品规划，请先制定战略规划路线图，进行市场调研分析，然后输出产品需求文档给研发部门，最后确认产品的BOM物料清单。",
+    "prompt_brief": "年度产品规划",
+    "expected_agents": [
+      "erp_product_system__product_director__strategic_planning_annual_roadmap",
+      "erp_product_system__product_planner_merchandiser__market_insight_mrd",
+      "erp_product_system__product_planner_merchandiser__product_definition__inhouse_prd_output_to_rd",
+      "erp_product_system__sku_master_data_specialist__bom_management_kit_hierarchy"
+    ]
+  },
+  {
+    "task_id": 24,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 3,
+    "prompt": "财务部门需要进行月度对账工作，请获取应收账款管理数据，进行月度对账核销，并更新收款单据状态。",
+    "prompt_brief": "月度对账",
+    "expected_agents": [
+      "erp_sales_system__ar_reconciliation_specialist__accounts_receivable_management",
+      "erp_sales_system__ar_reconciliation_specialist__monthly_reconciliation",
+      "erp_sales_system__ar_reconciliation_specialist__payment_verification_credit_release__update_receipt_order"
+    ]
+  },
+  {
+    "task_id": 25,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 2,
+    "prompt": "仓库收到一批新货物，需要进行入库操作。请先进行收货检验核对采购订单，然后创建其他入库单据。",
+    "prompt_brief": "新货入库",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__receiving_inspection_po_check",
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__system_receipt_ap_trigger__create_other_inbound_order"
+    ]
+  },
+  {
+    "task_id": 26,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 4,
+    "prompt": "销售运营需要处理一批新订单，请先创建销售订单，检查库存预留情况并反馈缺货信息，然后创建发货指令，最后导出发货单Excel给物流部门。",
+    "prompt_brief": "处理新订单",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__create_sales_order",
+      "erp_sales_system__sales_ops_admin__inventory_reservation_shortage_feedback",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__create_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__export_sales_shipment_excel"
+    ]
+  },
+  {
+    "task_id": 27,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 3,
+    "prompt": "供应链部门需要进行物料需求计划，请先运行MRP计算，然后查看库存调拨单列表，并创建新的库存调拨单来平衡各仓库库存。",
+    "prompt_brief": "做MRP计划",
+    "expected_agents": [
+      "erp_supply_chain_system__supply_planner__mrp_calculation",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order_page",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__create_inventory_transfer_order"
+    ]
+  },
+  {
+    "task_id": 28,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 2,
+    "prompt": "产品经理需要管理产品生命周期，请查看产品状态并进行状态变更（正常、促销、清仓、停产），同时设置产品的底价控制策略。",
+    "prompt_brief": "调整产品状态",
+    "expected_agents": [
+      "erp_product_system__lifecycle_manager__status_management__normal_promote_clearance_eol",
+      "erp_product_system__pricing_specialist__floor_price_control"
+    ]
+  },
+  {
+    "task_id": 29,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 4,
+    "prompt": "客户关系管理需要更新重要客户信息，请先获取客户分页列表，更新客户资料，然后导出客户信息Excel，并查看该客户的渠道政策和返利协议。",
+    "prompt_brief": "更新大客户信息",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_page",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__update_customer",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__export_customer_excel",
+      "erp_sales_system__sales_director__channel_policy_rebate_key_account_agreement"
+    ]
+  },
+  {
+    "task_id": 30,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 3,
+    "prompt": "仓库需要进行单据审核，确保没有未开票的发货单。同时请获取其他入库单列表，并更新入库单状态以触发应付账款流程。",
+    "prompt_brief": "仓库单据审核",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__document_audit_no_unbilled_shipments",
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__system_receipt_ap_trigger__get_other_inbound_order_page",
+      "erp_supply_chain_system__warehouse_ops_team__inbound_clerk__system_receipt_ap_trigger__update_other_inbound_order_status"
+    ]
+  },
+  {
+    "task_id": 31,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 3,
+    "prompt": "我们需要清理产品主数据，请先获取产品简单列表，删除已停产的产品，然后导出最新的产品Excel文件存档。",
+    "prompt_brief": "清理停产产品",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_simple_list",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__delete_product",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_excel"
+    ]
+  },
+  {
+    "task_id": 32,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 2,
+    "prompt": "销售部门需要处理超信用额度的订单，请查看被拦截的订单列表，并获取相关销售订单的详细信息以便审批。",
+    "prompt_brief": "处理超额订单",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__credit_control_over_limit_orders",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__get_sales_order"
+    ]
+  },
+  {
+    "task_id": 33,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 4,
+    "prompt": "库存盘点发现差异，需要进行调整。请先获取产品库存明细，导出库存明细Excel进行核对，然后获取库存调拨单进行差异调整，最后更新调拨单状态。",
+    "prompt_brief": "库存盘点调整",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__cycle_counting__get_product_inventory",
+      "erp_supply_chain_system__inventory_controller__cycle_counting__export_product_inventory_excel_detail",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__update_inventory_transfer_order_status"
+    ]
+  },
+  {
+    "task_id": 34,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 3,
+    "prompt": "产品定价需要调整，请先查看渠道分销价格，然后更新内部结算价格，并确认产品的建议零售价是否需要同步调整。",
+    "prompt_brief": "调整产品价格",
+    "expected_agents": [
+      "erp_product_system__pricing_specialist__price_list_definition__channel_distribution_price",
+      "erp_product_system__pricing_specialist__price_list_definition__internal_settlement_price",
+      "erp_product_system__pricing_specialist__price_list_definition__msrp"
+    ]
+  },
+  {
+    "task_id": 35,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 2,
+    "prompt": "销售发货出现问题，需要取消部分发货单。请先获取发货单信息，然后删除需要取消的发货单。",
+    "prompt_brief": "取消发货单",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__get_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__delete_sales_shipment"
+    ]
+  },
+  {
+    "task_id": 36,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 4,
+    "prompt": "年终需要进行全面库存盘点，请先获取库存调拨单分页列表，导出调拨单Excel，然后更新盘点后的库存调拨单，最后导出完整的库存调拨记录。",
+    "prompt_brief": "年终盘点",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__export_inventory_transfer_order_excel",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__update_inventory_transfer_order",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__export_inventory_transfer_order_excel"
+    ]
+  },
+  {
+    "task_id": 37,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 3,
+    "prompt": "客户退货处理完成后需要归档，请获取退货单分页列表，导出退货单Excel存档，并更新退货单的最终处理状态。",
+    "prompt_brief": "归档退货单",
+    "expected_agents": [
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__get_sales_return_page",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__export_sales_return_excel",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__update_sales_return"
+    ]
+  },
+  {
+    "task_id": 38,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 2,
+    "prompt": "产品单位信息需要维护，请获取产品单位分页列表，然后更新部分产品的计量单位信息。",
+    "prompt_brief": "维护产品单位",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_unit_page",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product_unit"
+    ]
+  },
+  {
+    "task_id": 39,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 4,
+    "prompt": "新建仓库需要完整配置，请先创建仓库基本信息，获取仓库详情确认配置，然后设置仓库布局和拣货路径，最后将新仓库添加到仓库列表中供选择。",
+    "prompt_brief": "新建仓库",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__create_warehouse",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_page",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__update_warehouse",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_simple_list"
+    ]
+  },
+  {
+    "task_id": 40,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 3,
+    "prompt": "销售订单需要修改，请先获取销售订单分页列表，更新订单内容，然后更新订单状态为已确认。",
+    "prompt_brief": "修改销售订单",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__get_sales_order_page",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__update_sales_order",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__update_sales_order_status"
+    ]
+  },
+  {
+    "task_id": 41,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 3,
+    "prompt": "产品分类需要整理，请先获取产品分类列表，更新分类信息，然后导出产品分类Excel供各部门参考。",
+    "prompt_brief": "整理产品分类",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category_list",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product_category",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_category_excel"
+    ]
+  },
+  {
+    "task_id": 42,
+    "level": 1,
+    "systems": [
+      "erp_procurement_system"
+    ],
+    "num_agents": 2,
+    "prompt": "采购退货需要处理，请先导出采购退货Excel查看详情，然后更新退货处理状态。",
+    "prompt_brief": "处理采购退货",
+    "expected_agents": [
+      "erp_procurement_system__buyer__exception_handling_plan_coordination__export_purchase_return_excel",
+      "erp_procurement_system__buyer__exception_handling_plan_coordination__update_purchase_return_status"
+    ]
+  },
+  {
+    "task_id": 43,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 4,
+    "prompt": "跨部门协调会议需要准备资料，请先获取产品详细信息，查看产品分类简单列表，获取产品单位简单列表，然后协调解决产品部门与销售部门之间的定价分歧。",
+    "prompt_brief": "准备跨部门会议资料",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category_simple_list",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_unit_simple_list",
+      "erp_product_system__product_director__cross_department_coordination_conflict_resolution"
+    ]
+  },
+  {
+    "task_id": 44,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 3,
+    "prompt": "出库操作需要完成，请先获取其他出库单列表，导出出库单Excel进行核对，然后更新出库单完成状态。",
+    "prompt_brief": "完成出库",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__get_other_outbound_order_page",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__export_other_outbound_order_excel",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__update_other_outbound_order"
+    ]
+  },
+  {
+    "task_id": 45,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 2,
+    "prompt": "新客户开户需要录入系统，请创建客户基本信息，然后获取客户名单确认录入成功。",
+    "prompt_brief": "新客户开户",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__create_customer",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_name_list"
+    ]
+  },
+  {
+    "task_id": 46,
+    "level": 1,
+    "systems": [
+      "erp_procurement_system"
+    ],
+    "num_agents": 4,
+    "prompt": "采购流程需要完整执行，请先获取采购订单详情，管理交货时间表催促供应商发货，查看供应商准时交货率，最后更新采购订单状态。",
+    "prompt_brief": "跟进采购流程",
+    "expected_agents": [
+      "erp_procurement_system__buyer__pr_to_po_order_generation__get_purchase_order",
+      "erp_procurement_system__buyer__delivery_schedule_management",
+      "erp_procurement_system__srm_specialist__performance_appraisal_qcds__on_time_delivery",
+      "erp_procurement_system__buyer__pr_to_po_order_generation__update_purchase_order_status"
+    ]
+  },
+  {
+    "task_id": 47,
+    "level": 1,
+    "systems": [
+      "erp_product_system"
+    ],
+    "num_agents": 3,
+    "prompt": "产品主数据需要完善，请获取产品分页列表，更新产品信息，然后为新产品生成SKU编码。",
+    "prompt_brief": "完善产品主数据",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_page",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product",
+      "erp_product_system__sku_master_data_specialist__sku_code_management"
+    ]
+  },
+  {
+    "task_id": 48,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 2,
+    "prompt": "仓库需要关闭，请先获取仓库分页列表确认要关闭的仓库，然后删除该仓库记录。",
+    "prompt_brief": "关闭仓库",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_page",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__delete_warehouse"
+    ]
+  },
+  {
+    "task_id": 49,
+    "level": 1,
+    "systems": [
+      "erp_sales_system"
+    ],
+    "num_agents": 4,
+    "prompt": "销售发货流程需要完整处理，请先获取发货单信息，更新发货单内容，创建新的发货指令，最后更新发货单状态为已发出。",
+    "prompt_brief": "处理发货流程",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__get_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__update_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__create_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__export_sales_shipment_excel"
+    ]
+  },
+  {
+    "task_id": 50,
+    "level": 1,
+    "systems": [
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 3,
+    "prompt": "库存调拨需要取消，请先获取库存调拨单详情确认，然后删除该调拨单，最后查看库存调拨单分页列表确认删除成功。",
+    "prompt_brief": "取消库存调拨",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__delete_inventory_transfer_order",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order_page"
+    ]
+  },
+  {
+    "task_id": 2,
+    "level": 2,
+    "systems": [
+      "erp_product_system",
+      "erp_sales_system"
+    ],
+    "num_agents": 2,
+    "prompt": "\"我想了解一下我们主要客户的名单，同时获取这些客户常用产品的标准零售价格信息。\"",
+    "prompt_brief": "查一下客户和价格",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_name_list",
+      "erp_product_system__pricing_specialist__price_list_definition__msrp"
+    ]
+  },
+  {
+    "task_id": 6,
+    "level": 2,
+    "systems": [
+      "erp_sales_system",
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 2,
+    "prompt": "\"我们需要整理客户资料，首先请删除不再合作的客户信息；同时，也请帮我检查一下最近的出库情况，提供一份最新的其它出库单列表。\"",
+    "prompt_brief": "清理客户数据，查下出库单",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__delete_customer",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__get_other_outbound_order_page"
+    ]
+  },
+  {
+    "task_id": 10,
+    "level": 2,
+    "systems": [
+      "erp_procurement_system",
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 2,
+    "prompt": "\"请帮我更新最新的采购订单状态，并查看我们仓库当前的分页情况，以便我能更好地安排接下来的库存管理。\"",
+    "prompt_brief": "更新采购单，看下仓库情况",
+    "expected_agents": [
+      "erp_procurement_system__buyer__pr_to_po_order_generation__update_purchase_order_status",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_page"
+    ]
+  },
+  {
+    "task_id": 1,
+    "level": 3,
+    "systems": [
+      "erp_procurement_system",
+      "erp_product_system",
+      "erp_sales_system"
+    ],
+    "num_agents": 4,
+    "prompt": "我们公司最近准备推出一系列新产品，为了更好地管理这些产品，请先提供一份最新的产品分类列表。接着，我们需要对选定的产品进行样板确认，以便后续的大批量采购。此外，由于近期有部分商品需要退货处理，还请导出相关的采购退货Excel文件供我们审核。最后，在我们正式开始销售前，请检查并锁定这批新产品的可用库存，如果有任何缺货情况也请及时反馈给我。",
+    "prompt_brief": "新品上市前的准备工作",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_category_list",
+      "erp_product_system__product_planner_merchandiser__sample_confirmation_for_bulk_order",
+      "erp_procurement_system__buyer__exception_handling_plan_coordination__export_purchase_return_excel",
+      "erp_sales_system__sales_ops_admin__inventory_reservation_shortage_feedback"
+    ]
+  },
+  {
+    "task_id": 3,
+    "level": 3,
+    "systems": [
+      "erp_procurement_system",
+      "erp_product_system",
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 4,
+    "prompt": "\"我们需要更新一批产品的分类信息，并且想了解一下这批产品主要由哪些供应商提供。另外，请导出最近一个月内所有与这些供应商相关的采购退货记录到Excel文件中，同时希望获取这段时间内我们库存的出入库详细统计情况。\"",
+    "prompt_brief": "更新产品分类，顺便看看供应商和退货情况",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product_category",
+      "erp_procurement_system__strategic_sourcing_manager__supplier_onboarding_master_data__get_supplier_name_list",
+      "erp_procurement_system__buyer__exception_handling_plan_coordination__export_purchase_return_excel",
+      "erp_supply_chain_system__inventory_controller__cycle_counting__inventory_dashboard_in_out_detail_time_range_stats"
+    ]
+  },
+  {
+    "task_id": 8,
+    "level": 3,
+    "systems": [
+      "erp_procurement_system",
+      "erp_sales_system",
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 4,
+    "prompt": "\"我需要对我们公司最近一个月内的库存变动情况做一个详细的分析报告，包括各类商品的出入库明细。同时，请检查当前仓库布局是否合理，并提供优化建议以提高拣货效率。另外，我还想了解我们主要客户的最新采购订单详情，以便于后续维护客户关系和安排采购计划。\"",
+    "prompt_brief": "做个库存分析报告",
+    "expected_agents": [
+      "erp_procurement_system__buyer__pr_to_po_order_generation__get_purchase_order",
+      "erp_supply_chain_system__inventory_controller__cycle_counting__inventory_dashboard_in_out_detail_time_range_stats",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__customer_relationship_maintenance__get_customer_simple_list"
+    ]
+  },
+  {
+    "task_id": 9,
+    "level": 3,
+    "systems": [
+      "erp_product_system",
+      "erp_sales_system",
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 3,
+    "prompt": "我们最近发现了一些库存差异问题，需要调整部分商品的库存数量。同时，在处理客户订单时遇到了一些客户的信用额度问题，导致某些订单被系统自动拦截了。此外，销售部门和财务部门之间因为这些订单的处理方式产生了分歧。希望你能帮助解决这些问题，包括调整相关产品的库存量、释放那些因信用控制而被拦截但实际可以接受的订单，并协调销售与财务部门之间的矛盾，确保我们的业务流程能够顺畅进行。",
+    "prompt_brief": "处理库存差异和订单拦截问题",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order",
+      "erp_sales_system__sales_ops_admin__credit_control_over_limit_orders",
+      "erp_product_system__product_director__cross_department_coordination_conflict_resolution"
+    ]
+  },
+  {
+    "task_id": 7,
+    "level": 4,
+    "systems": [
+      "erp_procurement_system",
+      "erp_product_system",
+      "erp_sales_system",
+      "erp_supply_chain_system"
+    ],
+    "num_agents": 4,
+    "prompt": "我们公司最近准备为一个大客户启动一个新的项目，需要先确认产品的样板，以便后续可以进行大批量采购。同时，请检查我们的库存情况，并根据需要从其他仓库调拨部分产品到主仓库来满足这个订单的需求。另外，我还希望能够得到一份详细的报价单来进行谈判。最后，在确定好所有细节后，请管理好这批货物的交货时间表，包括适时催促供应商发货并跟踪物流信息，确保按时交付给客户。",
+    "prompt_brief": "大客户项目启动准备",
+    "expected_agents": [
+      "erp_product_system__product_planner_merchandiser__sample_confirmation_for_bulk_order",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order",
+      "erp_sales_system__bd_account_manager__key_account_manager_b2b__quotation_and_negotiation_quote_sheet",
+      "erp_procurement_system__buyer__delivery_schedule_management"
+    ]
+  }
+]

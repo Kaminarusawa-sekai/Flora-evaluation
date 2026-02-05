@@ -1,0 +1,102 @@
+[
+  {
+    "task_id": 31,
+    "level": 3,
+    "prompt": "我们需要清理产品主数据，请先获取产品简单列表，删除已停产的产品，然后导出最新的产品Excel文件存档。",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_simple_list",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__delete_product",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__export_product_excel"
+    ]
+  },
+  {
+    "task_id": 32,
+    "level": 2,
+    "prompt": "销售部门需要处理超信用额度的订单，请查看被拦截的订单列表，并获取相关销售订单的详细信息以便审批。",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__credit_control_over_limit_orders",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__get_sales_order"
+    ]
+  },
+  {
+    "task_id": 33,
+    "level": 4,
+    "prompt": "库存盘点发现差异，需要进行调整。请先获取产品库存明细，导出库存明细Excel进行核对，然后获取库存调拨单进行差异调整，最后更新调拨单状态。",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__cycle_counting__get_product_inventory",
+      "erp_supply_chain_system__inventory_controller__cycle_counting__export_product_inventory_excel_detail",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__get_inventory_transfer_order",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__update_inventory_transfer_order_status"
+    ]
+  },
+  {
+    "task_id": 34,
+    "level": 3,
+    "prompt": "产品定价需要调整，请先查看渠道分销价格，然后更新内部结算价格，并确认产品的建议零售价是否需要同步调整。",
+    "expected_agents": [
+      "erp_product_system__pricing_specialist__price_list_definition__channel_distribution_price",
+      "erp_product_system__pricing_specialist__price_list_definition__internal_settlement_price",
+      "erp_product_system__pricing_specialist__price_list_definition__msrp"
+    ]
+  },
+  {
+    "task_id": 35,
+    "level": 2,
+    "prompt": "销售发货出现问题，需要取消部分发货单。请先获取发货单信息，然后删除需要取消的发货单。",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__get_sales_shipment",
+      "erp_sales_system__sales_ops_admin__shipping_instruction_dn_creation__delete_sales_shipment"
+    ]
+  },
+  {
+    "task_id": 36,
+    "level": 4,
+    "prompt": "年终需要进行全面库存盘点，请先获取库存调拨单分页列表，导出调拨单Excel，然后更新盘点后的库存调拨单，最后导出完整的库存调拨记录。",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__get_inventory_transfer_order_page",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__export_inventory_transfer_order_excel",
+      "erp_supply_chain_system__inventory_controller__full_inventory_count__update_inventory_transfer_order",
+      "erp_supply_chain_system__inventory_controller__variance_adjustment_inventory_adjustment_request__export_inventory_transfer_order_excel"
+    ]
+  },
+  {
+    "task_id": 37,
+    "level": 3,
+    "prompt": "客户退货处理完成后需要归档，请获取退货单分页列表，导出退货单Excel存档，并更新退货单的最终处理状态。",
+    "expected_agents": [
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__get_sales_return_page",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__export_sales_return_excel",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__update_sales_return"
+    ]
+  },
+  {
+    "task_id": 38,
+    "level": 2,
+    "prompt": "产品单位信息需要维护，请获取产品单位分页列表，然后更新部分产品的计量单位信息。",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__get_product_unit_page",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__update_product_unit"
+    ]
+  },
+  {
+    "task_id": 39,
+    "level": 4,
+    "prompt": "新建仓库需要完整配置，请先创建仓库基本信息，获取仓库详情确认配置，然后设置仓库布局和拣货路径，最后将新仓库添加到仓库列表中供选择。",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__create_warehouse",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_page",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__update_warehouse",
+      "erp_supply_chain_system__warehouse_manager__warehouse_layout_picking_paths__get_warehouse_simple_list"
+    ]
+  },
+  {
+    "task_id": 40,
+    "level": 3,
+    "prompt": "销售订单需要修改，请先获取销售订单分页列表，更新订单内容，然后更新订单状态为已确认。",
+    "expected_agents": [
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__get_sales_order_page",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__update_sales_order",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__update_sales_order_status"
+    ]
+  }
+]

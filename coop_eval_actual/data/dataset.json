@@ -1,0 +1,1122 @@
+[
+  {
+    "task_id": 1,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\uff1b2)  \u7528\u6237\u5206\u5c42\u88c2\u53d8\u8bbe\u8ba1 [agent:user_strat_fission]\uff1b3) \u6267\u884c\u5206\u7ea7\u5e72\u9884\u63aa\u65bd [agent:execute_tiered_interventions]\uff1b4) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b5) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b6) \u6548\u80fd\u76d1\u63a7\u4e0e\u8def\u5f84\u4f18\u5316\u6d41\u7a0b [agent:performance_monitoring_and_path_optimization_process]\uff1b7) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\uff1b8) \u4ef7\u503c\u89c2\u8f93\u51fa [agent:values_output]\u3002",
+    "expected_agents": [
+      "define_tag_rules",
+      "user_strat_fission",
+      "execute_tiered_interventions",
+      "set_thresholds_and_levels",
+      "competitor_analysis",
+      "performance_monitoring_and_path_optimization_process",
+      "target_customer_analysis",
+      "values_output"
+    ]
+  },
+  {
+    "task_id": 2,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\uff1b2)  \u5b9a\u5236\u6c9f\u901a\u8bdd\u672f\u4e0e\u7d20\u6750 [agent:comm_scripts]\uff1b3) \u9500\u552e\u53cd\u9988\u4e0e\u95ed\u73af\u4f18\u5316\u6d41\u7a0b [agent:sales_feedback_and_closed_loop_optimization_process]\u3002",
+    "expected_agents": [
+      "copy_planning",
+      "comm_scripts",
+      "sales_feedback_and_closed_loop_optimization_process"
+    ]
+  },
+  {
+    "task_id": 3,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5efa\u8bae\u5b9a\u4ef7\u7b56\u7565 [agent:pricing_strategy_recommendation]\uff1b2) MQL\u5224\u5b9a\u6807\u51c6\u5236\u5b9a [agent:mql_qualification_criteria_definition]\uff1b3) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\uff1b4) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\uff1b5) \u54c1\u724c\u6545\u4e8b [agent:brand_story]\uff1b6) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\uff1b7) \u786e\u5b9a\u5065\u5eb7\u5ea6\u7ef4\u5ea6 [agent:determine_health_dimensions]\uff1b8) \u4ef7\u503c\u9a8c\u8bc1 [agent:value_validation]\u3002",
+    "expected_agents": [
+      "pricing_strategy_recommendation",
+      "mql_qualification_criteria_definition",
+      "define_tag_rules",
+      "target_customer_analysis",
+      "brand_story",
+      "match_content_and_channels",
+      "determine_health_dimensions",
+      "value_validation"
+    ]
+  },
+  {
+    "task_id": 4,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u5dee\u5f02\u5316\u673a\u4f1a \u5b8c\u6210\u4efb\u52a1\u3002[agent:differentiation_opportunities]",
+    "expected_agents": [
+      "differentiation_opportunities"
+    ]
+  },
+  {
+    "task_id": 5,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u5b9a\u5236\u6c9f\u901a\u8bdd\u672f\u4e0e\u7d20\u6750 [agent:comm_scripts]\uff1b2) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\uff1b3)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\u3002",
+    "expected_agents": [
+      "comm_scripts",
+      "automated_tagging_and_segmentation",
+      "copy_planning"
+    ]
+  },
+  {
+    "task_id": 6,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u7528\u6237\u5206\u5c42\u88c2\u53d8\u8bbe\u8ba1 [agent:user_strat_fission]\uff1b2) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b3) \u6839\u56e0\u8c03\u67e5 [agent:root_cause_investigation]\uff1b4)  \u5b9a\u5236\u6c9f\u901a\u8bdd\u672f\u4e0e\u7d20\u6750 [agent:comm_scripts]\uff1b5) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\u3002",
+    "expected_agents": [
+      "user_strat_fission",
+      "define_trigger_events",
+      "root_cause_investigation",
+      "comm_scripts",
+      "competitor_analysis"
+    ]
+  },
+  {
+    "task_id": 7,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5236\u5b9a\u6c9f\u901a\u7b56\u7565 [agent:define_communication_strategy]\uff1b2)  \u5339\u914d\u88c2\u53d8\u73a9\u6cd5 [agent:fission_game_match]\uff1b3) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b4) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\uff1b5)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\u3002",
+    "expected_agents": [
+      "define_communication_strategy",
+      "fission_game_match",
+      "define_trigger_events",
+      "automated_tagging_and_segmentation",
+      "strat_fission_strat"
+    ]
+  },
+  {
+    "task_id": 8,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u8bbe\u8ba1\u5206\u5c42\u6fc0\u52b1 [agent:strat_incentives]\uff1b2) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\uff1b3) MQL\u5224\u5b9a\u6807\u51c6\u5236\u5b9a [agent:mql_qualification_criteria_definition]\u3002",
+    "expected_agents": [
+      "strat_incentives",
+      "define_tag_rules",
+      "mql_qualification_criteria_definition"
+    ]
+  },
+  {
+    "task_id": 9,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5b9a\u4e49\u6807\u7b7e\u7ef4\u5ea6 [agent:define_tag_dimensions]\uff1b2)  \u8bbe\u8ba1\u5206\u5c42\u6fc0\u52b1 [agent:strat_incentives]\uff1b3) \u81ea\u52a8\u5316\u5224\u5b9a\u4e0e\u89e6\u53d1\u6d41\u8f6c\u6d41\u7a0b [agent:automated_assessment_and_triggered_handoff_process]\uff1b4)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\uff1b5) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\u3002",
+    "expected_agents": [
+      "define_tag_dimensions",
+      "strat_incentives",
+      "automated_assessment_and_triggered_handoff_process",
+      "strat_portraits",
+      "set_thresholds_and_levels"
+    ]
+  },
+  {
+    "task_id": 10,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\uff1b2) \u54c1\u724c\u6545\u4e8b [agent:brand_story]\uff1b3)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\u3002",
+    "expected_agents": [
+      "record_intervention_results",
+      "brand_story",
+      "strat_portraits"
+    ]
+  },
+  {
+    "task_id": 11,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u786e\u5b9a\u5065\u5eb7\u5ea6\u7ef4\u5ea6 [agent:determine_health_dimensions]\uff1b2)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\uff1b3) \u54c1\u724c\u6545\u4e8b [agent:brand_story]\uff1b4) \u7ed8\u5236\u57f9\u80b2\u8def\u5f84\u84dd\u56fe [agent:draw_nurturing_path_blueprint]\uff1b5) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\u3002",
+    "expected_agents": [
+      "determine_health_dimensions",
+      "copy_planning",
+      "brand_story",
+      "draw_nurturing_path_blueprint",
+      "record_intervention_results"
+    ]
+  },
+  {
+    "task_id": 12,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5236\u5b9a\u6c9f\u901a\u7b56\u7565 [agent:define_communication_strategy]\uff1b2) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\uff1b3)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\uff1b4)  \u7528\u6237\u5206\u5c42\u88c2\u53d8\u8bbe\u8ba1 [agent:user_strat_fission]\uff1b5) \u4ef7\u503c\u89c2\u8f93\u51fa [agent:values_output]\uff1b6) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b7)  \u89c4\u5219\u4e0e\u7cfb\u7edf\u6784\u5efa-\u65b0\u589e\u6d3b\u52a8\u4e2d\u5fc3 [agent:rules_system_create_active_center]\uff1b8)  \u5b9a\u5236\u6c9f\u901a\u8bdd\u672f\u4e0e\u7d20\u6750 [agent:comm_scripts]\u3002",
+    "expected_agents": [
+      "define_communication_strategy",
+      "automated_monitoring_and_alert_trigger_process",
+      "copy_planning",
+      "user_strat_fission",
+      "values_output",
+      "set_thresholds_and_levels",
+      "rules_system_create_active_center",
+      "comm_scripts"
+    ]
+  },
+  {
+    "task_id": 13,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b2) \u7cfb\u7edf\u626b\u63cf [agent:system_scanning]\uff1b3) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\u3002",
+    "expected_agents": [
+      "set_thresholds_and_levels",
+      "system_scanning",
+      "automated_tagging_and_segmentation"
+    ]
+  },
+  {
+    "task_id": 14,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) MQL\u5224\u5b9a\u6807\u51c6\u5236\u5b9a [agent:mql_qualification_criteria_definition]\uff1b2)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\uff1b3) \u786e\u5b9a\u5065\u5eb7\u5ea6\u7ef4\u5ea6 [agent:determine_health_dimensions]\uff1b4) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b5) \u5236\u5b9a\u65f6\u673a\u89c4\u5219 [agent:define_timing_rules]\u3002",
+    "expected_agents": [
+      "mql_qualification_criteria_definition",
+      "strat_fission_strat",
+      "determine_health_dimensions",
+      "define_trigger_events",
+      "define_timing_rules"
+    ]
+  },
+  {
+    "task_id": 15,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u6548\u80fd\u76d1\u63a7\u4e0e\u8def\u5f84\u4f18\u5316\u6d41\u7a0b [agent:performance_monitoring_and_path_optimization_process]\uff1b2)  \u7528\u6237\u5206\u5c42\u88c2\u53d8\u8bbe\u8ba1 [agent:user_strat_fission]\uff1b3) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\u3002",
+    "expected_agents": [
+      "performance_monitoring_and_path_optimization_process",
+      "user_strat_fission",
+      "automated_tagging_and_segmentation"
+    ]
+  },
+  {
+    "task_id": 16,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u81ea\u52a8\u5316\u5224\u5b9a\u4e0e\u89e6\u53d1\u6d41\u8f6c\u6d41\u7a0b [agent:automated_assessment_and_triggered_handoff_process]\uff1b2) \u6839\u56e0\u8c03\u67e5 [agent:root_cause_investigation]\uff1b3) \u5b9a\u4e49\u6807\u7b7e\u7ef4\u5ea6 [agent:define_tag_dimensions]\u3002",
+    "expected_agents": [
+      "automated_assessment_and_triggered_handoff_process",
+      "root_cause_investigation",
+      "define_tag_dimensions"
+    ]
+  },
+  {
+    "task_id": 17,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u89c4\u5219\u4e0e\u7cfb\u7edf\u6784\u5efa-\u65b0\u589e\u6d3b\u52a8\u4e2d\u5fc3 [agent:rules_system_create_active_center]\uff1b2)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\uff1b3) \u6838\u5fc3\u5356\u70b9\u63d0\u70bc [agent:core_selling_point_refinement]\u3002",
+    "expected_agents": [
+      "rules_system_create_active_center",
+      "strat_portraits",
+      "core_selling_point_refinement"
+    ]
+  },
+  {
+    "task_id": 18,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b2) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b3) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\u3002",
+    "expected_agents": [
+      "set_thresholds_and_levels",
+      "competitor_analysis",
+      "define_trigger_events"
+    ]
+  },
+  {
+    "task_id": 19,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u79c1\u57df\u8425\u9500 [agent:private_domain]\uff1b2)  \u5339\u914d\u88c2\u53d8\u73a9\u6cd5 [agent:fission_game_match]\uff1b3) \u81ea\u52a8\u5316\u5224\u5b9a\u4e0e\u89e6\u53d1\u6d41\u8f6c\u6d41\u7a0b [agent:automated_assessment_and_triggered_handoff_process]\uff1b4) \u7ed8\u5236\u57f9\u80b2\u8def\u5f84\u84dd\u56fe [agent:draw_nurturing_path_blueprint]\uff1b5) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\u3002",
+    "expected_agents": [
+      "private_domain",
+      "fission_game_match",
+      "automated_assessment_and_triggered_handoff_process",
+      "draw_nurturing_path_blueprint",
+      "define_trigger_events"
+    ]
+  },
+  {
+    "task_id": 20,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5236\u5b9a\u6c9f\u901a\u7b56\u7565 [agent:define_communication_strategy]\uff1b2)  \u76ee\u6807\u8bbe\u5b9a [agent:goal_setting]\uff1b3) \u673a\u4f1a\u5206\u914d [agent:opportunity_allocation]\uff1b4) \u6570\u636e\u91c7\u96c6\u4e0e\u6574\u5408 [agent:data_collection_and_integration]\uff1b5) \u5236\u5b9a\u65f6\u673a\u89c4\u5219 [agent:define_timing_rules]\uff1b6) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\uff1b7) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b8)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\u3002",
+    "expected_agents": [
+      "define_communication_strategy",
+      "goal_setting",
+      "opportunity_allocation",
+      "data_collection_and_integration",
+      "define_timing_rules",
+      "multi_channel_reach",
+      "define_trigger_events",
+      "strat_fission_strat"
+    ]
+  },
+  {
+    "task_id": 21,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u6838\u5fc3\u5356\u70b9\u63d0\u70bc [agent:core_selling_point_refinement]\uff1b2) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b3) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\uff1b4) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\uff1b5) \u4ef7\u503c\u9a8c\u8bc1 [agent:value_validation]\uff1b6)  \u8bbe\u8ba1\u5206\u5c42\u6fc0\u52b1 [agent:strat_incentives]\uff1b7) \u5b9a\u4e49\u6807\u7b7e\u7ef4\u5ea6 [agent:define_tag_dimensions]\uff1b8) \u5b9a\u4e49\u57f9\u80b2\u76ee\u6807 [agent:define_nurturing_goals]\u3002",
+    "expected_agents": [
+      "core_selling_point_refinement",
+      "competitor_analysis",
+      "automated_monitoring_and_alert_trigger_process",
+      "market_insight",
+      "value_validation",
+      "strat_incentives",
+      "define_tag_dimensions",
+      "define_nurturing_goals"
+    ]
+  },
+  {
+    "task_id": 22,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u9500\u552e\u53cd\u9988\u4e0e\u95ed\u73af\u4f18\u5316\u6d41\u7a0b [agent:sales_feedback_and_closed_loop_optimization_process]\uff1b2) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\uff1b3) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\uff1b4) \u5b9a\u4e49\u6307\u6807\u4e0e\u6743\u91cd [agent:define_metrics_and_weights]\uff1b5) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\u3002",
+    "expected_agents": [
+      "sales_feedback_and_closed_loop_optimization_process",
+      "record_intervention_results",
+      "multi_channel_reach",
+      "define_metrics_and_weights",
+      "match_content_and_channels"
+    ]
+  },
+  {
+    "task_id": 23,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\uff1b2)  \u89c4\u5219\u4e0e\u7cfb\u7edf\u6784\u5efa-\u65b0\u589e\u6d3b\u52a8\u4e2d\u5fc3 [agent:rules_system_create_active_center]\uff1b3) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\uff1b4) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b5)  \u5339\u914d\u88c2\u53d8\u73a9\u6cd5 [agent:fission_game_match]\u3002",
+    "expected_agents": [
+      "automated_monitoring_and_alert_trigger_process",
+      "rules_system_create_active_center",
+      "target_customer_analysis",
+      "competitor_analysis",
+      "fission_game_match"
+    ]
+  },
+  {
+    "task_id": 24,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u9500\u552e\u53cd\u9988\u4e0e\u95ed\u73af\u4f18\u5316\u6d41\u7a0b [agent:sales_feedback_and_closed_loop_optimization_process]\uff1b2) \u5236\u5b9a\u65f6\u673a\u89c4\u5219 [agent:define_timing_rules]\uff1b3) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\u3002",
+    "expected_agents": [
+      "sales_feedback_and_closed_loop_optimization_process",
+      "define_timing_rules",
+      "multi_channel_reach"
+    ]
+  },
+  {
+    "task_id": 25,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u5dee\u5f02\u5316\u673a\u4f1a \u5b8c\u6210\u4efb\u52a1\u3002[agent:differentiation_opportunities]",
+    "expected_agents": [
+      "differentiation_opportunities"
+    ]
+  },
+  {
+    "task_id": 26,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\uff1b2) \u5236\u5b9a\u65f6\u673a\u89c4\u5219 [agent:define_timing_rules]\uff1b3) \u6838\u5fc3\u5356\u70b9\u63d0\u70bc [agent:core_selling_point_refinement]\u3002",
+    "expected_agents": [
+      "market_insight",
+      "define_timing_rules",
+      "core_selling_point_refinement"
+    ]
+  },
+  {
+    "task_id": 27,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\uff1b2) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b3) \u5236\u5b9a\u65f6\u673a\u89c4\u5219 [agent:define_timing_rules]\uff1b4) \u4ef7\u503c\u89c2\u8f93\u51fa [agent:values_output]\uff1b5) MQL\u5224\u5b9a\u6807\u51c6\u5236\u5b9a [agent:mql_qualification_criteria_definition]\u3002",
+    "expected_agents": [
+      "target_customer_analysis",
+      "set_thresholds_and_levels",
+      "define_timing_rules",
+      "values_output",
+      "mql_qualification_criteria_definition"
+    ]
+  },
+  {
+    "task_id": 28,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u81ea\u52a8\u5316\u5224\u5b9a\u4e0e\u89e6\u53d1\u6d41\u8f6c\u6d41\u7a0b [agent:automated_assessment_and_triggered_handoff_process]\uff1b2) \u81ea\u52a8\u5316\u5224\u5b9a [agent:automated_assessment]\uff1b3) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\u3002",
+    "expected_agents": [
+      "automated_assessment_and_triggered_handoff_process",
+      "automated_assessment",
+      "define_tag_rules"
+    ]
+  },
+  {
+    "task_id": 29,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u4ef7\u503c\u9a8c\u8bc1 [agent:value_validation]\uff1b2)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\uff1b3) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b4)  \u76ee\u6807\u8bbe\u5b9a [agent:goal_setting]\uff1b5) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\u3002",
+    "expected_agents": [
+      "value_validation",
+      "strat_fission_strat",
+      "set_thresholds_and_levels",
+      "goal_setting",
+      "market_insight"
+    ]
+  },
+  {
+    "task_id": 30,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\uff1b2) \u6267\u884c\u5206\u7ea7\u5e72\u9884\u63aa\u65bd [agent:execute_tiered_interventions]\uff1b3) \u6839\u56e0\u8c03\u67e5 [agent:root_cause_investigation]\uff1b4) \u5b9a\u4e49\u6307\u6807\u4e0e\u6743\u91cd [agent:define_metrics_and_weights]\uff1b5) \u6548\u80fd\u76d1\u63a7\u4e0e\u8def\u5f84\u4f18\u5316\u6d41\u7a0b [agent:performance_monitoring_and_path_optimization_process]\uff1b6) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\uff1b7) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\uff1b8) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\u3002",
+    "expected_agents": [
+      "market_insight",
+      "execute_tiered_interventions",
+      "root_cause_investigation",
+      "define_metrics_and_weights",
+      "performance_monitoring_and_path_optimization_process",
+      "match_content_and_channels",
+      "define_tag_rules",
+      "target_customer_analysis"
+    ]
+  },
+  {
+    "task_id": 31,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406  \u76ee\u6807\u8bbe\u5b9a \u5b8c\u6210\u4efb\u52a1\u3002[agent:goal_setting]",
+    "expected_agents": [
+      "goal_setting"
+    ]
+  },
+  {
+    "task_id": 32,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\uff1b2) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\uff1b3) \u5b9a\u4e49\u57f9\u80b2\u76ee\u6807 [agent:define_nurturing_goals]\u3002",
+    "expected_agents": [
+      "market_insight",
+      "automated_tagging_and_segmentation",
+      "define_nurturing_goals"
+    ]
+  },
+  {
+    "task_id": 33,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b2) \u6839\u56e0\u8c03\u67e5 [agent:root_cause_investigation]\uff1b3) \u8bbe\u8ba1\u9a8c\u8bc1\u6307\u6807 [agent:design_validation_metrics]\uff1b4) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b5) \u7cfb\u7edf\u626b\u63cf [agent:system_scanning]\u3002",
+    "expected_agents": [
+      "competitor_analysis",
+      "root_cause_investigation",
+      "design_validation_metrics",
+      "define_trigger_events",
+      "system_scanning"
+    ]
+  },
+  {
+    "task_id": 34,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u89c4\u5219\u4e0e\u7cfb\u7edf\u6784\u5efa-\u65b0\u589e\u6d3b\u52a8\u4e2d\u5fc3 [agent:rules_system_create_active_center]\uff1b2) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b3) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\uff1b4) \u786e\u5b9a\u5065\u5eb7\u5ea6\u7ef4\u5ea6 [agent:determine_health_dimensions]\uff1b5) \u6570\u636e\u91c7\u96c6\u4e0e\u6574\u5408 [agent:data_collection_and_integration]\u3002",
+    "expected_agents": [
+      "rules_system_create_active_center",
+      "competitor_analysis",
+      "match_content_and_channels",
+      "determine_health_dimensions",
+      "data_collection_and_integration"
+    ]
+  },
+  {
+    "task_id": 35,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\uff1b2) \u81ea\u52a8\u5316\u5224\u5b9a [agent:automated_assessment]\uff1b3) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\u3002",
+    "expected_agents": [
+      "copy_planning",
+      "automated_assessment",
+      "record_intervention_results"
+    ]
+  },
+  {
+    "task_id": 36,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 \u5b8c\u6210\u4efb\u52a1\u3002[agent:set_thresholds_and_levels]",
+    "expected_agents": [
+      "set_thresholds_and_levels"
+    ]
+  },
+  {
+    "task_id": 37,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u6267\u884c\u5206\u7ea7\u5e72\u9884\u63aa\u65bd [agent:execute_tiered_interventions]\uff1b2) \u8bbe\u8ba1\u9a8c\u8bc1\u6307\u6807 [agent:design_validation_metrics]\uff1b3) \u786e\u5b9a\u5065\u5eb7\u5ea6\u7ef4\u5ea6 [agent:determine_health_dimensions]\uff1b4) \u5b9a\u4e49\u6307\u6807\u4e0e\u6743\u91cd [agent:define_metrics_and_weights]\uff1b5)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\uff1b6)  \u7528\u6237\u5206\u5c42\u88c2\u53d8\u8bbe\u8ba1 [agent:user_strat_fission]\uff1b7) \u5efa\u8bae\u5b9a\u4ef7\u7b56\u7565 [agent:pricing_strategy_recommendation]\uff1b8)  \u5b9a\u5236\u6c9f\u901a\u8bdd\u672f\u4e0e\u7d20\u6750 [agent:comm_scripts]\u3002",
+    "expected_agents": [
+      "execute_tiered_interventions",
+      "design_validation_metrics",
+      "determine_health_dimensions",
+      "define_metrics_and_weights",
+      "strat_portraits",
+      "user_strat_fission",
+      "pricing_strategy_recommendation",
+      "comm_scripts"
+    ]
+  },
+  {
+    "task_id": 38,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\uff1b2)  \u88c2\u53d8\u673a\u5236\u8bbe\u8ba1 [agent:fission_mech_design]\uff1b3) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\u3002",
+    "expected_agents": [
+      "match_content_and_channels",
+      "fission_mech_design",
+      "competitor_analysis"
+    ]
+  },
+  {
+    "task_id": 39,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406  \u79c1\u57df\u8425\u9500 \u5b8c\u6210\u4efb\u52a1\u3002[agent:private_domain]",
+    "expected_agents": [
+      "private_domain"
+    ]
+  },
+  {
+    "task_id": 40,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5236\u5b9a\u6c9f\u901a\u7b56\u7565 [agent:define_communication_strategy]\uff1b2) \u6267\u884c\u5206\u7ea7\u5e72\u9884\u63aa\u65bd [agent:execute_tiered_interventions]\uff1b3) \u5236\u5b9a\u65f6\u673a\u89c4\u5219 [agent:define_timing_rules]\u3002",
+    "expected_agents": [
+      "define_communication_strategy",
+      "execute_tiered_interventions",
+      "define_timing_rules"
+    ]
+  },
+  {
+    "task_id": 41,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u5339\u914d\u88c2\u53d8\u73a9\u6cd5 [agent:fission_game_match]\uff1b2)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\uff1b3) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\uff1b4)  \u8bbe\u8ba1\u5206\u5c42\u6fc0\u52b1 [agent:strat_incentives]\uff1b5) \u5236\u5b9a\u65f6\u673a\u89c4\u5219 [agent:define_timing_rules]\uff1b6) \u5b9a\u4e49\u57f9\u80b2\u76ee\u6807 [agent:define_nurturing_goals]\uff1b7) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\uff1b8) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\u3002",
+    "expected_agents": [
+      "fission_game_match",
+      "copy_planning",
+      "automated_monitoring_and_alert_trigger_process",
+      "strat_incentives",
+      "define_timing_rules",
+      "define_nurturing_goals",
+      "record_intervention_results",
+      "define_tag_rules"
+    ]
+  },
+  {
+    "task_id": 42,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u4ef7\u503c\u89c2\u8f93\u51fa [agent:values_output]\uff1b2) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\uff1b3)  \u8bbe\u8ba1\u5206\u5c42\u6fc0\u52b1 [agent:strat_incentives]\uff1b4) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\uff1b5)  \u76ee\u6807\u8bbe\u5b9a [agent:goal_setting]\u3002",
+    "expected_agents": [
+      "values_output",
+      "multi_channel_reach",
+      "strat_incentives",
+      "match_content_and_channels",
+      "goal_setting"
+    ]
+  },
+  {
+    "task_id": 43,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406  \u79c1\u57df\u8425\u9500 \u5b8c\u6210\u4efb\u52a1\u3002[agent:private_domain]",
+    "expected_agents": [
+      "private_domain"
+    ]
+  },
+  {
+    "task_id": 44,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b2) \u5dee\u5f02\u5316\u673a\u4f1a [agent:differentiation_opportunities]\uff1b3) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\uff1b4) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b5) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\u3002",
+    "expected_agents": [
+      "define_trigger_events",
+      "differentiation_opportunities",
+      "automated_monitoring_and_alert_trigger_process",
+      "set_thresholds_and_levels",
+      "match_content_and_channels"
+    ]
+  },
+  {
+    "task_id": 45,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u6839\u56e0\u8c03\u67e5 [agent:root_cause_investigation]\uff1b2) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b3) \u6267\u884c\u5206\u7ea7\u5e72\u9884\u63aa\u65bd [agent:execute_tiered_interventions]\uff1b4) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\uff1b5)  \u88c2\u53d8\u673a\u5236\u8bbe\u8ba1 [agent:fission_mech_design]\uff1b6) \u54c1\u724c\u5b9a\u4f4d [agent:brand_positioning]\uff1b7)  \u5b9a\u5236\u6c9f\u901a\u8bdd\u672f\u4e0e\u7d20\u6750 [agent:comm_scripts]\uff1b8) \u7cfb\u7edf\u626b\u63cf [agent:system_scanning]\u3002",
+    "expected_agents": [
+      "root_cause_investigation",
+      "define_trigger_events",
+      "execute_tiered_interventions",
+      "record_intervention_results",
+      "fission_mech_design",
+      "brand_positioning",
+      "comm_scripts",
+      "system_scanning"
+    ]
+  },
+  {
+    "task_id": 46,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u5339\u914d\u88c2\u53d8\u73a9\u6cd5 [agent:fission_game_match]\uff1b2) \u5b9a\u4e49\u57f9\u80b2\u76ee\u6807 [agent:define_nurturing_goals]\uff1b3) \u673a\u4f1a\u5206\u914d [agent:opportunity_allocation]\uff1b4)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\uff1b5) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\u3002",
+    "expected_agents": [
+      "fission_game_match",
+      "define_nurturing_goals",
+      "opportunity_allocation",
+      "strat_portraits",
+      "multi_channel_reach"
+    ]
+  },
+  {
+    "task_id": 47,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u79c1\u57df\u8425\u9500 [agent:private_domain]\uff1b2) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\uff1b3) \u5b9a\u4e49\u6807\u7b7e\u7ef4\u5ea6 [agent:define_tag_dimensions]\u3002",
+    "expected_agents": [
+      "private_domain",
+      "automated_monitoring_and_alert_trigger_process",
+      "define_tag_dimensions"
+    ]
+  },
+  {
+    "task_id": 48,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5236\u5b9a\u65f6\u673a\u89c4\u5219 [agent:define_timing_rules]\uff1b2)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\uff1b3) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\uff1b4) \u6839\u56e0\u8c03\u67e5 [agent:root_cause_investigation]\uff1b5) \u5efa\u8bae\u5b9a\u4ef7\u7b56\u7565 [agent:pricing_strategy_recommendation]\u3002",
+    "expected_agents": [
+      "define_timing_rules",
+      "strat_fission_strat",
+      "define_tag_rules",
+      "root_cause_investigation",
+      "pricing_strategy_recommendation"
+    ]
+  },
+  {
+    "task_id": 49,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5b9a\u4e49\u673a\u4f1a\u89c4\u5219 [agent:define_opportunity_rules]\uff1b2) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b3) MQL\u5224\u5b9a\u6807\u51c6\u5236\u5b9a [agent:mql_qualification_criteria_definition]\uff1b4)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\uff1b5) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b6) \u5b9a\u4e49\u6807\u7b7e\u7ef4\u5ea6 [agent:define_tag_dimensions]\uff1b7) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\uff1b8) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\u3002",
+    "expected_agents": [
+      "define_opportunity_rules",
+      "competitor_analysis",
+      "mql_qualification_criteria_definition",
+      "copy_planning",
+      "define_trigger_events",
+      "define_tag_dimensions",
+      "market_insight",
+      "set_thresholds_and_levels"
+    ]
+  },
+  {
+    "task_id": 50,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\uff1b2) \u673a\u4f1a\u5206\u914d [agent:opportunity_allocation]\uff1b3) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\uff1b4)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\uff1b5) \u9500\u552e\u53cd\u9988\u4e0e\u95ed\u73af\u4f18\u5316\u6d41\u7a0b [agent:sales_feedback_and_closed_loop_optimization_process]\u3002",
+    "expected_agents": [
+      "target_customer_analysis",
+      "opportunity_allocation",
+      "record_intervention_results",
+      "strat_fission_strat",
+      "sales_feedback_and_closed_loop_optimization_process"
+    ]
+  },
+  {
+    "task_id": 51,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u89c4\u5219\u4e0e\u7cfb\u7edf\u6784\u5efa-\u65b0\u589e\u6d3b\u52a8\u4e2d\u5fc3 [agent:rules_system_create_active_center]\uff1b2) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\uff1b3) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\uff1b4) \u7ed8\u5236\u57f9\u80b2\u8def\u5f84\u84dd\u56fe [agent:draw_nurturing_path_blueprint]\uff1b5) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b6)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\uff1b7)  \u76ee\u6807\u8bbe\u5b9a [agent:goal_setting]\uff1b8) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\u3002",
+    "expected_agents": [
+      "rules_system_create_active_center",
+      "market_insight",
+      "automated_monitoring_and_alert_trigger_process",
+      "draw_nurturing_path_blueprint",
+      "competitor_analysis",
+      "copy_planning",
+      "goal_setting",
+      "match_content_and_channels"
+    ]
+  },
+  {
+    "task_id": 52,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u6548\u80fd\u76d1\u63a7\u4e0e\u8def\u5f84\u4f18\u5316\u6d41\u7a0b [agent:performance_monitoring_and_path_optimization_process]\uff1b2) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\uff1b3) \u4ef7\u503c\u89c2\u8f93\u51fa [agent:values_output]\uff1b4) \u4ef7\u503c\u9a8c\u8bc1 [agent:value_validation]\uff1b5) \u5b9a\u4e49\u673a\u4f1a\u89c4\u5219 [agent:define_opportunity_rules]\u3002",
+    "expected_agents": [
+      "performance_monitoring_and_path_optimization_process",
+      "define_tag_rules",
+      "values_output",
+      "value_validation",
+      "define_opportunity_rules"
+    ]
+  },
+  {
+    "task_id": 53,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u76ee\u6807\u5ba2\u6237\u5206\u6790 \u5b8c\u6210\u4efb\u52a1\u3002[agent:target_customer_analysis]",
+    "expected_agents": [
+      "target_customer_analysis"
+    ]
+  },
+  {
+    "task_id": 54,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u673a\u4f1a\u5206\u914d \u5b8c\u6210\u4efb\u52a1\u3002[agent:opportunity_allocation]",
+    "expected_agents": [
+      "opportunity_allocation"
+    ]
+  },
+  {
+    "task_id": 55,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5b9a\u4e49\u6807\u7b7e\u7ef4\u5ea6 [agent:define_tag_dimensions]\uff1b2)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\uff1b3) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b4) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\uff1b5) \u673a\u4f1a\u5206\u914d [agent:opportunity_allocation]\uff1b6) \u81ea\u52a8\u5316\u5224\u5b9a [agent:automated_assessment]\uff1b7) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\uff1b8) \u7cfb\u7edf\u626b\u63cf [agent:system_scanning]\u3002",
+    "expected_agents": [
+      "define_tag_dimensions",
+      "copy_planning",
+      "competitor_analysis",
+      "market_insight",
+      "opportunity_allocation",
+      "automated_assessment",
+      "target_customer_analysis",
+      "system_scanning"
+    ]
+  },
+  {
+    "task_id": 56,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u54c1\u724c\u6545\u4e8b [agent:brand_story]\uff1b2)  \u7528\u6237\u5206\u5c42\u88c2\u53d8\u8bbe\u8ba1 [agent:user_strat_fission]\uff1b3) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\uff1b4)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\uff1b5)  \u88c2\u53d8\u673a\u5236\u8bbe\u8ba1 [agent:fission_mech_design]\u3002",
+    "expected_agents": [
+      "brand_story",
+      "user_strat_fission",
+      "automated_tagging_and_segmentation",
+      "strat_fission_strat",
+      "fission_mech_design"
+    ]
+  },
+  {
+    "task_id": 57,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\uff1b2) \u4ef7\u503c\u9a8c\u8bc1 [agent:value_validation]\uff1b3) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\uff1b4) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b5)  \u76ee\u6807\u8bbe\u5b9a [agent:goal_setting]\u3002",
+    "expected_agents": [
+      "market_insight",
+      "value_validation",
+      "define_tag_rules",
+      "set_thresholds_and_levels",
+      "goal_setting"
+    ]
+  },
+  {
+    "task_id": 58,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5b9a\u4e49\u6307\u6807\u4e0e\u6743\u91cd [agent:define_metrics_and_weights]\uff1b2)  \u89c4\u5219\u4e0e\u7cfb\u7edf\u6784\u5efa-\u65b0\u589e\u6d3b\u52a8\u4e2d\u5fc3 [agent:rules_system_create_active_center]\uff1b3) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\uff1b4) \u6548\u80fd\u76d1\u63a7\u4e0e\u8def\u5f84\u4f18\u5316\u6d41\u7a0b [agent:performance_monitoring_and_path_optimization_process]\uff1b5) \u4ef7\u503c\u9a8c\u8bc1 [agent:value_validation]\u3002",
+    "expected_agents": [
+      "define_metrics_and_weights",
+      "rules_system_create_active_center",
+      "record_intervention_results",
+      "performance_monitoring_and_path_optimization_process",
+      "value_validation"
+    ]
+  },
+  {
+    "task_id": 59,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\uff1b2) \u4ef7\u503c\u89c2\u8f93\u51fa [agent:values_output]\uff1b3) \u81ea\u52a8\u5316\u5224\u5b9a\u4e0e\u89e6\u53d1\u6d41\u8f6c\u6d41\u7a0b [agent:automated_assessment_and_triggered_handoff_process]\uff1b4) \u5236\u5b9a\u6c9f\u901a\u7b56\u7565 [agent:define_communication_strategy]\uff1b5) \u5b9a\u4e49\u6307\u6807\u4e0e\u6743\u91cd [agent:define_metrics_and_weights]\u3002",
+    "expected_agents": [
+      "market_insight",
+      "values_output",
+      "automated_assessment_and_triggered_handoff_process",
+      "define_communication_strategy",
+      "define_metrics_and_weights"
+    ]
+  },
+  {
+    "task_id": 60,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\uff1b2) \u9500\u552e\u53cd\u9988\u4e0e\u95ed\u73af\u4f18\u5316\u6d41\u7a0b [agent:sales_feedback_and_closed_loop_optimization_process]\uff1b3)  \u89c4\u5219\u4e0e\u7cfb\u7edf\u6784\u5efa-\u65b0\u589e\u6d3b\u52a8\u4e2d\u5fc3 [agent:rules_system_create_active_center]\uff1b4) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b5) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\uff1b6) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\uff1b7) \u5b9a\u4e49\u57f9\u80b2\u76ee\u6807 [agent:define_nurturing_goals]\uff1b8) \u673a\u4f1a\u5206\u914d [agent:opportunity_allocation]\u3002",
+    "expected_agents": [
+      "strat_portraits",
+      "sales_feedback_and_closed_loop_optimization_process",
+      "rules_system_create_active_center",
+      "competitor_analysis",
+      "match_content_and_channels",
+      "multi_channel_reach",
+      "define_nurturing_goals",
+      "opportunity_allocation"
+    ]
+  },
+  {
+    "task_id": 61,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u6548\u80fd\u76d1\u63a7\u4e0e\u8def\u5f84\u4f18\u5316\u6d41\u7a0b [agent:performance_monitoring_and_path_optimization_process]\uff1b2)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\uff1b3)  \u89c4\u5219\u4e0e\u7cfb\u7edf\u6784\u5efa-\u65b0\u589e\u6d3b\u52a8\u4e2d\u5fc3 [agent:rules_system_create_active_center]\uff1b4) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\uff1b5) \u54c1\u724c\u5b9a\u4f4d [agent:brand_positioning]\uff1b6) \u6839\u56e0\u8c03\u67e5 [agent:root_cause_investigation]\uff1b7)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\uff1b8) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\u3002",
+    "expected_agents": [
+      "performance_monitoring_and_path_optimization_process",
+      "strat_fission_strat",
+      "rules_system_create_active_center",
+      "multi_channel_reach",
+      "brand_positioning",
+      "root_cause_investigation",
+      "copy_planning",
+      "competitor_analysis"
+    ]
+  },
+  {
+    "task_id": 62,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u88c2\u53d8\u673a\u5236\u8bbe\u8ba1 [agent:fission_mech_design]\uff1b2) \u6548\u80fd\u76d1\u63a7\u4e0e\u8def\u5f84\u4f18\u5316\u6d41\u7a0b [agent:performance_monitoring_and_path_optimization_process]\uff1b3) \u5b9a\u4e49\u673a\u4f1a\u89c4\u5219 [agent:define_opportunity_rules]\u3002",
+    "expected_agents": [
+      "fission_mech_design",
+      "performance_monitoring_and_path_optimization_process",
+      "define_opportunity_rules"
+    ]
+  },
+  {
+    "task_id": 63,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5efa\u8bae\u5b9a\u4ef7\u7b56\u7565 [agent:pricing_strategy_recommendation]\uff1b2) \u4ef7\u503c\u89c2\u8f93\u51fa [agent:values_output]\uff1b3) \u6838\u5fc3\u5356\u70b9\u63d0\u70bc [agent:core_selling_point_refinement]\u3002",
+    "expected_agents": [
+      "pricing_strategy_recommendation",
+      "values_output",
+      "core_selling_point_refinement"
+    ]
+  },
+  {
+    "task_id": 64,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406  \u5b9a\u5236\u6c9f\u901a\u8bdd\u672f\u4e0e\u7d20\u6750 \u5b8c\u6210\u4efb\u52a1\u3002[agent:comm_scripts]",
+    "expected_agents": [
+      "comm_scripts"
+    ]
+  },
+  {
+    "task_id": 65,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\uff1b2) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b3)  \u5339\u914d\u88c2\u53d8\u73a9\u6cd5 [agent:fission_game_match]\u3002",
+    "expected_agents": [
+      "multi_channel_reach",
+      "set_thresholds_and_levels",
+      "fission_game_match"
+    ]
+  },
+  {
+    "task_id": 66,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u673a\u4f1a\u5206\u914d [agent:opportunity_allocation]\uff1b2) MQL\u5224\u5b9a\u6807\u51c6\u5236\u5b9a [agent:mql_qualification_criteria_definition]\uff1b3) \u5236\u5b9a\u65f6\u673a\u89c4\u5219 [agent:define_timing_rules]\u3002",
+    "expected_agents": [
+      "opportunity_allocation",
+      "mql_qualification_criteria_definition",
+      "define_timing_rules"
+    ]
+  },
+  {
+    "task_id": 67,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\uff1b2) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\uff1b3) \u9500\u552e\u53cd\u9988\u4e0e\u95ed\u73af\u4f18\u5316\u6d41\u7a0b [agent:sales_feedback_and_closed_loop_optimization_process]\u3002",
+    "expected_agents": [
+      "strat_portraits",
+      "multi_channel_reach",
+      "sales_feedback_and_closed_loop_optimization_process"
+    ]
+  },
+  {
+    "task_id": 68,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u6267\u884c\u5206\u7ea7\u5e72\u9884\u63aa\u65bd [agent:execute_tiered_interventions]\uff1b2) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\uff1b3)  \u89c4\u5219\u4e0e\u7cfb\u7edf\u6784\u5efa-\u65b0\u589e\u6d3b\u52a8\u4e2d\u5fc3 [agent:rules_system_create_active_center]\uff1b4)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\uff1b5) \u5efa\u8bae\u5b9a\u4ef7\u7b56\u7565 [agent:pricing_strategy_recommendation]\u3002",
+    "expected_agents": [
+      "execute_tiered_interventions",
+      "automated_tagging_and_segmentation",
+      "rules_system_create_active_center",
+      "strat_fission_strat",
+      "pricing_strategy_recommendation"
+    ]
+  },
+  {
+    "task_id": 69,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5236\u5b9a\u65f6\u673a\u89c4\u5219 [agent:define_timing_rules]\uff1b2) \u54c1\u724c\u6545\u4e8b [agent:brand_story]\uff1b3) \u6838\u5fc3\u5356\u70b9\u63d0\u70bc [agent:core_selling_point_refinement]\u3002",
+    "expected_agents": [
+      "define_timing_rules",
+      "brand_story",
+      "core_selling_point_refinement"
+    ]
+  },
+  {
+    "task_id": 70,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u54c1\u724c\u6545\u4e8b [agent:brand_story]\uff1b2) \u81ea\u52a8\u5316\u5224\u5b9a\u4e0e\u89e6\u53d1\u6d41\u8f6c\u6d41\u7a0b [agent:automated_assessment_and_triggered_handoff_process]\uff1b3)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\u3002",
+    "expected_agents": [
+      "brand_story",
+      "automated_assessment_and_triggered_handoff_process",
+      "strat_portraits"
+    ]
+  },
+  {
+    "task_id": 71,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b2) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\uff1b3) \u5b9a\u4e49\u673a\u4f1a\u89c4\u5219 [agent:define_opportunity_rules]\uff1b4)  \u76ee\u6807\u8bbe\u5b9a [agent:goal_setting]\uff1b5) \u5e02\u573a\u6d1e\u5bdf [agent:market_insight]\uff1b6) \u4ef7\u503c\u89c2\u8f93\u51fa [agent:values_output]\uff1b7) \u7ed8\u5236\u57f9\u80b2\u8def\u5f84\u84dd\u56fe [agent:draw_nurturing_path_blueprint]\uff1b8) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\u3002",
+    "expected_agents": [
+      "define_trigger_events",
+      "match_content_and_channels",
+      "define_opportunity_rules",
+      "goal_setting",
+      "market_insight",
+      "values_output",
+      "draw_nurturing_path_blueprint",
+      "multi_channel_reach"
+    ]
+  },
+  {
+    "task_id": 72,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u6570\u636e\u91c7\u96c6\u4e0e\u6574\u5408 [agent:data_collection_and_integration]\uff1b2)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\uff1b3) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\uff1b4) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b5) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\uff1b6) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b7) \u5b9a\u4e49\u673a\u4f1a\u89c4\u5219 [agent:define_opportunity_rules]\uff1b8)  \u5339\u914d\u88c2\u53d8\u73a9\u6cd5 [agent:fission_game_match]\u3002",
+    "expected_agents": [
+      "data_collection_and_integration",
+      "strat_fission_strat",
+      "record_intervention_results",
+      "competitor_analysis",
+      "target_customer_analysis",
+      "define_trigger_events",
+      "define_opportunity_rules",
+      "fission_game_match"
+    ]
+  },
+  {
+    "task_id": 73,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\uff1b2)  \u76ee\u6807\u8bbe\u5b9a [agent:goal_setting]\uff1b3) \u786e\u5b9a\u5065\u5eb7\u5ea6\u7ef4\u5ea6 [agent:determine_health_dimensions]\uff1b4) \u4ef7\u503c\u9a8c\u8bc1 [agent:value_validation]\uff1b5)  \u5b9a\u5236\u6c9f\u901a\u8bdd\u672f\u4e0e\u7d20\u6750 [agent:comm_scripts]\u3002",
+    "expected_agents": [
+      "automated_tagging_and_segmentation",
+      "goal_setting",
+      "determine_health_dimensions",
+      "value_validation",
+      "comm_scripts"
+    ]
+  },
+  {
+    "task_id": 74,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406  \u5b9a\u5236\u6c9f\u901a\u8bdd\u672f\u4e0e\u7d20\u6750 \u5b8c\u6210\u4efb\u52a1\u3002[agent:comm_scripts]",
+    "expected_agents": [
+      "comm_scripts"
+    ]
+  },
+  {
+    "task_id": 75,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\uff1b2)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\uff1b3) \u7cfb\u7edf\u626b\u63cf [agent:system_scanning]\uff1b4) \u4ef7\u503c\u9a8c\u8bc1 [agent:value_validation]\uff1b5) \u8bbe\u8ba1\u9a8c\u8bc1\u6307\u6807 [agent:design_validation_metrics]\uff1b6) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\uff1b7) \u5b9a\u4e49\u673a\u4f1a\u89c4\u5219 [agent:define_opportunity_rules]\uff1b8)  \u7528\u6237\u5206\u5c42\u88c2\u53d8\u8bbe\u8ba1 [agent:user_strat_fission]\u3002",
+    "expected_agents": [
+      "define_trigger_events",
+      "strat_portraits",
+      "system_scanning",
+      "value_validation",
+      "design_validation_metrics",
+      "define_tag_rules",
+      "define_opportunity_rules",
+      "user_strat_fission"
+    ]
+  },
+  {
+    "task_id": 76,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) MQL\u5224\u5b9a\u6807\u51c6\u5236\u5b9a [agent:mql_qualification_criteria_definition]\uff1b2)  \u79c1\u57df\u8425\u9500 [agent:private_domain]\uff1b3) \u6267\u884c\u5206\u7ea7\u5e72\u9884\u63aa\u65bd [agent:execute_tiered_interventions]\uff1b4) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\uff1b5) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\u3002",
+    "expected_agents": [
+      "mql_qualification_criteria_definition",
+      "private_domain",
+      "execute_tiered_interventions",
+      "automated_monitoring_and_alert_trigger_process",
+      "automated_tagging_and_segmentation"
+    ]
+  },
+  {
+    "task_id": 77,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\uff1b2) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\uff1b3) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\u3002",
+    "expected_agents": [
+      "automated_monitoring_and_alert_trigger_process",
+      "automated_tagging_and_segmentation",
+      "target_customer_analysis"
+    ]
+  },
+  {
+    "task_id": 78,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u5236\u5b9a\u65f6\u673a\u89c4\u5219 \u5b8c\u6210\u4efb\u52a1\u3002[agent:define_timing_rules]",
+    "expected_agents": [
+      "define_timing_rules"
+    ]
+  },
+  {
+    "task_id": 79,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u8bbe\u8ba1\u9a8c\u8bc1\u6307\u6807 [agent:design_validation_metrics]\uff1b2) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\uff1b3)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\uff1b4) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\uff1b5) \u5b9a\u4e49\u6307\u6807\u4e0e\u6743\u91cd [agent:define_metrics_and_weights]\u3002",
+    "expected_agents": [
+      "design_validation_metrics",
+      "automated_monitoring_and_alert_trigger_process",
+      "strat_portraits",
+      "match_content_and_channels",
+      "define_metrics_and_weights"
+    ]
+  },
+  {
+    "task_id": 80,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 \u5b8c\u6210\u4efb\u52a1\u3002[agent:define_tag_rules]",
+    "expected_agents": [
+      "define_tag_rules"
+    ]
+  },
+  {
+    "task_id": 81,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406  \u6587\u6848\u7b56\u5212 \u5b8c\u6210\u4efb\u52a1\u3002[agent:copy_planning]",
+    "expected_agents": [
+      "copy_planning"
+    ]
+  },
+  {
+    "task_id": 82,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u6267\u884c\u5206\u7ea7\u5e72\u9884\u63aa\u65bd \u5b8c\u6210\u4efb\u52a1\u3002[agent:execute_tiered_interventions]",
+    "expected_agents": [
+      "execute_tiered_interventions"
+    ]
+  },
+  {
+    "task_id": 83,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406  \u5339\u914d\u88c2\u53d8\u73a9\u6cd5 \u5b8c\u6210\u4efb\u52a1\u3002[agent:fission_game_match]",
+    "expected_agents": [
+      "fission_game_match"
+    ]
+  },
+  {
+    "task_id": 84,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u6838\u5fc3\u5356\u70b9\u63d0\u70bc [agent:core_selling_point_refinement]\uff1b2) \u5b9a\u4e49\u6807\u7b7e\u7ef4\u5ea6 [agent:define_tag_dimensions]\uff1b3) \u5efa\u8bae\u5b9a\u4ef7\u7b56\u7565 [agent:pricing_strategy_recommendation]\uff1b4) \u7ed8\u5236\u57f9\u80b2\u8def\u5f84\u84dd\u56fe [agent:draw_nurturing_path_blueprint]\uff1b5) \u5b9a\u4e49\u673a\u4f1a\u89c4\u5219 [agent:define_opportunity_rules]\u3002",
+    "expected_agents": [
+      "core_selling_point_refinement",
+      "define_tag_dimensions",
+      "pricing_strategy_recommendation",
+      "draw_nurturing_path_blueprint",
+      "define_opportunity_rules"
+    ]
+  },
+  {
+    "task_id": 85,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b2) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\uff1b3) \u786e\u5b9a\u5065\u5eb7\u5ea6\u7ef4\u5ea6 [agent:determine_health_dimensions]\uff1b4) \u5339\u914d\u5185\u5bb9\u4e0e\u6e20\u9053 [agent:match_content_and_channels]\uff1b5)  \u76ee\u6807\u8bbe\u5b9a [agent:goal_setting]\uff1b6) \u81ea\u52a8\u5316\u5224\u5b9a [agent:automated_assessment]\uff1b7)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\uff1b8) \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 [agent:define_trigger_events]\u3002",
+    "expected_agents": [
+      "set_thresholds_and_levels",
+      "define_tag_rules",
+      "determine_health_dimensions",
+      "match_content_and_channels",
+      "goal_setting",
+      "automated_assessment",
+      "strat_fission_strat",
+      "define_trigger_events"
+    ]
+  },
+  {
+    "task_id": 86,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\uff1b2) \u673a\u4f1a\u5206\u914d [agent:opportunity_allocation]\uff1b3) \u5236\u5b9a\u6807\u7b7e\u89c4\u5219 [agent:define_tag_rules]\uff1b4) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b5) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\u3002",
+    "expected_agents": [
+      "record_intervention_results",
+      "opportunity_allocation",
+      "define_tag_rules",
+      "set_thresholds_and_levels",
+      "competitor_analysis"
+    ]
+  },
+  {
+    "task_id": 87,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1)  \u7528\u6237\u5206\u5c42\u88c2\u53d8\u8bbe\u8ba1 [agent:user_strat_fission]\uff1b2)  \u5339\u914d\u88c2\u53d8\u73a9\u6cd5 [agent:fission_game_match]\uff1b3)  \u8bbe\u8ba1\u5206\u5c42\u6fc0\u52b1 [agent:strat_incentives]\uff1b4) \u54c1\u724c\u6545\u4e8b [agent:brand_story]\uff1b5)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\u3002",
+    "expected_agents": [
+      "user_strat_fission",
+      "fission_game_match",
+      "strat_incentives",
+      "brand_story",
+      "strat_portraits"
+    ]
+  },
+  {
+    "task_id": 88,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 [agent:automated_tagging_and_segmentation]\uff1b2) \u786e\u5b9a\u5065\u5eb7\u5ea6\u7ef4\u5ea6 [agent:determine_health_dimensions]\uff1b3) \u8bb0\u5f55\u5e72\u9884\u7ed3\u679c [agent:record_intervention_results]\u3002",
+    "expected_agents": [
+      "automated_tagging_and_segmentation",
+      "determine_health_dimensions",
+      "record_intervention_results"
+    ]
+  },
+  {
+    "task_id": 89,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5b9a\u4e49\u57f9\u80b2\u76ee\u6807 [agent:define_nurturing_goals]\uff1b2) \u54c1\u724c\u6545\u4e8b [agent:brand_story]\uff1b3) \u54c1\u724c\u5b9a\u4f4d [agent:brand_positioning]\u3002",
+    "expected_agents": [
+      "define_nurturing_goals",
+      "brand_story",
+      "brand_positioning"
+    ]
+  },
+  {
+    "task_id": 90,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u81ea\u52a8\u5316\u5224\u5b9a\u4e0e\u89e6\u53d1\u6d41\u8f6c\u6d41\u7a0b [agent:automated_assessment_and_triggered_handoff_process]\uff1b2) \u5b9a\u4e49\u57f9\u80b2\u76ee\u6807 [agent:define_nurturing_goals]\uff1b3)  \u7ed8\u5236\u5206\u5c42\u753b\u50cf [agent:strat_portraits]\uff1b4) \u5236\u5b9a\u6c9f\u901a\u7b56\u7565 [agent:define_communication_strategy]\uff1b5) \u8bbe\u5b9a\u9608\u503c\u4e0e\u7b49\u7ea7 [agent:set_thresholds_and_levels]\uff1b6) \u7ed8\u5236\u57f9\u80b2\u8def\u5f84\u84dd\u56fe [agent:draw_nurturing_path_blueprint]\uff1b7) \u54c1\u724c\u5b9a\u4f4d [agent:brand_positioning]\uff1b8) \u5b9a\u4e49\u6307\u6807\u4e0e\u6743\u91cd [agent:define_metrics_and_weights]\u3002",
+    "expected_agents": [
+      "automated_assessment_and_triggered_handoff_process",
+      "define_nurturing_goals",
+      "strat_portraits",
+      "define_communication_strategy",
+      "set_thresholds_and_levels",
+      "draw_nurturing_path_blueprint",
+      "brand_positioning",
+      "define_metrics_and_weights"
+    ]
+  },
+  {
+    "task_id": 91,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406  \u88c2\u53d8\u673a\u5236\u8bbe\u8ba1 \u5b8c\u6210\u4efb\u52a1\u3002[agent:fission_mech_design]",
+    "expected_agents": [
+      "fission_mech_design"
+    ]
+  },
+  {
+    "task_id": 92,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\uff1b2) \u4ef7\u503c\u89c2\u8f93\u51fa [agent:values_output]\uff1b3)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\u3002",
+    "expected_agents": [
+      "target_customer_analysis",
+      "values_output",
+      "strat_fission_strat"
+    ]
+  },
+  {
+    "task_id": 93,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u54c1\u724c\u6545\u4e8b \u5b8c\u6210\u4efb\u52a1\u3002[agent:brand_story]",
+    "expected_agents": [
+      "brand_story"
+    ]
+  },
+  {
+    "task_id": 94,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u5b9a\u4e49\u89e6\u53d1\u4e8b\u4ef6 \u5b8c\u6210\u4efb\u52a1\u3002[agent:define_trigger_events]",
+    "expected_agents": [
+      "define_trigger_events"
+    ]
+  },
+  {
+    "task_id": 95,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5efa\u8bae\u5b9a\u4ef7\u7b56\u7565 [agent:pricing_strategy_recommendation]\uff1b2)  \u5206\u5c42\u88c2\u53d8\u7b56\u7565\u8bbe\u8ba1 [agent:strat_fission_strat]\uff1b3)  \u88c2\u53d8\u673a\u5236\u8bbe\u8ba1 [agent:fission_mech_design]\u3002",
+    "expected_agents": [
+      "pricing_strategy_recommendation",
+      "strat_fission_strat",
+      "fission_mech_design"
+    ]
+  },
+  {
+    "task_id": 96,
+    "level": 5,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u5dee\u5f02\u5316\u673a\u4f1a [agent:differentiation_opportunities]\uff1b2) \u6267\u884c\u5206\u7ea7\u5e72\u9884\u63aa\u65bd [agent:execute_tiered_interventions]\uff1b3) \u673a\u4f1a\u5206\u914d [agent:opportunity_allocation]\uff1b4) \u5b9a\u4e49\u673a\u4f1a\u89c4\u5219 [agent:define_opportunity_rules]\uff1b5) \u81ea\u52a8\u5316\u5224\u5b9a\u4e0e\u89e6\u53d1\u6d41\u8f6c\u6d41\u7a0b [agent:automated_assessment_and_triggered_handoff_process]\u3002",
+    "expected_agents": [
+      "differentiation_opportunities",
+      "execute_tiered_interventions",
+      "opportunity_allocation",
+      "define_opportunity_rules",
+      "automated_assessment_and_triggered_handoff_process"
+    ]
+  },
+  {
+    "task_id": 97,
+    "level": 8,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u591a\u6e20\u9053\u89e6\u8fbe [agent:multi_channel_reach]\uff1b2) \u7ade\u54c1\u5206\u6790* [agent:competitor_analysis]\uff1b3)  \u7528\u6237\u5206\u5c42\u88c2\u53d8\u8bbe\u8ba1 [agent:user_strat_fission]\uff1b4) \u76ee\u6807\u5ba2\u6237\u5206\u6790 [agent:target_customer_analysis]\uff1b5) \u4ef7\u503c\u89c2\u8f93\u51fa [agent:values_output]\uff1b6) \u6838\u5fc3\u5356\u70b9\u63d0\u70bc [agent:core_selling_point_refinement]\uff1b7)  \u6587\u6848\u7b56\u5212 [agent:copy_planning]\uff1b8) \u5efa\u8bae\u5b9a\u4ef7\u7b56\u7565 [agent:pricing_strategy_recommendation]\u3002",
+    "expected_agents": [
+      "multi_channel_reach",
+      "competitor_analysis",
+      "user_strat_fission",
+      "target_customer_analysis",
+      "values_output",
+      "core_selling_point_refinement",
+      "copy_planning",
+      "pricing_strategy_recommendation"
+    ]
+  },
+  {
+    "task_id": 98,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u5dee\u5f02\u5316\u673a\u4f1a \u5b8c\u6210\u4efb\u52a1\u3002[agent:differentiation_opportunities]",
+    "expected_agents": [
+      "differentiation_opportunities"
+    ]
+  },
+  {
+    "task_id": 99,
+    "level": 1,
+    "prompt": "\u8bf7\u8c03\u7528\u4ee3\u7406 \u81ea\u52a8\u5316\u6253\u6807\u4e0e\u5206\u5c42 \u5b8c\u6210\u4efb\u52a1\u3002[agent:automated_tagging_and_segmentation]",
+    "expected_agents": [
+      "automated_tagging_and_segmentation"
+    ]
+  },
+  {
+    "task_id": 100,
+    "level": 3,
+    "prompt": "\u8bf7\u6309\u987a\u5e8f\u6267\u884c\u4ee5\u4e0b\u6b65\u9aa4\uff1a1) \u9500\u552e\u53cd\u9988\u4e0e\u95ed\u73af\u4f18\u5316\u6d41\u7a0b [agent:sales_feedback_and_closed_loop_optimization_process]\uff1b2)  \u5b9a\u5236\u6c9f\u901a\u8bdd\u672f\u4e0e\u7d20\u6750 [agent:comm_scripts]\uff1b3) \u81ea\u52a8\u5316\u76d1\u63a7\u4e0e\u9884\u8b66\u89e6\u53d1\u6d41\u7a0b [agent:automated_monitoring_and_alert_trigger_process]\u3002",
+    "expected_agents": [
+      "sales_feedback_and_closed_loop_optimization_process",
+      "comm_scripts",
+      "automated_monitoring_and_alert_trigger_process"
+    ]
+  }
+]

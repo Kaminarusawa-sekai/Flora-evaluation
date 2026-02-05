@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    "thought",
+    "action",
+    "observation",
+    "reflection",
+    "final"
+  ],
+  "edges": [
+    {"from": "thought", "to": "action"},
+    {"from": "action", "to": "observation"},
+    {"from": "observation", "to": "reflection"},
+    {"from": "reflection", "to": "thought", "condition": "continue"},
+    {"from": "observation", "to": "final", "condition": "done"}
+  ],
+  "tool_rules": [
+    {"tool": "agent_exec", "required_args": ["agent_id"]}
+  ]
+}

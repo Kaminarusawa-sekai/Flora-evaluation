@@ -1,0 +1,102 @@
+[
+  {
+    "task_id": 11,
+    "level": 3,
+    "prompt": "我们公司准备对供应商进行季度评估，请先获取供应商名单，然后查看他们的准时交货率数据。另外，我还需要导出最近的采购退货记录以便分析供应商的质量问题。",
+    "expected_agents": [
+      "erp_procurement_system__strategic_sourcing_manager__supplier_onboarding_master_data__get_supplier_name_list",
+      "erp_procurement_system__srm_specialist__performance_appraisal_qcds__on_time_delivery",
+      "erp_procurement_system__buyer__exception_handling_plan_coordination__export_purchase_return_excel"
+    ]
+  },
+  {
+    "task_id": 12,
+    "level": 2,
+    "prompt": "销售部门需要了解本月的收款情况，请提供收款单据列表，同时导出收款明细的Excel文件供财务核对。",
+    "expected_agents": [
+      "erp_sales_system__ar_reconciliation_specialist__payment_verification_credit_release__get_receipt_order",
+      "erp_sales_system__ar_reconciliation_specialist__payment_verification_credit_release__export_receipt_order_excel"
+    ]
+  },
+  {
+    "task_id": 13,
+    "level": 4,
+    "prompt": "我们即将启动年度大促活动，需要先查看当前的产品库存情况，确认热销商品的备货量。同时请检查是否有缺货预警，并获取销售预测数据来制定补货计划。最后，请提供仓库的整体库存统计概览。",
+    "expected_agents": [
+      "erp_supply_chain_system__inventory_controller__cycle_counting__get_product_inventory_page",
+      "erp_supply_chain_system__demand_planner__stockout_alert_hot_sales_trend",
+      "erp_supply_chain_system__demand_planner__sales_forecast_management_final_plan",
+      "erp_supply_chain_system__supply_chain_director__kpi_ownership__inventory_overview_stats"
+    ]
+  },
+  {
+    "task_id": 14,
+    "level": 3,
+    "prompt": "有客户投诉产品质量问题，需要处理退货申请。请先查看该客户的退货单详情，更新退货处理状态，并记录客户投诉信息以便后续跟进。",
+    "expected_agents": [
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__get_sales_return",
+      "erp_sales_system__after_sales_customer_success__rma_returns_handling__update_sales_return",
+      "erp_sales_system__after_sales_customer_success__customer_complaint_handling"
+    ]
+  },
+  {
+    "task_id": 15,
+    "level": 2,
+    "prompt": "我们需要为新产品设置定价策略，请先查看产品的成本核算信息，然后设置建议零售价。",
+    "expected_agents": [
+      "erp_product_system__pricing_specialist__cost_accounting_landed_cost",
+      "erp_product_system__pricing_specialist__price_list_definition__msrp"
+    ]
+  },
+  {
+    "task_id": 16,
+    "level": 4,
+    "prompt": "月底需要进行销售业绩汇总，请获取本月的销售统计数据和收款时间段统计。同时，我需要查看销售目标完成情况的数据概览，并导出销售订单Excel供管理层审阅。",
+    "expected_agents": [
+      "erp_sales_system__sales_director__target_decomposition_team_region__get_sales_stats",
+      "erp_sales_system__sales_director__target_decomposition_team_region__receipt_time_range_stats",
+      "erp_sales_system__sales_director__target_decomposition_team_region__data_overview_stats",
+      "erp_sales_system__sales_ops_admin__sales_order_entry_validation__export_sales_order_excel"
+    ]
+  },
+  {
+    "task_id": 17,
+    "level": 3,
+    "prompt": "仓库需要进行货物出库操作，请先进行拣货波次处理，然后完成包装验证扫描，最后更新出库单状态。",
+    "expected_agents": [
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__wave_picking",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__packing_verification_scan",
+      "erp_supply_chain_system__warehouse_ops_team__outbound_clerk__shipment_handover_inventory_cost_posting__update_other_outbound_order"
+    ]
+  },
+  {
+    "task_id": 18,
+    "level": 2,
+    "prompt": "我们正在拓展新的销售渠道，需要进行渠道招商工作，同时制定渠道价格政策以防止窜货问题。",
+    "expected_agents": [
+      "erp_sales_system__bd_account_manager__channel_distribution_manager__channel_recruitment",
+      "erp_sales_system__bd_account_manager__channel_distribution_manager__price_control_anti_channel_conflict"
+    ]
+  },
+  {
+    "task_id": 19,
+    "level": 4,
+    "prompt": "新产品即将上市，需要完成产品导入流程。请先创建产品主数据，设置产品的物流属性（尺寸重量），配置包装规格信息，最后启动新品上市流程。",
+    "expected_agents": [
+      "erp_product_system__sku_master_data_specialist__master_data_entry__create_product",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__logistics_attributes_dimensions_weight",
+      "erp_product_system__sku_master_data_specialist__master_data_entry__packaging_attributes_carton_spec",
+      "erp_product_system__lifecycle_manager__new_product_introduction_enablement"
+    ]
+  },
+  {
+    "task_id": 20,
+    "level": 3,
+    "prompt": "采购部门需要与供应商谈判新的采购合同，请先获取供应商列表，然后进行合同谈判确定价格条款和最小起订量。同时更新相关采购订单的状态。",
+    "expected_agents": [
+      "erp_procurement_system__strategic_sourcing_manager__supplier_onboarding_master_data__get_supplier_simple_list",
+      "erp_procurement_system__strategic_sourcing_manager__contract_negotiation_price_terms_moq",
+      "erp_procurement_system__buyer__pr_to_po_order_generation__update_purchase_order_status"
+    ]
+  }
+]
