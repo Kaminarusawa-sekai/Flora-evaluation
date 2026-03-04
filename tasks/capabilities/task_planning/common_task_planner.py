@@ -35,34 +35,12 @@ class CommonTaskPlanning(ITaskPlanningCapability):
     2. 结构层：基于 Neo4j 知识图谱，发现隐性依赖（SCC），对 Agent 任务进行协同规划与扩充。
     """
 
-    # 线程本地存储，用于跟踪当前任务上下文
-    _local = threading.local()
-
     def __init__(self):
         super().__init__()
         self.logger = logging.getLogger(__name__)
         self.tree_manager = None
         self._llm = None
         self._structure_repo = None # 用于连接 Neo4j
-
-    @classmethod
-    def set_current_task(cls, task_id: str, layer: int = 0):
-        """设置当前任务上下文（用于 token 统计）"""
-        cls._local.task_id = task_id
-        cls._local.layer = layer
-
-    @classmethod
-    def get_current_task(cls) -> tuple:
-        """获取当前任务上下文"""
-        return (
-            getattr(cls._local, 'task_id', None),
-            getattr(cls._local, 'layer', 0)
-        )
-
-    @classmethod
-    def increment_layer(cls):
-        """递增层级"""
-        cls._local.layer = getattr(cls._local, 'layer', 0) + 1
 
     def get_capability_type(self) -> str:
         return 'common_task_planning'
@@ -784,24 +762,11 @@ class CommonTaskPlanning(ITaskPlanningCapability):
             return []
 
     def _call_llm(self, prompt: str, agent_id: str = "") -> str:
-        """统一调用 LLM，并记录 token 消耗"""
+        """统一调用 LLM"""
         # 使用 property 获取 LLM（延迟加载）
+        # 注意：token 记录已在 QwenLLM 中完成，这里不再重复记录
         try:
             response = self.llm.generate(prompt)
-
-            # 记录 token 消耗（评估模式）
-            tracker = get_token_tracker()
-            if tracker:
-                task_id, layer = self.get_current_task()
-                if task_id:
-                    tracker.record_llm_call(
-                        task_id=task_id,
-                        prompt=prompt,
-                        completion=response,
-                        layer=layer,
-                        agent_id=agent_id
-                    )
-
             return response
         except Exception as e:
             self.logger.error(f"LLM call failed: {e}")

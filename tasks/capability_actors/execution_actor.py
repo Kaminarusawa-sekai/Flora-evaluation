@@ -154,7 +154,7 @@ class ExecutionActor(Actor):
     def _execute(self, capability: str, task_id: str, running_config: Dict[str, Any], reply_to: str) -> None:
         """
         执行任务的核心逻辑
-        
+
         Args:
             capability: 能力名称
             task_id: 任务ID
@@ -181,13 +181,49 @@ class ExecutionActor(Actor):
             data={"capability": capability, "status": "started"}
         )
 
-        # 根据能力类型分发
-        if capability == "dify" or capability == "dify_workflow":
-            self._execute_dify(task_id, running_config, reply_to)
-        elif capability == "http" or capability.startswith("http_"):
-            self._execute_http(task_id, running_config, reply_to)
-        else:
-            self._send_error(task_id, f"Capability {capability} not supported", reply_to)
+        # 统一通过 execution 能力处理（支持评估模式和真实执行）
+        try:
+            # 准备参数
+            agent_id = running_config.get("agent_id")
+            user_id = running_config.get("user_id")
+            inputs = running_config.get("inputs", {})
+
+            params = {
+                "agent_id": agent_id,
+                "user_id": user_id,
+                "task_id": task_id,
+                "trace_id": self.trace_id,
+                "global_context": self.global_context,
+                "enriched_context": self.enriched_context,
+            }
+            # 将 running_config 的其他字段也加入 params
+            params.update(running_config)
+
+            # 调用统一的 execute 接口
+            result = self._excution.execute(
+                connector_name=capability,
+                inputs=inputs,
+                params=params
+            )
+
+            # 处理返回结果
+            status = result.get("status")
+            if status == "NEED_INPUT":
+                missing_params = result.get("missing", [])
+                completed_params = result.get("completed", {})
+                self._send_missing_parameters(task_id, missing_params, completed_params, reply_to)
+            elif status == "SUCCESS":
+                self._send_success(task_id, result.get("result"), reply_to)
+            elif status == "FAILURE" or status == "FAILED":
+                self._send_failure(task_id, result.get("error", "Unknown error"), reply_to)
+            elif status == "ERROR":
+                self._send_error(task_id, result.get("error", "Unknown error"), reply_to)
+            else:
+                self._send_error(task_id, f"Unknown status from execution: {status}", reply_to)
+
+        except Exception as e:
+            self.logger.exception(f"Execution failed: {e}")
+            self._send_error(task_id, str(e), reply_to)
 
     def _execute_dify(self, task_id: str, running_config: Dict[str, Any], reply_to: str) -> None:
         """
@@ -204,15 +240,8 @@ class ExecutionActor(Actor):
             content = running_config.get("content", "")
             description = running_config.get("description", "")
 
-            # 评估模式：直接返回 mock 成功结果
-            if os.getenv("COOP_EVAL_EXECUTION", "") == "1":
-                self.logger.info(f"[EVAL MODE] Mock execution for agent {agent_id}")
-                self._send_success(task_id, {
-                    "agent_id": agent_id,
-                    "status": "mock_success",
-                    "content": content,
-                }, reply_to)
-                return
+            # 注意：评估模式的处理已移至 EvalExecution 能力类
+            # 通过配置 eval_config.json 中的 active_impl: eval_execution 来启用
 
             if not api_key:
                 raise ValueError("Missing 'api_key' in running_config for Dify execution")

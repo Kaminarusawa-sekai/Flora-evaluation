@@ -180,7 +180,7 @@ def init_llm():
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run COOP evaluation with real LLM planning.")
-    parser.add_argument("--dataset", default="coop_eval_actual/data/dataset_natural.json", help="Dataset JSON path")
+    parser.add_argument("--dataset", default="coop_eval_actual/data/dataset_erp_v3.json", help="Dataset JSON path")
     parser.add_argument("--records", default="records (2).json", help="Agent records JSON path")
     parser.add_argument("--config", default="coop_eval_actual/configs/eval_config.json", help="Eval config path")
     parser.add_argument("--output_dir", default="coop_eval_actual/output", help="Output directory")

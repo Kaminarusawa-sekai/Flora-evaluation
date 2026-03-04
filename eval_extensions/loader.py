@@ -27,22 +27,22 @@ def register_eval_extensions(manager: "CapabilityManager") -> None:
     Args:
         manager: CapabilityManager 实例
     """
-    from .mock_task_planning import MockTaskPlanning
     from .eval_execution import EvalExecution
+    from .eval_qwen_llm import EvalQwenLLM
 
-    # 注册 MockTaskPlanning
-    manager._available_classes["mock_task_planning"] = MockTaskPlanning
-    manager._available_classes["MockTaskPlanning"] = MockTaskPlanning
-    manager._class_type_map["mock_task_planning"] = "task_planning"
-    manager._class_type_map["MockTaskPlanning"] = "task_planning"
-    logger.info("Registered eval extension: MockTaskPlanning")
-
-    # 注册 EvalExecution
+    # 注册 EvalExecution（覆盖 tasks/capabilities/excution/）
     manager._available_classes["eval_execution"] = EvalExecution
     manager._available_classes["EvalExecution"] = EvalExecution
     manager._class_type_map["eval_execution"] = "excution"
     manager._class_type_map["EvalExecution"] = "excution"
     logger.info("Registered eval extension: EvalExecution")
+
+    # 注册 EvalQwenLLM（覆盖 tasks/capabilities/llm/qwen_llm.py）
+    manager._available_classes["eval_qwen_llm"] = EvalQwenLLM
+    manager._available_classes["EvalQwenLLM"] = EvalQwenLLM
+    manager._class_type_map["eval_qwen_llm"] = "llm"
+    manager._class_type_map["EvalQwenLLM"] = "llm"
+    logger.info("Registered eval extension: EvalQwenLLM")
 
 
 def setup_eval_environment(config_path: str = None) -> "CapabilityManager":

@@ -57,23 +57,28 @@ class EvalExecution(BaseExecution):
 
         if self._env is None:
             return {
-                "status": "FAILURE",
+                "status": "FAILED",
                 "error": "EvalExecution environment not initialized",
             }
 
         result = self._env.execute_agent(self._model_name, str(task_id), agent_id, inputs)
-        if result.get("status") == "SUCCESS":
+
+        # 标准化返回格式
+        status = result.get("status", "FAILED")
+        if status == "ok":
+            # MockToolEnvironment 返回 "ok"，转换为 "SUCCESS"
             return {
                 "status": "SUCCESS",
-                "result": result.get("result"),
+                "result": result.get("output", result),
                 "connector_name": connector_name,
             }
-
-        return {
-            "status": "FAILURE",
-            "error": result.get("error", "Execution failed"),
-            "error_type": result.get("error_type"),
-        }
+        else:
+            # 失败情况
+            return {
+                "status": "FAILED",
+                "error": result.get("error", "Execution failed"),
+                "error_type": result.get("error_type", "unknown"),
+            }
 
     def health_check(self, connector_name: str, params: Dict[str, Any]) -> bool:
         return True

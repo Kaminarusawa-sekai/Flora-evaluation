@@ -19,7 +19,7 @@ from agents.tree.tree_manager import treeManager
 
 from coop_eval_actual.agent_tree_loader import load_agents_into_tree, get_root_agents
 from coop_eval_actual.mock_tools import MockToolEnvironment, set_global_env
-from coop_eval_actual.utils import token_tracker
+from coop_eval_actual.utils import token_tracker, task_context_manager
 
 
 class CoopRunner:
@@ -52,12 +52,11 @@ class CoopRunner:
         # 重置并设置当前任务的 token 统计
         token_tracker.reset(task_id)
 
-        # 设置任务上下文（用于 CommonTaskPlanning 记录 token）
-        try:
-            from tasks.capabilities.task_planning.common_task_planner import CommonTaskPlanning
-            CommonTaskPlanning.set_current_task(task_id, layer=0)
-        except ImportError:
-            pass
+        # 记录执行前的日志数量，用于后续提取本次任务的执行记录
+        logs_before = len(self.env.logs)
+
+        # 设置全局任务上下文（用于 LLM 记录 token）
+        task_context_manager.set_current_task(task_id, layer=0)
 
         msg = AgentTaskMessage(
             content=prompt,
@@ -76,6 +75,22 @@ class CoopRunner:
 
         result = self._parse_response(response)
         result["duration_ms"] = duration_ms
+
+        # 从 MockToolEnvironment.logs 提取本次任务实际执行的 agents（最准确的来源）
+        task_logs = self.env.logs[logs_before:]
+        executed_from_logs = []
+        logger.info(f"[COOP] Executed agents from logs: {task_logs}")
+        for log in task_logs:
+            if log.status == "ok" and log.agent_id not in executed_from_logs:
+                executed_from_logs.append(log.agent_id)
+
+        # 合并：优先使用日志中的数据，因为它更准确
+        parsed_agents = result.get("executed_agents", [])
+        all_executed = list(dict.fromkeys(executed_from_logs + parsed_agents))  # 去重保序
+        result["executed_agents"] = all_executed
+        result["executed_from_logs"] = executed_from_logs
+
+        logger.info(f"[COOP] Executed agents from logs: {len(executed_from_logs)}, from response: {len(parsed_agents)}, merged: {len(all_executed)}")
 
         # 从 TokenTracker 获取真实的 token 统计
         token_stats = token_tracker.get_stats(task_id)

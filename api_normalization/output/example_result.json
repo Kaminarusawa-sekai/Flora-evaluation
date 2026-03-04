@@ -1,0 +1,276 @@
+{
+  "capabilities": [
+    {
+      "id": "cap_0",
+      "name": "Users Create Management",
+      "type": "composite",
+      "description": "Capability to create, query, update, delete Users resources. Includes 5 API endpoint(s).",
+      "resource": "Users",
+      "primary_action": "create",
+      "tags": [
+        "users"
+      ],
+      "apis": [
+        {
+          "operation_id": "createUser",
+          "method": "POST",
+          "path": "/api/v1/users",
+          "normalized_path": "/api/v1/users",
+          "summary": "Create a new user",
+          "action_verb": "create",
+          "parameters": {
+            "path": [],
+            "query": [],
+            "body": [
+              {
+                "name": "body",
+                "type": "object",
+                "required": true,
+                "description": ""
+              }
+            ],
+            "header": []
+          }
+        },
+        {
+          "operation_id": "listUsers",
+          "method": "GET",
+          "path": "/api/v1/users",
+          "normalized_path": "/api/v1/users",
+          "summary": "List all users",
+          "action_verb": "list",
+          "parameters": {
+            "path": [],
+            "query": [],
+            "body": [],
+            "header": []
+          }
+        },
+        {
+          "operation_id": "getUser",
+          "method": "GET",
+          "path": "/api/v1/users/{id}",
+          "normalized_path": "/api/v1/users/{id}",
+          "summary": "Get user by ID",
+          "action_verb": "get",
+          "parameters": {
+            "path": [
+              {
+                "name": "id",
+                "type": "string",
+                "required": true,
+                "description": ""
+              }
+            ],
+            "query": [],
+            "body": [],
+            "header": []
+          }
+        },
+        {
+          "operation_id": "updateUser",
+          "method": "PUT",
+          "path": "/api/v1/users/{id}",
+          "normalized_path": "/api/v1/users/{id}",
+          "summary": "Update user",
+          "action_verb": "update",
+          "parameters": {
+            "path": [
+              {
+                "name": "id",
+                "type": "string",
+                "required": true,
+                "description": ""
+              }
+            ],
+            "query": [],
+            "body": [],
+            "header": []
+          }
+        },
+        {
+          "operation_id": "deleteUser",
+          "method": "DELETE",
+          "path": "/api/v1/users/{id}",
+          "normalized_path": "/api/v1/users/{id}",
+          "summary": "Delete user",
+          "action_verb": "delete",
+          "parameters": {
+            "path": [
+              {
+                "name": "id",
+                "type": "string",
+                "required": true,
+                "description": ""
+              }
+            ],
+            "query": [],
+            "body": [],
+            "header": []
+          }
+        }
+      ],
+      "api_count": 5,
+      "unified_schema": {
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "read_only": [],
+        "write_only": [
+          "username",
+          "email"
+        ],
+        "field_sources": {
+          "username": [
+            "POST_request"
+          ],
+          "email": [
+            "POST_request"
+          ]
+        }
+      },
+      "lifecycle": {
+        "has_create": true,
+        "has_read": true,
+        "has_update": true,
+        "has_delete": true,
+        "is_complete_crud": true
+      },
+      "connectivity_score": 0.62,
+      "typical_workflow": "Create via createUser → Read via listUsers → Update via updateUser → Delete via deleteUser"
+    },
+    {
+      "id": "cap_1",
+      "name": "Orders Create Management",
+      "type": "composite",
+      "description": "Capability to create, query Orders resources. Includes 2 API endpoint(s).",
+      "resource": "Orders",
+      "primary_action": "create",
+      "tags": [
+        "orders"
+      ],
+      "apis": [
+        {
+          "operation_id": "createOrder",
+          "method": "POST",
+          "path": "/api/v1/orders",
+          "normalized_path": "/api/v1/orders",
+          "summary": "Create a new order",
+          "action_verb": "create",
+          "parameters": {
+            "path": [],
+            "query": [],
+            "body": [],
+            "header": []
+          }
+        },
+        {
+          "operation_id": "getOrder",
+          "method": "GET",
+          "path": "/api/v1/orders/{id}",
+          "normalized_path": "/api/v1/orders/{id}",
+          "summary": "Get order by ID",
+          "action_verb": "get",
+          "parameters": {
+            "path": [],
+            "query": [],
+            "body": [],
+            "header": []
+          }
+        }
+      ],
+      "api_count": 2,
+      "unified_schema": {
+        "properties": {},
+        "required": [],
+        "read_only": [],
+        "write_only": [],
+        "field_sources": {}
+      },
+      "lifecycle": {
+        "has_create": true,
+        "has_read": true,
+        "has_update": false,
+        "has_delete": false,
+        "is_complete_crud": false
+      },
+      "connectivity_score": 0.38,
+      "typical_workflow": "Create via createOrder → Read via getOrder"
+    }
+  ],
+  "statistics": {
+    "total_apis": 7,
+    "total_capabilities": 2,
+    "semantic_capabilities": 2,
+    "atomic_capabilities": 0
+  },
+  "source": {
+    "title": "Example API",
+    "version": "1.0.0",
+    "source": "example_swagger.json"
+  },
+  "evaluation": {
+    "quality_score": 65.71,
+    "metrics": {
+      "silhouette_score": 1.78312690798803e-05,
+      "davies_bouldin_index": 1.7939487489940502,
+      "total_clusters": 2,
+      "noise_ratio": 0.0,
+      "avg_cluster_size": 3.5,
+      "cluster_size_std": 1.5
+    },
+    "connectivity_scores": {
+      "average_connectivity": 0.5,
+      "per_capability": [
+        {
+          "capability_id": "cap_0",
+          "capability_name": "Users Create Management",
+          "connectivity_score": 0.62
+        },
+        {
+          "capability_id": "cap_1",
+          "capability_name": "Orders Create Management",
+          "connectivity_score": 0.38
+        }
+      ]
+    },
+    "explanations": [
+      {
+        "capability_id": "cap_0",
+        "capability_name": "Users Create Management",
+        "type": "composite",
+        "reason": "All APIs operate on the 'Users' resource. Covers create, read, update, delete operations. APIs share similar URL patterns. Tagged as: users.",
+        "typical_workflow": "Create via createUser → Read via listUsers → Update via updateUser → Delete via deleteUser",
+        "key_features": [
+          "5 APIs",
+          "Methods: DELETE, GET, POST, PUT",
+          "Medium connectivity"
+        ]
+      },
+      {
+        "capability_id": "cap_1",
+        "capability_name": "Orders Create Management",
+        "type": "composite",
+        "reason": "All APIs operate on the 'Orders' resource. Covers create, read operations. Tagged as: orders.",
+        "typical_workflow": "Create via createOrder → Read via getOrder",
+        "key_features": [
+          "2 APIs",
+          "Methods: GET, POST"
+        ]
+      }
+    ],
+    "warnings": [
+      "Low silhouette score (0.00): Clusters may not be well-separated. Review clustering quality.",
+      "2 capabilities have incomplete CRUD operations. This may indicate missing APIs or over-clustering."
+    ],
+    "recommendations": [
+      "Consider using more descriptive API documentation (summary, description) to improve semantic clustering."
+    ]
+  }
+}

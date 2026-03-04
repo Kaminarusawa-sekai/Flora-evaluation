@@ -5,28 +5,6 @@ import json
 from .interface import ILLMCapability
 
 
-# Token 统计器（仅在评估模式下使用）
-_token_tracker = None
-def _get_token_tracker():
-    global _token_tracker
-    if _token_tracker is None and os.environ.get("COOP_EVAL_EXECUTION") == "1":
-        try:
-            from coop_eval_actual.utils import token_tracker
-            _token_tracker = token_tracker
-        except ImportError:
-            pass
-    return _token_tracker
-
-
-def _get_current_task_context():
-    """获取当前任务上下文（task_id, layer）"""
-    try:
-        from tasks.capabilities.task_planning.common_task_planner import CommonTaskPlanning
-        return CommonTaskPlanning.get_current_task()
-    except ImportError:
-        return (None, 0)
-
-
 class QwenLLM(ILLMCapability):
     """
     基于 DashScope SDK 的 Qwen 适配器
@@ -37,7 +15,7 @@ class QwenLLM(ILLMCapability):
         self,
 
     ):
-        
+
         super().__init__(
 
         )
@@ -110,20 +88,45 @@ class QwenLLM(ILLMCapability):
         max_retries: int = 3,
         **kwargs
     ) -> Union[str, Dict[str, Any], None]:
-        for _ in range(max_retries):
+        for attempt in range(max_retries):
             try:
                 response = self.dashscope.Generation.call(
                     model=self.model_name,
                     prompt=prompt,
                     **kwargs
                 )
-                if not response or not hasattr(response, 'output') or not response.output.text:
+
+                # 详细的错误检查
+                if response is None:
+                    print(f"[QwenLLM] Attempt {attempt+1}: Response is None")
+                    continue
+
+                # 检查 API 错误码
+                if hasattr(response, 'status_code') and response.status_code != 200:
+                    print(f"[QwenLLM] Attempt {attempt+1}: API error {response.status_code} - {getattr(response, 'message', 'Unknown error')}")
+                    continue
+
+                if not hasattr(response, 'output'):
+                    print(f"[QwenLLM] Attempt {attempt+1}: Response has no 'output' attribute. Response: {response}")
+                    continue
+
+                if response.output is None:
+                    print(f"[QwenLLM] Attempt {attempt+1}: response.output is None. Code: {getattr(response, 'code', 'N/A')}, Message: {getattr(response, 'message', 'N/A')}")
+                    continue
+
+                if not hasattr(response.output, 'text') or response.output.text is None:
+                    print(f"[QwenLLM] Attempt {attempt+1}: response.output.text is None. Output: {response.output}")
                     continue
 
                 text = response.output.text.strip()
 
-                # 记录 token 消耗（评估模式）
-                self._record_token_usage(prompt, text, kwargs.get('agent_id', ''))
+                # 提取真实的 token 使用量（用于日志或监控）
+                usage = getattr(response, 'usage', None)
+                if usage:
+                    prompt_tokens = getattr(usage, 'input_tokens', None)
+                    completion_tokens = getattr(usage, 'output_tokens', None)
+                    # 可以在这里记录日志
+                    # print(f"Token usage: prompt={prompt_tokens}, completion={completion_tokens}")
 
                 if not parse_json:
                     return text
@@ -140,7 +143,7 @@ class QwenLLM(ILLMCapability):
                 return result
 
             except Exception as e:
-                print(f"[QwenLLM Text Error] {e}")
+                print(f"[QwenLLM Text Error] Attempt {attempt+1}: {type(e).__name__}: {e}")
                 continue
         return None
 
@@ -171,8 +174,13 @@ class QwenLLM(ILLMCapability):
 
                 text = response.output.choices[0].message.content[0].text.strip()
 
-                # 记录 token 消耗（评估模式）
-                self._record_token_usage(prompt, text, kwargs.get('agent_id', ''))
+                # 提取真实的 token 使用量（用于日志或监控）
+                usage = getattr(response, 'usage', None)
+                if usage:
+                    prompt_tokens = getattr(usage, 'input_tokens', None)
+                    completion_tokens = getattr(usage, 'output_tokens', None)
+                    # 可以在这里记录日志
+                    # print(f"Token usage: prompt={prompt_tokens}, completion={completion_tokens}")
 
                 if not parse_json:
                     return text
@@ -248,20 +256,6 @@ class QwenLLM(ILLMCapability):
             "qwen-max", "qwen-plus", "qwen-turbo", "qwen-max-longcontext",
             "qwen-vl-max", "qwen-vl-plus"
         ]
-
-    def _record_token_usage(self, prompt: str, completion: str, agent_id: str = "") -> None:
-        """记录 token 消耗（仅在评估模式下生效）"""
-        tracker = _get_token_tracker()
-        if tracker:
-            task_id, layer = _get_current_task_context()
-            if task_id:
-                tracker.record_llm_call(
-                    task_id=task_id,
-                    prompt=prompt,
-                    completion=completion,
-                    layer=layer,
-                    agent_id=agent_id
-                )
 
     def batch_generate(self, prompts: List[str], **kwargs) -> List[str]:
         # 简单串行实现（DashScope SDK 本身不提供 batch 接口）

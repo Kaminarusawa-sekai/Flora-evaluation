@@ -19,6 +19,48 @@ def estimate_tokens_for_text(text: str) -> int:
     return int(math.ceil(len(text) / 4))
 
 
+class TaskContextManager:
+    """
+    全局任务上下文管理器，用于跟踪当前执行的任务。
+    线程安全，支持多线程环境。
+    """
+    _instance = None
+    _lock = threading.Lock()
+
+    def __new__(cls):
+        if cls._instance is None:
+            with cls._lock:
+                if cls._instance is None:
+                    cls._instance = super().__new__(cls)
+                    cls._instance._local = threading.local()
+        return cls._instance
+
+    def set_current_task(self, task_id: str, layer: int = 0):
+        """设置当前任务上下文"""
+        self._local.task_id = task_id
+        self._local.layer = layer
+
+    def get_current_task(self) -> tuple:
+        """获取当前任务上下文 (task_id, layer)"""
+        return (
+            getattr(self._local, 'task_id', None),
+            getattr(self._local, 'layer', 0)
+        )
+
+    def increment_layer(self):
+        """递增层级"""
+        self._local.layer = getattr(self._local, 'layer', 0) + 1
+
+    def reset(self):
+        """重置上下文"""
+        self._local.task_id = None
+        self._local.layer = 0
+
+
+# 全局单例
+task_context_manager = TaskContextManager()
+
+
 class TokenTracker:
     """
     全局 Token 统计器，用于累计 COOP 多层 LLM 调用的 token 消耗。
@@ -49,10 +91,25 @@ class TokenTracker:
             else:
                 self._data.clear()
 
-    def record_llm_call(self, task_id: str, prompt: str, completion: str, layer: int = 0, agent_id: str = ""):
-        """记录一次 LLM 调用"""
-        prompt_tokens = estimate_tokens_for_text(prompt)
-        completion_tokens = estimate_tokens_for_text(completion)
+    def record_llm_call(self, task_id: str, prompt: str, completion: str, layer: int = 0, agent_id: str = "",
+                        prompt_tokens: int = None, completion_tokens: int = None):
+        """
+        记录一次 LLM 调用
+
+        Args:
+            task_id: 任务 ID
+            prompt: 提示文本
+            completion: 完成文本
+            layer: 层级
+            agent_id: Agent ID
+            prompt_tokens: 真实的 prompt token 数（如果 API 返回了）
+            completion_tokens: 真实的 completion token 数（如果 API 返回了）
+        """
+        # 优先使用真实 token 数，否则估算
+        if prompt_tokens is None:
+            prompt_tokens = estimate_tokens_for_text(prompt)
+        if completion_tokens is None:
+            completion_tokens = estimate_tokens_for_text(completion)
 
         with self._data_lock:
             if task_id not in self._data:

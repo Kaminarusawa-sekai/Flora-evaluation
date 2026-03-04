@@ -1,0 +1,16 @@
+# API Normalization Service - Dependencies
+
+# Core dependencies (required)
+pyyaml>=6.0
+requests>=2.28.0
+scikit-learn>=1.0.0
+numpy>=1.21.0
+
+# Optional: Better clustering (recommended)
+hdbscan>=0.8.0
+
+# Optional: Enhanced Swagger parsing (recommended)
+prance>=23.6.0
+
+# Optional: OpenAPI validation
+openapi-spec-validator>=0.5.0

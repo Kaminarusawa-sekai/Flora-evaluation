@@ -5,15 +5,14 @@
   },
   "capabilities": {
     "llm": {
-      "active_impl": "qwen_llm",
-      "qwen_llm": {
+      "active_impl": "eval_qwen_llm",
+      "eval_qwen_llm": {
         "model_name": "qwen-max"
       }
     },
     "task_planning": {
       "active_impl": "common_task_planning",
-      "common_task_planning": {},
-      "mock_task_planning": {}
+      "common_task_planning": {}
     },
     "excution": {
       "active_impl": "eval_execution",

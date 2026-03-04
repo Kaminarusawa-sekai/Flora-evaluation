@@ -1,0 +1,11 @@
+============================================================
+%, avg_tokens=18170, hallucination=0.00%
+LangChain    Level 1: success_rate=45.24%, avg_tokens=17993, hallucination=10.14%
+LangChain    Level 2: success_rate=33.33%, avg_tokens=17955, hallucination=66.67%
+LangChain    Level 3: success_rate=25.00%, avg_tokens=18090, hallucination=12.50%
+LangChain    Level 4: success_rate=100.00%, avg_tokens=18142, hallucination=0.00%
+ReAct        Level 1: success_rate=83.33%, avg_tokens=85154, hallucination=0.00%
+ReAct        Level 2: success_rate=100.00%, avg_tokens=61451, hallucination=0.00%
+ReAct        Level 3: success_rate=50.00%, avg_tokens=101715, hallucination=0.00%
+ReAct        Level 4: success_rate=100.00%, avg_tokens=111041, hallucination=0.00%
+============================================================
