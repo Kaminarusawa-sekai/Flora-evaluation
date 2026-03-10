@@ -2,7 +2,7 @@
 
 from typing import List, Dict, Any, Optional, Literal
 import json
-from .models import TestScenario, ParameterConstraint, InjectionPoint
+from models import TestScenario, ParameterConstraint, InjectionPoint
 
 
 class ScenarioGenerator:

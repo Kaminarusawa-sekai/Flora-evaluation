@@ -1,0 +1,490 @@
+{
+	"info": {
+		"_postman_id": "prompt-optimizer-api",
+		"name": "提示词优化API",
+		"description": "自动提示词优化系统的完整API测试集合\n\n## 使用说明\n\n1. 确保API服务正在运行: `python api_server.py`\n2. 导入此Collection到Postman\n3. 配置环境变量（或使用默认的localhost:8000）\n4. 按顺序执行请求测试\n\n## 测试流程\n\n1. 健康检查 - 验证服务状态\n2. 创建优化任务 - 提交提示词优化请求\n3. 查询任务状态 - 轮询任务进度\n4. 获取优化结果 - 获取最终结果\n5. 列出所有任务 - 查看任务列表\n6. 删除任务 - 清理任务记录",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. 健康检查",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"服务状态正常\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"healthy\");",
+							"});",
+							"",
+							"pm.test(\"API密钥已配置\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.api_key_configured).to.be.true;",
+							"});",
+							"",
+							"console.log(\"✓ 服务运行正常\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "检查API服务健康状态和配置\n\n**返回信息：**\n- status: 服务状态\n- version: API版本\n- api_key_configured: API密钥是否配置"
+			},
+			"response": []
+		},
+		{
+			"name": "2. 创建优化任务 - 情感分析",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"任务创建成功\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('task_id');",
+							"    pm.expect(jsonData.status).to.eql('pending');",
+							"});",
+							"",
+							"// 保存task_id到环境变量，供后续请求使用",
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"task_id\", jsonData.task_id);",
+							"",
+							"console.log(\"✓ 任务已创建，task_id: \" + jsonData.task_id);",
+							"console.log(\"提示: 可以使用'查询任务状态'接口查看进度\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"task_name\": \"情感分析优化\",\n  \"task_description\": \"判断电商评论的情感倾向是积极(positive)还是消极(negative)\",\n  \"examples\": [\n    {\n      \"input\": \"这个产品质量真的很棒，超出预期！\",\n      \"output\": \"positive\"\n    },\n    {\n      \"input\": \"质量太差了，完全不值这个价格\",\n      \"output\": \"negative\"\n    },\n    {\n      \"input\": \"物流很快，包装也很好，非常满意\",\n      \"output\": \"positive\"\n    },\n    {\n      \"input\": \"客服态度恶劣，再也不来了\",\n      \"output\": \"negative\"\n    },\n    {\n      \"input\": \"性价比很高，值得推荐给朋友\",\n      \"output\": \"positive\"\n    }\n  ],\n  \"validation_data\": [\n    {\n      \"input\": \"这家店的东西都很不错\",\n      \"output\": \"positive\"\n    },\n    {\n      \"input\": \"等了一个星期还没发货\",\n      \"output\": \"negative\"\n    },\n    {\n      \"input\": \"宝贝收到了，质量很好\",\n      \"output\": \"positive\"\n    },\n    {\n      \"input\": \"图片和实物差距太大\",\n      \"output\": \"negative\"\n    },\n    {\n      \"input\": \"店家服务态度很好\",\n      \"output\": \"positive\"\n    }\n  ],\n  \"initial_prompts\": [\n    \"请判断以下电商评论的情感是positive还是negative。只需要回答一个词。\"\n  ],\n  \"max_iterations\": 10,\n  \"num_candidates\": 5,\n  \"top_k\": 3,\n  \"early_stop_threshold\": 0.95\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/optimize",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"optimize"
+					]
+				},
+				"description": "创建一个情感分析的提示词优化任务\n\n**场景说明：**\n电商评论情感分析，需要判断用户评论是积极还是消极\n\n**初始提示词：**\n简单的判断指令\n\n**预期结果：**\n系统会自动优化提示词，提高分类准确率"
+			},
+			"response": []
+		},
+		{
+			"name": "3. 创建优化任务 - 文本分类",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"任务创建成功\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('task_id');",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"task_id_classification\", jsonData.task_id);",
+							"console.log(\"✓ 文本分类任务已创建: \" + jsonData.task_id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"task_name\": \"新闻分类\",\n  \"task_description\": \"将新闻标题分类为：科技、体育、娱乐、财经\",\n  \"examples\": [\n    {\n      \"input\": \"苹果公司发布新款iPhone 16，搭载最新AI芯片\",\n      \"output\": \"科技\"\n    },\n    {\n      \"input\": \"NBA总决赛今晚开打，湖人对阵勇士\",\n      \"output\": \"体育\"\n    },\n    {\n      \"input\": \"新电影票房破10亿，导演发表获奖感言\",\n      \"output\": \"娱乐\"\n    },\n    {\n      \"input\": \"A股今日大涨3%，创业板指数创新高\",\n      \"output\": \"财经\"\n    },\n    {\n      \"input\": \"特斯拉推出全新电动卡车，续航超1000公里\",\n      \"output\": \"科技\"\n    }\n  ],\n  \"validation_data\": [\n    {\n      \"input\": \"人工智能技术取得重大突破\",\n      \"output\": \"科技\"\n    },\n    {\n      \"input\": \"世界杯小组赛今日全部结束\",\n      \"output\": \"体育\"\n    },\n    {\n      \"input\": \"知名演员宣布结婚喜讯\",\n      \"output\": \"娱乐\"\n    },\n    {\n      \"input\": \"央行宣布降息0.25个百分点\",\n      \"output\": \"财经\"\n    }\n  ],\n  \"initial_prompts\": [\n    \"请将以下新闻标题分类为：科技、体育、娱乐、财经。只需要回答分类结果。\",\n    \"你是一个新闻分类专家，请判断以下标题属于哪个类别：科技、体育、娱乐、财经\"\n  ],\n  \"max_iterations\": 8\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/optimize",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"optimize"
+					]
+				},
+				"description": "创建一个新闻分类的提示词优化任务\n\n**场景说明：**\n多分类任务，将新闻标题分为4个类别\n\n**特点：**\n提供了2个不同风格的初始提示词，系统会选择更好的进行优化"
+			},
+			"response": []
+		},
+		{
+			"name": "4. 创建优化任务 - 问答系统",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"任务创建成功\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"task_id_qa\", jsonData.task_id);",
+							"console.log(\"✓ 问答任务已创建: \" + jsonData.task_id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"task_name\": \"客服问答\",\n  \"task_description\": \"回答客户关于产品的常见问题\",\n  \"examples\": [\n    {\n      \"input\": \"你们的退货政策是什么？\",\n      \"output\": \"我们提供7天无理由退货服务，商品需保持完好未使用状态。\"\n    },\n    {\n      \"input\": \"多久能发货？\",\n      \"output\": \"正常情况下，我们会在24小时内发货，偏远地区可能需要2-3天。\"\n    },\n    {\n      \"input\": \"支持哪些支付方式？\",\n      \"output\": \"我们支持微信支付、支付宝、银行卡等多种支付方式。\"\n    }\n  ],\n  \"validation_data\": [\n    {\n      \"input\": \"可以开发票吗？\",\n      \"output\": \"可以的，下单时请备注需要开具发票，我们会随货寄出。\"\n    },\n    {\n      \"input\": \"运费怎么算？\",\n      \"output\": \"订单满99元包邮，不满99元需支付10元运费。\"\n    }\n  ],\n  \"initial_prompts\": [\n    \"你是一个专业的客服助手，请简洁准确地回答客户问题。\"\n  ],\n  \"max_iterations\": 5\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/optimize",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"optimize"
+					]
+				},
+				"description": "创建一个客服问答的提示词优化任务\n\n**场景说明：**\n客服自动问答系统，需要准确回答客户问题\n\n**特点：**\n更注重回答的准确性和专业性"
+			},
+			"response": []
+		},
+		{
+			"name": "5. 查询任务状态",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"状态查询成功\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('status');",
+							"    pm.expect(jsonData.task_id).to.eql(pm.environment.get('task_id'));",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"console.log(\"任务状态: \" + jsonData.status);",
+							"",
+							"if (jsonData.status === 'completed') {",
+							"    console.log(\"✓ 任务已完成！\");",
+							"    console.log(\"最佳分数: \" + jsonData.best_score);",
+							"    console.log(\"迭代次数: \" + jsonData.iterations);",
+							"} else if (jsonData.status === 'running') {",
+							"    console.log(\"⏳ 任务运行中，请稍后再查询...\");",
+							"} else if (jsonData.status === 'pending') {",
+							"    console.log(\"⏳ 任务等待中...\");",
+							"} else if (jsonData.status === 'failed') {",
+							"    console.log(\"✗ 任务失败: \" + jsonData.error);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/status/{{task_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"status",
+						"{{task_id}}"
+					]
+				},
+				"description": "查询任务的当前状态\n\n**使用说明：**\n- 使用环境变量 `{{task_id}}` 自动填充任务ID\n- 任务ID来自\"创建优化任务\"接口的返回值\n- 可以重复调用此接口查看进度\n\n**状态说明：**\n- pending: 等待执行\n- running: 正在执行\n- completed: 已完成\n- failed: 失败"
+			},
+			"response": []
+		},
+		{
+			"name": "6. 获取优化结果",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"结果获取成功\", function () {",
+							"    // 如果任务未完成，状态码是202",
+							"    if (pm.response.code === 202) {",
+							"        console.log(\"⏳ 任务尚未完成，请稍后再试\");",
+							"        return;",
+							"    }",
+							"    ",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('completed');",
+							"    pm.expect(jsonData).to.have.property('best_prompt');",
+							"    pm.expect(jsonData).to.have.property('best_score');",
+							"});",
+							"",
+							"if (pm.response.code === 200) {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(\"\\n\" + \"=\".repeat(70));",
+							"    console.log(\"优化结果摘要\");",
+							"    console.log(\"=\".repeat(70));",
+							"    console.log(\"最佳分数: \" + jsonData.best_score);",
+							"    console.log(\"初始分数: \" + jsonData.initial_score);",
+							"    console.log(\"提升幅度: \" + jsonData.improvement);",
+							"    console.log(\"迭代次数: \" + jsonData.iterations);",
+							"    console.log(\"\\n最佳提示词:\");",
+							"    console.log(jsonData.best_prompt);",
+							"    console.log(\"=\".repeat(70));",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/result/{{task_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"result",
+						"{{task_id}}"
+					]
+				},
+				"description": "获取已完成任务的优化结果\n\n**注意：**\n- 仅当任务状态为 `completed` 时才能获取结果\n- 如果任务未完成会返回202状态码\n- 建议先使用\"查询任务状态\"确认任务已完成\n\n**返回信息：**\n- best_prompt: 优化后的最佳提示词\n- best_score: 最佳分数\n- initial_score: 初始分数\n- improvement: 改进幅度\n- iterations: 迭代次数\n- score_history: 分数历史记录"
+			},
+			"response": []
+		},
+		{
+			"name": "7. 列出所有任务",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"任务列表获取成功\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('total');",
+							"    pm.expect(jsonData).to.have.property('tasks');",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"console.log(\"\\n总任务数: \" + jsonData.total);",
+							"console.log(\"\\n任务列表:\");",
+							"jsonData.tasks.forEach(function(task, index) {",
+							"    console.log((index + 1) + \". \" + task.task_name + \" - \" + task.status + \" (\" + task.task_id + \")\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/tasks",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"tasks"
+					]
+				},
+				"description": "获取所有任务的概览信息\n\n**返回信息：**\n- total: 任务总数\n- tasks: 任务列表，包含每个任务的基本信息\n  - task_id: 任务ID\n  - status: 任务状态\n  - created_at: 创建时间\n  - task_name: 任务名称"
+			},
+			"response": []
+		},
+		{
+			"name": "8. 删除任务",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"任务删除成功\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('message');",
+							"});",
+							"",
+							"console.log(\"✓ 任务已删除\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// 警告：此操作会删除任务记录",
+							"console.log(\"⚠️  即将删除任务: \" + pm.environment.get('task_id'));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/task/{{task_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"task",
+						"{{task_id}}"
+					]
+				},
+				"description": "删除指定的任务记录\n\n**注意：**\n- 此操作会永久删除任务记录\n- 建议在获取结果后再删除\n- 可用于清理已完成或失败的任务"
+			},
+			"response": []
+		},
+		{
+			"name": "9. 轮询等待任务完成（示例）",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// 这是一个轮询示例脚本",
+							"// 实际使用时，建议在代码中实现轮询逻辑",
+							"console.log(\"开始查询任务状态...\");",
+							"console.log(\"提示：Postman不适合长时间轮询，建议使用Python客户端\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"if (jsonData.status === 'completed') {",
+							"    console.log(\"\\n\" + \"=\".repeat(70));",
+							"    console.log(\"✓ 任务完成！\");",
+							"    console.log(\"=\".repeat(70));",
+							"    console.log(\"任务名称: \" + jsonData.request.task_name);",
+							"    console.log(\"最佳分数: \" + jsonData.best_score);",
+							"    console.log(\"初始分数: \" + jsonData.initial_score);",
+							"    console.log(\"提升幅度: +\" + jsonData.improvement);",
+							"    console.log(\"迭代次数: \" + jsonData.iterations);",
+							"    console.log(\"\\n最佳提示词:\");",
+							"    console.log(jsonData.best_prompt);",
+							"    console.log(\"\\n分数历史:\");",
+							"    console.log(jsonData.score_history.join(\" -> \"));",
+							"    console.log(\"=\".repeat(70));",
+							"} else if (jsonData.status === 'running') {",
+							"    console.log(\"⏳ 任务运行中... (\" + new Date().toLocaleTimeString() + \")\");",
+							"    console.log(\"提示：可以继续发送此请求查看进度\");",
+							"} else if (jsonData.status === 'pending') {",
+							"    console.log(\"⏳ 任务等待中...\");",
+							"} else if (jsonData.status === 'failed') {",
+							"    console.log(\"✗ 任务失败: \" + jsonData.error);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/status/{{task_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"status",
+						"{{task_id}}"
+					]
+				},
+				"description": "**轮询示例**\n\n在实际应用中，通常需要轮询查询任务状态直到完成。\n\n**推荐做法：**\n\n1. **使用Python客户端**（最佳）：\n```python\nfrom api_client import PromptOptimizationClient\nclient = PromptOptimizationClient()\nresult = client.optimize(..., wait=True)  # 自动等待完成\n```\n\n2. **手动轮询**：\n- 每10-30秒查询一次状态\n- 直到status为'completed'或'failed'\n\n3. **在Postman中测试**：\n- 手动多次点击\"Send\"按钮\n- 查看Console中的输出信息"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "task_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "task_id_classification",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "task_id_qa",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

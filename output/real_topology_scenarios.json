@@ -1,0 +1,703 @@
+{
+  "metadata": {
+    "source_file": "E:\\Data\\Flora-evaluation\\erp-server.json",
+    "total_apis": 169,
+    "total_dependencies": 32,
+    "total_entities": 28
+  },
+  "topology_summary": {
+    "total_apis": 169,
+    "total_dependencies": 32,
+    "total_entities": 28
+  },
+  "paths": [
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-order/update-status",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-order/update",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-in/update-status",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-in/update",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-return/update-status",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-return/update",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/warehouse/update",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/product/update",
+        "get_/admin-api/erp/product/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/product-unit/update",
+        "get_/admin-api/erp/product-unit/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/product-category/update",
+        "get_/admin-api/erp/product-category/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    }
+  ],
+  "scenarios": [
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update-status",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "scenario": {
+        "title": "正常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "normal",
+        "steps": [
+          "put_/admin-api/erp/purchase-order/update-status",
+          "get_/admin-api/erp/purchase-order/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-order/export-excel": "put_/admin-api/erp/purchase-order/update-status"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update-status",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "scenario": {
+        "title": "异常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "exception",
+        "steps": [
+          "put_/admin-api/erp/purchase-order/update-status",
+          "get_/admin-api/erp/purchase-order/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-order/export-excel": "put_/admin-api/erp/purchase-order/update-status"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "scenario": {
+        "title": "正常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "normal",
+        "steps": [
+          "put_/admin-api/erp/purchase-order/update",
+          "get_/admin-api/erp/purchase-order/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-order/export-excel": "put_/admin-api/erp/purchase-order/update"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "scenario": {
+        "title": "异常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "exception",
+        "steps": [
+          "put_/admin-api/erp/purchase-order/update",
+          "get_/admin-api/erp/purchase-order/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-order/export-excel": "put_/admin-api/erp/purchase-order/update"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update-status",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "scenario": {
+        "title": "正常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "normal",
+        "steps": [
+          "put_/admin-api/erp/purchase-in/update-status",
+          "get_/admin-api/erp/purchase-in/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-in/export-excel": "put_/admin-api/erp/purchase-in/update-status"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update-status",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "scenario": {
+        "title": "异常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "exception",
+        "steps": [
+          "put_/admin-api/erp/purchase-in/update-status",
+          "get_/admin-api/erp/purchase-in/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-in/export-excel": "put_/admin-api/erp/purchase-in/update-status"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "scenario": {
+        "title": "正常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "normal",
+        "steps": [
+          "put_/admin-api/erp/purchase-in/update",
+          "get_/admin-api/erp/purchase-in/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-in/export-excel": "put_/admin-api/erp/purchase-in/update"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "scenario": {
+        "title": "异常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "exception",
+        "steps": [
+          "put_/admin-api/erp/purchase-in/update",
+          "get_/admin-api/erp/purchase-in/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-in/export-excel": "put_/admin-api/erp/purchase-in/update"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update-status",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "scenario": {
+        "title": "正常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "normal",
+        "steps": [
+          "put_/admin-api/erp/purchase-return/update-status",
+          "get_/admin-api/erp/purchase-return/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-return/export-excel": "put_/admin-api/erp/purchase-return/update-status"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update-status",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "scenario": {
+        "title": "异常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "exception",
+        "steps": [
+          "put_/admin-api/erp/purchase-return/update-status",
+          "get_/admin-api/erp/purchase-return/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-return/export-excel": "put_/admin-api/erp/purchase-return/update-status"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "scenario": {
+        "title": "正常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "normal",
+        "steps": [
+          "put_/admin-api/erp/purchase-return/update",
+          "get_/admin-api/erp/purchase-return/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-return/export-excel": "put_/admin-api/erp/purchase-return/update"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "scenario": {
+        "title": "异常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "exception",
+        "steps": [
+          "put_/admin-api/erp/purchase-return/update",
+          "get_/admin-api/erp/purchase-return/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_/admin-api/erp/purchase-return/export-excel": "put_/admin-api/erp/purchase-return/update"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/warehouse/update",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "scenario": {
+        "title": "正常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "normal",
+        "steps": [
+          "put_/admin-api/erp/warehouse/update",
+          "get_/admin-api/erp/warehouse/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_/admin-api/erp/warehouse/export-excel": "put_/admin-api/erp/warehouse/update"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/warehouse/update",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "scenario": {
+        "title": "异常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "exception",
+        "steps": [
+          "put_/admin-api/erp/warehouse/update",
+          "get_/admin-api/erp/warehouse/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_/admin-api/erp/warehouse/export-excel": "put_/admin-api/erp/warehouse/update"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/product/update",
+        "get_/admin-api/erp/product/export-excel"
+      ],
+      "scenario": {
+        "title": "正常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "normal",
+        "steps": [
+          "put_/admin-api/erp/product/update",
+          "get_/admin-api/erp/product/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_/admin-api/erp/product/export-excel": "put_/admin-api/erp/product/update"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/product/update",
+        "get_/admin-api/erp/product/export-excel"
+      ],
+      "scenario": {
+        "title": "异常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "exception",
+        "steps": [
+          "put_/admin-api/erp/product/update",
+          "get_/admin-api/erp/product/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_/admin-api/erp/product/export-excel": "put_/admin-api/erp/product/update"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/product-unit/update",
+        "get_/admin-api/erp/product-unit/export-excel"
+      ],
+      "scenario": {
+        "title": "正常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "normal",
+        "steps": [
+          "put_/admin-api/erp/product-unit/update",
+          "get_/admin-api/erp/product-unit/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_/admin-api/erp/product-unit/export-excel": "put_/admin-api/erp/product-unit/update"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/product-unit/update",
+        "get_/admin-api/erp/product-unit/export-excel"
+      ],
+      "scenario": {
+        "title": "异常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "exception",
+        "steps": [
+          "put_/admin-api/erp/product-unit/update",
+          "get_/admin-api/erp/product-unit/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_/admin-api/erp/product-unit/export-excel": "put_/admin-api/erp/product-unit/update"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/product-category/update",
+        "get_/admin-api/erp/product-category/export-excel"
+      ],
+      "scenario": {
+        "title": "正常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "normal",
+        "steps": [
+          "put_/admin-api/erp/product-category/update",
+          "get_/admin-api/erp/product-category/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_/admin-api/erp/product-category/export-excel": "put_/admin-api/erp/product-category/update"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "put_/admin-api/erp/product-category/update",
+        "get_/admin-api/erp/product-category/export-excel"
+      ],
+      "scenario": {
+        "title": "异常场景: 更新 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: Unknown Interface -> Unknown Interface",
+        "scenario_type": "exception",
+        "steps": [
+          "put_/admin-api/erp/product-category/update",
+          "get_/admin-api/erp/product-category/export-excel"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_/admin-api/erp/product-category/export-excel": "put_/admin-api/erp/product-category/update"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    }
+  ],
+  "statistics": {
+    "total_paths": 10,
+    "total_scenarios": 20,
+    "valid_scenarios": 20,
+    "average_score": 1.0
+  }
+}

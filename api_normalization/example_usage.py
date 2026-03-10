@@ -19,19 +19,17 @@ def main():
     print("API Normalization Service - Complete Example")
     print("=" * 70)
 
-    # Initialize service with all features enabled
+    # Initialize service with entity-centric clustering
     service = NormalizationService(
-        min_cluster_size=2,
-        min_samples=2,
-        path_similarity_threshold=0.8,
-        use_hdbscan=True,
+        use_entity_clustering=True,  # Use new entity-centric approach
+        entity_similarity_threshold=0.85,  # Strict threshold for high cohesion
         use_prance=True,
         enable_evaluation=True
     )
 
     # Parse Swagger document
     print("\n[1] Parsing Swagger document...")
-    result = service.normalize_swagger('example_swagger.json')
+    result = service.normalize_swagger('erp-server.json')
 
     # Display statistics
     print("\n[2] Statistics:")

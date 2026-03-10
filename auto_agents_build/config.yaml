@@ -1,0 +1,30 @@
+# LLM 配置
+llm:
+  provider: qwen  # openai/claude/qwen/local
+  model: qwen-plus
+  temperature: 0.3
+  max_tokens: 2000
+  api_key: DASHSCOPE_API_KEY # 从环境变量读取
+
+# 向量存储配置
+vector_store:
+  type: faiss  # faiss/milvus/chroma
+  dimension: 1536
+  index_path: ./data/vectors
+
+# 模板配置
+templates:
+  library_path: ./templates/domains
+  auto_generate: true  # 无模板时自动生成
+
+# 输出配置
+output:
+  format: json  # json/yaml
+  pretty_print: true
+  save_intermediate: true  # 保存中间结果
+
+# 优化配置
+optimization:
+  enable_ab_test: false
+  test_iterations: 5
+  success_threshold: 0.85

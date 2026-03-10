@@ -11,7 +11,17 @@
       "Bash(column -t -s',' __NEW_LINE_98d788f85fa1b9ca__ echo \"\" echo \"=== DETAILED RESULTS \\(first 5 rows\\) ===\")",
       "Bash(__NEW_LINE_af85ebffbbec3faa__ echo \"\")",
       "Bash(tee:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(conda run:*)",
+      "Bash(sed:*)",
+      "Bash(/c/Users/17909/anaconda3/envs/flora/python.exe:*)",
+      "Bash(source:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(conda activate:*)",
+      "Bash(C:/Users/17909/anaconda3/envs/flora/python.exe:*)",
+      "Bash(wc:*)",
+      "Bash(mkdir:*)"
     ]
   }
 }

@@ -1,0 +1,38 @@
+# Python自动提示词优化系统依赖
+
+# 核心依赖
+numpy>=1.21.0
+matplotlib>=3.5.0
+python-dotenv>=0.19.0  # 环境变量管理
+
+# LLM API
+dashscope>=1.14.0  # 千问(Qwen)API
+
+# Web API服务
+fastapi>=0.104.0  # Web框架
+uvicorn>=0.24.0  # ASGI服务器
+pydantic>=2.0.0  # 数据验证
+requests>=2.31.0  # HTTP客户端（用于API调用）
+
+# 可选依赖（用于高级功能）
+# openai>=1.0.0  # 如果使用OpenAI API
+# anthropic  # 如果使用Claude API
+# transformers>=4.30.0  # 如果使用本地模型
+
+# 评估指标
+# nltk>=3.8  # 用于BLEU等指标
+# rouge-score>=0.1.2  # 用于ROUGE指标
+# bert-score>=0.3.13  # 用于BERTScore
+
+# 数据处理
+# pandas>=1.5.0
+# scikit-learn>=1.2.0  # 用于某些评估指标
+
+# 可视化增强
+# seaborn>=0.12.0
+# plotly>=5.14.0
+
+# 开发工具
+# pytest>=7.0.0  # 测试
+# black>=23.0.0  # 代码格式化
+# flake8>=6.0.0  # 代码检查

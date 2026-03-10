@@ -1,0 +1,218 @@
+{
+  "version": "1.0",
+  "environment": "production",
+  "agents": [
+    {
+      "agent_id": "agent_4b8e96f8",
+      "agent_name": "销售专员",
+      "agent_type": "specialist",
+      "enabled": true,
+      "capabilities": [
+        "创建新的销售订单"
+      ],
+      "subordinates": [],
+      "memory": {
+        "type": "short_term",
+        "capacity": "1000_messages"
+      },
+      "prompt_file": "prompts/agent_4b8e96f8.txt",
+      "max_iterations": 10,
+      "timeout": 300
+    },
+    {
+      "agent_id": "agent_bd839db0",
+      "agent_name": "客户经理",
+      "agent_type": "specialist",
+      "enabled": true,
+      "capabilities": [
+        "查询客户信息"
+      ],
+      "subordinates": [],
+      "memory": {
+        "type": "short_term",
+        "capacity": "1000_messages"
+      },
+      "prompt_file": "prompts/agent_bd839db0.txt",
+      "max_iterations": 10,
+      "timeout": 300
+    },
+    {
+      "agent_id": "agent_71e7a59f",
+      "agent_name": "仓库专员",
+      "agent_type": "specialist",
+      "enabled": true,
+      "capabilities": [
+        "查询库存信息",
+        "更新库存数量"
+      ],
+      "subordinates": [],
+      "memory": {
+        "type": "short_term",
+        "capacity": "1000_messages"
+      },
+      "prompt_file": "prompts/agent_71e7a59f.txt",
+      "max_iterations": 10,
+      "timeout": 300
+    },
+    {
+      "agent_id": "agent_302599fc",
+      "agent_name": "采购专员",
+      "agent_type": "specialist",
+      "enabled": true,
+      "capabilities": [
+        "查询订单信息"
+      ],
+      "subordinates": [],
+      "memory": {
+        "type": "short_term",
+        "capacity": "1000_messages"
+      },
+      "prompt_file": "prompts/agent_302599fc.txt",
+      "max_iterations": 10,
+      "timeout": 300
+    },
+    {
+      "agent_id": "agent_9af52df2",
+      "agent_name": "供应链主管",
+      "agent_type": "supervisor",
+      "enabled": true,
+      "capabilities": [
+        "查询库存信息",
+        "更新库存数量"
+      ],
+      "subordinates": [
+        "agent_4b8e96f8",
+        "agent_bd839db0",
+        "agent_71e7a59f",
+        "agent_302599fc",
+        "agent_cfdbbe52"
+      ],
+      "memory": {
+        "type": "short_term",
+        "capacity": "1000_messages"
+      },
+      "prompt_file": "prompts/agent_9af52df2.txt",
+      "max_iterations": 10,
+      "timeout": 300
+    },
+    {
+      "agent_id": "agent_cfdbbe52",
+      "agent_name": "订单与客户生命周期管理专员",
+      "agent_type": "specialist",
+      "enabled": true,
+      "capabilities": [
+        "更新订单状态",
+        "删除订单",
+        "创建新客户"
+      ],
+      "subordinates": [],
+      "memory": {
+        "type": "short_term",
+        "capacity": "1000_messages"
+      },
+      "prompt_file": "prompts/agent_cfdbbe52.txt",
+      "max_iterations": 10,
+      "timeout": 300
+    },
+    {
+      "agent_id": "agent_supervisor_7388",
+      "agent_name": "销售与客户管理组主管",
+      "agent_type": "supervisor",
+      "enabled": true,
+      "capabilities": [
+        "全周期订单与客户协同管理",
+        "创建新的销售订单",
+        "查询客户信息",
+        "更新订单状态",
+        "删除订单",
+        "创建新客户"
+      ],
+      "subordinates": [
+        "agent_4b8e96f8",
+        "agent_bd839db0",
+        "agent_71e7a59f",
+        "agent_302599fc",
+        "agent_cfdbbe52"
+      ],
+      "memory": {
+        "type": "short_term",
+        "capacity": "2000_messages"
+      },
+      "prompt_file": "prompts/agent_supervisor_7388.txt",
+      "max_iterations": 10,
+      "timeout": 300
+    },
+    {
+      "agent_id": "agent_supervisor_5507",
+      "agent_name": "供应链运营组主管",
+      "agent_type": "supervisor",
+      "enabled": true,
+      "capabilities": [
+        "库存与订单协同监控",
+        "查询库存信息",
+        "更新库存数量",
+        "查询订单信息"
+      ],
+      "subordinates": [
+        "agent_4b8e96f8",
+        "agent_bd839db0",
+        "agent_71e7a59f",
+        "agent_302599fc",
+        "agent_cfdbbe52"
+      ],
+      "memory": {
+        "type": "short_term",
+        "capacity": "2000_messages"
+      },
+      "prompt_file": "prompts/agent_supervisor_5507.txt",
+      "max_iterations": 10,
+      "timeout": 300
+    }
+  ],
+  "api_endpoints": {
+    "post_api_order_create": "https://api.example.com/api/order/create",
+    "get_api_customer_query": "https://api.example.com/api/customer/query",
+    "get_api_inventory_query": "https://api.example.com/api/inventory/query",
+    "put_api_inventory_update": "https://api.example.com/api/inventory/update",
+    "get_api_order_query": "https://api.example.com/api/order/query",
+    "put_api_order_update": "https://api.example.com/api/order/update",
+    "delete_api_order_delete": "https://api.example.com/api/order/delete",
+    "post_api_customer_create": "https://api.example.com/api/customer/create"
+  },
+  "authentication": {
+    "type": "bearer_token",
+    "token_env_var": "API_TOKEN",
+    "refresh_enabled": true,
+    "refresh_interval": 3600
+  },
+  "rag_config": {
+    "enabled": true,
+    "vector_store": {
+      "type": "faiss",
+      "index_path": "./data/rag_index"
+    },
+    "embedding_model": "text-embedding-ada-002",
+    "retrieval": {
+      "top_k": 5,
+      "similarity_threshold": 0.7
+    }
+  },
+  "runtime_config": {
+    "llm": {
+      "provider": "openai",
+      "model": "gpt-4",
+      "temperature": 0.3,
+      "max_tokens": 2000
+    },
+    "logging": {
+      "level": "INFO",
+      "format": "json",
+      "output": "stdout"
+    },
+    "monitoring": {
+      "enabled": true,
+      "metrics_port": 9090,
+      "health_check_interval": 60
+    }
+  }
+}

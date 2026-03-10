@@ -1,6 +1,6 @@
 """FastAPI-based mock server with dynamic route registration."""
 
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 from fastapi import FastAPI, Request, Response, HTTPException
 from fastapi.responses import JSONResponse
 import re

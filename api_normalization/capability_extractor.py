@@ -254,7 +254,17 @@ class CapabilityExtractor:
         return merged
 
     def _infer_resource_name(self, apis: List[Dict[str, Any]]) -> str:
-        """Infer resource name from API paths."""
+        """Infer resource name from APIs, prioritizing entity_anchor."""
+        # First, try to use entity_anchor if available (from entity clustering)
+        entity_anchors = [api.get('entity_anchor') for api in apis if api.get('entity_anchor')]
+        if entity_anchors:
+            # Use the most common entity anchor
+            anchor_counts = Counter(entity_anchors)
+            most_common_anchor = anchor_counts.most_common(1)[0][0]
+            if most_common_anchor and most_common_anchor != 'unknown':
+                return most_common_anchor
+
+        # Fallback: extract from path segments
         path_segments = []
         for api in apis:
             segments = api.get('path_segments', [])
@@ -273,10 +283,16 @@ class CapabilityExtractor:
         return 'Resource'
 
     def _generate_capability_name(self, tag: str, resource: str, action: str) -> str:
-        """Generate a descriptive capability name."""
-        if action:
-            return f"{resource} {action.capitalize()} Management"
-        return f"{resource} Management"
+        """Generate a descriptive capability name based on entity."""
+        # Clean up resource name for better readability
+        resource_clean = resource.replace('-', ' ').replace('_', ' ').title()
+
+        # If resource is generic, use tag
+        if resource_clean.lower() in ['http', 'resource', 'api', 'unknown']:
+            resource_clean = tag.replace('-', ' ').replace('_', ' ').title()
+
+        # Generate concise name
+        return f"{resource_clean} Management"
 
     def _infer_lifecycle(self, apis: List[Dict[str, Any]]) -> Dict[str, Any]:
         """Infer entity lifecycle from available operations."""

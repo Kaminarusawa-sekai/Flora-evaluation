@@ -1,0 +1,364 @@
+{
+  "topology_summary": {
+    "total_apis": 4,
+    "total_dependencies": 5,
+    "total_entities": 2
+  },
+  "paths": [
+    {
+      "path": [
+        "cancel_order",
+        "get_order_detail",
+        "list_orders"
+      ],
+      "test_objective": "测试 取消订单 到 查询订单列表 的流程",
+      "description": "验证 取消订单 -> 获取订单详情 -> 查询订单列表 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "get_order_detail",
+        "list_orders"
+      ],
+      "test_objective": "测试 获取订单详情 到 查询订单列表 的流程",
+      "description": "验证 获取订单详情 -> 查询订单列表 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "list_orders",
+        "login"
+      ],
+      "test_objective": "测试 查询订单列表 到 用户登录 的流程",
+      "description": "验证 查询订单列表 -> 用户登录 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "get_order_detail",
+        "login"
+      ],
+      "test_objective": "测试 获取订单详情 到 用户登录 的流程",
+      "description": "验证 获取订单详情 -> 用户登录 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "cancel_order",
+        "login"
+      ],
+      "test_objective": "测试 取消订单 到 用户登录 的流程",
+      "description": "验证 取消订单 -> 用户登录 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    }
+  ],
+  "scenarios": [
+    {
+      "api_path": [
+        "cancel_order",
+        "get_order_detail",
+        "list_orders"
+      ],
+      "scenario": {
+        "title": "正常场景: 创建 -> 查询 -> 查询",
+        "description": "测试场景覆盖 3 个API操作: 取消订单 -> 获取订单详情 -> 查询订单列表",
+        "scenario_type": "normal",
+        "steps": [
+          "cancel_order",
+          "get_order_detail",
+          "list_orders"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "get_order_detail": "cancel_order",
+          "list_orders": "get_order_detail"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "cancel_order",
+        "get_order_detail",
+        "list_orders"
+      ],
+      "scenario": {
+        "title": "异常场景: 创建 -> 查询 -> 查询",
+        "description": "测试场景覆盖 3 个API操作: 取消订单 -> 获取订单详情 -> 查询订单列表",
+        "scenario_type": "exception",
+        "steps": [
+          "cancel_order",
+          "get_order_detail",
+          "list_orders"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "get_order_detail": "cancel_order",
+          "list_orders": "get_order_detail"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "get_order_detail",
+        "list_orders"
+      ],
+      "scenario": {
+        "title": "正常场景: 查询 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: 获取订单详情 -> 查询订单列表",
+        "scenario_type": "normal",
+        "steps": [
+          "get_order_detail",
+          "list_orders"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "list_orders": "get_order_detail"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "get_order_detail",
+        "list_orders"
+      ],
+      "scenario": {
+        "title": "异常场景: 查询 -> 查询",
+        "description": "测试场景覆盖 2 个API操作: 获取订单详情 -> 查询订单列表",
+        "scenario_type": "exception",
+        "steps": [
+          "get_order_detail",
+          "list_orders"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "list_orders": "get_order_detail"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "list_orders",
+        "login"
+      ],
+      "scenario": {
+        "title": "正常场景: 查询 -> 创建",
+        "description": "测试场景覆盖 2 个API操作: 查询订单列表 -> 用户登录",
+        "scenario_type": "normal",
+        "steps": [
+          "list_orders",
+          "login"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "login": "list_orders"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "list_orders",
+        "login"
+      ],
+      "scenario": {
+        "title": "异常场景: 查询 -> 创建",
+        "description": "测试场景覆盖 2 个API操作: 查询订单列表 -> 用户登录",
+        "scenario_type": "exception",
+        "steps": [
+          "list_orders",
+          "login"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "login": "list_orders"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "get_order_detail",
+        "login"
+      ],
+      "scenario": {
+        "title": "正常场景: 查询 -> 创建",
+        "description": "测试场景覆盖 2 个API操作: 获取订单详情 -> 用户登录",
+        "scenario_type": "normal",
+        "steps": [
+          "get_order_detail",
+          "login"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "login": "get_order_detail"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "get_order_detail",
+        "login"
+      ],
+      "scenario": {
+        "title": "异常场景: 查询 -> 创建",
+        "description": "测试场景覆盖 2 个API操作: 获取订单详情 -> 用户登录",
+        "scenario_type": "exception",
+        "steps": [
+          "get_order_detail",
+          "login"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "login": "get_order_detail"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "cancel_order",
+        "login"
+      ],
+      "scenario": {
+        "title": "正常场景: 创建 -> 创建",
+        "description": "测试场景覆盖 2 个API操作: 取消订单 -> 用户登录",
+        "scenario_type": "normal",
+        "steps": [
+          "cancel_order",
+          "login"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "所有API调用成功，工作流正常完成",
+        "dependency_map": {
+          "login": "cancel_order"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    },
+    {
+      "api_path": [
+        "cancel_order",
+        "login"
+      ],
+      "scenario": {
+        "title": "异常场景: 创建 -> 创建",
+        "description": "测试场景覆盖 2 个API操作: 取消订单 -> 用户登录",
+        "scenario_type": "exception",
+        "steps": [
+          "cancel_order",
+          "login"
+        ],
+        "parameter_bindings": {},
+        "expected_outcome": "应返回预期的错误码，系统正确处理异常情况",
+        "dependency_map": {
+          "login": "cancel_order"
+        },
+        "injection_point": {
+          "step_index": 1,
+          "injection_type": "invalid_data",
+          "description": "在步骤 1 注入非法参数",
+          "expected_error": "400 Bad Request"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "issues": [],
+        "warnings": [],
+        "score": 1.0
+      }
+    }
+  ],
+  "statistics": {
+    "total_paths": 5,
+    "total_scenarios": 10,
+    "valid_scenarios": 10,
+    "average_score": 1.0
+  }
+}

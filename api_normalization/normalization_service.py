@@ -3,6 +3,7 @@
 from typing import Dict, Any, Optional
 from .swagger_parser import SwaggerParser
 from .semantic_clusterer import SemanticClusterer
+from .entity_clusterer import EntityClusterer
 from .capability_extractor import CapabilityExtractor
 from .evaluator import ClusterEvaluator
 
@@ -16,7 +17,9 @@ class NormalizationService:
                  path_similarity_threshold: float = 0.8,
                  use_hdbscan: bool = True,
                  use_prance: bool = True,
-                 enable_evaluation: bool = True):
+                 enable_evaluation: bool = True,
+                 use_entity_clustering: bool = True,
+                 entity_similarity_threshold: float = 0.85):
         """
         Initialize normalization service.
 
@@ -27,14 +30,24 @@ class NormalizationService:
             use_hdbscan: Whether to use HDBSCAN (falls back to DBSCAN)
             use_prance: Whether to use prance for enhanced parsing
             enable_evaluation: Whether to evaluate clustering quality
+            use_entity_clustering: Whether to use entity-centric clustering (recommended)
+            entity_similarity_threshold: Similarity threshold for entity clustering (0.85 default)
         """
         self.parser = SwaggerParser(use_prance=use_prance)
-        self.clusterer = SemanticClusterer(
-            min_cluster_size=min_cluster_size,
-            min_samples=min_samples,
-            path_similarity_threshold=path_similarity_threshold,
-            use_hdbscan=use_hdbscan
-        )
+        self.use_entity_clustering = use_entity_clustering
+
+        if use_entity_clustering:
+            self.clusterer = EntityClusterer(
+                similarity_threshold=entity_similarity_threshold
+            )
+        else:
+            self.clusterer = SemanticClusterer(
+                min_cluster_size=min_cluster_size,
+                min_samples=min_samples,
+                path_similarity_threshold=path_similarity_threshold,
+                use_hdbscan=use_hdbscan
+            )
+
         self.extractor = CapabilityExtractor()
         self.evaluator = ClusterEvaluator() if enable_evaluation else None
         self.enable_evaluation = enable_evaluation

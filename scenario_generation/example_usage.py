@@ -1,5 +1,9 @@
 """Example usage of enhanced scenario generation."""
+import sys
+import os
 
+# 添加父目录到路径
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scenario_generation_service import ScenarioGenerationService
 
 # Example API path and details

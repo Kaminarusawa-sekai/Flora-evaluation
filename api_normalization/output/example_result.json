@@ -1,11 +1,11 @@
 {
   "capabilities": [
     {
-      "id": "cap_0",
-      "name": "Users Create Management",
+      "id": "cap_1",
+      "name": "Users Management",
       "type": "composite",
-      "description": "Capability to create, query, update, delete Users resources. Includes 5 API endpoint(s).",
-      "resource": "Users",
+      "description": "Capability to create, query, update, delete users resources. Includes 5 API endpoint(s).",
+      "resource": "users",
       "primary_action": "create",
       "tags": [
         "users"
@@ -146,11 +146,11 @@
       "typical_workflow": "Create via createUser → Read via listUsers → Update via updateUser → Delete via deleteUser"
     },
     {
-      "id": "cap_1",
-      "name": "Orders Create Management",
+      "id": "cap_0",
+      "name": "Orders Management",
       "type": "composite",
-      "description": "Capability to create, query Orders resources. Includes 2 API endpoint(s).",
-      "resource": "Orders",
+      "description": "Capability to create, query orders resources. Includes 2 API endpoint(s).",
+      "resource": "orders",
       "primary_action": "create",
       "tags": [
         "orders"
@@ -229,23 +229,23 @@
       "average_connectivity": 0.5,
       "per_capability": [
         {
-          "capability_id": "cap_0",
-          "capability_name": "Users Create Management",
+          "capability_id": "cap_1",
+          "capability_name": "Users Management",
           "connectivity_score": 0.62
         },
         {
-          "capability_id": "cap_1",
-          "capability_name": "Orders Create Management",
+          "capability_id": "cap_0",
+          "capability_name": "Orders Management",
           "connectivity_score": 0.38
         }
       ]
     },
     "explanations": [
       {
-        "capability_id": "cap_0",
-        "capability_name": "Users Create Management",
+        "capability_id": "cap_1",
+        "capability_name": "Users Management",
         "type": "composite",
-        "reason": "All APIs operate on the 'Users' resource. Covers create, read, update, delete operations. APIs share similar URL patterns. Tagged as: users.",
+        "reason": "All APIs operate on the 'users' resource. Covers create, read, update, delete operations. APIs share similar URL patterns. Tagged as: users.",
         "typical_workflow": "Create via createUser → Read via listUsers → Update via updateUser → Delete via deleteUser",
         "key_features": [
           "5 APIs",
@@ -254,10 +254,10 @@
         ]
       },
       {
-        "capability_id": "cap_1",
-        "capability_name": "Orders Create Management",
+        "capability_id": "cap_0",
+        "capability_name": "Orders Management",
         "type": "composite",
-        "reason": "All APIs operate on the 'Orders' resource. Covers create, read operations. Tagged as: orders.",
+        "reason": "All APIs operate on the 'orders' resource. Covers create, read operations. Tagged as: orders.",
         "typical_workflow": "Create via createOrder → Read via getOrder",
         "key_features": [
           "2 APIs",

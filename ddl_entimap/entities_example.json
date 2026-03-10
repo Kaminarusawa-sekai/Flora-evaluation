@@ -1,0 +1,120 @@
+[
+  {
+    "name": "User",
+    "description": "系统用户实体，包含用户基本信息和账号信息",
+    "api_fields": [
+      {
+        "name": "userId",
+        "description": "用户ID",
+        "type": "string"
+      },
+      {
+        "name": "userName",
+        "description": "用户名",
+        "type": "string"
+      },
+      {
+        "name": "phoneNumber",
+        "description": "手机号",
+        "type": "string"
+      },
+      {
+        "name": "email",
+        "description": "邮箱",
+        "type": "string"
+      },
+      {
+        "name": "departmentName",
+        "description": "所属部门",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "用户状态",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "/api/user/list",
+      "/api/user/info",
+      "/api/user/create",
+      "/api/user/update"
+    ]
+  },
+  {
+    "name": "Order",
+    "description": "订单实体，包含订单基本信息和状态",
+    "api_fields": [
+      {
+        "name": "orderId",
+        "description": "订单ID",
+        "type": "string"
+      },
+      {
+        "name": "orderNo",
+        "description": "订单号",
+        "type": "string"
+      },
+      {
+        "name": "totalAmount",
+        "description": "订单总金额",
+        "type": "number"
+      },
+      {
+        "name": "status",
+        "description": "订单状态",
+        "type": "string"
+      },
+      {
+        "name": "createTime",
+        "description": "创建时间",
+        "type": "string"
+      },
+      {
+        "name": "customerName",
+        "description": "客户名称",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "/api/order/list",
+      "/api/order/detail",
+      "/api/order/create"
+    ]
+  },
+  {
+    "name": "Product",
+    "description": "商品实体，包含商品基本信息和库存",
+    "api_fields": [
+      {
+        "name": "productId",
+        "description": "商品ID",
+        "type": "string"
+      },
+      {
+        "name": "productName",
+        "description": "商品名称",
+        "type": "string"
+      },
+      {
+        "name": "price",
+        "description": "商品价格",
+        "type": "number"
+      },
+      {
+        "name": "stock",
+        "description": "库存数量",
+        "type": "number"
+      },
+      {
+        "name": "categoryName",
+        "description": "商品分类",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "/api/product/list",
+      "/api/product/detail"
+    ]
+  }
+]

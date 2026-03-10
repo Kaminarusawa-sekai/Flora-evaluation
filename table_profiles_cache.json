@@ -1,0 +1,5882 @@
+{
+  "erp_account": {
+    "ddl": {
+      "table_name": "erp_account",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "结算账户编号",
+          "default": "None"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "账户名称",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "账户编码",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "开启状态",
+          "default": "None"
+        },
+        {
+          "name": "sort",
+          "type": "INTEGER",
+          "nullable": false,
+          "comment": "排序",
+          "default": "None"
+        },
+        {
+          "name": "default_status",
+          "type": "BIT",
+          "nullable": true,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 结算账户"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "name": "1212",
+        "no": null,
+        "remark": null,
+        "status": 0,
+        "sort": 2,
+        "default_status": "b'\\x00'",
+        "creator": "1",
+        "create_time": "2024-12-14 10:32:59",
+        "updater": "1",
+        "update_time": "2024-12-14 10:32:59",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 13,
+      "has_data": true
+    }
+  },
+  "erp_bookkeeping_voucher": {
+    "ddl": {
+      "table_name": "erp_bookkeeping_voucher",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "id",
+          "default": "None"
+        },
+        {
+          "name": "pay_type",
+          "type": "VARCHAR(20) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "记录类型（收款/付款）",
+          "default": "None"
+        },
+        {
+          "name": "supplier_id",
+          "type": "BIGINT",
+          "nullable": true,
+          "comment": "供应商",
+          "default": "None"
+        },
+        {
+          "name": "supplier_name",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_0900_ai_ci\"",
+          "nullable": true,
+          "comment": "供应商名称",
+          "default": "None"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER",
+          "nullable": true,
+          "comment": "客户ID",
+          "default": "None"
+        },
+        {
+          "name": "customer_name",
+          "type": "VARCHAR(255)",
+          "nullable": true,
+          "comment": "客户名称",
+          "default": "None"
+        },
+        {
+          "name": "trade_type",
+          "type": "VARCHAR(36) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "交易类型",
+          "default": "None"
+        },
+        {
+          "name": "summary",
+          "type": "VARCHAR(500) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "摘要",
+          "default": "None"
+        },
+        {
+          "name": "payment_time",
+          "type": "DATETIME",
+          "nullable": true,
+          "comment": "付款/收款时间",
+          "default": "None"
+        },
+        {
+          "name": "bill_number",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_0900_ai_ci\"",
+          "nullable": true,
+          "comment": "单据编号",
+          "default": "None"
+        },
+        {
+          "name": "subject",
+          "type": "VARCHAR(255)",
+          "nullable": true,
+          "comment": "总账科目",
+          "default": "None"
+        },
+        {
+          "name": "bill_amount",
+          "type": "DECIMAL(24, 0)",
+          "nullable": true,
+          "comment": "单据金额",
+          "default": "None"
+        },
+        {
+          "name": "this_payment",
+          "type": "DECIMAL(24, 0)",
+          "nullable": true,
+          "comment": "本次付款",
+          "default": "None"
+        },
+        {
+          "name": "attaches_url",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_0900_ai_ci\"",
+          "nullable": true,
+          "comment": "纸质凭证",
+          "default": "None"
+        },
+        {
+          "name": "pay_amount",
+          "type": "DECIMAL(24, 2)",
+          "nullable": true,
+          "comment": "付款金额",
+          "default": "None"
+        },
+        {
+          "name": "bookkeeper",
+          "type": "VARCHAR(255)",
+          "nullable": true,
+          "comment": "记账人",
+          "default": "None"
+        },
+        {
+          "name": "advance_payment",
+          "type": "DECIMAL(24, 2)",
+          "nullable": true,
+          "comment": "预付款金额",
+          "default": "None"
+        },
+        {
+          "name": "pay_way",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_0900_ai_ci\"",
+          "nullable": true,
+          "comment": "支付方式",
+          "default": "None"
+        },
+        {
+          "name": "refund_amount",
+          "type": "DECIMAL(24, 2)",
+          "nullable": true,
+          "comment": "退款金额",
+          "default": "None"
+        },
+        {
+          "name": "refund_summary",
+          "type": "VARCHAR(255)",
+          "nullable": true,
+          "comment": "退款摘要",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255)",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": null
+    },
+    "samples": [
+      {
+        "id": 19,
+        "pay_type": "收款",
+        "supplier_id": null,
+        "supplier_name": null,
+        "customer_id": 1,
+        "customer_name": "客户1",
+        "trade_type": "2",
+        "summary": "1",
+        "payment_time": "2024-12-21 00:00:00",
+        "bill_number": "1",
+        "subject": "1",
+        "bill_amount": "1",
+        "this_payment": "2",
+        "attaches_url": "/erp/202412/21/11/5dbe89f4180d40b0be4c85be4da63754.png",
+        "pay_amount": "1.11",
+        "bookkeeper": "1",
+        "advance_payment": "1.11",
+        "pay_way": "3",
+        "refund_amount": "1.11",
+        "refund_summary": "1",
+        "remark": "1",
+        "creator": "1",
+        "create_time": "2024-12-21 11:17:25",
+        "updater": "1",
+        "update_time": "2024-12-23 16:27:10",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      },
+      {
+        "id": 20,
+        "pay_type": "收款",
+        "supplier_id": null,
+        "supplier_name": null,
+        "customer_id": 2,
+        "customer_name": "客户2",
+        "trade_type": "1",
+        "summary": "1",
+        "payment_time": "2024-12-21 00:00:00",
+        "bill_number": "1",
+        "subject": "1",
+        "bill_amount": "1",
+        "this_payment": "2",
+        "attaches_url": "/erp/202412/21/11/5dbe89f4180d40b0be4c85be4da63754.png",
+        "pay_amount": "1.11",
+        "bookkeeper": "1",
+        "advance_payment": "1.11",
+        "pay_way": "1.11",
+        "refund_amount": "1.11",
+        "refund_summary": "1",
+        "remark": "1",
+        "creator": "1",
+        "create_time": "2024-12-21 11:17:52",
+        "updater": "1",
+        "update_time": "2024-12-21 11:17:52",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      },
+      {
+        "id": 21,
+        "pay_type": "付款",
+        "supplier_id": 3,
+        "supplier_name": "供应商3",
+        "customer_id": null,
+        "customer_name": null,
+        "trade_type": "1",
+        "summary": "1",
+        "payment_time": "2024-12-21 00:00:00",
+        "bill_number": "1",
+        "subject": "1",
+        "bill_amount": "1",
+        "this_payment": "2",
+        "attaches_url": "/erp/202412/21/11/5dbe89f4180d40b0be4c85be4da63754.png",
+        "pay_amount": "1.11",
+        "bookkeeper": "1",
+        "advance_payment": "1.11",
+        "pay_way": "1.11",
+        "refund_amount": "1.11",
+        "refund_summary": "1",
+        "remark": "1",
+        "creator": "1",
+        "create_time": "2024-12-21 11:19:02",
+        "updater": "1",
+        "update_time": "2024-12-21 11:19:02",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 9,
+      "column_count": 27,
+      "has_data": true
+    }
+  },
+  "erp_customer": {
+    "ddl": {
+      "table_name": "erp_customer",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "客户编号",
+          "default": "None"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "客户名称",
+          "default": "None"
+        },
+        {
+          "name": "contact",
+          "type": "VARCHAR(100) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "联系人",
+          "default": "None"
+        },
+        {
+          "name": "mobile",
+          "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "手机号码",
+          "default": "None"
+        },
+        {
+          "name": "telephone",
+          "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "联系电话",
+          "default": "None"
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "电子邮箱",
+          "default": "None"
+        },
+        {
+          "name": "fax",
+          "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "传真",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "开启状态",
+          "default": "None"
+        },
+        {
+          "name": "sort",
+          "type": "INTEGER",
+          "nullable": false,
+          "comment": "排序",
+          "default": "None"
+        },
+        {
+          "name": "tax_no",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "纳税人识别号",
+          "default": "None"
+        },
+        {
+          "name": "tax_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税率",
+          "default": "None"
+        },
+        {
+          "name": "bank_name",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "开户行",
+          "default": "None"
+        },
+        {
+          "name": "bank_account",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "开户账号",
+          "default": "None"
+        },
+        {
+          "name": "bank_address",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "开户地址",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 客户表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "name": "2121",
+        "contact": null,
+        "mobile": null,
+        "telephone": null,
+        "email": null,
+        "fax": null,
+        "remark": null,
+        "status": 0,
+        "sort": 1,
+        "tax_no": null,
+        "tax_percent": null,
+        "bank_name": null,
+        "bank_account": null,
+        "bank_address": null,
+        "creator": "1",
+        "create_time": "2024-12-14 10:27:52",
+        "updater": "1",
+        "update_time": "2024-12-14 10:27:52",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 21,
+      "has_data": true
+    }
+  },
+  "erp_finance_payment": {
+    "ddl": {
+      "table_name": "erp_finance_payment",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "付款单号",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "状态",
+          "default": "None"
+        },
+        {
+          "name": "payment_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "付款时间",
+          "default": "None"
+        },
+        {
+          "name": "finance_user_id",
+          "type": "BIGINT",
+          "nullable": true,
+          "comment": "财务人员编号",
+          "default": "None"
+        },
+        {
+          "name": "supplier_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "供应商编号",
+          "default": "None"
+        },
+        {
+          "name": "account_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "付款账户编号",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "discount_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "payment_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "实付金额，单位：分",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 付款单表"
+    },
+    "samples": [
+      {
+        "id": 2,
+        "no": "FKD20240214000001",
+        "status": 10,
+        "payment_time": "2024-02-26 00:00:00",
+        "finance_user_id": 112,
+        "supplier_id": 1,
+        "account_id": 1,
+        "total_price": "300.000000",
+        "discount_price": "10.000000",
+        "payment_price": "290.000000",
+        "remark": "哈哈哈哈",
+        "creator": "1",
+        "create_time": "2024-02-14 15:05:19",
+        "updater": "1",
+        "update_time": "2024-02-14 09:00:22",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 3,
+        "no": "FKD20240214000002",
+        "status": 10,
+        "payment_time": "2024-02-20 00:00:00",
+        "finance_user_id": null,
+        "supplier_id": 1,
+        "account_id": 1,
+        "total_price": "-10.000000",
+        "discount_price": "4.000000",
+        "payment_price": "-14.000000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-14 15:34:11",
+        "updater": "1",
+        "update_time": "2024-02-14 09:00:18",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 4,
+        "no": "FKD20240214000003",
+        "status": 10,
+        "payment_time": "2024-02-18 00:00:00",
+        "finance_user_id": null,
+        "supplier_id": 1,
+        "account_id": 1,
+        "total_price": "114.700000",
+        "discount_price": "0.000000",
+        "payment_price": "114.700000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-14 16:43:59",
+        "updater": "1",
+        "update_time": "2024-02-14 08:58:43",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 9,
+      "column_count": 17,
+      "has_data": true
+    }
+  },
+  "erp_finance_payment_item": {
+    "ddl": {
+      "table_name": "erp_finance_payment_item",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "payment_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "付款单编号",
+          "default": "None"
+        },
+        {
+          "name": "biz_type",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "业务类型",
+          "default": "None"
+        },
+        {
+          "name": "biz_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "业务编号",
+          "default": "None"
+        },
+        {
+          "name": "biz_no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "业务单号",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "应付欠款，单位：分",
+          "default": "None"
+        },
+        {
+          "name": "paid_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "已付欠款，单位：分",
+          "default": "None"
+        },
+        {
+          "name": "payment_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "本次付款，单位：分",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 付款项表"
+    },
+    "samples": [
+      {
+        "id": 11,
+        "payment_id": 2,
+        "biz_type": 11,
+        "biz_id": 16,
+        "biz_no": "CGRK20240213000001",
+        "total_price": "414.700000",
+        "paid_price": "0.000000",
+        "payment_price": "300.000000",
+        "remark": "测试一下",
+        "creator": "1",
+        "create_time": "2024-02-14 15:05:19",
+        "updater": "1",
+        "update_time": "2024-02-14 09:00:22",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 12,
+        "payment_id": 3,
+        "biz_type": 12,
+        "biz_id": 24,
+        "biz_no": "CGTH20240213000001",
+        "total_price": "-163.200000",
+        "paid_price": "0.000000",
+        "payment_price": "-10.000000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-14 15:34:11",
+        "updater": "1",
+        "update_time": "2024-02-14 09:00:18",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 13,
+        "payment_id": 4,
+        "biz_type": 11,
+        "biz_id": 16,
+        "biz_no": "CGRK20240213000001",
+        "total_price": "414.700000",
+        "paid_price": "300.000000",
+        "payment_price": "114.700000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-14 16:43:59",
+        "updater": "1",
+        "update_time": "2024-02-14 08:58:43",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 9,
+      "column_count": 15,
+      "has_data": true
+    }
+  },
+  "erp_finance_receipt": {
+    "ddl": {
+      "table_name": "erp_finance_receipt",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "收款单号",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "状态",
+          "default": "None"
+        },
+        {
+          "name": "receipt_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "收款时间",
+          "default": "None"
+        },
+        {
+          "name": "finance_user_id",
+          "type": "BIGINT",
+          "nullable": true,
+          "comment": "财务人员编号",
+          "default": "None"
+        },
+        {
+          "name": "customer_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "客户编号",
+          "default": "None"
+        },
+        {
+          "name": "account_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "收款账户编号",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "discount_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "receipt_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "实收金额，单位：分",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 收款单表"
+    },
+    "samples": [
+      {
+        "id": 2,
+        "no": "FKD20240214000001",
+        "status": 10,
+        "receipt_time": "2024-02-26 00:00:00",
+        "finance_user_id": 112,
+        "customer_id": 1,
+        "account_id": 1,
+        "total_price": "300.000000",
+        "discount_price": "10.000000",
+        "receipt_price": "290.000000",
+        "remark": "哈哈哈哈",
+        "creator": "1",
+        "create_time": "2024-02-14 15:05:19",
+        "updater": "1",
+        "update_time": "2024-02-14 09:00:22",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 3,
+        "no": "FKD20240214000002",
+        "status": 10,
+        "receipt_time": "2024-02-20 00:00:00",
+        "finance_user_id": null,
+        "customer_id": 1,
+        "account_id": 1,
+        "total_price": "-10.000000",
+        "discount_price": "4.000000",
+        "receipt_price": "-14.000000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-14 15:34:11",
+        "updater": "1",
+        "update_time": "2024-02-14 09:00:18",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 4,
+        "no": "FKD20240214000003",
+        "status": 10,
+        "receipt_time": "2024-02-18 00:00:00",
+        "finance_user_id": null,
+        "customer_id": 1,
+        "account_id": 1,
+        "total_price": "114.700000",
+        "discount_price": "0.000000",
+        "receipt_price": "114.700000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-14 16:43:59",
+        "updater": "1",
+        "update_time": "2024-02-14 08:58:43",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 11,
+      "column_count": 17,
+      "has_data": true
+    }
+  },
+  "erp_finance_receipt_item": {
+    "ddl": {
+      "table_name": "erp_finance_receipt_item",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "receipt_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "收款单编号",
+          "default": "None"
+        },
+        {
+          "name": "biz_type",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "业务类型",
+          "default": "None"
+        },
+        {
+          "name": "biz_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "业务编号",
+          "default": "None"
+        },
+        {
+          "name": "biz_no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "业务单号",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "应收金额，单位：分",
+          "default": "None"
+        },
+        {
+          "name": "receipted_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "已收金额，单位：分",
+          "default": "None"
+        },
+        {
+          "name": "receipt_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "本次收款，单位：分",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 收款项表"
+    },
+    "samples": [
+      {
+        "id": 11,
+        "receipt_id": 2,
+        "biz_type": 11,
+        "biz_id": 16,
+        "biz_no": "CGRK20240213000001",
+        "total_price": "414.700000",
+        "receipted_price": "0.000000",
+        "receipt_price": "300.000000",
+        "remark": "测试一下",
+        "creator": "1",
+        "create_time": "2024-02-14 15:05:19",
+        "updater": "1",
+        "update_time": "2024-02-14 09:00:22",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 12,
+        "receipt_id": 3,
+        "biz_type": 12,
+        "biz_id": 24,
+        "biz_no": "CGTH20240213000001",
+        "total_price": "-163.200000",
+        "receipted_price": "0.000000",
+        "receipt_price": "-10.000000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-14 15:34:11",
+        "updater": "1",
+        "update_time": "2024-02-14 09:00:18",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 13,
+        "receipt_id": 4,
+        "biz_type": 11,
+        "biz_id": 16,
+        "biz_no": "CGRK20240213000001",
+        "total_price": "414.700000",
+        "receipted_price": "300.000000",
+        "receipt_price": "114.700000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-14 16:43:59",
+        "updater": "1",
+        "update_time": "2024-02-14 08:58:43",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 11,
+      "column_count": 15,
+      "has_data": true
+    }
+  },
+  "erp_product": {
+    "ddl": {
+      "table_name": "erp_product",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(100) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "产品名称",
+          "default": "None"
+        },
+        {
+          "name": "bar_code",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "产品条码",
+          "default": "None"
+        },
+        {
+          "name": "category_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品分类编号",
+          "default": "None"
+        },
+        {
+          "name": "unit_id",
+          "type": "INTEGER",
+          "nullable": false,
+          "comment": "单位编号",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "产品状态",
+          "default": "None"
+        },
+        {
+          "name": "standard",
+          "type": "VARCHAR(100) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "产品规格",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(500) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "产品备注",
+          "default": "None"
+        },
+        {
+          "name": "expiry_day",
+          "type": "INTEGER",
+          "nullable": true,
+          "comment": "保质期天数",
+          "default": "None"
+        },
+        {
+          "name": "weight",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "基础重量（kg）",
+          "default": "None"
+        },
+        {
+          "name": "purchase_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "采购价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "sale_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "销售价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "min_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "最低价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 产品表"
+    },
+    "samples": [
+      {
+        "id": 3,
+        "name": "产品 11",
+        "bar_code": "11",
+        "category_id": 87,
+        "unit_id": 3,
+        "status": 0,
+        "standard": null,
+        "remark": null,
+        "expiry_day": 4,
+        "weight": "3.000000",
+        "purchase_price": "4.000000",
+        "sale_price": "7.000000",
+        "min_price": "3.000000",
+        "creator": "1",
+        "create_time": "2024-12-12 09:42:45",
+        "updater": "1",
+        "update_time": "2024-12-12 09:42:45",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 19,
+      "has_data": true
+    }
+  },
+  "erp_product_category": {
+    "ddl": {
+      "table_name": "erp_product_category",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "分类编号",
+          "default": "None"
+        },
+        {
+          "name": "parent_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "父分类编号",
+          "default": "None"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "分类名称",
+          "default": "None"
+        },
+        {
+          "name": "code",
+          "type": "VARCHAR(100) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "分类编码",
+          "default": "None"
+        },
+        {
+          "name": "sort",
+          "type": "INTEGER",
+          "nullable": true,
+          "comment": "分类排序",
+          "default": "'0'"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "开启状态",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 产品分类"
+    },
+    "samples": [
+      {
+        "id": 87,
+        "parent_id": 0,
+        "name": "分类 1",
+        "code": "11",
+        "sort": 1,
+        "status": 0,
+        "creator": "1",
+        "create_time": "2024-12-12 09:42:23",
+        "updater": "1",
+        "update_time": "2024-12-12 09:42:23",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 12,
+      "has_data": true
+    }
+  },
+  "erp_product_unit": {
+    "ddl": {
+      "table_name": "erp_product_unit",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "单位编号",
+          "default": "None"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "单位名字",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "单位状态",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 产品单位表"
+    },
+    "samples": [
+      {
+        "id": 3,
+        "name": "个",
+        "status": 0,
+        "creator": "1",
+        "create_time": "2024-12-12 09:42:06",
+        "updater": "1",
+        "update_time": "2024-12-12 09:42:06",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 9,
+      "has_data": true
+    }
+  },
+  "erp_purchase_in": {
+    "ddl": {
+      "table_name": "erp_purchase_in",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "采购入库编号",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "采购状态",
+          "default": "None"
+        },
+        {
+          "name": "supplier_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "供应商编号",
+          "default": "None"
+        },
+        {
+          "name": "account_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "结算账户编号",
+          "default": "None"
+        },
+        {
+          "name": "in_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "入库时间",
+          "default": "None"
+        },
+        {
+          "name": "order_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "采购订单编号",
+          "default": "None"
+        },
+        {
+          "name": "order_no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "采购订单号",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "payment_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "已付款金额，单位：元",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "total_product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计产品价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "total_tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "discount_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "discount_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "other_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "其它金额，单位：元",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "file_url",
+          "type": "VARCHAR(512) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "附件地址",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "no",
+          "columns": [
+            "no"
+          ]
+        }
+      ],
+      "comment": "ERP 采购入库表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "no": "CGRK20241214000001",
+        "status": 20,
+        "supplier_id": 2,
+        "account_id": 1,
+        "in_time": "2024-12-14 00:00:00",
+        "order_id": 18,
+        "order_no": "CGDD20241212000001",
+        "total_count": "1.000000",
+        "total_price": "4.000000",
+        "payment_price": "4.000000",
+        "total_product_price": "4.000000",
+        "total_tax_price": "0.000000",
+        "discount_percent": "0.000000",
+        "discount_price": "0.000000",
+        "other_price": "0.000000",
+        "file_url": null,
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-12-14 10:47:28",
+        "updater": "1",
+        "update_time": "2024-12-14 10:47:57",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 24,
+      "has_data": true
+    }
+  },
+  "erp_purchase_in_items": {
+    "ddl": {
+      "table_name": "erp_purchase_in_items",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "in_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "采购入库编号",
+          "default": "None"
+        },
+        {
+          "name": "order_item_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "采购订单项编号",
+          "default": "None"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "product_unit_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品单位单位",
+          "default": "None"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "产品单价",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "总价",
+          "default": "None"
+        },
+        {
+          "name": "tax_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 销售入库项表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "in_id": 1,
+        "order_item_id": 17,
+        "warehouse_id": 1,
+        "product_id": 3,
+        "product_unit_id": 3,
+        "product_price": "4.000000",
+        "count": "1.000000",
+        "total_price": "4.000000",
+        "tax_percent": null,
+        "tax_price": null,
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-12-14 10:47:28",
+        "updater": "1",
+        "update_time": "2024-12-14 10:47:28",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 18,
+      "has_data": true
+    }
+  },
+  "erp_purchase_order": {
+    "ddl": {
+      "table_name": "erp_purchase_order",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "采购单编号",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "采购状态",
+          "default": "None"
+        },
+        {
+          "name": "supplier_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "供应商编号",
+          "default": "None"
+        },
+        {
+          "name": "account_id",
+          "type": "BIGINT",
+          "nullable": true,
+          "comment": "结算账户编号",
+          "default": "None"
+        },
+        {
+          "name": "order_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "采购时间",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "total_product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计产品价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "total_tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "discount_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "discount_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "deposit_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "定金金额，单位：元",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "file_url",
+          "type": "VARCHAR(512) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "附件地址",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "in_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "采购入库数量",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "return_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "采购退货数量",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "no",
+          "columns": [
+            "no"
+          ]
+        }
+      ],
+      "comment": "ERP 采购订单表"
+    },
+    "samples": [
+      {
+        "id": 18,
+        "no": "CGDD20241212000001",
+        "status": 20,
+        "supplier_id": 2,
+        "account_id": null,
+        "order_time": "2024-12-12 00:00:00",
+        "total_count": "1.000000",
+        "total_price": "4.000000",
+        "total_product_price": "4.000000",
+        "total_tax_price": "0.000000",
+        "discount_percent": "0.000000",
+        "discount_price": "0.000000",
+        "deposit_price": "0.000000",
+        "file_url": null,
+        "remark": null,
+        "in_count": "1.000000",
+        "return_count": "1.000000",
+        "creator": "1",
+        "create_time": "2024-12-12 09:43:00",
+        "updater": "1",
+        "update_time": "2024-12-16 13:42:12",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      },
+      {
+        "id": 19,
+        "no": "CGDD20241217000001",
+        "status": 20,
+        "supplier_id": 2,
+        "account_id": null,
+        "order_time": "2024-12-16 00:00:00",
+        "total_count": "1.000000",
+        "total_price": "4.040000",
+        "total_product_price": "4.000000",
+        "total_tax_price": "0.040000",
+        "discount_percent": "0.000000",
+        "discount_price": "0.000000",
+        "deposit_price": "0.000000",
+        "file_url": null,
+        "remark": null,
+        "in_count": "0.000000",
+        "return_count": "0.000000",
+        "creator": "1",
+        "create_time": "2024-12-17 15:49:44",
+        "updater": "1",
+        "update_time": "2024-12-17 15:49:54",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 2,
+      "column_count": 23,
+      "has_data": true
+    }
+  },
+  "erp_purchase_order_items": {
+    "ddl": {
+      "table_name": "erp_purchase_order_items",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "order_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "采购订单编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "product_unit_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品单位单位",
+          "default": "None"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "产品单价",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "总价",
+          "default": "None"
+        },
+        {
+          "name": "tax_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "in_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "采购入库数量",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "return_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "采购退货数量",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 采购订单项表"
+    },
+    "samples": [
+      {
+        "id": 17,
+        "order_id": 18,
+        "product_id": 3,
+        "product_unit_id": 3,
+        "product_price": "4.000000",
+        "count": "1.000000",
+        "total_price": "4.000000",
+        "tax_percent": null,
+        "tax_price": null,
+        "remark": null,
+        "in_count": "1.000000",
+        "return_count": "1.000000",
+        "creator": "1",
+        "create_time": "2024-12-12 09:43:00",
+        "updater": "1",
+        "update_time": "2024-12-16 13:42:12",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      },
+      {
+        "id": 18,
+        "order_id": 19,
+        "product_id": 3,
+        "product_unit_id": 3,
+        "product_price": "4.000000",
+        "count": "1.000000",
+        "total_price": "4.000000",
+        "tax_percent": "1.000000",
+        "tax_price": "0.040000",
+        "remark": null,
+        "in_count": "0.000000",
+        "return_count": "0.000000",
+        "creator": "1",
+        "create_time": "2024-12-17 15:49:44",
+        "updater": "1",
+        "update_time": "2024-12-17 15:49:44",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 2,
+      "column_count": 18,
+      "has_data": true
+    }
+  },
+  "erp_purchase_return": {
+    "ddl": {
+      "table_name": "erp_purchase_return",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "采购退货编号",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "退货状态",
+          "default": "None"
+        },
+        {
+          "name": "supplier_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "供应商编号",
+          "default": "None"
+        },
+        {
+          "name": "account_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "结算账户编号",
+          "default": "None"
+        },
+        {
+          "name": "return_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "退货时间",
+          "default": "None"
+        },
+        {
+          "name": "order_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "采购订单编号",
+          "default": "None"
+        },
+        {
+          "name": "order_no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "采购订单号",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "refund_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "已退款金额，单位：元",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "total_product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计产品价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "total_tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "discount_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "discount_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "other_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "其它金额，单位：元",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "file_url",
+          "type": "VARCHAR(512) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "附件地址",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "no",
+          "columns": [
+            "no"
+          ]
+        }
+      ],
+      "comment": "ERP 采购退货表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "no": "CGTH20241216000001",
+        "status": 20,
+        "supplier_id": 2,
+        "account_id": 1,
+        "return_time": "2024-12-17 00:00:00",
+        "order_id": 18,
+        "order_no": "CGDD20241212000001",
+        "total_count": "1.000000",
+        "total_price": "4.040000",
+        "refund_price": "0.000000",
+        "total_product_price": "4.000000",
+        "total_tax_price": "0.040000",
+        "discount_percent": "0.000000",
+        "discount_price": "0.000000",
+        "other_price": "0.000000",
+        "file_url": null,
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-12-16 13:42:12",
+        "updater": "1",
+        "update_time": "2024-12-16 13:49:18",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 24,
+      "has_data": true
+    }
+  },
+  "erp_purchase_return_items": {
+    "ddl": {
+      "table_name": "erp_purchase_return_items",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "return_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "采购退货编号",
+          "default": "None"
+        },
+        {
+          "name": "order_item_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "采购订单项编号",
+          "default": "None"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "product_unit_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品单位单位",
+          "default": "None"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "产品单价",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "总价",
+          "default": "None"
+        },
+        {
+          "name": "tax_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 采购退货项表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "return_id": 1,
+        "order_item_id": 17,
+        "warehouse_id": 1,
+        "product_id": 3,
+        "product_unit_id": 3,
+        "product_price": "4.000000",
+        "count": "1.000000",
+        "total_price": "4.000000",
+        "tax_percent": "1.000000",
+        "tax_price": "0.040000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-12-16 13:42:12",
+        "updater": "1",
+        "update_time": "2024-12-16 13:42:12",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 18,
+      "has_data": true
+    }
+  },
+  "erp_sale_order": {
+    "ddl": {
+      "table_name": "erp_sale_order",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "销售单编号",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "销售状态",
+          "default": "None"
+        },
+        {
+          "name": "customer_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "客户编号",
+          "default": "None"
+        },
+        {
+          "name": "account_id",
+          "type": "BIGINT",
+          "nullable": true,
+          "comment": "结算账户编号",
+          "default": "None"
+        },
+        {
+          "name": "sale_user_id",
+          "type": "BIGINT",
+          "nullable": true,
+          "comment": "销售用户编号",
+          "default": "None"
+        },
+        {
+          "name": "order_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "下单时间",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "total_product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计产品价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "total_tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "discount_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "discount_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "deposit_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "定金金额，单位：元",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "file_url",
+          "type": "VARCHAR(512) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "附件地址",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "out_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "销售出库数量",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "return_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "销售退货数量",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "no",
+          "columns": [
+            "no"
+          ]
+        }
+      ],
+      "comment": "ERP 销售订单表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "no": "XSDD20241214000001",
+        "status": 20,
+        "customer_id": 1,
+        "account_id": null,
+        "sale_user_id": null,
+        "order_time": "2024-12-14 00:00:00",
+        "total_count": "1.000000",
+        "total_price": "7.000000",
+        "total_product_price": "7.000000",
+        "total_tax_price": "0.000000",
+        "discount_percent": "0.000000",
+        "discount_price": "0.000000",
+        "deposit_price": "0.000000",
+        "file_url": null,
+        "remark": null,
+        "out_count": "1.000000",
+        "return_count": "0.000000",
+        "creator": "1",
+        "create_time": "2024-12-14 10:33:48",
+        "updater": "1",
+        "update_time": "2024-12-14 10:36:46",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 24,
+      "has_data": true
+    }
+  },
+  "erp_sale_order_items": {
+    "ddl": {
+      "table_name": "erp_sale_order_items",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "order_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "销售订单编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "product_unit_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品单位单位",
+          "default": "None"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "产品单价",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "总价",
+          "default": "None"
+        },
+        {
+          "name": "tax_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "out_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "销售出库数量",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "return_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "销售退货数量",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 销售订单项表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "order_id": 1,
+        "product_id": 3,
+        "product_unit_id": 3,
+        "product_price": "7.000000",
+        "count": "1.000000",
+        "total_price": "7.000000",
+        "tax_percent": null,
+        "tax_price": null,
+        "remark": null,
+        "out_count": "1.000000",
+        "return_count": "0.000000",
+        "creator": "1",
+        "create_time": "2024-12-14 10:33:48",
+        "updater": "1",
+        "update_time": "2024-12-14 10:36:46",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 18,
+      "has_data": true
+    }
+  },
+  "erp_sale_out": {
+    "ddl": {
+      "table_name": "erp_sale_out",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "销售出库编号",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "出库状态",
+          "default": "None"
+        },
+        {
+          "name": "customer_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "客户编号",
+          "default": "None"
+        },
+        {
+          "name": "account_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "结算账户编号",
+          "default": "None"
+        },
+        {
+          "name": "sale_user_id",
+          "type": "BIGINT",
+          "nullable": true,
+          "comment": "销售用户编号",
+          "default": "None"
+        },
+        {
+          "name": "out_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "出库时间",
+          "default": "None"
+        },
+        {
+          "name": "order_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "销售订单编号",
+          "default": "None"
+        },
+        {
+          "name": "order_no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "销售订单号",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "receipt_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "已收款金额，单位：元",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "total_product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计产品价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "total_tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "discount_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "discount_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "other_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "其它金额，单位：元",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "file_url",
+          "type": "VARCHAR(512) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "附件地址",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "no",
+          "columns": [
+            "no"
+          ]
+        }
+      ],
+      "comment": "ERP 销售出库表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "no": "XSCK20241214000001",
+        "status": 20,
+        "customer_id": 1,
+        "account_id": 1,
+        "sale_user_id": null,
+        "out_time": "2024-12-14 00:00:00",
+        "order_id": 1,
+        "order_no": "XSDD20241214000001",
+        "total_count": "1.000000",
+        "total_price": "7.000000",
+        "receipt_price": "7.000000",
+        "total_product_price": "7.000000",
+        "total_tax_price": "0.000000",
+        "discount_percent": "0.000000",
+        "discount_price": "0.000000",
+        "other_price": "0.000000",
+        "file_url": null,
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-12-14 10:36:46",
+        "updater": "1",
+        "update_time": "2024-12-14 10:42:31",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 25,
+      "has_data": true
+    }
+  },
+  "erp_sale_out_items": {
+    "ddl": {
+      "table_name": "erp_sale_out_items",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "out_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "销售出库编号",
+          "default": "None"
+        },
+        {
+          "name": "order_item_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "销售订单项编号",
+          "default": "None"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "product_unit_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品单位单位",
+          "default": "None"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "产品单价",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "总价",
+          "default": "None"
+        },
+        {
+          "name": "tax_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 销售出库项表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "out_id": 1,
+        "order_item_id": 1,
+        "warehouse_id": 1,
+        "product_id": 3,
+        "product_unit_id": 3,
+        "product_price": "7.000000",
+        "count": "1.000000",
+        "total_price": "7.000000",
+        "tax_percent": null,
+        "tax_price": null,
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-12-14 10:36:46",
+        "updater": "1",
+        "update_time": "2024-12-14 10:36:46",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 18,
+      "has_data": true
+    }
+  },
+  "erp_sale_return": {
+    "ddl": {
+      "table_name": "erp_sale_return",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "销售退货编号",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "退货状态",
+          "default": "None"
+        },
+        {
+          "name": "customer_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "客户编号",
+          "default": "None"
+        },
+        {
+          "name": "account_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "结算账户编号",
+          "default": "None"
+        },
+        {
+          "name": "sale_user_id",
+          "type": "BIGINT",
+          "nullable": true,
+          "comment": "销售用户编号",
+          "default": "None"
+        },
+        {
+          "name": "return_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "退货时间",
+          "default": "None"
+        },
+        {
+          "name": "order_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "销售订单编号",
+          "default": "None"
+        },
+        {
+          "name": "order_no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "销售订单号",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "refund_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "已退款金额，单位：元",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "total_product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计产品价格，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "total_tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "discount_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "discount_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "优惠金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "other_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "其它金额，单位：元",
+          "default": "'0.000000'"
+        },
+        {
+          "name": "file_url",
+          "type": "VARCHAR(512) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "附件地址",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "no",
+          "columns": [
+            "no"
+          ]
+        }
+      ],
+      "comment": "ERP 销售退货表"
+    },
+    "samples": [],
+    "stats": {
+      "row_count": 0,
+      "column_count": 25,
+      "has_data": false
+    }
+  },
+  "erp_sale_return_items": {
+    "ddl": {
+      "table_name": "erp_sale_return_items",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "return_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "销售退货编号",
+          "default": "None"
+        },
+        {
+          "name": "order_item_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "销售订单项编号",
+          "default": "None"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "product_unit_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品单位单位",
+          "default": "None"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "产品单价",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "总价",
+          "default": "None"
+        },
+        {
+          "name": "tax_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税率，百分比",
+          "default": "None"
+        },
+        {
+          "name": "tax_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(1024) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 销售退货项表"
+    },
+    "samples": [],
+    "stats": {
+      "row_count": 0,
+      "column_count": 18,
+      "has_data": false
+    }
+  },
+  "erp_stock": {
+    "ddl": {
+      "table_name": "erp_stock",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "库存数量",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 产品库存表"
+    },
+    "samples": [
+      {
+        "id": 2,
+        "product_id": 3,
+        "warehouse_id": 1,
+        "count": "10.000000",
+        "creator": "1",
+        "create_time": "2024-12-14 10:41:14",
+        "updater": "1",
+        "update_time": "2024-12-16 13:49:17",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 10,
+      "has_data": true
+    }
+  },
+  "erp_stock_check": {
+    "ddl": {
+      "table_name": "erp_stock_check",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "盘点编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "盘点单号",
+          "default": "None"
+        },
+        {
+          "name": "check_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "盘点时间",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "状态",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "file_url",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "附件 URL",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 库存盘点单表"
+    },
+    "samples": [
+      {
+        "id": 10,
+        "no": "QCDB20240207000002",
+        "check_time": "2024-02-06 00:00:00",
+        "total_count": "23.000000",
+        "total_price": "76.590000",
+        "status": 10,
+        "remark": null,
+        "file_url": null,
+        "creator": "1",
+        "create_time": "2024-02-07 19:34:47",
+        "updater": "1",
+        "update_time": "2024-02-08 00:49:53",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 14,
+      "has_data": true
+    }
+  },
+  "erp_stock_check_item": {
+    "ddl": {
+      "table_name": "erp_stock_check_item",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "盘点项编号",
+          "default": "None"
+        },
+        {
+          "name": "check_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "盘点编号",
+          "default": "None"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "product_unit_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品单位编号",
+          "default": "None"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "产品单价",
+          "default": "None"
+        },
+        {
+          "name": "stock_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "账面数量（当前库存）",
+          "default": "None"
+        },
+        {
+          "name": "actual_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "实际数量（实际库存）",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "盈亏数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "合计金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 库存盘点项表"
+    },
+    "samples": [
+      {
+        "id": 10,
+        "check_id": 10,
+        "warehouse_id": 2,
+        "product_id": 1,
+        "product_unit_id": 2,
+        "product_price": "3.330000",
+        "stock_count": "0.000000",
+        "actual_count": "0.000000",
+        "count": "23.000000",
+        "total_price": "76.590000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-07 19:34:47",
+        "updater": "1",
+        "update_time": "2024-02-08 00:49:53",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 17,
+      "has_data": true
+    }
+  },
+  "erp_stock_in": {
+    "ddl": {
+      "table_name": "erp_stock_in",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "入库编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "入库单号",
+          "default": "None"
+        },
+        {
+          "name": "supplier_id",
+          "type": "BIGINT",
+          "nullable": true,
+          "comment": "供应商编号",
+          "default": "None"
+        },
+        {
+          "name": "in_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "入库时间",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "状态",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "file_url",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "附件 URL",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 其它入库单表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "no": "AAA",
+        "supplier_id": null,
+        "in_time": "2024-02-06 00:00:00",
+        "total_count": "5.010000",
+        "total_price": "14.683300",
+        "status": 10,
+        "remark": null,
+        "file_url": null,
+        "creator": "1",
+        "create_time": "2024-02-06 14:43:04",
+        "updater": "1",
+        "update_time": "2024-02-16 09:26:55",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 2,
+        "no": "单据2",
+        "supplier_id": 1,
+        "in_time": "2024-02-22 00:00:00",
+        "total_count": "2.000000",
+        "total_price": "6.660000",
+        "status": 10,
+        "remark": "测试一下",
+        "file_url": "http://test.yudao.iocoder.cn/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.xls",
+        "creator": "1",
+        "create_time": "2024-02-06 15:54:58",
+        "updater": "1",
+        "update_time": "2024-02-16 09:26:53",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 3,
+        "no": "001",
+        "supplier_id": 1,
+        "in_time": "2024-02-06 00:00:00",
+        "total_count": "1.000000",
+        "total_price": "3.330000",
+        "status": 10,
+        "remark": "给一个",
+        "file_url": null,
+        "creator": "1",
+        "create_time": "2024-02-06 19:55:05",
+        "updater": "1",
+        "update_time": "2024-02-16 09:26:50",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 5,
+      "column_count": 15,
+      "has_data": true
+    }
+  },
+  "erp_stock_in_item": {
+    "ddl": {
+      "table_name": "erp_stock_in_item",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "入库项编号",
+          "default": "None"
+        },
+        {
+          "name": "in_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "入库编号",
+          "default": "None"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "product_unit_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品单位编号",
+          "default": "None"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "产品单价",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "产品数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "合计金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 其它入库单项表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "in_id": 1,
+        "warehouse_id": 1,
+        "product_id": 1,
+        "product_unit_id": 2,
+        "product_price": "2.330000",
+        "count": "2.000000",
+        "total_price": "4.660000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-06 14:43:04",
+        "updater": "1",
+        "update_time": "2024-02-16 09:26:55",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 2,
+        "in_id": 1,
+        "warehouse_id": 2,
+        "product_id": 1,
+        "product_unit_id": 2,
+        "product_price": "3.330000",
+        "count": "3.010000",
+        "total_price": "10.023300",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-06 15:15:07",
+        "updater": "1",
+        "update_time": "2024-02-16 09:26:55",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      },
+      {
+        "id": 3,
+        "in_id": 2,
+        "warehouse_id": 2,
+        "product_id": 2,
+        "product_unit_id": 2,
+        "product_price": "3.330000",
+        "count": "2.000000",
+        "total_price": "6.660000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-06 15:54:58",
+        "updater": "1",
+        "update_time": "2024-02-16 09:26:53",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 6,
+      "column_count": 15,
+      "has_data": true
+    }
+  },
+  "erp_stock_move": {
+    "ddl": {
+      "table_name": "erp_stock_move",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "调拨编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "调拨单号",
+          "default": "None"
+        },
+        {
+          "name": "move_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "调拨时间",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "状态",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "file_url",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "附件 URL",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 库存调拨单表"
+    },
+    "samples": [],
+    "stats": {
+      "row_count": 0,
+      "column_count": 14,
+      "has_data": false
+    }
+  },
+  "erp_stock_move_item": {
+    "ddl": {
+      "table_name": "erp_stock_move_item",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "调拨项编号",
+          "default": "None"
+        },
+        {
+          "name": "move_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "调拨编号",
+          "default": "None"
+        },
+        {
+          "name": "from_warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "调出仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "to_warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "调入仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "product_unit_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品单位编号",
+          "default": "None"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "产品单价",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "产品数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "合计金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 库存调拨项表"
+    },
+    "samples": [],
+    "stats": {
+      "row_count": 0,
+      "column_count": 16,
+      "has_data": false
+    }
+  },
+  "erp_stock_out": {
+    "ddl": {
+      "table_name": "erp_stock_out",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "出库编号",
+          "default": "None"
+        },
+        {
+          "name": "no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "出库单号",
+          "default": "None"
+        },
+        {
+          "name": "customer_id",
+          "type": "BIGINT",
+          "nullable": true,
+          "comment": "客户编号",
+          "default": "None"
+        },
+        {
+          "name": "out_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "出库时间",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "合计金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "状态",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "file_url",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "附件 URL",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 其它入库单表"
+    },
+    "samples": [
+      {
+        "id": 9,
+        "no": "QCKD20240207000001",
+        "customer_id": null,
+        "out_time": "2024-02-14 00:00:00",
+        "total_count": "1.000000",
+        "total_price": "2.000000",
+        "status": 10,
+        "remark": "333",
+        "file_url": null,
+        "creator": "1",
+        "create_time": "2024-02-07 14:59:53",
+        "updater": "1",
+        "update_time": "2024-02-07 07:00:13",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 15,
+      "has_data": true
+    }
+  },
+  "erp_stock_out_item": {
+    "ddl": {
+      "table_name": "erp_stock_out_item",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "出库项编号",
+          "default": "None"
+        },
+        {
+          "name": "out_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "出库编号",
+          "default": "None"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "product_unit_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品单位编号",
+          "default": "None"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "产品单价",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "产品数量",
+          "default": "None"
+        },
+        {
+          "name": "total_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "合计金额，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 其它出库单项表"
+    },
+    "samples": [
+      {
+        "id": 10,
+        "out_id": 9,
+        "warehouse_id": 2,
+        "product_id": 2,
+        "product_unit_id": 2,
+        "product_price": "2.000000",
+        "count": "1.000000",
+        "total_price": "2.000000",
+        "remark": null,
+        "creator": "1",
+        "create_time": "2024-02-07 14:59:53",
+        "updater": "1",
+        "update_time": "2024-02-07 07:00:13",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 15,
+      "has_data": true
+    }
+  },
+  "erp_stock_record": {
+    "ddl": {
+      "table_name": "erp_stock_record",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "编号",
+          "default": "None"
+        },
+        {
+          "name": "product_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "产品编号",
+          "default": "None"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "出入库数量",
+          "default": "None"
+        },
+        {
+          "name": "total_count",
+          "type": "DECIMAL(24, 6)",
+          "nullable": false,
+          "comment": "总库存量",
+          "default": "None"
+        },
+        {
+          "name": "biz_type",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "业务类型",
+          "default": "None"
+        },
+        {
+          "name": "biz_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "业务编号",
+          "default": "None"
+        },
+        {
+          "name": "biz_item_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "业务项编号",
+          "default": "None"
+        },
+        {
+          "name": "biz_no",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "业务单号",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 产品库存明细表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "product_id": 3,
+        "warehouse_id": 1,
+        "count": "11.000000",
+        "total_count": "11.000000",
+        "biz_type": 10,
+        "biz_id": 5,
+        "biz_item_id": 6,
+        "biz_no": "QTRK20241214000001",
+        "creator": "1",
+        "create_time": "2024-12-14 10:41:14",
+        "updater": "1",
+        "update_time": "2024-12-14 10:41:14",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      },
+      {
+        "id": 2,
+        "product_id": 3,
+        "warehouse_id": 1,
+        "count": "-1.000000",
+        "total_count": "10.000000",
+        "biz_type": 50,
+        "biz_id": 1,
+        "biz_item_id": 1,
+        "biz_no": "XSCK20241214000001",
+        "creator": "1",
+        "create_time": "2024-12-14 10:41:42",
+        "updater": "1",
+        "update_time": "2024-12-14 10:41:42",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      },
+      {
+        "id": 3,
+        "product_id": 3,
+        "warehouse_id": 1,
+        "count": "1.000000",
+        "total_count": "11.000000",
+        "biz_type": 70,
+        "biz_id": 1,
+        "biz_item_id": 1,
+        "biz_no": "CGRK20241214000001",
+        "creator": "1",
+        "create_time": "2024-12-14 10:47:35",
+        "updater": "1",
+        "update_time": "2024-12-14 10:47:35",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 4,
+      "column_count": 15,
+      "has_data": true
+    }
+  },
+  "erp_supplier": {
+    "ddl": {
+      "table_name": "erp_supplier",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "供应商编号",
+          "default": "None"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "供应商名称",
+          "default": "None"
+        },
+        {
+          "name": "contact",
+          "type": "VARCHAR(100) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "联系人",
+          "default": "None"
+        },
+        {
+          "name": "mobile",
+          "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "手机号码",
+          "default": "None"
+        },
+        {
+          "name": "telephone",
+          "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "联系电话",
+          "default": "None"
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "电子邮箱",
+          "default": "None"
+        },
+        {
+          "name": "fax",
+          "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "传真",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "开启状态",
+          "default": "None"
+        },
+        {
+          "name": "sort",
+          "type": "INTEGER",
+          "nullable": false,
+          "comment": "排序",
+          "default": "None"
+        },
+        {
+          "name": "tax_no",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "纳税人识别号",
+          "default": "None"
+        },
+        {
+          "name": "tax_percent",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "税率",
+          "default": "None"
+        },
+        {
+          "name": "bank_name",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "开户行",
+          "default": "None"
+        },
+        {
+          "name": "bank_account",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "开户账号",
+          "default": "None"
+        },
+        {
+          "name": "bank_address",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "开户地址",
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 供应商表"
+    },
+    "samples": [
+      {
+        "id": 2,
+        "name": "供应商 1",
+        "contact": null,
+        "mobile": null,
+        "telephone": null,
+        "email": null,
+        "fax": null,
+        "remark": null,
+        "status": 0,
+        "sort": 3,
+        "tax_no": "211",
+        "tax_percent": null,
+        "bank_name": "2121",
+        "bank_account": "121221",
+        "bank_address": null,
+        "creator": "1",
+        "create_time": "2024-12-12 09:41:01",
+        "updater": "1",
+        "update_time": "2024-12-14 10:28:03",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 1,
+      "column_count": 21,
+      "has_data": true
+    }
+  },
+  "erp_warehouse": {
+    "ddl": {
+      "table_name": "erp_warehouse",
+      "columns": [
+        {
+          "name": "id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "仓库编号",
+          "default": "None"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(20) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": false,
+          "comment": "仓库名称",
+          "default": "None"
+        },
+        {
+          "name": "address",
+          "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "仓库地址",
+          "default": "None"
+        },
+        {
+          "name": "sort",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "排序",
+          "default": "None"
+        },
+        {
+          "name": "remark",
+          "type": "VARCHAR(100) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "备注",
+          "default": "None"
+        },
+        {
+          "name": "principal",
+          "type": "VARCHAR(20) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "负责人",
+          "default": "None"
+        },
+        {
+          "name": "warehouse_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "仓储费，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "truckage_price",
+          "type": "DECIMAL(24, 6)",
+          "nullable": true,
+          "comment": "搬运费，单位：元",
+          "default": "None"
+        },
+        {
+          "name": "status",
+          "type": "TINYINT",
+          "nullable": false,
+          "comment": "开启状态",
+          "default": "None"
+        },
+        {
+          "name": "default_status",
+          "type": "BIT",
+          "nullable": true,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "creator",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "创建者",
+          "default": "''"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "创建时间",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updater",
+          "type": "VARCHAR(64) COLLATE \"utf8mb4_unicode_ci\"",
+          "nullable": true,
+          "comment": "更新者",
+          "default": "''"
+        },
+        {
+          "name": "update_time",
+          "type": "DATETIME",
+          "nullable": false,
+          "comment": "更新时间",
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "deleted",
+          "type": "BIT",
+          "nullable": false,
+          "comment": null,
+          "default": "None"
+        },
+        {
+          "name": "tenant_id",
+          "type": "BIGINT",
+          "nullable": false,
+          "comment": "租户编号",
+          "default": "'0'"
+        }
+      ],
+      "primary_keys": [
+        "id"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "comment": "ERP 仓库表"
+    },
+    "samples": [
+      {
+        "id": 1,
+        "name": "999",
+        "address": "江苏省",
+        "sort": 1,
+        "remark": null,
+        "principal": null,
+        "warehouse_price": null,
+        "truckage_price": null,
+        "status": 0,
+        "default_status": "b'\\x00'",
+        "creator": "1",
+        "create_time": "2024-12-14 10:15:53",
+        "updater": "1",
+        "update_time": "2024-12-26 11:17:15",
+        "deleted": "b'\\x00'",
+        "tenant_id": 1
+      },
+      {
+        "id": 2,
+        "name": "999",
+        "address": null,
+        "sort": 2,
+        "remark": null,
+        "principal": null,
+        "warehouse_price": null,
+        "truckage_price": null,
+        "status": 0,
+        "default_status": "b'\\x00'",
+        "creator": "1",
+        "create_time": "2024-12-17 16:46:05",
+        "updater": "1",
+        "update_time": "2024-12-17 16:46:15",
+        "deleted": "b'\\x01'",
+        "tenant_id": 1
+      }
+    ],
+    "stats": {
+      "row_count": 2,
+      "column_count": 16,
+      "has_data": true
+    }
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "question": "查询所有Purchase Order",
+    "sql": "SELECT no, supplier_id, order_time, status, total_count, total_price, total_product_price, total_tax_price, discount_percent, discount_price, deposit_price, in_count, return_count, remark FROM erp_purchase_order WHERE deleted = 0"
+  },
+  {
+    "question": "根据no搜索Purchase Order",
+    "sql": "SELECT * FROM erp_purchase_order WHERE no LIKE '%keyword%' AND deleted = 0"
+  }
+]

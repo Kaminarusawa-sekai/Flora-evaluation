@@ -1,0 +1,286 @@
+{
+  "domain": "CRM",
+  "knowledge_links": {
+    "agent_4b8e96f8": {
+      "agent_name": "销售专员",
+      "knowledge_sources": [
+        {
+          "type": "domain_knowledge",
+          "name": "客户关系管理最佳实践",
+          "path": "knowledge/CRM/客户关系管理最佳实践.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "销售流程标准",
+          "path": "knowledge/CRM/销售流程标准.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "客户分级策略",
+          "path": "knowledge/CRM/客户分级策略.md",
+          "priority": "medium"
+        },
+        {
+          "type": "role_knowledge",
+          "name": "销售话术",
+          "path": "knowledge/roles/销售专员/销售话术.md",
+          "priority": "high"
+        },
+        {
+          "type": "role_knowledge",
+          "name": "客户沟通技巧",
+          "path": "knowledge/roles/销售专员/客户沟通技巧.md",
+          "priority": "high"
+        },
+        {
+          "type": "role_knowledge",
+          "name": "CRM系统使用手册",
+          "path": "knowledge/roles/销售专员/CRM系统使用手册.md",
+          "priority": "high"
+        }
+      ],
+      "retrieval_strategy": {
+        "mode": "detailed",
+        "top_k": 5,
+        "similarity_threshold": 0.7,
+        "include_examples": true,
+        "context_window": 2000
+      }
+    },
+    "agent_bd839db0": {
+      "agent_name": "客户经理",
+      "knowledge_sources": [
+        {
+          "type": "domain_knowledge",
+          "name": "客户关系管理最佳实践",
+          "path": "knowledge/CRM/客户关系管理最佳实践.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "销售流程标准",
+          "path": "knowledge/CRM/销售流程标准.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "客户分级策略",
+          "path": "knowledge/CRM/客户分级策略.md",
+          "priority": "medium"
+        }
+      ],
+      "retrieval_strategy": {
+        "mode": "detailed",
+        "top_k": 5,
+        "similarity_threshold": 0.7,
+        "include_examples": true,
+        "context_window": 2000
+      }
+    },
+    "agent_71e7a59f": {
+      "agent_name": "仓库专员",
+      "knowledge_sources": [
+        {
+          "type": "domain_knowledge",
+          "name": "客户关系管理最佳实践",
+          "path": "knowledge/CRM/客户关系管理最佳实践.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "销售流程标准",
+          "path": "knowledge/CRM/销售流程标准.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "客户分级策略",
+          "path": "knowledge/CRM/客户分级策略.md",
+          "priority": "medium"
+        }
+      ],
+      "retrieval_strategy": {
+        "mode": "detailed",
+        "top_k": 5,
+        "similarity_threshold": 0.7,
+        "include_examples": true,
+        "context_window": 2000
+      }
+    },
+    "agent_302599fc": {
+      "agent_name": "采购专员",
+      "knowledge_sources": [
+        {
+          "type": "domain_knowledge",
+          "name": "客户关系管理最佳实践",
+          "path": "knowledge/CRM/客户关系管理最佳实践.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "销售流程标准",
+          "path": "knowledge/CRM/销售流程标准.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "客户分级策略",
+          "path": "knowledge/CRM/客户分级策略.md",
+          "priority": "medium"
+        },
+        {
+          "type": "role_knowledge",
+          "name": "采购管理制度",
+          "path": "knowledge/roles/采购专员/采购管理制度.md",
+          "priority": "high"
+        },
+        {
+          "type": "role_knowledge",
+          "name": "供应商评估标准",
+          "path": "knowledge/roles/采购专员/供应商评估标准.md",
+          "priority": "high"
+        },
+        {
+          "type": "role_knowledge",
+          "name": "合同管理规范",
+          "path": "knowledge/roles/采购专员/合同管理规范.md",
+          "priority": "high"
+        }
+      ],
+      "retrieval_strategy": {
+        "mode": "detailed",
+        "top_k": 5,
+        "similarity_threshold": 0.7,
+        "include_examples": true,
+        "context_window": 2000
+      }
+    },
+    "agent_9af52df2": {
+      "agent_name": "供应链主管",
+      "knowledge_sources": [
+        {
+          "type": "domain_knowledge",
+          "name": "客户关系管理最佳实践",
+          "path": "knowledge/CRM/客户关系管理最佳实践.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "销售流程标准",
+          "path": "knowledge/CRM/销售流程标准.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "客户分级策略",
+          "path": "knowledge/CRM/客户分级策略.md",
+          "priority": "medium"
+        }
+      ],
+      "retrieval_strategy": {
+        "mode": "summary",
+        "top_k": 3,
+        "similarity_threshold": 0.75,
+        "include_examples": false,
+        "context_window": 1500
+      }
+    },
+    "agent_cfdbbe52": {
+      "agent_name": "订单与客户生命周期管理专员",
+      "knowledge_sources": [
+        {
+          "type": "domain_knowledge",
+          "name": "客户关系管理最佳实践",
+          "path": "knowledge/CRM/客户关系管理最佳实践.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "销售流程标准",
+          "path": "knowledge/CRM/销售流程标准.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "客户分级策略",
+          "path": "knowledge/CRM/客户分级策略.md",
+          "priority": "medium"
+        }
+      ],
+      "retrieval_strategy": {
+        "mode": "detailed",
+        "top_k": 5,
+        "similarity_threshold": 0.7,
+        "include_examples": true,
+        "context_window": 2000
+      }
+    },
+    "agent_supervisor_7388": {
+      "agent_name": "销售与客户管理组主管",
+      "knowledge_sources": [
+        {
+          "type": "domain_knowledge",
+          "name": "客户关系管理最佳实践",
+          "path": "knowledge/CRM/客户关系管理最佳实践.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "销售流程标准",
+          "path": "knowledge/CRM/销售流程标准.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "客户分级策略",
+          "path": "knowledge/CRM/客户分级策略.md",
+          "priority": "medium"
+        }
+      ],
+      "retrieval_strategy": {
+        "mode": "summary",
+        "top_k": 3,
+        "similarity_threshold": 0.75,
+        "include_examples": false,
+        "context_window": 1500
+      }
+    },
+    "agent_supervisor_5507": {
+      "agent_name": "供应链运营组主管",
+      "knowledge_sources": [
+        {
+          "type": "domain_knowledge",
+          "name": "客户关系管理最佳实践",
+          "path": "knowledge/CRM/客户关系管理最佳实践.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "销售流程标准",
+          "path": "knowledge/CRM/销售流程标准.md",
+          "priority": "medium"
+        },
+        {
+          "type": "domain_knowledge",
+          "name": "客户分级策略",
+          "path": "knowledge/CRM/客户分级策略.md",
+          "priority": "medium"
+        }
+      ],
+      "retrieval_strategy": {
+        "mode": "summary",
+        "top_k": 3,
+        "similarity_threshold": 0.75,
+        "include_examples": false,
+        "context_window": 1500
+      }
+    }
+  },
+  "global_knowledge": [
+    "客户关系管理最佳实践",
+    "销售流程标准",
+    "客户分级策略"
+  ]
+}

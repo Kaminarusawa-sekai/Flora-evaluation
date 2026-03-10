@@ -16,12 +16,13 @@ class StateManager:
         self.foreign_keys: Dict[str, str] = {}  # resource_type -> parent_type
         self.status_constraints: Dict[str, Dict[str, List[str]]] = {}  # resource_type -> {action -> allowed_statuses}
         self.cascade_rules: Dict[str, List[str]] = {}  # parent_type -> [child_types]
+        self._conn = None
         self._init_db()
 
     def _init_db(self):
         """Initialize database schema with session support."""
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
+        self._conn = sqlite3.connect(self.db_path, check_same_thread=False)
+        cursor = self._conn.cursor()
 
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS resources (
@@ -35,8 +36,13 @@ class StateManager:
             )
         """)
 
-        conn.commit()
-        conn.close()
+        self._conn.commit()
+
+    def _get_connection(self):
+        """Get the persistent connection."""
+        if self._conn is None:
+            self._conn = sqlite3.connect(self.db_path, check_same_thread=False)
+        return self._conn
 
     def set_foreign_key(self, resource_type: str, parent_type: str, parent_field: str = "id"):
         """Define foreign key constraint."""
@@ -66,7 +72,7 @@ class StateManager:
             if parent_id and not self.get_state(parent_type, parent_id):
                 raise ValueError(f"Foreign key violation: {parent_type} with id {parent_id} does not exist")
 
-        conn = sqlite3.connect(self.db_path)
+        conn = self._get_connection()
         cursor = conn.cursor()
 
         now = datetime.utcnow().isoformat()
@@ -79,12 +85,11 @@ class StateManager:
         )
 
         conn.commit()
-        conn.close()
         return {"id": resource_id, **state}
 
     def get_state(self, resource_type: str, resource_id: str) -> Optional[Dict[str, Any]]:
         """Get resource state for current session."""
-        conn = sqlite3.connect(self.db_path)
+        conn = self._get_connection()
         cursor = conn.cursor()
 
         cursor.execute(
@@ -96,7 +101,6 @@ class StateManager:
         )
 
         row = cursor.fetchone()
-        conn.close()
 
         if row:
             return json.loads(row[0])
@@ -104,7 +108,7 @@ class StateManager:
 
     def list_resources(self, resource_type: str) -> List[Dict[str, Any]]:
         """List all resources of a type in current session."""
-        conn = sqlite3.connect(self.db_path)
+        conn = self._get_connection()
         cursor = conn.cursor()
 
         cursor.execute(
@@ -116,13 +120,12 @@ class StateManager:
         )
 
         rows = cursor.fetchall()
-        conn.close()
 
         return [{"id": row[0], **json.loads(row[1])} for row in rows]
 
     def update_resource(self, resource_type: str, resource_id: str, state: Dict[str, Any]) -> Dict[str, Any]:
         """Update resource state."""
-        conn = sqlite3.connect(self.db_path)
+        conn = self._get_connection()
         cursor = conn.cursor()
 
         now = datetime.utcnow().isoformat()
@@ -136,7 +139,6 @@ class StateManager:
         )
 
         conn.commit()
-        conn.close()
         return {"id": resource_id, **state}
 
     def delete_resource(self, resource_type: str, resource_id: str, cascade: bool = True):
@@ -157,7 +159,7 @@ class StateManager:
                 for child_id in children:
                     self.delete_resource(child_type, child_id, cascade=True)
 
-        conn = sqlite3.connect(self.db_path)
+        conn = self._get_connection()
         cursor = conn.cursor()
 
         cursor.execute(
@@ -169,11 +171,10 @@ class StateManager:
         )
 
         conn.commit()
-        conn.close()
 
     def _find_children(self, child_type: str, parent_type: str, parent_id: str) -> List[str]:
         """Find all children of a parent resource."""
-        conn = sqlite3.connect(self.db_path)
+        conn = self._get_connection()
         cursor = conn.cursor()
 
         cursor.execute(
@@ -191,18 +192,26 @@ class StateManager:
             if state.get(parent_field) == parent_id:
                 children.append(row[0])
 
-        conn.close()
         return children
 
     def reset(self):
         """Reset state for current session only."""
-        conn = sqlite3.connect(self.db_path)
+        conn = self._get_connection()
         cursor = conn.cursor()
 
         cursor.execute("DELETE FROM resources WHERE session_id = ?", (self.session_id,))
 
         conn.commit()
-        conn.close()
+
+    def close(self):
+        """Close the database connection."""
+        if self._conn:
+            self._conn.close()
+            self._conn = None
+
+    def __del__(self):
+        """Cleanup on deletion."""
+        self.close()
 
     @contextmanager
     def session(self, session_id: str):

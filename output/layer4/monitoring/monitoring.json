@@ -1,0 +1,332 @@
+{
+  "metrics": [
+    {
+      "name": "agent_total_requests",
+      "type": "counter",
+      "description": "Agent 总请求数",
+      "labels": [
+        "agent_id",
+        "agent_name"
+      ]
+    },
+    {
+      "name": "agent_request_duration_seconds",
+      "type": "histogram",
+      "description": "Agent 请求处理时长",
+      "labels": [
+        "agent_id",
+        "agent_name"
+      ],
+      "buckets": [
+        0.1,
+        0.5,
+        1.0,
+        2.0,
+        5.0,
+        10.0
+      ]
+    },
+    {
+      "name": "agent_errors_total",
+      "type": "counter",
+      "description": "Agent 错误总数",
+      "labels": [
+        "agent_id",
+        "agent_name",
+        "error_type"
+      ]
+    },
+    {
+      "name": "agent_active_tasks",
+      "type": "gauge",
+      "description": "Agent 当前活跃任务数",
+      "labels": [
+        "agent_id",
+        "agent_name"
+      ]
+    },
+    {
+      "name": "agent_4b8e96f8_api_calls_total",
+      "type": "counter",
+      "description": "销售专员 API 调用总数",
+      "labels": [
+        "api_name",
+        "status"
+      ]
+    },
+    {
+      "name": "agent_4b8e96f8_capability_usage",
+      "type": "counter",
+      "description": "销售专员 能力使用次数",
+      "labels": [
+        "capability_name"
+      ]
+    },
+    {
+      "name": "agent_bd839db0_api_calls_total",
+      "type": "counter",
+      "description": "客户经理 API 调用总数",
+      "labels": [
+        "api_name",
+        "status"
+      ]
+    },
+    {
+      "name": "agent_bd839db0_capability_usage",
+      "type": "counter",
+      "description": "客户经理 能力使用次数",
+      "labels": [
+        "capability_name"
+      ]
+    },
+    {
+      "name": "agent_71e7a59f_api_calls_total",
+      "type": "counter",
+      "description": "仓库专员 API 调用总数",
+      "labels": [
+        "api_name",
+        "status"
+      ]
+    },
+    {
+      "name": "agent_71e7a59f_capability_usage",
+      "type": "counter",
+      "description": "仓库专员 能力使用次数",
+      "labels": [
+        "capability_name"
+      ]
+    },
+    {
+      "name": "agent_302599fc_api_calls_total",
+      "type": "counter",
+      "description": "采购专员 API 调用总数",
+      "labels": [
+        "api_name",
+        "status"
+      ]
+    },
+    {
+      "name": "agent_302599fc_capability_usage",
+      "type": "counter",
+      "description": "采购专员 能力使用次数",
+      "labels": [
+        "capability_name"
+      ]
+    },
+    {
+      "name": "agent_9af52df2_api_calls_total",
+      "type": "counter",
+      "description": "供应链主管 API 调用总数",
+      "labels": [
+        "api_name",
+        "status"
+      ]
+    },
+    {
+      "name": "agent_9af52df2_capability_usage",
+      "type": "counter",
+      "description": "供应链主管 能力使用次数",
+      "labels": [
+        "capability_name"
+      ]
+    },
+    {
+      "name": "agent_cfdbbe52_api_calls_total",
+      "type": "counter",
+      "description": "订单与客户生命周期管理专员 API 调用总数",
+      "labels": [
+        "api_name",
+        "status"
+      ]
+    },
+    {
+      "name": "agent_cfdbbe52_capability_usage",
+      "type": "counter",
+      "description": "订单与客户生命周期管理专员 能力使用次数",
+      "labels": [
+        "capability_name"
+      ]
+    },
+    {
+      "name": "agent_supervisor_7388_api_calls_total",
+      "type": "counter",
+      "description": "销售与客户管理组主管 API 调用总数",
+      "labels": [
+        "api_name",
+        "status"
+      ]
+    },
+    {
+      "name": "agent_supervisor_7388_capability_usage",
+      "type": "counter",
+      "description": "销售与客户管理组主管 能力使用次数",
+      "labels": [
+        "capability_name"
+      ]
+    },
+    {
+      "name": "agent_supervisor_5507_api_calls_total",
+      "type": "counter",
+      "description": "供应链运营组主管 API 调用总数",
+      "labels": [
+        "api_name",
+        "status"
+      ]
+    },
+    {
+      "name": "agent_supervisor_5507_capability_usage",
+      "type": "counter",
+      "description": "供应链运营组主管 能力使用次数",
+      "labels": [
+        "capability_name"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "name": "HighErrorRate",
+      "condition": "agent_errors_total / agent_total_requests > 0.1",
+      "duration": "5m",
+      "severity": "warning",
+      "description": "Agent 错误率超过 10%",
+      "actions": [
+        "notify_admin",
+        "log"
+      ]
+    },
+    {
+      "name": "SlowResponse",
+      "condition": "agent_request_duration_seconds > 10",
+      "duration": "2m",
+      "severity": "warning",
+      "description": "Agent 响应时间超过 10 秒",
+      "actions": [
+        "notify_admin"
+      ]
+    },
+    {
+      "name": "AgentDown",
+      "condition": "up{job='agents'} == 0",
+      "duration": "1m",
+      "severity": "critical",
+      "description": "Agent 服务不可用",
+      "actions": [
+        "notify_admin",
+        "page_oncall"
+      ]
+    },
+    {
+      "name": "agent_9af52df2_HighLoad",
+      "condition": "agent_active_tasks{agent_id='agent_9af52df2'} > 10",
+      "duration": "5m",
+      "severity": "warning",
+      "description": "供应链主管 负载过高",
+      "actions": [
+        "notify_admin"
+      ]
+    },
+    {
+      "name": "agent_supervisor_7388_HighLoad",
+      "condition": "agent_active_tasks{agent_id='agent_supervisor_7388'} > 10",
+      "duration": "5m",
+      "severity": "warning",
+      "description": "销售与客户管理组主管 负载过高",
+      "actions": [
+        "notify_admin"
+      ]
+    },
+    {
+      "name": "agent_supervisor_5507_HighLoad",
+      "condition": "agent_active_tasks{agent_id='agent_supervisor_5507'} > 10",
+      "duration": "5m",
+      "severity": "warning",
+      "description": "供应链运营组主管 负载过高",
+      "actions": [
+        "notify_admin"
+      ]
+    }
+  ],
+  "dashboards": [
+    {
+      "name": "Agent System Overview",
+      "panels": [
+        {
+          "title": "总请求数",
+          "type": "graph",
+          "metric": "sum(agent_total_requests)"
+        },
+        {
+          "title": "平均响应时间",
+          "type": "graph",
+          "metric": "avg(agent_request_duration_seconds)"
+        },
+        {
+          "title": "错误率",
+          "type": "graph",
+          "metric": "sum(agent_errors_total) / sum(agent_total_requests)"
+        },
+        {
+          "title": "活跃 Agent 数",
+          "type": "gauge",
+          "metric": "count(up{job='agents'} == 1)"
+        }
+      ]
+    },
+    {
+      "name": "Supervisor Agents Dashboard",
+      "panels": [
+        {
+          "title": "supervisor 请求数",
+          "type": "graph",
+          "metric": "sum(agent_total_requests{level='supervisor'})"
+        },
+        {
+          "title": "supervisor 错误数",
+          "type": "graph",
+          "metric": "sum(agent_errors_total{level='supervisor'})"
+        }
+      ]
+    },
+    {
+      "name": "Specialist Agents Dashboard",
+      "panels": [
+        {
+          "title": "specialist 请求数",
+          "type": "graph",
+          "metric": "sum(agent_total_requests{level='specialist'})"
+        },
+        {
+          "title": "specialist 错误数",
+          "type": "graph",
+          "metric": "sum(agent_errors_total{level='specialist'})"
+        }
+      ]
+    }
+  ],
+  "logging": {
+    "level": "INFO",
+    "format": "json",
+    "output": {
+      "type": "file",
+      "path": "./logs/agents.log",
+      "rotation": {
+        "max_size": "100MB",
+        "max_age": "30d",
+        "max_backups": 10
+      }
+    },
+    "fields": [
+      "timestamp",
+      "level",
+      "agent_id",
+      "agent_name",
+      "message",
+      "trace_id",
+      "duration_ms"
+    ],
+    "sampling": {
+      "enabled": true,
+      "rate": 0.1
+    }
+  }
+}

@@ -1,0 +1,10 @@
+# EntiMap 依赖包
+
+sqlalchemy>=2.0.0
+openai>=1.0.0
+
+# 数据库驱动（根据需要选择）
+# pymysql  # MySQL
+# psycopg2-binary  # PostgreSQL
+# cx_Oracle  # Oracle
+# pyodbc  # SQL Server

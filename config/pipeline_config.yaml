@@ -1,0 +1,151 @@
+pipeline:
+  name: "Flora-Evaluation-Pipeline"
+  version: "1.0.0"
+
+stages:
+  # Stage 1: API 规范化
+  normalization:
+    module: "adapters.normalization_adapter.NormalizationAdapter"
+    enabled: true
+    config:
+      use_hdbscan: true
+      use_prance: true
+      enable_evaluation: true
+    input:
+      type: "file"
+      path: "input/swagger.json"
+    output:
+      type: "file"
+      path: "output/stage1/capabilities.json"
+
+  # Stage 2: 拓扑构建
+  topology:
+    module: "adapters.topology_adapter.TopologyAdapter"
+    enabled: true
+    config:
+      neo4j_uri: "${NEO4J_URI}"
+      neo4j_user: "${NEO4J_USER}"
+      neo4j_password: "${NEO4J_PASSWORD}"
+      use_entity_inference: true
+      llm_client: null
+    input:
+      type: "file"
+      path: "output/stage1/capabilities.json"
+    output:
+      type: "neo4j"
+      database: "flora_topology"
+
+  # Stage 3A: 数据库映射
+  database_mapping:
+    module: "adapters.entimap_adapter.EntiMapAdapter"
+    enabled: true
+    config:
+      db_url: "${DATABASE_URL}"
+      api_key: "${DASHSCOPE_API_KEY}"
+      base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+      model: "qwen-plus"
+    input:
+      type: "file"
+      path: "output/stage1/capabilities.json"
+    output:
+      type: "file"
+      path: "output/stage3a/entity_mapping.json"
+
+  # Stage 3B: 场景生成
+  scenario_generation:
+    module: "adapters.scenario_adapter.ScenarioAdapter"
+    enabled: true
+    config:
+      neo4j_uri: "${NEO4J_URI}"
+      neo4j_user: "${NEO4J_USER}"
+      neo4j_password: "${NEO4J_PASSWORD}"
+      llm_client: null
+      max_paths: 10
+      max_path_length: 6
+      min_path_length: 2
+      scenario_types:
+        - normal
+        - exception
+      count_per_type: 2
+    input:
+      type: "neo4j"
+      database: "flora_topology"
+    output:
+      type: "file"
+      path: "output/stage3b/scenarios.json"
+
+  # Stage 4A: Agent 构建
+  agent_build:
+    module: "adapters.agent_build_adapter.AgentBuildAdapter"
+    enabled: true
+    config:
+      neo4j_uri: "${NEO4J_URI}"
+      neo4j_user: "${NEO4J_USER}"
+      neo4j_password: "${NEO4J_PASSWORD}"
+      llm_provider: "openai"
+      output_to_neo4j: true
+      output_dir: "./output/stage4a"
+    input:
+      type: "multiple"
+      sources:
+        - "output/stage1/capabilities.json"
+        - "output/stage3a/entity_mapping.json"
+    output:
+      type: "neo4j"
+      database: "flora_agents"
+
+  # Stage 4B: Mock 服务
+  mock_service:
+    module: "adapters.mock_adapter.MockAdapter"
+    enabled: true
+    config:
+      port: 8000
+      db_path: "output/stage4b/mock_state.db"
+    input:
+      type: "file"
+      path: "output/stage1/capabilities.json"
+    output:
+      type: "service"
+      endpoint: "http://localhost:8000"
+
+  # Stage 5: 评估测试
+  evaluation:
+    module: "adapters.evaluation_adapter.EvaluationAdapter"
+    enabled: true
+    config:
+      neo4j_uri: "${NEO4J_URI}"
+      neo4j_user: "${NEO4J_USER}"
+      neo4j_password: "${NEO4J_PASSWORD}"
+      mock_endpoint: "http://localhost:8000"
+    input:
+      type: "multiple"
+      sources:
+        - "output/stage3b/scenarios.json"
+    output:
+      type: "file"
+      path: "output/stage5/evaluation_results.json"
+
+  # Stage 6: 自动调优
+  optimization:
+    module: "adapters.optimization_adapter.OptimizationAdapter"
+    enabled: true
+    config:
+      # automatic_prompt API 地址
+      api_endpoint: "http://localhost:8100"
+
+      # 优化参数
+      max_iterations: 10
+      num_candidates: 5
+      top_k: 3
+      early_stop_threshold: 0.90
+      auto_augment_data: true
+      fast_mode: false
+
+      # 超时设置
+      optimization_timeout: 600
+    input:
+      type: "file"
+      path: "output/stage5/evaluation_results.json"
+    output:
+      type: "file"
+      path: "output/stage6/optimization.json"

@@ -8,6 +8,7 @@ from .entity_canonicalizer import EntityCanonicalizer
 from .path_extractor import PathExtractor
 from .transformation_detector import TransformationDetector
 
+
 __all__ = [
     'TopologyService',
     'FieldMatcher',
@@ -16,5 +17,6 @@ __all__ = [
     'SemanticMatcher',
     'EntityCanonicalizer',
     'PathExtractor',
-    'TransformationDetector'
+    'TransformationDetector',
+
 ]

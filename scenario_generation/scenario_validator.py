@@ -112,6 +112,8 @@ class ScenarioValidator:
                 if len(op_summary) > 3 and op_summary not in desc:
                     warnings.append(f"Write operation {op} not clearly described in scenario")
                     break  # Only warn once
+
+    def _calculate_score(self, scenario: Dict[str, Any], issues: List[str], warnings: List[str]) -> float:
         """Calculate scenario quality score (0-1)."""
         if issues:
             return 0.0

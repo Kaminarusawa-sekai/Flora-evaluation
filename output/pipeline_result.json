@@ -1,0 +1,3249 @@
+{
+  "layer2": {
+    "version": "1.0",
+    "timestamp": "2026-03-07T18:21:51.790605",
+    "domain": "CRM",
+    "secondary_domains": [
+      "ERP"
+    ],
+    "domain_weights": {
+      "MES": 0.0,
+      "HR": 0.0,
+      "Finance": 0.06,
+      "ERP": 0.3888888888888889,
+      "CRM": 0.5511111111111111
+    },
+    "roles": [
+      {
+        "role_id": "role_4b8e96f8",
+        "role_name": "销售专员",
+        "level": "specialist",
+        "is_virtual": false,
+        "responsibilities": [
+          "客户跟进",
+          "订单创建",
+          "报价管理"
+        ],
+        "assigned_apis": [
+          {
+            "api_id": "api_001",
+            "api_name": "创建订单",
+            "business_name": "创建新的销售订单",
+            "priority": "optional",
+            "method": "POST",
+            "path": "/api/order/create",
+            "description": "创建新的销售订单"
+          }
+        ],
+        "constraints": [],
+        "statistics": {
+          "total_apis": 1,
+          "required_apis": 0,
+          "optional_apis": 1,
+          "sensitive_apis": 0,
+          "constraints_count": 0
+        }
+      },
+      {
+        "role_id": "role_bd839db0",
+        "role_name": "客户经理",
+        "level": "specialist",
+        "is_virtual": false,
+        "responsibilities": [
+          "客户维护",
+          "需求分析",
+          "关系管理"
+        ],
+        "assigned_apis": [
+          {
+            "api_id": "api_005",
+            "api_name": "查询客户",
+            "business_name": "查询客户信息",
+            "priority": "optional",
+            "method": "GET",
+            "path": "/api/customer/query",
+            "description": "查询客户信息"
+          }
+        ],
+        "constraints": [],
+        "statistics": {
+          "total_apis": 1,
+          "required_apis": 0,
+          "optional_apis": 1,
+          "sensitive_apis": 0,
+          "constraints_count": 0
+        }
+      },
+      {
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "level": "specialist",
+        "is_virtual": false,
+        "responsibilities": [
+          "库存管理",
+          "出入库操作",
+          "盘点"
+        ],
+        "assigned_apis": [
+          {
+            "api_id": "api_007",
+            "api_name": "查询库存",
+            "business_name": "查询库存信息",
+            "priority": "optional",
+            "method": "GET",
+            "path": "/api/inventory/query",
+            "description": "查询库存信息"
+          },
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "business_name": "更新库存数量",
+            "priority": "optional",
+            "method": "PUT",
+            "path": "/api/inventory/update",
+            "description": "更新库存数量",
+            "constraints": [
+              {
+                "api_id": "api_008",
+                "api_name": "更新库存",
+                "constraint_type": "data_isolation",
+                "constraint_rule": "只能操作本人/本部门数据",
+                "description": "自动添加 owner_id 或 department_id 过滤条件"
+              },
+              {
+                "api_id": "api_008",
+                "api_name": "更新库存",
+                "constraint_type": "审批流程",
+                "constraint_rule": "单次库存变更量 ≥ 100 件或变更后库存为负值时，须经仓库主管二级审批；变更量 ≥ 500 件或涉及高价值商品（单价 ≥ 5000 元）时，须经仓储经理三级审批",
+                "description": "防止误操作或恶意篡改导致重大库存偏差，高风险操作需多级复核"
+              },
+              {
+                "api_id": "api_008",
+                "api_name": "更新库存",
+                "constraint_type": "数量限制",
+                "constraint_rule": "单次更新数量绝对值不得超过当前SKU近30天日均出库量的200%（若无历史数据，则上限为1000件）；禁止将库存直接设为负数（允许通过预留/占用机制间接体现负可用）",
+                "description": "避免异常大额调拨或清零/归零操作引发供应链断货或账实严重不符"
+              },
+              {
+                "api_id": "api_008",
+                "api_name": "更新库存",
+                "constraint_type": "数据权限隔离",
+                "constraint_rule": "仓库专员仅可更新其所属仓库编码（warehouse_id）及所辖货位（location_id）范围内SKU的库存；跨仓操作需切换至对应仓库角色或申请临时权限",
+                "description": "确保库存操作严格遵循物理仓储归属，防止越权修改其他仓库数据"
+              },
+              {
+                "api_id": "api_008",
+                "api_name": "更新库存",
+                "constraint_type": "操作日志审计",
+                "constraint_rule": "完整记录操作人ID、角色、时间、IP、原始库存值、目标库存值、变更量、审批链路ID、关联单据号（如调拨单/盘点单）、操作原因（必填且长度≥5字）",
+                "description": "满足等保三级日志留存要求（≥180天），支持事后追溯、责任认定与异常行为分析"
+              }
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "constraint_type": "data_isolation",
+            "constraint_rule": "只能操作本人/本部门数据",
+            "description": "自动添加 owner_id 或 department_id 过滤条件"
+          },
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "constraint_type": "审批流程",
+            "constraint_rule": "单次库存变更量 ≥ 100 件或变更后库存为负值时，须经仓库主管二级审批；变更量 ≥ 500 件或涉及高价值商品（单价 ≥ 5000 元）时，须经仓储经理三级审批",
+            "description": "防止误操作或恶意篡改导致重大库存偏差，高风险操作需多级复核"
+          },
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "constraint_type": "数量限制",
+            "constraint_rule": "单次更新数量绝对值不得超过当前SKU近30天日均出库量的200%（若无历史数据，则上限为1000件）；禁止将库存直接设为负数（允许通过预留/占用机制间接体现负可用）",
+            "description": "避免异常大额调拨或清零/归零操作引发供应链断货或账实严重不符"
+          },
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "constraint_type": "数据权限隔离",
+            "constraint_rule": "仓库专员仅可更新其所属仓库编码（warehouse_id）及所辖货位（location_id）范围内SKU的库存；跨仓操作需切换至对应仓库角色或申请临时权限",
+            "description": "确保库存操作严格遵循物理仓储归属，防止越权修改其他仓库数据"
+          },
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "constraint_type": "操作日志审计",
+            "constraint_rule": "完整记录操作人ID、角色、时间、IP、原始库存值、目标库存值、变更量、审批链路ID、关联单据号（如调拨单/盘点单）、操作原因（必填且长度≥5字）",
+            "description": "满足等保三级日志留存要求（≥180天），支持事后追溯、责任认定与异常行为分析"
+          }
+        ],
+        "statistics": {
+          "total_apis": 2,
+          "required_apis": 0,
+          "optional_apis": 2,
+          "sensitive_apis": 1,
+          "constraints_count": 5
+        }
+      },
+      {
+        "role_id": "role_302599fc",
+        "role_name": "采购专员",
+        "level": "specialist",
+        "is_virtual": false,
+        "responsibilities": [
+          "采购申请",
+          "供应商管理",
+          "订单跟踪"
+        ],
+        "assigned_apis": [
+          {
+            "api_id": "api_002",
+            "api_name": "查询订单",
+            "business_name": "查询订单信息",
+            "priority": "optional",
+            "method": "GET",
+            "path": "/api/order/query",
+            "description": "查询订单信息"
+          }
+        ],
+        "constraints": [],
+        "statistics": {
+          "total_apis": 1,
+          "required_apis": 0,
+          "optional_apis": 1,
+          "sensitive_apis": 0,
+          "constraints_count": 0
+        }
+      },
+      {
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "level": "supervisor",
+        "is_virtual": false,
+        "responsibilities": [
+          "供应链协调",
+          "采购审批",
+          "库存优化"
+        ],
+        "assigned_apis": [
+          {
+            "api_id": "api_007",
+            "api_name": "查询库存",
+            "business_name": "查询库存信息",
+            "priority": "optional",
+            "method": "GET",
+            "path": "/api/inventory/query",
+            "description": "查询库存信息"
+          },
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "business_name": "更新库存数量",
+            "priority": "optional",
+            "method": "PUT",
+            "path": "/api/inventory/update",
+            "description": "更新库存数量",
+            "constraints": [
+              {
+                "api_id": "api_008",
+                "api_name": "更新库存",
+                "constraint_type": "data_isolation",
+                "constraint_rule": "只能操作本人/本部门数据",
+                "description": "自动添加 owner_id 或 department_id 过滤条件"
+              },
+              {
+                "api_id": "api_008",
+                "api_name": "更新库存",
+                "constraint_type": "审批流程",
+                "constraint_rule": "单次库存更新数量绝对值 ≥ 1000 或总库存变动金额 ≥ 50,000 元时，需经区域供应链经理二级审批",
+                "description": "防范大额/大批量误操作或恶意调拨，确保关键变更受控"
+              },
+              {
+                "api_id": "api_008",
+                "api_name": "更新库存",
+                "constraint_type": "数量限制",
+                "constraint_rule": "单次更新后单品库存数量不得低于 -100 且不得高于 999999",
+                "description": "防止逻辑错误（如负库存过度）或数据溢出，保障库存字段有效性"
+              },
+              {
+                "api_id": "api_008",
+                "api_name": "更新库存",
+                "constraint_type": "数据权限隔离",
+                "constraint_rule": "仅允许修改当前用户所属事业部及所辖仓库范围内的商品库存，跨事业部/非管辖仓库操作被拒绝",
+                "description": "遵循最小权限原则，实现多租户与组织架构级数据隔离"
+              },
+              {
+                "api_id": "api_008",
+                "api_name": "更新库存",
+                "constraint_type": "操作日志审计",
+                "constraint_rule": "完整记录操作人、角色、时间、IP、SKU、原库存、新库存、变动量、审批流水号（如有）、API请求ID",
+                "description": "满足等保三级审计要求，支持事后追溯与责任认定"
+              }
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "constraint_type": "data_isolation",
+            "constraint_rule": "只能操作本人/本部门数据",
+            "description": "自动添加 owner_id 或 department_id 过滤条件"
+          },
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "constraint_type": "审批流程",
+            "constraint_rule": "单次库存更新数量绝对值 ≥ 1000 或总库存变动金额 ≥ 50,000 元时，需经区域供应链经理二级审批",
+            "description": "防范大额/大批量误操作或恶意调拨，确保关键变更受控"
+          },
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "constraint_type": "数量限制",
+            "constraint_rule": "单次更新后单品库存数量不得低于 -100 且不得高于 999999",
+            "description": "防止逻辑错误（如负库存过度）或数据溢出，保障库存字段有效性"
+          },
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "constraint_type": "数据权限隔离",
+            "constraint_rule": "仅允许修改当前用户所属事业部及所辖仓库范围内的商品库存，跨事业部/非管辖仓库操作被拒绝",
+            "description": "遵循最小权限原则，实现多租户与组织架构级数据隔离"
+          },
+          {
+            "api_id": "api_008",
+            "api_name": "更新库存",
+            "constraint_type": "操作日志审计",
+            "constraint_rule": "完整记录操作人、角色、时间、IP、SKU、原库存、新库存、变动量、审批流水号（如有）、API请求ID",
+            "description": "满足等保三级审计要求，支持事后追溯与责任认定"
+          }
+        ],
+        "statistics": {
+          "total_apis": 2,
+          "required_apis": 0,
+          "optional_apis": 2,
+          "sensitive_apis": 1,
+          "constraints_count": 5
+        }
+      },
+      {
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "level": "specialist",
+        "is_virtual": true,
+        "responsibilities": [
+          "维护订单全生命周期状态",
+          "管理客户主数据创建"
+        ],
+        "assigned_apis": [
+          {
+            "api_id": "api_003",
+            "api_name": "更新订单",
+            "business_name": "更新订单状态",
+            "priority": "required",
+            "method": "PUT",
+            "path": "/api/order/update",
+            "description": "更新订单状态",
+            "constraints": [
+              {
+                "api_id": "api_003",
+                "api_name": "更新订单",
+                "constraint_type": "data_isolation",
+                "constraint_rule": "只能操作本人/本部门数据",
+                "description": "自动添加 owner_id 或 department_id 过滤条件"
+              },
+              {
+                "api_id": "api_003",
+                "api_name": "更新订单",
+                "constraint_type": "审批流程",
+                "constraint_rule": "订单状态更新为'已发货'、'已完成'或'已关闭'时，须经二级审批（直属主管+风控专员双签）；状态回退（如从'已完成'变更为'待发货'）须经三级审批（主管+风控+部门负责人）",
+                "description": "防止误操作或恶意篡改关键订单状态，确保高风险状态变更受控"
+              },
+              {
+                "api_id": "api_003",
+                "api_name": "更新订单",
+                "constraint_type": "金额/数量限制",
+                "constraint_rule": "单次更新订单状态时，若关联订单总金额 > 50,000 元或商品数量 > 100 件，系统自动拦截并触发人工复核流程",
+                "description": "防范大额/大批量订单状态异常变更引发的资金与履约风险"
+              },
+              {
+                "api_id": "api_003",
+                "api_name": "更新订单",
+                "constraint_type": "数据权限隔离",
+                "constraint_rule": "订单与客户生命周期管理专员仅可更新其所属业务单元（BU）及所辖客户层级（L1–L3）范围内的订单状态；跨BU或超客户层级订单更新请求将被拒绝",
+                "description": "保障多租户/多业务线场景下订单数据的逻辑隔离与最小权限原则"
+              },
+              {
+                "api_id": "api_003",
+                "api_name": "更新订单",
+                "constraint_type": "操作日志审计",
+                "constraint_rule": "所有订单状态更新操作必须记录完整审计日志，包括操作人ID、角色、时间、原状态、目标状态、订单ID、审批链路ID、IP地址及请求上下文（如API调用来源）；日志保留不少于180天且不可篡改",
+                "description": "满足合规审计要求，支持事后追溯与责任认定"
+              }
+            ]
+          },
+          {
+            "api_id": "api_004",
+            "api_name": "删除订单",
+            "business_name": "删除订单",
+            "priority": "required",
+            "method": "DELETE",
+            "path": "/api/order/delete",
+            "description": "删除订单",
+            "constraints": [
+              {
+                "api_id": "api_004",
+                "api_name": "删除订单",
+                "constraint_type": "approval_required",
+                "constraint_rule": "需要主管审批",
+                "description": "删除操作需要上级主管审批后才能执行"
+              },
+              {
+                "api_id": "api_004",
+                "api_name": "删除订单",
+                "constraint_type": "data_isolation",
+                "constraint_rule": "只能操作本人/本部门数据",
+                "description": "自动添加 owner_id 或 department_id 过滤条件"
+              },
+              {
+                "api_id": "api_004",
+                "api_name": "删除订单",
+                "constraint_type": "审批流程",
+                "constraint_rule": "订单状态为'已支付'或'已发货'时，删除操作必须经二级审批（直属主管+风控专员）；订单状态为'待支付'时，可由专员直接删除，无需审批。",
+                "description": "防止高风险状态下误删有效订单，兼顾操作效率与资金安全。"
+              },
+              {
+                "api_id": "api_004",
+                "api_name": "删除订单",
+                "constraint_type": "金额限制",
+                "constraint_rule": "单笔订单金额 ≥ 5000 元人民币，或当日累计删除订单总金额 ≥ 20000 元人民币时，禁止删除并触发风控拦截。",
+                "description": "防范大额订单恶意/误删导致的财务与客诉风险。"
+              },
+              {
+                "api_id": "api_004",
+                "api_name": "删除订单",
+                "constraint_type": "数据权限隔离",
+                "constraint_rule": "专员仅可删除其所属客户域（按客户主数据中'归属业务单元'字段标识）及所辖子单元下的订单；跨域订单不可见、不可操作。",
+                "description": "确保租户/业务单元间数据隔离，符合最小权限原则与GDPR/等保合规要求。"
+              },
+              {
+                "api_id": "api_004",
+                "api_name": "删除订单",
+                "constraint_type": "操作日志审计",
+                "constraint_rule": "强制记录删除操作的完整上下文：操作人ID、角色、时间、订单ID、原订单状态、删除原因（必填下拉选项+100字内备注）、审批链路快照、IP与设备指纹；日志保留不少于180天且不可篡改。",
+                "description": "满足审计追溯、责任认定及监管检查要求，支撑事后复盘与合规举证。"
+              }
+            ]
+          },
+          {
+            "api_id": "api_006",
+            "api_name": "创建客户",
+            "business_name": "创建新客户",
+            "priority": "required",
+            "method": "POST",
+            "path": "/api/customer/create",
+            "description": "创建新客户"
+          }
+        ],
+        "constraints": [
+          {
+            "api_id": "api_003",
+            "api_name": "更新订单",
+            "constraint_type": "data_isolation",
+            "constraint_rule": "只能操作本人/本部门数据",
+            "description": "自动添加 owner_id 或 department_id 过滤条件"
+          },
+          {
+            "api_id": "api_003",
+            "api_name": "更新订单",
+            "constraint_type": "审批流程",
+            "constraint_rule": "订单状态更新为'已发货'、'已完成'或'已关闭'时，须经二级审批（直属主管+风控专员双签）；状态回退（如从'已完成'变更为'待发货'）须经三级审批（主管+风控+部门负责人）",
+            "description": "防止误操作或恶意篡改关键订单状态，确保高风险状态变更受控"
+          },
+          {
+            "api_id": "api_003",
+            "api_name": "更新订单",
+            "constraint_type": "金额/数量限制",
+            "constraint_rule": "单次更新订单状态时，若关联订单总金额 > 50,000 元或商品数量 > 100 件，系统自动拦截并触发人工复核流程",
+            "description": "防范大额/大批量订单状态异常变更引发的资金与履约风险"
+          },
+          {
+            "api_id": "api_003",
+            "api_name": "更新订单",
+            "constraint_type": "数据权限隔离",
+            "constraint_rule": "订单与客户生命周期管理专员仅可更新其所属业务单元（BU）及所辖客户层级（L1–L3）范围内的订单状态；跨BU或超客户层级订单更新请求将被拒绝",
+            "description": "保障多租户/多业务线场景下订单数据的逻辑隔离与最小权限原则"
+          },
+          {
+            "api_id": "api_003",
+            "api_name": "更新订单",
+            "constraint_type": "操作日志审计",
+            "constraint_rule": "所有订单状态更新操作必须记录完整审计日志，包括操作人ID、角色、时间、原状态、目标状态、订单ID、审批链路ID、IP地址及请求上下文（如API调用来源）；日志保留不少于180天且不可篡改",
+            "description": "满足合规审计要求，支持事后追溯与责任认定"
+          },
+          {
+            "api_id": "api_004",
+            "api_name": "删除订单",
+            "constraint_type": "approval_required",
+            "constraint_rule": "需要主管审批",
+            "description": "删除操作需要上级主管审批后才能执行"
+          },
+          {
+            "api_id": "api_004",
+            "api_name": "删除订单",
+            "constraint_type": "data_isolation",
+            "constraint_rule": "只能操作本人/本部门数据",
+            "description": "自动添加 owner_id 或 department_id 过滤条件"
+          },
+          {
+            "api_id": "api_004",
+            "api_name": "删除订单",
+            "constraint_type": "审批流程",
+            "constraint_rule": "订单状态为'已支付'或'已发货'时，删除操作必须经二级审批（直属主管+风控专员）；订单状态为'待支付'时，可由专员直接删除，无需审批。",
+            "description": "防止高风险状态下误删有效订单，兼顾操作效率与资金安全。"
+          },
+          {
+            "api_id": "api_004",
+            "api_name": "删除订单",
+            "constraint_type": "金额限制",
+            "constraint_rule": "单笔订单金额 ≥ 5000 元人民币，或当日累计删除订单总金额 ≥ 20000 元人民币时，禁止删除并触发风控拦截。",
+            "description": "防范大额订单恶意/误删导致的财务与客诉风险。"
+          },
+          {
+            "api_id": "api_004",
+            "api_name": "删除订单",
+            "constraint_type": "数据权限隔离",
+            "constraint_rule": "专员仅可删除其所属客户域（按客户主数据中'归属业务单元'字段标识）及所辖子单元下的订单；跨域订单不可见、不可操作。",
+            "description": "确保租户/业务单元间数据隔离，符合最小权限原则与GDPR/等保合规要求。"
+          },
+          {
+            "api_id": "api_004",
+            "api_name": "删除订单",
+            "constraint_type": "操作日志审计",
+            "constraint_rule": "强制记录删除操作的完整上下文：操作人ID、角色、时间、订单ID、原订单状态、删除原因（必填下拉选项+100字内备注）、审批链路快照、IP与设备指纹；日志保留不少于180天且不可篡改。",
+            "description": "满足审计追溯、责任认定及监管检查要求，支撑事后复盘与合规举证。"
+          }
+        ],
+        "statistics": {
+          "total_apis": 3,
+          "required_apis": 3,
+          "optional_apis": 0,
+          "sensitive_apis": 2,
+          "constraints_count": 11
+        }
+      }
+    ],
+    "contracts": [
+      {
+        "contract_id": "contract_1a83081d",
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "data_isolation",
+        "constraint_rule": "只能操作本人/本部门数据",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_1a83081d",
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "审批流程",
+        "constraint_rule": "单次库存变更量 ≥ 100 件或变更后库存为负值时，须经仓库主管二级审批；变更量 ≥ 500 件或涉及高价值商品（单价 ≥ 5000 元）时，须经仓储经理三级审批",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_1a83081d",
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "数量限制",
+        "constraint_rule": "单次更新数量绝对值不得超过当前SKU近30天日均出库量的200%（若无历史数据，则上限为1000件）；禁止将库存直接设为负数（允许通过预留/占用机制间接体现负可用）",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_1a83081d",
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "数据权限隔离",
+        "constraint_rule": "仓库专员仅可更新其所属仓库编码（warehouse_id）及所辖货位（location_id）范围内SKU的库存；跨仓操作需切换至对应仓库角色或申请临时权限",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_1a83081d",
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "操作日志审计",
+        "constraint_rule": "完整记录操作人ID、角色、时间、IP、原始库存值、目标库存值、变更量、审批链路ID、关联单据号（如调拨单/盘点单）、操作原因（必填且长度≥5字）",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cf3ceacd",
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "data_isolation",
+        "constraint_rule": "只能操作本人/本部门数据",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cf3ceacd",
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "审批流程",
+        "constraint_rule": "单次库存更新数量绝对值 ≥ 1000 或总库存变动金额 ≥ 50,000 元时，需经区域供应链经理二级审批",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cf3ceacd",
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "数量限制",
+        "constraint_rule": "单次更新后单品库存数量不得低于 -100 且不得高于 999999",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cf3ceacd",
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "数据权限隔离",
+        "constraint_rule": "仅允许修改当前用户所属事业部及所辖仓库范围内的商品库存，跨事业部/非管辖仓库操作被拒绝",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cf3ceacd",
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "操作日志审计",
+        "constraint_rule": "完整记录操作人、角色、时间、IP、SKU、原库存、新库存、变动量、审批流水号（如有）、API请求ID",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cce6a18b",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_003",
+        "api_name": "更新订单",
+        "constraint_type": "data_isolation",
+        "constraint_rule": "只能操作本人/本部门数据",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cce6a18b",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_003",
+        "api_name": "更新订单",
+        "constraint_type": "审批流程",
+        "constraint_rule": "订单状态更新为'已发货'、'已完成'或'已关闭'时，须经二级审批（直属主管+风控专员双签）；状态回退（如从'已完成'变更为'待发货'）须经三级审批（主管+风控+部门负责人）",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cce6a18b",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_003",
+        "api_name": "更新订单",
+        "constraint_type": "金额/数量限制",
+        "constraint_rule": "单次更新订单状态时，若关联订单总金额 > 50,000 元或商品数量 > 100 件，系统自动拦截并触发人工复核流程",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cce6a18b",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_003",
+        "api_name": "更新订单",
+        "constraint_type": "数据权限隔离",
+        "constraint_rule": "订单与客户生命周期管理专员仅可更新其所属业务单元（BU）及所辖客户层级（L1–L3）范围内的订单状态；跨BU或超客户层级订单更新请求将被拒绝",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cce6a18b",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_003",
+        "api_name": "更新订单",
+        "constraint_type": "操作日志审计",
+        "constraint_rule": "所有订单状态更新操作必须记录完整审计日志，包括操作人ID、角色、时间、原状态、目标状态、订单ID、审批链路ID、IP地址及请求上下文（如API调用来源）；日志保留不少于180天且不可篡改",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "approval_required",
+        "constraint_rule": "需要主管审批",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "data_isolation",
+        "constraint_rule": "只能操作本人/本部门数据",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "审批流程",
+        "constraint_rule": "订单状态为'已支付'或'已发货'时，删除操作必须经二级审批（直属主管+风控专员）；订单状态为'待支付'时，可由专员直接删除，无需审批。",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "金额限制",
+        "constraint_rule": "单笔订单金额 ≥ 5000 元人民币，或当日累计删除订单总金额 ≥ 20000 元人民币时，禁止删除并触发风控拦截。",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "数据权限隔离",
+        "constraint_rule": "专员仅可删除其所属客户域（按客户主数据中'归属业务单元'字段标识）及所辖子单元下的订单；跨域订单不可见、不可操作。",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "操作日志审计",
+        "constraint_rule": "强制记录删除操作的完整上下文：操作人ID、角色、时间、订单ID、原订单状态、删除原因（必填下拉选项+100字内备注）、审批链路快照、IP与设备指纹；日志保留不少于180天且不可篡改。",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      }
+    ],
+    "statistics": {
+      "total_roles": 6,
+      "virtual_roles": 1,
+      "real_roles": 5,
+      "total_apis": 10,
+      "total_contracts": 21,
+      "total_constraints": 21,
+      "roles_by_level": {
+        "specialist": 5,
+        "supervisor": 1
+      },
+      "avg_apis_per_role": 1.67
+    },
+    "gap_analysis": {
+      "report": "=== 角色调整报告 ===\n\n总角色数: 6\n有效角色数: 5\n空角色数: 1\n新增虚拟角色数: 1\n孤儿 API 数: 3\n\n冻结的空角色：\n  - 销售主管: 无 API 支撑\n\n新增的虚拟角色：\n  - 订单与客户生命周期管理专员: 3 APIs\n    理由: 这三个API均涉及核心业务实体（订单、客户）的创建、状态变更和销毁操作，属于数据生命周期管理范畴；它们不归属于常规查询、支付、物流或认证等垂直领域，而是支撑业务主数据完整性与一致性，需具备对业务规则（如订单不可删条件、客户唯一性约束）的理解能力，因此聚类为统一的生命周期管理角色。\n\n=== 报告结束 ===",
+      "orphan_apis": []
+    }
+  },
+  "layer3": {
+    "blueprint_version": "1.0",
+    "timestamp": "2026-03-07T18:22:23.892922",
+    "capability_registry": {
+      "atomic_capabilities": [
+        {
+          "unit_id": "cap_atomic_1",
+          "level": "atomic",
+          "name": "创建新的销售订单",
+          "underlying_apis": [
+            "POST /api/order/create"
+          ],
+          "required_params": [],
+          "constraints": [],
+          "owner": "销售专员",
+          "ref_count": 1,
+          "referenced_by": [
+            "销售专员"
+          ]
+        },
+        {
+          "unit_id": "cap_atomic_2",
+          "level": "atomic",
+          "name": "查询客户信息",
+          "underlying_apis": [
+            "GET /api/customer/query"
+          ],
+          "required_params": [],
+          "constraints": [],
+          "owner": "客户经理",
+          "ref_count": 1,
+          "referenced_by": [
+            "客户经理"
+          ]
+        },
+        {
+          "unit_id": "cap_atomic_3",
+          "level": "atomic",
+          "name": "查询库存信息",
+          "underlying_apis": [
+            "GET /api/inventory/query"
+          ],
+          "required_params": [],
+          "constraints": [],
+          "owner": "仓库专员",
+          "ref_count": 1,
+          "referenced_by": [
+            "仓库专员"
+          ]
+        },
+        {
+          "unit_id": "cap_atomic_4",
+          "level": "atomic",
+          "name": "更新库存数量",
+          "underlying_apis": [
+            "PUT /api/inventory/update"
+          ],
+          "required_params": [],
+          "constraints": [
+            {
+              "api_id": "api_008",
+              "api_name": "更新库存",
+              "constraint_type": "data_isolation",
+              "constraint_rule": "只能操作本人/本部门数据",
+              "description": "自动添加 owner_id 或 department_id 过滤条件"
+            },
+            {
+              "api_id": "api_008",
+              "api_name": "更新库存",
+              "constraint_type": "审批流程",
+              "constraint_rule": "单次库存变更量 ≥ 100 件或变更后库存为负值时，须经仓库主管二级审批；变更量 ≥ 500 件或涉及高价值商品（单价 ≥ 5000 元）时，须经仓储经理三级审批",
+              "description": "防止误操作或恶意篡改导致重大库存偏差，高风险操作需多级复核"
+            },
+            {
+              "api_id": "api_008",
+              "api_name": "更新库存",
+              "constraint_type": "数量限制",
+              "constraint_rule": "单次更新数量绝对值不得超过当前SKU近30天日均出库量的200%（若无历史数据，则上限为1000件）；禁止将库存直接设为负数（允许通过预留/占用机制间接体现负可用）",
+              "description": "避免异常大额调拨或清零/归零操作引发供应链断货或账实严重不符"
+            },
+            {
+              "api_id": "api_008",
+              "api_name": "更新库存",
+              "constraint_type": "数据权限隔离",
+              "constraint_rule": "仓库专员仅可更新其所属仓库编码（warehouse_id）及所辖货位（location_id）范围内SKU的库存；跨仓操作需切换至对应仓库角色或申请临时权限",
+              "description": "确保库存操作严格遵循物理仓储归属，防止越权修改其他仓库数据"
+            },
+            {
+              "api_id": "api_008",
+              "api_name": "更新库存",
+              "constraint_type": "操作日志审计",
+              "constraint_rule": "完整记录操作人ID、角色、时间、IP、原始库存值、目标库存值、变更量、审批链路ID、关联单据号（如调拨单/盘点单）、操作原因（必填且长度≥5字）",
+              "description": "满足等保三级日志留存要求（≥180天），支持事后追溯、责任认定与异常行为分析"
+            }
+          ],
+          "owner": "仓库专员",
+          "ref_count": 1,
+          "referenced_by": [
+            "仓库专员"
+          ]
+        },
+        {
+          "unit_id": "cap_atomic_5",
+          "level": "atomic",
+          "name": "查询订单信息",
+          "underlying_apis": [
+            "GET /api/order/query"
+          ],
+          "required_params": [],
+          "constraints": [],
+          "owner": "采购专员",
+          "ref_count": 1,
+          "referenced_by": [
+            "采购专员"
+          ]
+        },
+        {
+          "unit_id": "cap_atomic_6",
+          "level": "atomic",
+          "name": "查询库存信息",
+          "underlying_apis": [
+            "GET /api/inventory/query"
+          ],
+          "required_params": [],
+          "constraints": [],
+          "owner": "供应链主管",
+          "ref_count": 1,
+          "referenced_by": [
+            "供应链主管"
+          ]
+        },
+        {
+          "unit_id": "cap_atomic_7",
+          "level": "atomic",
+          "name": "更新库存数量",
+          "underlying_apis": [
+            "PUT /api/inventory/update"
+          ],
+          "required_params": [],
+          "constraints": [
+            {
+              "api_id": "api_008",
+              "api_name": "更新库存",
+              "constraint_type": "data_isolation",
+              "constraint_rule": "只能操作本人/本部门数据",
+              "description": "自动添加 owner_id 或 department_id 过滤条件"
+            },
+            {
+              "api_id": "api_008",
+              "api_name": "更新库存",
+              "constraint_type": "审批流程",
+              "constraint_rule": "单次库存更新数量绝对值 ≥ 1000 或总库存变动金额 ≥ 50,000 元时，需经区域供应链经理二级审批",
+              "description": "防范大额/大批量误操作或恶意调拨，确保关键变更受控"
+            },
+            {
+              "api_id": "api_008",
+              "api_name": "更新库存",
+              "constraint_type": "数量限制",
+              "constraint_rule": "单次更新后单品库存数量不得低于 -100 且不得高于 999999",
+              "description": "防止逻辑错误（如负库存过度）或数据溢出，保障库存字段有效性"
+            },
+            {
+              "api_id": "api_008",
+              "api_name": "更新库存",
+              "constraint_type": "数据权限隔离",
+              "constraint_rule": "仅允许修改当前用户所属事业部及所辖仓库范围内的商品库存，跨事业部/非管辖仓库操作被拒绝",
+              "description": "遵循最小权限原则，实现多租户与组织架构级数据隔离"
+            },
+            {
+              "api_id": "api_008",
+              "api_name": "更新库存",
+              "constraint_type": "操作日志审计",
+              "constraint_rule": "完整记录操作人、角色、时间、IP、SKU、原库存、新库存、变动量、审批流水号（如有）、API请求ID",
+              "description": "满足等保三级审计要求，支持事后追溯与责任认定"
+            }
+          ],
+          "owner": "供应链主管",
+          "ref_count": 1,
+          "referenced_by": [
+            "供应链主管"
+          ]
+        },
+        {
+          "unit_id": "cap_atomic_8",
+          "level": "atomic",
+          "name": "更新订单状态",
+          "underlying_apis": [
+            "PUT /api/order/update"
+          ],
+          "required_params": [],
+          "constraints": [
+            {
+              "api_id": "api_003",
+              "api_name": "更新订单",
+              "constraint_type": "data_isolation",
+              "constraint_rule": "只能操作本人/本部门数据",
+              "description": "自动添加 owner_id 或 department_id 过滤条件"
+            },
+            {
+              "api_id": "api_003",
+              "api_name": "更新订单",
+              "constraint_type": "审批流程",
+              "constraint_rule": "订单状态更新为'已发货'、'已完成'或'已关闭'时，须经二级审批（直属主管+风控专员双签）；状态回退（如从'已完成'变更为'待发货'）须经三级审批（主管+风控+部门负责人）",
+              "description": "防止误操作或恶意篡改关键订单状态，确保高风险状态变更受控"
+            },
+            {
+              "api_id": "api_003",
+              "api_name": "更新订单",
+              "constraint_type": "金额/数量限制",
+              "constraint_rule": "单次更新订单状态时，若关联订单总金额 > 50,000 元或商品数量 > 100 件，系统自动拦截并触发人工复核流程",
+              "description": "防范大额/大批量订单状态异常变更引发的资金与履约风险"
+            },
+            {
+              "api_id": "api_003",
+              "api_name": "更新订单",
+              "constraint_type": "数据权限隔离",
+              "constraint_rule": "订单与客户生命周期管理专员仅可更新其所属业务单元（BU）及所辖客户层级（L1–L3）范围内的订单状态；跨BU或超客户层级订单更新请求将被拒绝",
+              "description": "保障多租户/多业务线场景下订单数据的逻辑隔离与最小权限原则"
+            },
+            {
+              "api_id": "api_003",
+              "api_name": "更新订单",
+              "constraint_type": "操作日志审计",
+              "constraint_rule": "所有订单状态更新操作必须记录完整审计日志，包括操作人ID、角色、时间、原状态、目标状态、订单ID、审批链路ID、IP地址及请求上下文（如API调用来源）；日志保留不少于180天且不可篡改",
+              "description": "满足合规审计要求，支持事后追溯与责任认定"
+            }
+          ],
+          "owner": "订单与客户生命周期管理专员",
+          "ref_count": 1,
+          "referenced_by": [
+            "订单与客户生命周期管理专员"
+          ]
+        },
+        {
+          "unit_id": "cap_atomic_9",
+          "level": "atomic",
+          "name": "删除订单",
+          "underlying_apis": [
+            "DELETE /api/order/delete"
+          ],
+          "required_params": [],
+          "constraints": [
+            {
+              "api_id": "api_004",
+              "api_name": "删除订单",
+              "constraint_type": "approval_required",
+              "constraint_rule": "需要主管审批",
+              "description": "删除操作需要上级主管审批后才能执行"
+            },
+            {
+              "api_id": "api_004",
+              "api_name": "删除订单",
+              "constraint_type": "data_isolation",
+              "constraint_rule": "只能操作本人/本部门数据",
+              "description": "自动添加 owner_id 或 department_id 过滤条件"
+            },
+            {
+              "api_id": "api_004",
+              "api_name": "删除订单",
+              "constraint_type": "审批流程",
+              "constraint_rule": "订单状态为'已支付'或'已发货'时，删除操作必须经二级审批（直属主管+风控专员）；订单状态为'待支付'时，可由专员直接删除，无需审批。",
+              "description": "防止高风险状态下误删有效订单，兼顾操作效率与资金安全。"
+            },
+            {
+              "api_id": "api_004",
+              "api_name": "删除订单",
+              "constraint_type": "金额限制",
+              "constraint_rule": "单笔订单金额 ≥ 5000 元人民币，或当日累计删除订单总金额 ≥ 20000 元人民币时，禁止删除并触发风控拦截。",
+              "description": "防范大额订单恶意/误删导致的财务与客诉风险。"
+            },
+            {
+              "api_id": "api_004",
+              "api_name": "删除订单",
+              "constraint_type": "数据权限隔离",
+              "constraint_rule": "专员仅可删除其所属客户域（按客户主数据中'归属业务单元'字段标识）及所辖子单元下的订单；跨域订单不可见、不可操作。",
+              "description": "确保租户/业务单元间数据隔离，符合最小权限原则与GDPR/等保合规要求。"
+            },
+            {
+              "api_id": "api_004",
+              "api_name": "删除订单",
+              "constraint_type": "操作日志审计",
+              "constraint_rule": "强制记录删除操作的完整上下文：操作人ID、角色、时间、订单ID、原订单状态、删除原因（必填下拉选项+100字内备注）、审批链路快照、IP与设备指纹；日志保留不少于180天且不可篡改。",
+              "description": "满足审计追溯、责任认定及监管检查要求，支撑事后复盘与合规举证。"
+            }
+          ],
+          "owner": "订单与客户生命周期管理专员",
+          "ref_count": 1,
+          "referenced_by": [
+            "订单与客户生命周期管理专员"
+          ]
+        },
+        {
+          "unit_id": "cap_atomic_10",
+          "level": "atomic",
+          "name": "创建新客户",
+          "underlying_apis": [
+            "POST /api/customer/create"
+          ],
+          "required_params": [],
+          "constraints": [],
+          "owner": "订单与客户生命周期管理专员",
+          "ref_count": 1,
+          "referenced_by": [
+            "订单与客户生命周期管理专员"
+          ]
+        }
+      ],
+      "composed_capabilities": [
+        {
+          "unit_id": "cap_composed_11",
+          "level": "composed",
+          "name": "端到端订单与客户协同管理",
+          "composed_of": [
+            "cap_atomic_1",
+            "cap_atomic_2",
+            "cap_atomic_3",
+            "cap_atomic_4",
+            "cap_atomic_5",
+            "cap_atomic_8",
+            "cap_atomic_9",
+            "cap_atomic_10"
+          ],
+          "semantic_description": "统筹客户生命周期与订单全链路执行的高阶业务能力，支持从新客户准入、销售需求受理、库存可行性校验、订单创建与状态跟踪，到库存动态扣减及异常订单清理的闭环决策与操作。",
+          "orchestration_logic": "1. 首先调用'创建新客户'（若客户不存在）并同步'查询客户信息'验证资质；2. 基于客户需求触发'查询库存信息'进行可用性检查；3. 库存充足则执行'创建新的销售订单'，否则返回缺货预警；4. 订单创建后，自动'更新库存数量'完成预占或实扣；5. 全程支持'查询订单信息'与'更新订单状态'实现进度可视化与关键节点驱动（如已发货、已完成）；6. 对无效或取消订单，按策略调用'删除订单'并反向'更新库存数量'释放占用；7. 所有操作均以客户ID与订单ID为关联主键，确保数据一致性与审计可追溯。",
+          "owner": "供应链主管",
+          "ref_count": 0,
+          "referenced_by": []
+        },
+        {
+          "unit_id": "cap_composed_12",
+          "level": "composed",
+          "name": "库存动态调拨决策支持",
+          "composed_of": [
+            "cap_atomic_6",
+            "cap_atomic_7"
+          ],
+          "semantic_description": "面向主管层级的库存协同管理能力，支持基于实时库存状态评估、跨仓/跨品类资源再分配可行性，并为调拨指令提供数据验证与执行闭环。",
+          "orchestration_logic": "1. 首先调用 GET /api/inventory/query 获取源仓、目标仓及关联SKU的实时库存快照；2. 根据业务规则（如安全库存阈值、在途量、冻结量）校验调拨可行性；3. 若校验通过，生成调拨计划并分两阶段原子更新：先对源仓执行 PUT /api/inventory/update 扣减出库数量，再对目标仓执行 PUT /api/inventory/update 增加入库数量；4. 全程记录操作上下文与版本号，任一环节失败则触发补偿回滚（反向更新），并返回结构化结果供主管审批或干预。",
+          "owner": "供应链主管",
+          "ref_count": 0,
+          "referenced_by": []
+        },
+        {
+          "unit_id": "cap_composed_13",
+          "level": "composed",
+          "name": "全周期订单与客户协同管理",
+          "composed_of": [
+            "cap_atomic_1",
+            "cap_atomic_2",
+            "cap_atomic_8",
+            "cap_atomic_9",
+            "cap_atomic_10"
+          ],
+          "semantic_description": "面向业务主管（supervisor）的端到端订单生命周期与客户主数据协同管控能力，支持在创建销售订单前校验并按需创建客户、动态更新订单状态、安全删除异常订单，确保订单与客户数据的一致性、可追溯性与合规性。",
+          "orchestration_logic": "1. 接收订单创建请求；2. 调用GET /api/customer/query校验客户是否存在；3. 若客户不存在，调用POST /api/customer/create创建新客户，并获取客户ID；4. 使用客户ID及订单信息调用POST /api/order/create生成销售订单；5. 订单创建后，根据业务规则（如审批通过、发货完成）自动或手动触发PUT /api/order/update更新订单状态；6. 当订单需作废且满足策略条件（如未发货、未开票）时，调用DELETE /api/order/delete执行软/硬删除，并可选同步清理孤立客户（需二次确认）；7. 全流程记录操作日志与数据变更轨迹，供监督审计。",
+          "owner": "销售专员主管",
+          "ref_count": 0,
+          "referenced_by": []
+        },
+        {
+          "unit_id": "cap_composed_14",
+          "level": "composed",
+          "name": "库存与订单协同监控",
+          "composed_of": [
+            "cap_atomic_3",
+            "cap_atomic_4",
+            "cap_atomic_5"
+          ],
+          "semantic_description": "面向主管层级的实时业务态势感知能力，支持基于订单需求动态评估库存水位、识别潜在缺货风险，并提供可操作的库存调整建议。",
+          "orchestration_logic": "1. 并行调用 GET /api/inventory/query 和 GET /api/order/query，分别获取当前全量库存快照及待履约订单列表；2. 关联分析：按SKU聚合待履约订单需求数量，与对应库存余量比对，识别库存不足（demand > stock）或积压（stock > 3×近7日平均出库量）的SKU；3. 对存在缺口的SKU，自动生成库存调整建议（如需补货数量），并触发 PUT /api/inventory/update 预留/预占逻辑（仅当策略配置允许自动预占时）；4. 汇总异常指标、关键SKU状态及建议动作，生成主管级摘要视图。",
+          "owner": "仓库专员主管",
+          "ref_count": 0,
+          "referenced_by": []
+        }
+      ],
+      "strategic_capabilities": [],
+      "total_count": 14,
+      "shared_capabilities": []
+    },
+    "agent_definitions": [
+      {
+        "agent_id": "agent_4b8e96f8",
+        "agent_name": "销售专员",
+        "level": "specialist",
+        "is_virtual": false,
+        "responsibilities": [
+          "客户跟进",
+          "订单创建",
+          "报价管理"
+        ],
+        "capability_interface": {
+          "direct_capabilities": [
+            {
+              "unit_id": "cap_atomic_1",
+              "name": "创建新的销售订单",
+              "access_mode": "execute",
+              "priority": "high"
+            }
+          ],
+          "delegated_capabilities": [],
+          "composed_capabilities": []
+        },
+        "subordinates": [],
+        "local_memory": {
+          "type": "short_term",
+          "capacity": "1000_messages"
+        },
+        "metadata": {
+          "source_role_id": "role_4b8e96f8",
+          "api_count": 1,
+          "constraint_count": 0
+        }
+      },
+      {
+        "agent_id": "agent_bd839db0",
+        "agent_name": "客户经理",
+        "level": "specialist",
+        "is_virtual": false,
+        "responsibilities": [
+          "客户维护",
+          "需求分析",
+          "关系管理"
+        ],
+        "capability_interface": {
+          "direct_capabilities": [
+            {
+              "unit_id": "cap_atomic_2",
+              "name": "查询客户信息",
+              "access_mode": "execute",
+              "priority": "high"
+            }
+          ],
+          "delegated_capabilities": [],
+          "composed_capabilities": []
+        },
+        "subordinates": [],
+        "local_memory": {
+          "type": "short_term",
+          "capacity": "1000_messages"
+        },
+        "metadata": {
+          "source_role_id": "role_bd839db0",
+          "api_count": 1,
+          "constraint_count": 0
+        }
+      },
+      {
+        "agent_id": "agent_71e7a59f",
+        "agent_name": "仓库专员",
+        "level": "specialist",
+        "is_virtual": false,
+        "responsibilities": [
+          "库存管理",
+          "出入库操作",
+          "盘点"
+        ],
+        "capability_interface": {
+          "direct_capabilities": [
+            {
+              "unit_id": "cap_atomic_3",
+              "name": "查询库存信息",
+              "access_mode": "execute",
+              "priority": "high"
+            },
+            {
+              "unit_id": "cap_atomic_4",
+              "name": "更新库存数量",
+              "access_mode": "execute",
+              "priority": "high"
+            }
+          ],
+          "delegated_capabilities": [],
+          "composed_capabilities": []
+        },
+        "subordinates": [],
+        "local_memory": {
+          "type": "short_term",
+          "capacity": "1000_messages"
+        },
+        "metadata": {
+          "source_role_id": "role_71e7a59f",
+          "api_count": 2,
+          "constraint_count": 5
+        }
+      },
+      {
+        "agent_id": "agent_302599fc",
+        "agent_name": "采购专员",
+        "level": "specialist",
+        "is_virtual": false,
+        "responsibilities": [
+          "采购申请",
+          "供应商管理",
+          "订单跟踪"
+        ],
+        "capability_interface": {
+          "direct_capabilities": [
+            {
+              "unit_id": "cap_atomic_5",
+              "name": "查询订单信息",
+              "access_mode": "execute",
+              "priority": "high"
+            }
+          ],
+          "delegated_capabilities": [],
+          "composed_capabilities": []
+        },
+        "subordinates": [],
+        "local_memory": {
+          "type": "short_term",
+          "capacity": "1000_messages"
+        },
+        "metadata": {
+          "source_role_id": "role_302599fc",
+          "api_count": 1,
+          "constraint_count": 0
+        }
+      },
+      {
+        "agent_id": "agent_9af52df2",
+        "agent_name": "供应链主管",
+        "level": "supervisor",
+        "is_virtual": false,
+        "responsibilities": [
+          "供应链协调",
+          "采购审批",
+          "库存优化"
+        ],
+        "capability_interface": {
+          "direct_capabilities": [
+            {
+              "unit_id": "cap_atomic_6",
+              "name": "查询库存信息",
+              "access_mode": "execute",
+              "priority": "high"
+            },
+            {
+              "unit_id": "cap_atomic_7",
+              "name": "更新库存数量",
+              "access_mode": "execute",
+              "priority": "high"
+            }
+          ],
+          "delegated_capabilities": [],
+          "composed_capabilities": []
+        },
+        "subordinates": [
+          "agent_4b8e96f8",
+          "agent_bd839db0",
+          "agent_71e7a59f",
+          "agent_302599fc",
+          "agent_cfdbbe52"
+        ],
+        "local_memory": {
+          "type": "short_term",
+          "capacity": "1000_messages"
+        },
+        "metadata": {
+          "source_role_id": "role_9af52df2",
+          "api_count": 2,
+          "constraint_count": 5
+        }
+      },
+      {
+        "agent_id": "agent_cfdbbe52",
+        "agent_name": "订单与客户生命周期管理专员",
+        "level": "specialist",
+        "is_virtual": true,
+        "responsibilities": [
+          "维护订单全生命周期状态",
+          "管理客户主数据创建"
+        ],
+        "capability_interface": {
+          "direct_capabilities": [
+            {
+              "unit_id": "cap_atomic_8",
+              "name": "更新订单状态",
+              "access_mode": "execute",
+              "priority": "high"
+            },
+            {
+              "unit_id": "cap_atomic_9",
+              "name": "删除订单",
+              "access_mode": "execute",
+              "priority": "high"
+            },
+            {
+              "unit_id": "cap_atomic_10",
+              "name": "创建新客户",
+              "access_mode": "execute",
+              "priority": "high"
+            }
+          ],
+          "delegated_capabilities": [],
+          "composed_capabilities": []
+        },
+        "subordinates": [],
+        "local_memory": {
+          "type": "short_term",
+          "capacity": "1000_messages"
+        },
+        "metadata": {
+          "source_role_id": "role_cfdbbe52",
+          "api_count": 3,
+          "constraint_count": 11
+        }
+      },
+      {
+        "agent_id": "agent_supervisor_7388",
+        "agent_name": "销售与客户管理组主管",
+        "level": "supervisor",
+        "is_virtual": false,
+        "responsibilities": [
+          "销售与客户管理组团队管理",
+          "工作分配和协调",
+          "绩效监控和评估",
+          "异常处理和升级",
+          "资源调配"
+        ],
+        "capability_interface": {
+          "direct_capabilities": [
+            {
+              "unit_id": "cap_composed_13",
+              "name": "全周期订单与客户协同管理",
+              "access_mode": "execute",
+              "priority": "high"
+            }
+          ],
+          "delegated_capabilities": [
+            {
+              "unit_id": "cap_atomic_1",
+              "name": "创建新的销售订单",
+              "access_mode": "delegate",
+              "priority": "medium",
+              "delegate_to": [
+                "agent_4b8e96f8",
+                "agent_bd839db0",
+                "agent_cfdbbe52"
+              ]
+            },
+            {
+              "unit_id": "cap_atomic_2",
+              "name": "查询客户信息",
+              "access_mode": "delegate",
+              "priority": "medium",
+              "delegate_to": [
+                "agent_4b8e96f8",
+                "agent_bd839db0",
+                "agent_cfdbbe52"
+              ]
+            },
+            {
+              "unit_id": "cap_atomic_8",
+              "name": "更新订单状态",
+              "access_mode": "delegate",
+              "priority": "medium",
+              "delegate_to": [
+                "agent_4b8e96f8",
+                "agent_bd839db0",
+                "agent_cfdbbe52"
+              ]
+            },
+            {
+              "unit_id": "cap_atomic_9",
+              "name": "删除订单",
+              "access_mode": "delegate",
+              "priority": "medium",
+              "delegate_to": [
+                "agent_4b8e96f8",
+                "agent_bd839db0",
+                "agent_cfdbbe52"
+              ]
+            },
+            {
+              "unit_id": "cap_atomic_10",
+              "name": "创建新客户",
+              "access_mode": "delegate",
+              "priority": "medium",
+              "delegate_to": [
+                "agent_4b8e96f8",
+                "agent_bd839db0",
+                "agent_cfdbbe52"
+              ]
+            }
+          ],
+          "monitoring_capabilities": []
+        },
+        "subordinates": [
+          "agent_4b8e96f8",
+          "agent_bd839db0",
+          "agent_71e7a59f",
+          "agent_302599fc",
+          "agent_cfdbbe52"
+        ],
+        "local_memory": {
+          "type": "short_term",
+          "capacity": "2000_messages"
+        },
+        "metadata": {
+          "synthesized": true,
+          "group": "销售与客户管理组",
+          "subordinate_count": 3
+        }
+      },
+      {
+        "agent_id": "agent_supervisor_5507",
+        "agent_name": "供应链运营组主管",
+        "level": "supervisor",
+        "is_virtual": false,
+        "responsibilities": [
+          "供应链运营组团队管理",
+          "工作分配和协调",
+          "绩效监控和评估",
+          "异常处理和升级",
+          "资源调配"
+        ],
+        "capability_interface": {
+          "direct_capabilities": [
+            {
+              "unit_id": "cap_composed_14",
+              "name": "库存与订单协同监控",
+              "access_mode": "execute",
+              "priority": "high"
+            }
+          ],
+          "delegated_capabilities": [
+            {
+              "unit_id": "cap_atomic_3",
+              "name": "查询库存信息",
+              "access_mode": "delegate",
+              "priority": "medium",
+              "delegate_to": [
+                "agent_71e7a59f",
+                "agent_302599fc"
+              ]
+            },
+            {
+              "unit_id": "cap_atomic_4",
+              "name": "更新库存数量",
+              "access_mode": "delegate",
+              "priority": "medium",
+              "delegate_to": [
+                "agent_71e7a59f",
+                "agent_302599fc"
+              ]
+            },
+            {
+              "unit_id": "cap_atomic_5",
+              "name": "查询订单信息",
+              "access_mode": "delegate",
+              "priority": "medium",
+              "delegate_to": [
+                "agent_71e7a59f",
+                "agent_302599fc"
+              ]
+            }
+          ],
+          "monitoring_capabilities": []
+        },
+        "subordinates": [
+          "agent_4b8e96f8",
+          "agent_bd839db0",
+          "agent_71e7a59f",
+          "agent_302599fc",
+          "agent_cfdbbe52"
+        ],
+        "local_memory": {
+          "type": "short_term",
+          "capacity": "2000_messages"
+        },
+        "metadata": {
+          "synthesized": true,
+          "group": "供应链运营组",
+          "subordinate_count": 2
+        }
+      }
+    ],
+    "topology": {
+      "nodes": [
+        {
+          "id": "agent_4b8e96f8",
+          "type": "Agent",
+          "label": "销售专员",
+          "properties": {
+            "level": "specialist",
+            "is_virtual": false,
+            "responsibilities": [
+              "客户跟进",
+              "订单创建",
+              "报价管理"
+            ]
+          }
+        },
+        {
+          "id": "agent_bd839db0",
+          "type": "Agent",
+          "label": "客户经理",
+          "properties": {
+            "level": "specialist",
+            "is_virtual": false,
+            "responsibilities": [
+              "客户维护",
+              "需求分析",
+              "关系管理"
+            ]
+          }
+        },
+        {
+          "id": "agent_71e7a59f",
+          "type": "Agent",
+          "label": "仓库专员",
+          "properties": {
+            "level": "specialist",
+            "is_virtual": false,
+            "responsibilities": [
+              "库存管理",
+              "出入库操作",
+              "盘点"
+            ]
+          }
+        },
+        {
+          "id": "agent_302599fc",
+          "type": "Agent",
+          "label": "采购专员",
+          "properties": {
+            "level": "specialist",
+            "is_virtual": false,
+            "responsibilities": [
+              "采购申请",
+              "供应商管理",
+              "订单跟踪"
+            ]
+          }
+        },
+        {
+          "id": "agent_9af52df2",
+          "type": "Agent",
+          "label": "供应链主管",
+          "properties": {
+            "level": "supervisor",
+            "is_virtual": false,
+            "responsibilities": [
+              "供应链协调",
+              "采购审批",
+              "库存优化"
+            ]
+          }
+        },
+        {
+          "id": "agent_cfdbbe52",
+          "type": "Agent",
+          "label": "订单与客户生命周期管理专员",
+          "properties": {
+            "level": "specialist",
+            "is_virtual": true,
+            "responsibilities": [
+              "维护订单全生命周期状态",
+              "管理客户主数据创建"
+            ]
+          }
+        },
+        {
+          "id": "agent_supervisor_7388",
+          "type": "Agent",
+          "label": "销售与客户管理组主管",
+          "properties": {
+            "level": "supervisor",
+            "is_virtual": false,
+            "responsibilities": [
+              "销售与客户管理组团队管理",
+              "工作分配和协调",
+              "绩效监控和评估",
+              "异常处理和升级",
+              "资源调配"
+            ]
+          }
+        },
+        {
+          "id": "agent_supervisor_5507",
+          "type": "Agent",
+          "label": "供应链运营组主管",
+          "properties": {
+            "level": "supervisor",
+            "is_virtual": false,
+            "responsibilities": [
+              "供应链运营组团队管理",
+              "工作分配和协调",
+              "绩效监控和评估",
+              "异常处理和升级",
+              "资源调配"
+            ]
+          }
+        },
+        {
+          "id": "cap_atomic_1",
+          "type": "Capability",
+          "label": "创建新的销售订单",
+          "properties": {
+            "level": "atomic",
+            "ref_count": 1,
+            "owner": "销售专员"
+          }
+        },
+        {
+          "id": "cap_atomic_2",
+          "type": "Capability",
+          "label": "查询客户信息",
+          "properties": {
+            "level": "atomic",
+            "ref_count": 1,
+            "owner": "客户经理"
+          }
+        },
+        {
+          "id": "cap_atomic_3",
+          "type": "Capability",
+          "label": "查询库存信息",
+          "properties": {
+            "level": "atomic",
+            "ref_count": 1,
+            "owner": "仓库专员"
+          }
+        },
+        {
+          "id": "cap_atomic_4",
+          "type": "Capability",
+          "label": "更新库存数量",
+          "properties": {
+            "level": "atomic",
+            "ref_count": 1,
+            "owner": "仓库专员"
+          }
+        },
+        {
+          "id": "cap_atomic_5",
+          "type": "Capability",
+          "label": "查询订单信息",
+          "properties": {
+            "level": "atomic",
+            "ref_count": 1,
+            "owner": "采购专员"
+          }
+        },
+        {
+          "id": "cap_atomic_6",
+          "type": "Capability",
+          "label": "查询库存信息",
+          "properties": {
+            "level": "atomic",
+            "ref_count": 1,
+            "owner": "供应链主管"
+          }
+        },
+        {
+          "id": "cap_atomic_7",
+          "type": "Capability",
+          "label": "更新库存数量",
+          "properties": {
+            "level": "atomic",
+            "ref_count": 1,
+            "owner": "供应链主管"
+          }
+        },
+        {
+          "id": "cap_atomic_8",
+          "type": "Capability",
+          "label": "更新订单状态",
+          "properties": {
+            "level": "atomic",
+            "ref_count": 1,
+            "owner": "订单与客户生命周期管理专员"
+          }
+        },
+        {
+          "id": "cap_atomic_9",
+          "type": "Capability",
+          "label": "删除订单",
+          "properties": {
+            "level": "atomic",
+            "ref_count": 1,
+            "owner": "订单与客户生命周期管理专员"
+          }
+        },
+        {
+          "id": "cap_atomic_10",
+          "type": "Capability",
+          "label": "创建新客户",
+          "properties": {
+            "level": "atomic",
+            "ref_count": 1,
+            "owner": "订单与客户生命周期管理专员"
+          }
+        },
+        {
+          "id": "cap_composed_11",
+          "type": "Capability",
+          "label": "端到端订单与客户协同管理",
+          "properties": {
+            "level": "composed",
+            "ref_count": 0,
+            "owner": "供应链主管"
+          }
+        },
+        {
+          "id": "cap_composed_12",
+          "type": "Capability",
+          "label": "库存动态调拨决策支持",
+          "properties": {
+            "level": "composed",
+            "ref_count": 0,
+            "owner": "供应链主管"
+          }
+        },
+        {
+          "id": "cap_composed_13",
+          "type": "Capability",
+          "label": "全周期订单与客户协同管理",
+          "properties": {
+            "level": "composed",
+            "ref_count": 0,
+            "owner": "销售专员主管"
+          }
+        },
+        {
+          "id": "cap_composed_14",
+          "type": "Capability",
+          "label": "库存与订单协同监控",
+          "properties": {
+            "level": "composed",
+            "ref_count": 0,
+            "owner": "仓库专员主管"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "agent_4b8e96f8",
+          "target": "cap_atomic_1",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_bd839db0",
+          "target": "cap_atomic_2",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_71e7a59f",
+          "target": "cap_atomic_3",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_71e7a59f",
+          "target": "cap_atomic_4",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_302599fc",
+          "target": "cap_atomic_5",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_9af52df2",
+          "target": "cap_atomic_6",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_9af52df2",
+          "target": "cap_atomic_7",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_9af52df2",
+          "target": "agent_4b8e96f8",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_9af52df2",
+          "target": "agent_bd839db0",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_9af52df2",
+          "target": "agent_71e7a59f",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_9af52df2",
+          "target": "agent_302599fc",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_9af52df2",
+          "target": "agent_cfdbbe52",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_cfdbbe52",
+          "target": "cap_atomic_8",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_cfdbbe52",
+          "target": "cap_atomic_9",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_cfdbbe52",
+          "target": "cap_atomic_10",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "cap_composed_13",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "cap_atomic_1",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "delegate",
+            "priority": "medium"
+          }
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "cap_atomic_2",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "delegate",
+            "priority": "medium"
+          }
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "cap_atomic_8",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "delegate",
+            "priority": "medium"
+          }
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "cap_atomic_9",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "delegate",
+            "priority": "medium"
+          }
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "cap_atomic_10",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "delegate",
+            "priority": "medium"
+          }
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "agent_4b8e96f8",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "agent_bd839db0",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "agent_71e7a59f",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "agent_302599fc",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_supervisor_7388",
+          "target": "agent_cfdbbe52",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_supervisor_5507",
+          "target": "cap_composed_14",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "execute",
+            "priority": "high"
+          }
+        },
+        {
+          "source": "agent_supervisor_5507",
+          "target": "cap_atomic_3",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "delegate",
+            "priority": "medium"
+          }
+        },
+        {
+          "source": "agent_supervisor_5507",
+          "target": "cap_atomic_4",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "delegate",
+            "priority": "medium"
+          }
+        },
+        {
+          "source": "agent_supervisor_5507",
+          "target": "cap_atomic_5",
+          "type": "REFERENCES",
+          "properties": {
+            "access_mode": "delegate",
+            "priority": "medium"
+          }
+        },
+        {
+          "source": "agent_supervisor_5507",
+          "target": "agent_4b8e96f8",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_supervisor_5507",
+          "target": "agent_bd839db0",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_supervisor_5507",
+          "target": "agent_71e7a59f",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_supervisor_5507",
+          "target": "agent_302599fc",
+          "type": "MANAGES",
+          "properties": {}
+        },
+        {
+          "source": "agent_supervisor_5507",
+          "target": "agent_cfdbbe52",
+          "type": "MANAGES",
+          "properties": {}
+        }
+      ],
+      "statistics": {
+        "total_nodes": 22,
+        "agent_nodes": 8,
+        "capability_nodes": 14,
+        "total_edges": 35,
+        "reference_edges": 20,
+        "management_edges": 15
+      }
+    },
+    "access_control_matrix": {
+      "agent_4b8e96f8": {
+        "cap_atomic_1": "execute"
+      },
+      "agent_bd839db0": {
+        "cap_atomic_2": "execute"
+      },
+      "agent_71e7a59f": {
+        "cap_atomic_3": "execute",
+        "cap_atomic_4": "execute"
+      },
+      "agent_302599fc": {
+        "cap_atomic_5": "execute"
+      },
+      "agent_9af52df2": {
+        "cap_atomic_6": "execute",
+        "cap_atomic_7": "execute"
+      },
+      "agent_cfdbbe52": {
+        "cap_atomic_8": "execute",
+        "cap_atomic_9": "execute",
+        "cap_atomic_10": "execute"
+      },
+      "agent_supervisor_7388": {
+        "cap_composed_13": "execute",
+        "cap_atomic_1": "delegate",
+        "cap_atomic_2": "delegate",
+        "cap_atomic_8": "delegate",
+        "cap_atomic_9": "delegate",
+        "cap_atomic_10": "delegate"
+      },
+      "agent_supervisor_5507": {
+        "cap_composed_14": "execute",
+        "cap_atomic_3": "delegate",
+        "cap_atomic_4": "delegate",
+        "cap_atomic_5": "delegate"
+      }
+    },
+    "contracts": [
+      {
+        "contract_id": "contract_1a83081d",
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "data_isolation",
+        "constraint_rule": "只能操作本人/本部门数据",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_1a83081d",
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "审批流程",
+        "constraint_rule": "单次库存变更量 ≥ 100 件或变更后库存为负值时，须经仓库主管二级审批；变更量 ≥ 500 件或涉及高价值商品（单价 ≥ 5000 元）时，须经仓储经理三级审批",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_1a83081d",
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "数量限制",
+        "constraint_rule": "单次更新数量绝对值不得超过当前SKU近30天日均出库量的200%（若无历史数据，则上限为1000件）；禁止将库存直接设为负数（允许通过预留/占用机制间接体现负可用）",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_1a83081d",
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "数据权限隔离",
+        "constraint_rule": "仓库专员仅可更新其所属仓库编码（warehouse_id）及所辖货位（location_id）范围内SKU的库存；跨仓操作需切换至对应仓库角色或申请临时权限",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_1a83081d",
+        "role_id": "role_71e7a59f",
+        "role_name": "仓库专员",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "操作日志审计",
+        "constraint_rule": "完整记录操作人ID、角色、时间、IP、原始库存值、目标库存值、变更量、审批链路ID、关联单据号（如调拨单/盘点单）、操作原因（必填且长度≥5字）",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cf3ceacd",
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "data_isolation",
+        "constraint_rule": "只能操作本人/本部门数据",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cf3ceacd",
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "审批流程",
+        "constraint_rule": "单次库存更新数量绝对值 ≥ 1000 或总库存变动金额 ≥ 50,000 元时，需经区域供应链经理二级审批",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cf3ceacd",
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "数量限制",
+        "constraint_rule": "单次更新后单品库存数量不得低于 -100 且不得高于 999999",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cf3ceacd",
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "数据权限隔离",
+        "constraint_rule": "仅允许修改当前用户所属事业部及所辖仓库范围内的商品库存，跨事业部/非管辖仓库操作被拒绝",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cf3ceacd",
+        "role_id": "role_9af52df2",
+        "role_name": "供应链主管",
+        "api_id": "api_008",
+        "api_name": "更新库存",
+        "constraint_type": "操作日志审计",
+        "constraint_rule": "完整记录操作人、角色、时间、IP、SKU、原库存、新库存、变动量、审批流水号（如有）、API请求ID",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cce6a18b",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_003",
+        "api_name": "更新订单",
+        "constraint_type": "data_isolation",
+        "constraint_rule": "只能操作本人/本部门数据",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cce6a18b",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_003",
+        "api_name": "更新订单",
+        "constraint_type": "审批流程",
+        "constraint_rule": "订单状态更新为'已发货'、'已完成'或'已关闭'时，须经二级审批（直属主管+风控专员双签）；状态回退（如从'已完成'变更为'待发货'）须经三级审批（主管+风控+部门负责人）",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cce6a18b",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_003",
+        "api_name": "更新订单",
+        "constraint_type": "金额/数量限制",
+        "constraint_rule": "单次更新订单状态时，若关联订单总金额 > 50,000 元或商品数量 > 100 件，系统自动拦截并触发人工复核流程",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cce6a18b",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_003",
+        "api_name": "更新订单",
+        "constraint_type": "数据权限隔离",
+        "constraint_rule": "订单与客户生命周期管理专员仅可更新其所属业务单元（BU）及所辖客户层级（L1–L3）范围内的订单状态；跨BU或超客户层级订单更新请求将被拒绝",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_cce6a18b",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_003",
+        "api_name": "更新订单",
+        "constraint_type": "操作日志审计",
+        "constraint_rule": "所有订单状态更新操作必须记录完整审计日志，包括操作人ID、角色、时间、原状态、目标状态、订单ID、审批链路ID、IP地址及请求上下文（如API调用来源）；日志保留不少于180天且不可篡改",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "approval_required",
+        "constraint_rule": "需要主管审批",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "data_isolation",
+        "constraint_rule": "只能操作本人/本部门数据",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "审批流程",
+        "constraint_rule": "订单状态为'已支付'或'已发货'时，删除操作必须经二级审批（直属主管+风控专员）；订单状态为'待支付'时，可由专员直接删除，无需审批。",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "金额限制",
+        "constraint_rule": "单笔订单金额 ≥ 5000 元人民币，或当日累计删除订单总金额 ≥ 20000 元人民币时，禁止删除并触发风控拦截。",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "数据权限隔离",
+        "constraint_rule": "专员仅可删除其所属客户域（按客户主数据中'归属业务单元'字段标识）及所辖子单元下的订单；跨域订单不可见、不可操作。",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      },
+      {
+        "contract_id": "contract_47aed86e",
+        "role_id": "role_cfdbbe52",
+        "role_name": "订单与客户生命周期管理专员",
+        "api_id": "api_004",
+        "api_name": "删除订单",
+        "constraint_type": "操作日志审计",
+        "constraint_rule": "强制记录删除操作的完整上下文：操作人ID、角色、时间、订单ID、原订单状态、删除原因（必填下拉选项+100字内备注）、审批链路快照、IP与设备指纹；日志保留不少于180天且不可篡改。",
+        "enforcement": "pre_execution",
+        "violation_action": "reject"
+      }
+    ],
+    "statistics": {
+      "agents": {
+        "total": 8,
+        "real": 7,
+        "virtual": 1,
+        "by_level": {
+          "specialist": 5,
+          "supervisor": 3
+        }
+      },
+      "capabilities": {
+        "atomic": 10,
+        "composed": 4,
+        "strategic": 0,
+        "shared": 0,
+        "total": 14
+      },
+      "topology": {
+        "total_nodes": 22,
+        "agent_nodes": 8,
+        "capability_nodes": 14,
+        "total_edges": 35,
+        "reference_edges": 20,
+        "management_edges": 15
+      },
+      "composition_pattern": {
+        "horizontal_reuse": false,
+        "vertical_promotion": true,
+        "cross_domain": false
+      }
+    }
+  },
+  "layer4": {
+    "prompts_count": 8,
+    "manifest": {
+      "version": "1.0",
+      "environment": "production",
+      "agents": [
+        {
+          "agent_id": "agent_4b8e96f8",
+          "agent_name": "销售专员",
+          "agent_type": "specialist",
+          "enabled": true,
+          "capabilities": [
+            "创建新的销售订单"
+          ],
+          "subordinates": [],
+          "memory": {
+            "type": "short_term",
+            "capacity": "1000_messages"
+          },
+          "prompt_file": "prompts/agent_4b8e96f8.txt",
+          "max_iterations": 10,
+          "timeout": 300
+        },
+        {
+          "agent_id": "agent_bd839db0",
+          "agent_name": "客户经理",
+          "agent_type": "specialist",
+          "enabled": true,
+          "capabilities": [
+            "查询客户信息"
+          ],
+          "subordinates": [],
+          "memory": {
+            "type": "short_term",
+            "capacity": "1000_messages"
+          },
+          "prompt_file": "prompts/agent_bd839db0.txt",
+          "max_iterations": 10,
+          "timeout": 300
+        },
+        {
+          "agent_id": "agent_71e7a59f",
+          "agent_name": "仓库专员",
+          "agent_type": "specialist",
+          "enabled": true,
+          "capabilities": [
+            "查询库存信息",
+            "更新库存数量"
+          ],
+          "subordinates": [],
+          "memory": {
+            "type": "short_term",
+            "capacity": "1000_messages"
+          },
+          "prompt_file": "prompts/agent_71e7a59f.txt",
+          "max_iterations": 10,
+          "timeout": 300
+        },
+        {
+          "agent_id": "agent_302599fc",
+          "agent_name": "采购专员",
+          "agent_type": "specialist",
+          "enabled": true,
+          "capabilities": [
+            "查询订单信息"
+          ],
+          "subordinates": [],
+          "memory": {
+            "type": "short_term",
+            "capacity": "1000_messages"
+          },
+          "prompt_file": "prompts/agent_302599fc.txt",
+          "max_iterations": 10,
+          "timeout": 300
+        },
+        {
+          "agent_id": "agent_9af52df2",
+          "agent_name": "供应链主管",
+          "agent_type": "supervisor",
+          "enabled": true,
+          "capabilities": [
+            "查询库存信息",
+            "更新库存数量"
+          ],
+          "subordinates": [
+            "agent_4b8e96f8",
+            "agent_bd839db0",
+            "agent_71e7a59f",
+            "agent_302599fc",
+            "agent_cfdbbe52"
+          ],
+          "memory": {
+            "type": "short_term",
+            "capacity": "1000_messages"
+          },
+          "prompt_file": "prompts/agent_9af52df2.txt",
+          "max_iterations": 10,
+          "timeout": 300
+        },
+        {
+          "agent_id": "agent_cfdbbe52",
+          "agent_name": "订单与客户生命周期管理专员",
+          "agent_type": "specialist",
+          "enabled": true,
+          "capabilities": [
+            "更新订单状态",
+            "删除订单",
+            "创建新客户"
+          ],
+          "subordinates": [],
+          "memory": {
+            "type": "short_term",
+            "capacity": "1000_messages"
+          },
+          "prompt_file": "prompts/agent_cfdbbe52.txt",
+          "max_iterations": 10,
+          "timeout": 300
+        },
+        {
+          "agent_id": "agent_supervisor_7388",
+          "agent_name": "销售与客户管理组主管",
+          "agent_type": "supervisor",
+          "enabled": true,
+          "capabilities": [
+            "全周期订单与客户协同管理",
+            "创建新的销售订单",
+            "查询客户信息",
+            "更新订单状态",
+            "删除订单",
+            "创建新客户"
+          ],
+          "subordinates": [
+            "agent_4b8e96f8",
+            "agent_bd839db0",
+            "agent_71e7a59f",
+            "agent_302599fc",
+            "agent_cfdbbe52"
+          ],
+          "memory": {
+            "type": "short_term",
+            "capacity": "2000_messages"
+          },
+          "prompt_file": "prompts/agent_supervisor_7388.txt",
+          "max_iterations": 10,
+          "timeout": 300
+        },
+        {
+          "agent_id": "agent_supervisor_5507",
+          "agent_name": "供应链运营组主管",
+          "agent_type": "supervisor",
+          "enabled": true,
+          "capabilities": [
+            "库存与订单协同监控",
+            "查询库存信息",
+            "更新库存数量",
+            "查询订单信息"
+          ],
+          "subordinates": [
+            "agent_4b8e96f8",
+            "agent_bd839db0",
+            "agent_71e7a59f",
+            "agent_302599fc",
+            "agent_cfdbbe52"
+          ],
+          "memory": {
+            "type": "short_term",
+            "capacity": "2000_messages"
+          },
+          "prompt_file": "prompts/agent_supervisor_5507.txt",
+          "max_iterations": 10,
+          "timeout": 300
+        }
+      ],
+      "api_endpoints": {
+        "post_api_order_create": "https://api.example.com/api/order/create",
+        "get_api_customer_query": "https://api.example.com/api/customer/query",
+        "get_api_inventory_query": "https://api.example.com/api/inventory/query",
+        "put_api_inventory_update": "https://api.example.com/api/inventory/update",
+        "get_api_order_query": "https://api.example.com/api/order/query",
+        "put_api_order_update": "https://api.example.com/api/order/update",
+        "delete_api_order_delete": "https://api.example.com/api/order/delete",
+        "post_api_customer_create": "https://api.example.com/api/customer/create"
+      },
+      "authentication": {
+        "type": "bearer_token",
+        "token_env_var": "API_TOKEN",
+        "refresh_enabled": true,
+        "refresh_interval": 3600
+      },
+      "rag_config": {
+        "enabled": true,
+        "vector_store": {
+          "type": "faiss",
+          "index_path": "./data/rag_index"
+        },
+        "embedding_model": "text-embedding-ada-002",
+        "retrieval": {
+          "top_k": 5,
+          "similarity_threshold": 0.7
+        }
+      },
+      "runtime_config": {
+        "llm": {
+          "provider": "openai",
+          "model": "gpt-4",
+          "temperature": 0.3,
+          "max_tokens": 2000
+        },
+        "logging": {
+          "level": "INFO",
+          "format": "json",
+          "output": "stdout"
+        },
+        "monitoring": {
+          "enabled": true,
+          "metrics_port": 9090,
+          "health_check_interval": 60
+        }
+      }
+    },
+    "knowledge_links": {
+      "domain": "CRM",
+      "knowledge_links": {
+        "agent_4b8e96f8": {
+          "agent_name": "销售专员",
+          "knowledge_sources": [
+            {
+              "type": "domain_knowledge",
+              "name": "客户关系管理最佳实践",
+              "path": "knowledge/CRM/客户关系管理最佳实践.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "销售流程标准",
+              "path": "knowledge/CRM/销售流程标准.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "客户分级策略",
+              "path": "knowledge/CRM/客户分级策略.md",
+              "priority": "medium"
+            },
+            {
+              "type": "role_knowledge",
+              "name": "销售话术",
+              "path": "knowledge/roles/销售专员/销售话术.md",
+              "priority": "high"
+            },
+            {
+              "type": "role_knowledge",
+              "name": "客户沟通技巧",
+              "path": "knowledge/roles/销售专员/客户沟通技巧.md",
+              "priority": "high"
+            },
+            {
+              "type": "role_knowledge",
+              "name": "CRM系统使用手册",
+              "path": "knowledge/roles/销售专员/CRM系统使用手册.md",
+              "priority": "high"
+            }
+          ],
+          "retrieval_strategy": {
+            "mode": "detailed",
+            "top_k": 5,
+            "similarity_threshold": 0.7,
+            "include_examples": true,
+            "context_window": 2000
+          }
+        },
+        "agent_bd839db0": {
+          "agent_name": "客户经理",
+          "knowledge_sources": [
+            {
+              "type": "domain_knowledge",
+              "name": "客户关系管理最佳实践",
+              "path": "knowledge/CRM/客户关系管理最佳实践.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "销售流程标准",
+              "path": "knowledge/CRM/销售流程标准.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "客户分级策略",
+              "path": "knowledge/CRM/客户分级策略.md",
+              "priority": "medium"
+            }
+          ],
+          "retrieval_strategy": {
+            "mode": "detailed",
+            "top_k": 5,
+            "similarity_threshold": 0.7,
+            "include_examples": true,
+            "context_window": 2000
+          }
+        },
+        "agent_71e7a59f": {
+          "agent_name": "仓库专员",
+          "knowledge_sources": [
+            {
+              "type": "domain_knowledge",
+              "name": "客户关系管理最佳实践",
+              "path": "knowledge/CRM/客户关系管理最佳实践.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "销售流程标准",
+              "path": "knowledge/CRM/销售流程标准.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "客户分级策略",
+              "path": "knowledge/CRM/客户分级策略.md",
+              "priority": "medium"
+            }
+          ],
+          "retrieval_strategy": {
+            "mode": "detailed",
+            "top_k": 5,
+            "similarity_threshold": 0.7,
+            "include_examples": true,
+            "context_window": 2000
+          }
+        },
+        "agent_302599fc": {
+          "agent_name": "采购专员",
+          "knowledge_sources": [
+            {
+              "type": "domain_knowledge",
+              "name": "客户关系管理最佳实践",
+              "path": "knowledge/CRM/客户关系管理最佳实践.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "销售流程标准",
+              "path": "knowledge/CRM/销售流程标准.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "客户分级策略",
+              "path": "knowledge/CRM/客户分级策略.md",
+              "priority": "medium"
+            },
+            {
+              "type": "role_knowledge",
+              "name": "采购管理制度",
+              "path": "knowledge/roles/采购专员/采购管理制度.md",
+              "priority": "high"
+            },
+            {
+              "type": "role_knowledge",
+              "name": "供应商评估标准",
+              "path": "knowledge/roles/采购专员/供应商评估标准.md",
+              "priority": "high"
+            },
+            {
+              "type": "role_knowledge",
+              "name": "合同管理规范",
+              "path": "knowledge/roles/采购专员/合同管理规范.md",
+              "priority": "high"
+            }
+          ],
+          "retrieval_strategy": {
+            "mode": "detailed",
+            "top_k": 5,
+            "similarity_threshold": 0.7,
+            "include_examples": true,
+            "context_window": 2000
+          }
+        },
+        "agent_9af52df2": {
+          "agent_name": "供应链主管",
+          "knowledge_sources": [
+            {
+              "type": "domain_knowledge",
+              "name": "客户关系管理最佳实践",
+              "path": "knowledge/CRM/客户关系管理最佳实践.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "销售流程标准",
+              "path": "knowledge/CRM/销售流程标准.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "客户分级策略",
+              "path": "knowledge/CRM/客户分级策略.md",
+              "priority": "medium"
+            }
+          ],
+          "retrieval_strategy": {
+            "mode": "summary",
+            "top_k": 3,
+            "similarity_threshold": 0.75,
+            "include_examples": false,
+            "context_window": 1500
+          }
+        },
+        "agent_cfdbbe52": {
+          "agent_name": "订单与客户生命周期管理专员",
+          "knowledge_sources": [
+            {
+              "type": "domain_knowledge",
+              "name": "客户关系管理最佳实践",
+              "path": "knowledge/CRM/客户关系管理最佳实践.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "销售流程标准",
+              "path": "knowledge/CRM/销售流程标准.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "客户分级策略",
+              "path": "knowledge/CRM/客户分级策略.md",
+              "priority": "medium"
+            }
+          ],
+          "retrieval_strategy": {
+            "mode": "detailed",
+            "top_k": 5,
+            "similarity_threshold": 0.7,
+            "include_examples": true,
+            "context_window": 2000
+          }
+        },
+        "agent_supervisor_7388": {
+          "agent_name": "销售与客户管理组主管",
+          "knowledge_sources": [
+            {
+              "type": "domain_knowledge",
+              "name": "客户关系管理最佳实践",
+              "path": "knowledge/CRM/客户关系管理最佳实践.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "销售流程标准",
+              "path": "knowledge/CRM/销售流程标准.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "客户分级策略",
+              "path": "knowledge/CRM/客户分级策略.md",
+              "priority": "medium"
+            }
+          ],
+          "retrieval_strategy": {
+            "mode": "summary",
+            "top_k": 3,
+            "similarity_threshold": 0.75,
+            "include_examples": false,
+            "context_window": 1500
+          }
+        },
+        "agent_supervisor_5507": {
+          "agent_name": "供应链运营组主管",
+          "knowledge_sources": [
+            {
+              "type": "domain_knowledge",
+              "name": "客户关系管理最佳实践",
+              "path": "knowledge/CRM/客户关系管理最佳实践.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "销售流程标准",
+              "path": "knowledge/CRM/销售流程标准.md",
+              "priority": "medium"
+            },
+            {
+              "type": "domain_knowledge",
+              "name": "客户分级策略",
+              "path": "knowledge/CRM/客户分级策略.md",
+              "priority": "medium"
+            }
+          ],
+          "retrieval_strategy": {
+            "mode": "summary",
+            "top_k": 3,
+            "similarity_threshold": 0.75,
+            "include_examples": false,
+            "context_window": 1500
+          }
+        }
+      },
+      "global_knowledge": [
+        "客户关系管理最佳实践",
+        "销售流程标准",
+        "客户分级策略"
+      ]
+    },
+    "monitoring_config": {
+      "metrics": [
+        {
+          "name": "agent_total_requests",
+          "type": "counter",
+          "description": "Agent 总请求数",
+          "labels": [
+            "agent_id",
+            "agent_name"
+          ]
+        },
+        {
+          "name": "agent_request_duration_seconds",
+          "type": "histogram",
+          "description": "Agent 请求处理时长",
+          "labels": [
+            "agent_id",
+            "agent_name"
+          ],
+          "buckets": [
+            0.1,
+            0.5,
+            1.0,
+            2.0,
+            5.0,
+            10.0
+          ]
+        },
+        {
+          "name": "agent_errors_total",
+          "type": "counter",
+          "description": "Agent 错误总数",
+          "labels": [
+            "agent_id",
+            "agent_name",
+            "error_type"
+          ]
+        },
+        {
+          "name": "agent_active_tasks",
+          "type": "gauge",
+          "description": "Agent 当前活跃任务数",
+          "labels": [
+            "agent_id",
+            "agent_name"
+          ]
+        },
+        {
+          "name": "agent_4b8e96f8_api_calls_total",
+          "type": "counter",
+          "description": "销售专员 API 调用总数",
+          "labels": [
+            "api_name",
+            "status"
+          ]
+        },
+        {
+          "name": "agent_4b8e96f8_capability_usage",
+          "type": "counter",
+          "description": "销售专员 能力使用次数",
+          "labels": [
+            "capability_name"
+          ]
+        },
+        {
+          "name": "agent_bd839db0_api_calls_total",
+          "type": "counter",
+          "description": "客户经理 API 调用总数",
+          "labels": [
+            "api_name",
+            "status"
+          ]
+        },
+        {
+          "name": "agent_bd839db0_capability_usage",
+          "type": "counter",
+          "description": "客户经理 能力使用次数",
+          "labels": [
+            "capability_name"
+          ]
+        },
+        {
+          "name": "agent_71e7a59f_api_calls_total",
+          "type": "counter",
+          "description": "仓库专员 API 调用总数",
+          "labels": [
+            "api_name",
+            "status"
+          ]
+        },
+        {
+          "name": "agent_71e7a59f_capability_usage",
+          "type": "counter",
+          "description": "仓库专员 能力使用次数",
+          "labels": [
+            "capability_name"
+          ]
+        },
+        {
+          "name": "agent_302599fc_api_calls_total",
+          "type": "counter",
+          "description": "采购专员 API 调用总数",
+          "labels": [
+            "api_name",
+            "status"
+          ]
+        },
+        {
+          "name": "agent_302599fc_capability_usage",
+          "type": "counter",
+          "description": "采购专员 能力使用次数",
+          "labels": [
+            "capability_name"
+          ]
+        },
+        {
+          "name": "agent_9af52df2_api_calls_total",
+          "type": "counter",
+          "description": "供应链主管 API 调用总数",
+          "labels": [
+            "api_name",
+            "status"
+          ]
+        },
+        {
+          "name": "agent_9af52df2_capability_usage",
+          "type": "counter",
+          "description": "供应链主管 能力使用次数",
+          "labels": [
+            "capability_name"
+          ]
+        },
+        {
+          "name": "agent_cfdbbe52_api_calls_total",
+          "type": "counter",
+          "description": "订单与客户生命周期管理专员 API 调用总数",
+          "labels": [
+            "api_name",
+            "status"
+          ]
+        },
+        {
+          "name": "agent_cfdbbe52_capability_usage",
+          "type": "counter",
+          "description": "订单与客户生命周期管理专员 能力使用次数",
+          "labels": [
+            "capability_name"
+          ]
+        },
+        {
+          "name": "agent_supervisor_7388_api_calls_total",
+          "type": "counter",
+          "description": "销售与客户管理组主管 API 调用总数",
+          "labels": [
+            "api_name",
+            "status"
+          ]
+        },
+        {
+          "name": "agent_supervisor_7388_capability_usage",
+          "type": "counter",
+          "description": "销售与客户管理组主管 能力使用次数",
+          "labels": [
+            "capability_name"
+          ]
+        },
+        {
+          "name": "agent_supervisor_5507_api_calls_total",
+          "type": "counter",
+          "description": "供应链运营组主管 API 调用总数",
+          "labels": [
+            "api_name",
+            "status"
+          ]
+        },
+        {
+          "name": "agent_supervisor_5507_capability_usage",
+          "type": "counter",
+          "description": "供应链运营组主管 能力使用次数",
+          "labels": [
+            "capability_name"
+          ]
+        }
+      ],
+      "alerts": [
+        {
+          "name": "HighErrorRate",
+          "condition": "agent_errors_total / agent_total_requests > 0.1",
+          "duration": "5m",
+          "severity": "warning",
+          "description": "Agent 错误率超过 10%",
+          "actions": [
+            "notify_admin",
+            "log"
+          ]
+        },
+        {
+          "name": "SlowResponse",
+          "condition": "agent_request_duration_seconds > 10",
+          "duration": "2m",
+          "severity": "warning",
+          "description": "Agent 响应时间超过 10 秒",
+          "actions": [
+            "notify_admin"
+          ]
+        },
+        {
+          "name": "AgentDown",
+          "condition": "up{job='agents'} == 0",
+          "duration": "1m",
+          "severity": "critical",
+          "description": "Agent 服务不可用",
+          "actions": [
+            "notify_admin",
+            "page_oncall"
+          ]
+        },
+        {
+          "name": "agent_9af52df2_HighLoad",
+          "condition": "agent_active_tasks{agent_id='agent_9af52df2'} > 10",
+          "duration": "5m",
+          "severity": "warning",
+          "description": "供应链主管 负载过高",
+          "actions": [
+            "notify_admin"
+          ]
+        },
+        {
+          "name": "agent_supervisor_7388_HighLoad",
+          "condition": "agent_active_tasks{agent_id='agent_supervisor_7388'} > 10",
+          "duration": "5m",
+          "severity": "warning",
+          "description": "销售与客户管理组主管 负载过高",
+          "actions": [
+            "notify_admin"
+          ]
+        },
+        {
+          "name": "agent_supervisor_5507_HighLoad",
+          "condition": "agent_active_tasks{agent_id='agent_supervisor_5507'} > 10",
+          "duration": "5m",
+          "severity": "warning",
+          "description": "供应链运营组主管 负载过高",
+          "actions": [
+            "notify_admin"
+          ]
+        }
+      ],
+      "dashboards": [
+        {
+          "name": "Agent System Overview",
+          "panels": [
+            {
+              "title": "总请求数",
+              "type": "graph",
+              "metric": "sum(agent_total_requests)"
+            },
+            {
+              "title": "平均响应时间",
+              "type": "graph",
+              "metric": "avg(agent_request_duration_seconds)"
+            },
+            {
+              "title": "错误率",
+              "type": "graph",
+              "metric": "sum(agent_errors_total) / sum(agent_total_requests)"
+            },
+            {
+              "title": "活跃 Agent 数",
+              "type": "gauge",
+              "metric": "count(up{job='agents'} == 1)"
+            }
+          ]
+        },
+        {
+          "name": "Supervisor Agents Dashboard",
+          "panels": [
+            {
+              "title": "supervisor 请求数",
+              "type": "graph",
+              "metric": "sum(agent_total_requests{level='supervisor'})"
+            },
+            {
+              "title": "supervisor 错误数",
+              "type": "graph",
+              "metric": "sum(agent_errors_total{level='supervisor'})"
+            }
+          ]
+        },
+        {
+          "name": "Specialist Agents Dashboard",
+          "panels": [
+            {
+              "title": "specialist 请求数",
+              "type": "graph",
+              "metric": "sum(agent_total_requests{level='specialist'})"
+            },
+            {
+              "title": "specialist 错误数",
+              "type": "graph",
+              "metric": "sum(agent_errors_total{level='specialist'})"
+            }
+          ]
+        }
+      ],
+      "logging": {
+        "level": "INFO",
+        "format": "json",
+        "output": {
+          "type": "file",
+          "path": "./logs/agents.log",
+          "rotation": {
+            "max_size": "100MB",
+            "max_age": "30d",
+            "max_backups": 10
+          }
+        },
+        "fields": [
+          "timestamp",
+          "level",
+          "agent_id",
+          "agent_name",
+          "message",
+          "trace_id",
+          "duration_ms"
+        ],
+        "sampling": {
+          "enabled": true,
+          "rate": 0.1
+        }
+      }
+    }
+  },
+  "success": true,
+  "duration_seconds": 203.92247
+}

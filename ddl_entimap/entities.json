@@ -1,0 +1,1641 @@
+[
+  {
+    "name": "Finance Statistics Management",
+    "description": "Capability to query finance-statistics resources. Includes 4 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "状态码",
+        "description": "说明",
+        "type": "string"
+      },
+      {
+        "name": "200",
+        "description": "OK",
+        "type": "array"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/finance-statistics/bill-time-summary",
+      "http://172.24.0.9:8080/admin-api/erp/finance-statistics/dashboard-time-summary",
+      "http://172.24.0.9:8080/admin-api/erp/finance-statistics/time-summary",
+      "http://172.24.0.9:8080/admin-api/erp/overview-statistics/summary"
+    ]
+  },
+  {
+    "name": "Purchase Order Management",
+    "description": "Capability to create, query, update, delete purchase-order resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "采购单编号",
+        "type": "string"
+      },
+      {
+        "name": "supplierId",
+        "description": "供应商编号",
+        "type": "string"
+      },
+      {
+        "name": "orderTime",
+        "description": "采购时间",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "采购状态",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "inStatus",
+        "description": "入库状态",
+        "type": "string"
+      },
+      {
+        "name": "returnStatus",
+        "description": "退货状态",
+        "type": "string"
+      },
+      {
+        "name": "inEnable",
+        "description": "是否可入库",
+        "type": "string"
+      },
+      {
+        "name": "returnEnable",
+        "description": "是否可退货",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/purchase-order/create",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-order/delete",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-order/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-order/get",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-order/page",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-order/update",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-order/update-status"
+    ]
+  },
+  {
+    "name": "Purchase In Management",
+    "description": "Capability to create, query, update, delete purchase-in resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "采购单编号",
+        "type": "string"
+      },
+      {
+        "name": "supplierId",
+        "description": "供应商编号",
+        "type": "string"
+      },
+      {
+        "name": "inTime",
+        "description": "入库时间",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "入库状态",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "warehouseId",
+        "description": "仓库编号",
+        "type": "string"
+      },
+      {
+        "name": "accountId",
+        "description": "结算账号编号",
+        "type": "string"
+      },
+      {
+        "name": "paymentStatus",
+        "description": "付款状态",
+        "type": "string"
+      },
+      {
+        "name": "paymentEnable",
+        "description": "是否可付款",
+        "type": "string"
+      },
+      {
+        "name": "orderNo",
+        "description": "采购单号",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/purchase-in/create",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-in/delete",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-in/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-in/get",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-in/page",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-in/update",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-in/update-status"
+    ]
+  },
+  {
+    "name": "Purchase Statistics Management",
+    "description": "Capability to query purchase-statistics resources. Includes 3 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "状态码",
+        "description": "说明",
+        "type": "string"
+      },
+      {
+        "name": "200",
+        "description": "OK",
+        "type": "array"
+      },
+      {
+        "name": "count",
+        "description": "时间段数量",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/purchase-statistics/order-time-summary",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-statistics/summary",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-statistics/time-summary"
+    ]
+  },
+  {
+    "name": "Purchase Return Management",
+    "description": "Capability to create, query, update, delete purchase-return resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "采购单编号",
+        "type": "string"
+      },
+      {
+        "name": "supplierId",
+        "description": "供应商编号",
+        "type": "string"
+      },
+      {
+        "name": "returnTime",
+        "description": "退货时间",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "退货状态",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "warehouseId",
+        "description": "仓库编号",
+        "type": "string"
+      },
+      {
+        "name": "accountId",
+        "description": "结算账号编号",
+        "type": "string"
+      },
+      {
+        "name": "orderNo",
+        "description": "采购单号",
+        "type": "string"
+      },
+      {
+        "name": "refundStatus",
+        "description": "退款状态",
+        "type": "string"
+      },
+      {
+        "name": "refundEnable",
+        "description": "是否可退款",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/purchase-return/create",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-return/delete",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-return/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-return/get",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-return/page",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-return/update",
+      "http://172.24.0.9:8080/admin-api/erp/purchase-return/update-status"
+    ]
+  },
+  {
+    "name": "Warehouse Management",
+    "description": "Capability to create, query, update, delete warehouse resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "name",
+        "description": "仓库名称",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "开启状态",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/warehouse/create",
+      "http://172.24.0.9:8080/admin-api/erp/warehouse/delete",
+      "http://172.24.0.9:8080/admin-api/erp/warehouse/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/warehouse/get",
+      "http://172.24.0.9:8080/admin-api/erp/warehouse/page",
+      "http://172.24.0.9:8080/admin-api/erp/warehouse/update",
+      "http://172.24.0.9:8080/admin-api/erp/warehouse/update-default-status"
+    ]
+  },
+  {
+    "name": "Simple List Management",
+    "description": "Capability to query simple-list resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "状态码",
+        "description": "说明",
+        "type": "string"
+      },
+      {
+        "name": "200",
+        "description": "OK",
+        "type": "array"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/warehouse/simple-list",
+      "http://172.24.0.9:8080/admin-api/erp/product/simple-list",
+      "http://172.24.0.9:8080/admin-api/erp/product-unit/simple-list",
+      "http://172.24.0.9:8080/admin-api/erp/product-category/simple-list",
+      "http://172.24.0.9:8080/admin-api/erp/supplier/simple-list",
+      "http://172.24.0.9:8080/admin-api/erp/account/simple-list",
+      "http://172.24.0.9:8080/admin-api/erp/customer/simple-list"
+    ]
+  },
+  {
+    "name": "Product Management",
+    "description": "Capability to create, query, update, delete product resources. Includes 6 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "name",
+        "description": "产品名称",
+        "type": "string"
+      },
+      {
+        "name": "categoryId",
+        "description": "产品分类编号",
+        "type": "string"
+      },
+      {
+        "name": "createTime",
+        "description": "创建时间",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/product/create",
+      "http://172.24.0.9:8080/admin-api/erp/product/delete",
+      "http://172.24.0.9:8080/admin-api/erp/product/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/product/get",
+      "http://172.24.0.9:8080/admin-api/erp/product/page",
+      "http://172.24.0.9:8080/admin-api/erp/product/update"
+    ]
+  },
+  {
+    "name": "Product Unit Management",
+    "description": "Capability to create, query, update, delete product-unit resources. Includes 6 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "name",
+        "description": "单位名字",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "单位状态",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/product-unit/create",
+      "http://172.24.0.9:8080/admin-api/erp/product-unit/delete",
+      "http://172.24.0.9:8080/admin-api/erp/product-unit/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/product-unit/get",
+      "http://172.24.0.9:8080/admin-api/erp/product-unit/page",
+      "http://172.24.0.9:8080/admin-api/erp/product-unit/update"
+    ]
+  },
+  {
+    "name": "Product Category Management",
+    "description": "Capability to create, query, update, delete product-category resources. Includes 6 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "name",
+        "description": "分类名称",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "开启状态",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/product-category/create",
+      "http://172.24.0.9:8080/admin-api/erp/product-category/delete",
+      "http://172.24.0.9:8080/admin-api/erp/product-category/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/product-category/get",
+      "http://172.24.0.9:8080/admin-api/erp/product-category/list",
+      "http://172.24.0.9:8080/admin-api/erp/product-category/update"
+    ]
+  },
+  {
+    "name": "Stock Management",
+    "description": "Capability to query stock resources. Includes 5 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "warehouseId",
+        "description": "仓库编号",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "状态码",
+        "description": "说明",
+        "type": "string"
+      },
+      {
+        "name": "200",
+        "description": "OK",
+        "type": "array"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/stock/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/stock/get",
+      "http://172.24.0.9:8080/admin-api/erp/stock/page",
+      "http://172.24.0.9:8080/admin-api/erp/stock/get-count",
+      "http://172.24.0.9:8080/admin-api/erp/stock-statistics/summary"
+    ]
+  },
+  {
+    "name": "Stock Record Management",
+    "description": "Capability to query stock-record resources. Includes 4 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "warehouseId",
+        "description": "仓库编号",
+        "type": "string"
+      },
+      {
+        "name": "bizType",
+        "description": "业务类型",
+        "type": "string"
+      },
+      {
+        "name": "bizNo",
+        "description": "业务单号",
+        "type": "string"
+      },
+      {
+        "name": "createTime",
+        "description": "创建时间",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "状态码",
+        "description": "说明",
+        "type": "string"
+      },
+      {
+        "name": "200",
+        "description": "OK",
+        "type": "array"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/stock-record/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/stock-record/get",
+      "http://172.24.0.9:8080/admin-api/erp/stock-record/page",
+      "http://172.24.0.9:8080/admin-api/erp/stock-record-statistics/time-summary"
+    ]
+  },
+  {
+    "name": "Finance Payment Management",
+    "description": "Capability to create, query, update, delete finance-payment resources. Includes 9 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "付款单编号",
+        "type": "string"
+      },
+      {
+        "name": "paymentTime",
+        "description": "付款时间",
+        "type": "string"
+      },
+      {
+        "name": "supplierId",
+        "description": "供应商编号",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "financeUserId",
+        "description": "财务人员编号",
+        "type": "string"
+      },
+      {
+        "name": "accountId",
+        "description": "结算账户编号",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "付款状态",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "bizNo",
+        "description": "业务编号",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "状态码",
+        "description": "说明",
+        "type": "string"
+      },
+      {
+        "name": "200",
+        "description": "OK",
+        "type": "array"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/finance-payment/create",
+      "http://172.24.0.9:8080/admin-api/erp/finance-payment/delete",
+      "http://172.24.0.9:8080/admin-api/erp/finance-payment/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/finance-payment/get",
+      "http://172.24.0.9:8080/admin-api/erp/finance-payment/page",
+      "http://172.24.0.9:8080/admin-api/erp/finance-payment/update",
+      "http://172.24.0.9:8080/admin-api/erp/finance-payment/update-status",
+      "http://172.24.0.9:8080/admin-api/erp/finance-payment-statistics/order-time-summary",
+      "http://172.24.0.9:8080/admin-api/erp/finance-payment-statistics/time-summary"
+    ]
+  },
+  {
+    "name": "Supplier Management",
+    "description": "Capability to create, query, update, delete supplier resources. Includes 8 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "name",
+        "description": "供应商名称",
+        "type": "string"
+      },
+      {
+        "name": "mobile",
+        "description": "手机号码",
+        "type": "string"
+      },
+      {
+        "name": "telephone",
+        "description": "联系电话",
+        "type": "string"
+      },
+      {
+        "name": "状态码",
+        "description": "说明",
+        "type": "string"
+      },
+      {
+        "name": "200",
+        "description": "OK",
+        "type": "array"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/supplier/create",
+      "http://172.24.0.9:8080/admin-api/erp/supplier/delete",
+      "http://172.24.0.9:8080/admin-api/erp/supplier/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/supplier/get",
+      "http://172.24.0.9:8080/admin-api/erp/supplier/page",
+      "http://172.24.0.9:8080/admin-api/erp/supplier/update",
+      "http://172.24.0.9:8080/admin-api/erp/supplier/getSupplierNameList",
+      "http://172.24.0.9:8080/admin-api/erp/supplier-statistics/summary"
+    ]
+  },
+  {
+    "name": "Bookkeeping Voucher Management",
+    "description": "Capability to create, query, update, delete bookkeeping-voucher resources. Includes 6 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "payType",
+        "description": "记录类型",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "tradeType",
+        "description": "交易类型",
+        "type": "string"
+      },
+      {
+        "name": "payWay",
+        "description": "支付方式",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/bookkeeping-voucher/create",
+      "http://172.24.0.9:8080/admin-api/erp/bookkeeping-voucher/delete",
+      "http://172.24.0.9:8080/admin-api/erp/bookkeeping-voucher/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/bookkeeping-voucher/get",
+      "http://172.24.0.9:8080/admin-api/erp/bookkeeping-voucher/page",
+      "http://172.24.0.9:8080/admin-api/erp/bookkeeping-voucher/update"
+    ]
+  },
+  {
+    "name": "Account Management",
+    "description": "Capability to create, query, update, delete account resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "账户编码",
+        "type": "string"
+      },
+      {
+        "name": "name",
+        "description": "账户名称",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/account/create",
+      "http://172.24.0.9:8080/admin-api/erp/account/delete",
+      "http://172.24.0.9:8080/admin-api/erp/account/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/account/get",
+      "http://172.24.0.9:8080/admin-api/erp/account/page",
+      "http://172.24.0.9:8080/admin-api/erp/account/update",
+      "http://172.24.0.9:8080/admin-api/erp/account/update-default-status"
+    ]
+  },
+  {
+    "name": "Customer Management",
+    "description": "Capability to create, query, update, delete customer resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "name",
+        "description": "客户名称",
+        "type": "string"
+      },
+      {
+        "name": "mobile",
+        "description": "手机号码",
+        "type": "string"
+      },
+      {
+        "name": "telephone",
+        "description": "联系电话",
+        "type": "string"
+      },
+      {
+        "name": "状态码",
+        "description": "说明",
+        "type": "string"
+      },
+      {
+        "name": "200",
+        "description": "OK",
+        "type": "array"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/customer/create",
+      "http://172.24.0.9:8080/admin-api/erp/customer/delete",
+      "http://172.24.0.9:8080/admin-api/erp/customer/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/customer/get",
+      "http://172.24.0.9:8080/admin-api/erp/customer/page",
+      "http://172.24.0.9:8080/admin-api/erp/customer/update",
+      "http://172.24.0.9:8080/admin-api/erp/customer/getCustomerNameList"
+    ]
+  },
+  {
+    "name": "Stock Check Management",
+    "description": "Capability to create, query, update, delete stock-check resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "盘点单号",
+        "type": "string"
+      },
+      {
+        "name": "warehouseId",
+        "description": "仓库编号",
+        "type": "string"
+      },
+      {
+        "name": "checkTime",
+        "description": "盘点时间",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "状态",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/stock-check/create",
+      "http://172.24.0.9:8080/admin-api/erp/stock-check/delete",
+      "http://172.24.0.9:8080/admin-api/erp/stock-check/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/stock-check/get",
+      "http://172.24.0.9:8080/admin-api/erp/stock-check/page",
+      "http://172.24.0.9:8080/admin-api/erp/stock-check/update",
+      "http://172.24.0.9:8080/admin-api/erp/stock-check/update-status"
+    ]
+  },
+  {
+    "name": "Stock Move Management",
+    "description": "Capability to create, query, update, delete stock-move resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "调拨单号",
+        "type": "string"
+      },
+      {
+        "name": "moveTime",
+        "description": "调拨时间",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "状态",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "fromWarehouseId",
+        "description": "调出仓库编号",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/stock-move/create",
+      "http://172.24.0.9:8080/admin-api/erp/stock-move/delete",
+      "http://172.24.0.9:8080/admin-api/erp/stock-move/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/stock-move/get",
+      "http://172.24.0.9:8080/admin-api/erp/stock-move/page",
+      "http://172.24.0.9:8080/admin-api/erp/stock-move/update",
+      "http://172.24.0.9:8080/admin-api/erp/stock-move/update-status"
+    ]
+  },
+  {
+    "name": "Stock Out Management",
+    "description": "Capability to create, query, update, delete stock-out resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "出库单号",
+        "type": "string"
+      },
+      {
+        "name": "customerId",
+        "description": "客户编号",
+        "type": "string"
+      },
+      {
+        "name": "outTime",
+        "description": "出库时间",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "状态",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "warehouseId",
+        "description": "仓库编号",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/stock-out/create",
+      "http://172.24.0.9:8080/admin-api/erp/stock-out/delete",
+      "http://172.24.0.9:8080/admin-api/erp/stock-out/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/stock-out/get",
+      "http://172.24.0.9:8080/admin-api/erp/stock-out/page",
+      "http://172.24.0.9:8080/admin-api/erp/stock-out/update",
+      "http://172.24.0.9:8080/admin-api/erp/stock-out/update-status"
+    ]
+  },
+  {
+    "name": "Stock In Management",
+    "description": "Capability to create, query, update, delete stock-in resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "入库单号",
+        "type": "string"
+      },
+      {
+        "name": "supplierId",
+        "description": "供应商编号",
+        "type": "string"
+      },
+      {
+        "name": "inTime",
+        "description": "入库时间",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "状态",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "warehouseId",
+        "description": "仓库编号",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/stock-in/create",
+      "http://172.24.0.9:8080/admin-api/erp/stock-in/delete",
+      "http://172.24.0.9:8080/admin-api/erp/stock-in/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/stock-in/get",
+      "http://172.24.0.9:8080/admin-api/erp/stock-in/page",
+      "http://172.24.0.9:8080/admin-api/erp/stock-in/update",
+      "http://172.24.0.9:8080/admin-api/erp/stock-in/update-status"
+    ]
+  },
+  {
+    "name": "Finance Receipt Management",
+    "description": "Capability to create, query, update, delete finance-receipt resources. Includes 8 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "收款单编号",
+        "type": "string"
+      },
+      {
+        "name": "receiptTime",
+        "description": "收款时间",
+        "type": "string"
+      },
+      {
+        "name": "customerId",
+        "description": "客户编号",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "financeUserId",
+        "description": "财务人员编号",
+        "type": "string"
+      },
+      {
+        "name": "accountId",
+        "description": "收款账户编号",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "收款状态",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "bizNo",
+        "description": "业务编号",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      },
+      {
+        "name": "状态码",
+        "description": "说明",
+        "type": "string"
+      },
+      {
+        "name": "200",
+        "description": "OK",
+        "type": "array"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/finance-receipt/create",
+      "http://172.24.0.9:8080/admin-api/erp/finance-receipt/delete",
+      "http://172.24.0.9:8080/admin-api/erp/finance-receipt/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/finance-receipt/get",
+      "http://172.24.0.9:8080/admin-api/erp/finance-receipt/page",
+      "http://172.24.0.9:8080/admin-api/erp/finance-receipt/update",
+      "http://172.24.0.9:8080/admin-api/erp/finance-receipt/update-status",
+      "http://172.24.0.9:8080/admin-api/erp/finance-receipt-statistics/order-time-summary"
+    ]
+  },
+  {
+    "name": "Sale Out Management",
+    "description": "Capability to create, query, update, delete sale-out resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "销售单编号",
+        "type": "string"
+      },
+      {
+        "name": "customerId",
+        "description": "客户编号",
+        "type": "string"
+      },
+      {
+        "name": "outTime",
+        "description": "出库时间",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "出库状态",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "warehouseId",
+        "description": "仓库编号",
+        "type": "string"
+      },
+      {
+        "name": "accountId",
+        "description": "结算账号编号",
+        "type": "string"
+      },
+      {
+        "name": "receiptStatus",
+        "description": "收款状态",
+        "type": "string"
+      },
+      {
+        "name": "receiptEnable",
+        "description": "是否可收款",
+        "type": "string"
+      },
+      {
+        "name": "orderNo",
+        "description": "销售单号",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/sale-out/create",
+      "http://172.24.0.9:8080/admin-api/erp/sale-out/delete",
+      "http://172.24.0.9:8080/admin-api/erp/sale-out/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/sale-out/get",
+      "http://172.24.0.9:8080/admin-api/erp/sale-out/page",
+      "http://172.24.0.9:8080/admin-api/erp/sale-out/update",
+      "http://172.24.0.9:8080/admin-api/erp/sale-out/update-status"
+    ]
+  },
+  {
+    "name": "Sale Order Management",
+    "description": "Capability to create, query, update, delete sale-order resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "销售单编号",
+        "type": "string"
+      },
+      {
+        "name": "customerId",
+        "description": "客户编号",
+        "type": "string"
+      },
+      {
+        "name": "orderTime",
+        "description": "下单时间",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "销售状态",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "outStatus",
+        "description": "出库状态",
+        "type": "string"
+      },
+      {
+        "name": "returnStatus",
+        "description": "退货状态",
+        "type": "string"
+      },
+      {
+        "name": "outEnable",
+        "description": "是否可出库",
+        "type": "string"
+      },
+      {
+        "name": "returnEnable",
+        "description": "是否可退货",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/sale-order/create",
+      "http://172.24.0.9:8080/admin-api/erp/sale-order/delete",
+      "http://172.24.0.9:8080/admin-api/erp/sale-order/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/sale-order/get",
+      "http://172.24.0.9:8080/admin-api/erp/sale-order/page",
+      "http://172.24.0.9:8080/admin-api/erp/sale-order/update",
+      "http://172.24.0.9:8080/admin-api/erp/sale-order/update-status"
+    ]
+  },
+  {
+    "name": "Sale Statistics Management",
+    "description": "Capability to query sale-statistics resources. Includes 3 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "状态码",
+        "description": "说明",
+        "type": "string"
+      },
+      {
+        "name": "200",
+        "description": "OK",
+        "type": "array"
+      },
+      {
+        "name": "count",
+        "description": "时间段数量",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/sale-statistics/order-time-summary",
+      "http://172.24.0.9:8080/admin-api/erp/sale-statistics/summary",
+      "http://172.24.0.9:8080/admin-api/erp/sale-statistics/time-summary"
+    ]
+  },
+  {
+    "name": "Sale Return Management",
+    "description": "Capability to create, query, update, delete sale-return resources. Includes 7 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "ids",
+        "description": "编号数组",
+        "type": "string"
+      },
+      {
+        "name": "pageNo",
+        "description": "页码，从 1 开始",
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "description": "每页条数，最大值为 100",
+        "type": "string"
+      },
+      {
+        "name": "no",
+        "description": "销售单编号",
+        "type": "string"
+      },
+      {
+        "name": "customerId",
+        "description": "客户编号",
+        "type": "string"
+      },
+      {
+        "name": "returnTime",
+        "description": "退货时间",
+        "type": "string"
+      },
+      {
+        "name": "remark",
+        "description": "备注",
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "description": "退货状态",
+        "type": "string"
+      },
+      {
+        "name": "creator",
+        "description": "创建者",
+        "type": "string"
+      },
+      {
+        "name": "productId",
+        "description": "产品编号",
+        "type": "string"
+      },
+      {
+        "name": "warehouseId",
+        "description": "仓库编号",
+        "type": "string"
+      },
+      {
+        "name": "accountId",
+        "description": "结算账号编号",
+        "type": "string"
+      },
+      {
+        "name": "orderNo",
+        "description": "销售单号",
+        "type": "string"
+      },
+      {
+        "name": "refundStatus",
+        "description": "退款状态",
+        "type": "string"
+      },
+      {
+        "name": "refundEnable",
+        "description": "是否可退款",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "编号",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/sale-return/create",
+      "http://172.24.0.9:8080/admin-api/erp/sale-return/delete",
+      "http://172.24.0.9:8080/admin-api/erp/sale-return/export-excel",
+      "http://172.24.0.9:8080/admin-api/erp/sale-return/get",
+      "http://172.24.0.9:8080/admin-api/erp/sale-return/page",
+      "http://172.24.0.9:8080/admin-api/erp/sale-return/update",
+      "http://172.24.0.9:8080/admin-api/erp/sale-return/update-status"
+    ]
+  },
+  {
+    "name": "Upload Management",
+    "description": "Capability to create upload resources. Includes 1 API endpoint(s).",
+    "api_fields": [],
+    "api_paths": [
+      "http://172.24.0.9:8080/admin-api/erp/bookkeeping-voucher/upload"
+    ]
+  },
+  {
+    "name": "Findbyid Management",
+    "description": "Capability to query findbyid resources. Includes 1 API endpoint(s).",
+    "api_fields": [
+      {
+        "name": "targetClass",
+        "description": "path",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "description": "path",
+        "type": "string"
+      },
+      {
+        "name": "uniqueField",
+        "description": "query",
+        "type": "string"
+      },
+      {
+        "name": "targetFields",
+        "description": "query",
+        "type": "string"
+      }
+    ],
+    "api_paths": [
+      "http://172.24.0.9:8080/easyTrans/proxy/{targetClass}/findById/{id}"
+    ]
+  },
+  {
+    "name": "Findbyids Management",
+    "description": "Capability to create findbyids resources. Includes 1 API endpoint(s).",
+    "api_fields": [],
+    "api_paths": [
+      "http://172.24.0.9:8080/easyTrans/proxy/{targetClass}/findByIds"
+    ]
+  }
+]

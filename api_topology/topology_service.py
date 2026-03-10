@@ -11,8 +11,9 @@ class TopologyService:
     def __init__(self, neo4j_uri: str = "bolt://localhost:7687",
                  neo4j_user: str = "neo4j",
                  neo4j_password: str = "password",
-                 llm_client=None):
-        self.builder = GraphBuilder(neo4j_uri, neo4j_user, neo4j_password, llm_client)
+                 llm_client=None,
+                 use_entity_inference: bool = True):
+        self.builder = GraphBuilder(neo4j_uri, neo4j_user, neo4j_password, llm_client, use_entity_inference)
         self.finder = PathFinder(neo4j_uri, neo4j_user, neo4j_password)
 
     def build_graph(self, capabilities: List[Dict[str, Any]],
