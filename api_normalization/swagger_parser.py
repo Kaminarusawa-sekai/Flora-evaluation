@@ -23,28 +23,32 @@ class SwaggerParser:
         self.use_prance = use_prance
         self._prance_parser = None
 
-    def parse(self, source: str) -> Dict[str, Any]:
+    def parse(self, source) -> Dict[str, Any]:
         """
-        Parse Swagger file or URL and return structured API data.
+        Parse Swagger file, URL, or dict and return structured API data.
 
         Args:
-            source: File path or URL to Swagger/OpenAPI document
+            source: File path, URL to Swagger/OpenAPI document, or already loaded dict
 
         Returns:
             Structured API data with enhanced metadata
         """
-        doc = self._load_document(source)
+        # If source is already a dict, use it directly
+        if isinstance(source, dict):
+            doc = source
+        else:
+            doc = self._load_document(source)
 
-        # Use prance for enhanced parsing if available
-        if self.use_prance and self._is_file_path(source):
-            try:
-                import prance
-                parser = prance.ResolvingParser(source, lazy=True, strict=False)
-                doc = parser.specification
-            except ImportError:
-                pass  # Fall back to basic parsing
-            except Exception:
-                pass  # Fall back to basic parsing
+            # Use prance for enhanced parsing if available
+            if self.use_prance and self._is_file_path(source):
+                try:
+                    import prance
+                    parser = prance.ResolvingParser(source, lazy=True, strict=False)
+                    doc = parser.specification
+                except ImportError:
+                    pass  # Fall back to basic parsing
+                except Exception:
+                    pass  # Fall back to basic parsing
 
         return self._extract_apis(doc)
 

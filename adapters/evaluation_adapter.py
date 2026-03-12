@@ -18,9 +18,20 @@ class EvaluationAdapter(ModuleAdapter):
         # from coop_eval_actual.evaluation_runner import EvaluationRunner
 
         # 提取测试场景
-        scenarios = input_data.get('scenarios', [])
-        if 'sources' in input_data:
-            scenarios = input_data['sources'][0].get('scenarios', [])
+        scenarios = []
+        
+        # 处理 multiple 类型输入格式
+        if isinstance(input_data, dict):
+            for key, value in input_data.items():
+                if isinstance(value, dict) and 'scenarios' in value:
+                    scenarios = value['scenarios']
+                    break
+            
+            # 如果没有找到，尝试直接格式
+            if not scenarios:
+                scenarios = input_data.get('scenarios', [])
+                if 'sources' in input_data:
+                    scenarios = input_data['sources'][0].get('scenarios', [])
 
         # 模拟运行评估
         results = self._run_evaluation(scenarios, config)
@@ -66,7 +77,18 @@ class EvaluationAdapter(ModuleAdapter):
         return results
 
     def validate_input(self, input_data: Dict) -> bool:
-        return 'scenarios' in input_data or 'sources' in input_data
+        # 处理 multiple 类型输入：{'output/stage3b/scenarios.json': {...}}
+        if isinstance(input_data, dict):
+            # 检查是否是 multiple 类型输入格式
+            for key, value in input_data.items():
+                if isinstance(value, dict) and 'scenarios' in value:
+                    return True
+            
+            # 检查直接格式
+            if 'scenarios' in input_data or 'sources' in input_data:
+                return True
+        
+        return False
 
     def get_metadata(self) -> Dict:
         return {

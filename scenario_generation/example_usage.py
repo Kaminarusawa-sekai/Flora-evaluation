@@ -4,7 +4,7 @@ import os
 
 # 添加父目录到路径
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from scenario_generation_service import ScenarioGenerationService
+from scenario_generation.scenario_generation_service import ScenarioGenerationService
 
 # Example API path and details
 api_path = ["login", "list_orders", "get_order_detail", "cancel_order"]

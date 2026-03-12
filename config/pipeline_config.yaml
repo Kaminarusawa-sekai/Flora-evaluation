@@ -6,14 +6,24 @@ stages:
   # Stage 1: API 规范化
   normalization:
     module: "adapters.normalization_adapter.NormalizationAdapter"
-    enabled: true
+    enabled: false
     config:
       use_hdbscan: true
       use_prance: true
       enable_evaluation: true
+      use_entity_clustering: true
+      entity_similarity_threshold: 0.85
+      # LLM Refiner 配置 - 用于重新分类和命名 entity
+      use_llm_refiner: true
+      llm_refiner_config:
+        llm_provider: "qwen"  # 可选: rule, openai, qwen, deepseek, zhipu, ollama, openai-compatible
+        model: "qwen-plus"    # 模型名称，根据 provider 选择
+        min_cluster_size: 3   # 小于此大小的集群会被重新分类
+        api_key: "${DASHSCOPE_API_KEY}"  # 可选，如果不设置则从环境变量读取
+        api_base: "https://dashscope.aliyuncs.com/compatible-mode/v1"  # 可选，自定义 API 地址
     input:
       type: "file"
-      path: "input/swagger.json"
+      path: "erp-server.json"
     output:
       type: "file"
       path: "output/stage1/capabilities.json"
@@ -21,7 +31,7 @@ stages:
   # Stage 2: 拓扑构建
   topology:
     module: "adapters.topology_adapter.TopologyAdapter"
-    enabled: true
+    enabled: false
     config:
       neo4j_uri: "${NEO4J_URI}"
       neo4j_user: "${NEO4J_USER}"
@@ -33,12 +43,12 @@ stages:
       path: "output/stage1/capabilities.json"
     output:
       type: "neo4j"
-      database: "flora_topology"
+      database: "neo4j"
 
   # Stage 3A: 数据库映射
   database_mapping:
     module: "adapters.entimap_adapter.EntiMapAdapter"
-    enabled: true
+    enabled: false
     config:
       db_url: "${DATABASE_URL}"
       api_key: "${DASHSCOPE_API_KEY}"
@@ -54,7 +64,7 @@ stages:
   # Stage 3B: 场景生成
   scenario_generation:
     module: "adapters.scenario_adapter.ScenarioAdapter"
-    enabled: true
+    enabled: false
     config:
       neo4j_uri: "${NEO4J_URI}"
       neo4j_user: "${NEO4J_USER}"
@@ -69,7 +79,7 @@ stages:
       count_per_type: 2
     input:
       type: "neo4j"
-      database: "flora_topology"
+      database: "neo4j"
     output:
       type: "file"
       path: "output/stage3b/scenarios.json"
@@ -77,7 +87,7 @@ stages:
   # Stage 4A: Agent 构建
   agent_build:
     module: "adapters.agent_build_adapter.AgentBuildAdapter"
-    enabled: true
+    enabled: false
     config:
       neo4j_uri: "${NEO4J_URI}"
       neo4j_user: "${NEO4J_USER}"
@@ -92,12 +102,12 @@ stages:
         - "output/stage3a/entity_mapping.json"
     output:
       type: "neo4j"
-      database: "flora_agents"
+      database: "neo4j"
 
   # Stage 4B: Mock 服务
   mock_service:
     module: "adapters.mock_adapter.MockAdapter"
-    enabled: true
+    enabled: false
     config:
       port: 8000
       db_path: "output/stage4b/mock_state.db"

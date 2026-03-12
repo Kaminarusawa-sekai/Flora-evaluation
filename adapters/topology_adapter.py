@@ -30,7 +30,11 @@ class TopologyAdapter(ModuleAdapter):
 
         return Stage2Output(
             apis=topology_data['apis'],
-            dependencies=[APIDependency(**dep) for dep in topology_data['dependencies']],
+            dependencies=[
+                APIDependency(
+                    **{**dep, 'fields': dep.get('fields') or []}
+                ) for dep in topology_data['dependencies']
+            ],
             entities=topology_data['entities'],
             entity_relations=[EntityRelation(**rel) for rel in topology_data['entity_relations']],
             graph_stats=result,

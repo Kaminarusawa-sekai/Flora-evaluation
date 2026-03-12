@@ -6,7 +6,11 @@ from typing import Dict, List, Optional
 import yaml
 import json
 import logging
+import os
+import re
 from pathlib import Path
+from dotenv import load_dotenv
+from core.env_utils import get_database_url
 
 
 class PipelineOrchestrator:
@@ -15,6 +19,8 @@ class PipelineOrchestrator:
     """
 
     def __init__(self, config_path: str):
+        # 加载环境变量
+        load_dotenv()
         self.config = self._load_config(config_path)
         self.modules = {}
         self.results = {}
@@ -36,9 +42,36 @@ class PipelineOrchestrator:
         return logger
 
     def _load_config(self, config_path: str) -> Dict:
-        """加载配置文件"""
+        """加载配置文件并替换环境变量"""
         with open(config_path, 'r', encoding='utf-8') as f:
-            return yaml.safe_load(f)
+            config_str = f.read()
+        
+        # 替换环境变量占位符 ${VAR_NAME}
+        config_str = self._replace_env_vars(config_str)
+        
+        return yaml.safe_load(config_str)
+    
+    def _replace_env_vars(self, config_str: str) -> str:
+        """替换配置字符串中的环境变量占位符"""
+        # 匹配 ${VAR_NAME} 格式
+        pattern = r'\$\{([^}]+)\}'
+        
+        def replace_match(match):
+            var_name = match.group(1)
+            
+            # 特殊处理 DATABASE_URL，自动编码密码中的特殊字符
+            if var_name == 'DATABASE_URL':
+                env_value = get_database_url(var_name)
+            else:
+                env_value = os.getenv(var_name)
+            
+            if env_value is None:
+                self.logger.warning(f"Environment variable '{var_name}' not found, keeping placeholder")
+                return match.group(0)
+            
+            return env_value
+        
+        return re.sub(pattern, replace_match, config_str)
 
     def register_module(self, stage_name: str, module_instance):
         """注册模块"""
@@ -138,8 +171,12 @@ class PipelineOrchestrator:
 
     def _load_from_neo4j(self, database: str):
         """从 Neo4j 加载数据"""
-        # TODO: 实现 Neo4j 数据加载
-        return {'database': database}
+        # 返回数据库标识，实际数据将在 adapter 中从 Neo4j 加载
+        # 同时传递 Neo4j 连接信息的标记，让 adapter 知道需要从 Neo4j 读取
+        return {
+            'database': database,
+            'source_type': 'neo4j'
+        }
 
     def _save_output(self, result, output_config: Dict):
         """保存输出数据"""

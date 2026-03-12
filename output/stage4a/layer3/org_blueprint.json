@@ -1,0 +1,54 @@
+{
+  "blueprint_version": "1.0",
+  "timestamp": "2026-03-12T16:27:52.526315",
+  "capability_registry": {
+    "atomic_capabilities": [],
+    "composed_capabilities": [],
+    "strategic_capabilities": [],
+    "total_count": 0,
+    "shared_capabilities": []
+  },
+  "agent_definitions": [],
+  "topology": {
+    "nodes": [],
+    "edges": [],
+    "statistics": {
+      "total_nodes": 0,
+      "agent_nodes": 0,
+      "capability_nodes": 0,
+      "total_edges": 0,
+      "reference_edges": 0,
+      "management_edges": 0
+    }
+  },
+  "access_control_matrix": {},
+  "contracts": [],
+  "statistics": {
+    "agents": {
+      "total": 0,
+      "real": 0,
+      "virtual": 0,
+      "by_level": {}
+    },
+    "capabilities": {
+      "atomic": 0,
+      "composed": 0,
+      "strategic": 0,
+      "shared": 0,
+      "total": 0
+    },
+    "topology": {
+      "total_nodes": 0,
+      "agent_nodes": 0,
+      "capability_nodes": 0,
+      "total_edges": 0,
+      "reference_edges": 0,
+      "management_edges": 0
+    },
+    "composition_pattern": {
+      "horizontal_reuse": false,
+      "vertical_promotion": false,
+      "cross_domain": false
+    }
+  }
+}

@@ -52,12 +52,12 @@ class CapabilityExtractor:
         action_verb = api.get('action_verb', '')
 
         name = api.get('summary') or api.get('tags', ['Unknown'])[0] if api.get('tags') else operation_id
-
+        ##TODO:这里不确定descrpiton是否需要进一步明确，因为还有基于llm的重聚类，不确定具体性能要求，后续再看
         return {
             'id': f"atomic_{operation_id}",
             'name': name,
             'type': 'atomic',
-            'description': api.get('description', ''),
+            'description': api.get('description', 'Unknown description') if api.get('description') else 'Unknown description',
             'action_verb': action_verb,
             'apis': [{
                 'operation_id': operation_id,

@@ -111,7 +111,9 @@ class EntiMapEngine:
         """
         if table_profiles is None:
             if self.table_profiles is None:
-                raise ValueError("No table profiles available. Run profile_database() first.")
+                self.profile_database()
+                if self.table_profiles is None:
+                    raise ValueError("No table profiles available. Run profile_database() first.")
             table_profiles = self.table_profiles
 
         print("\n" + "=" * 60)

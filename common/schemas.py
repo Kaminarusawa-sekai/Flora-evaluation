@@ -24,11 +24,18 @@ class Capability(BaseModel):
     """能力模型"""
     id: str
     name: str
-    resource: str
+    type: str
+    description: Optional[str] = None
+    resource: Optional[str] = None  # Only for composite capabilities
+    primary_action: Optional[str] = None  # Only for composite capabilities
+    action_verb: Optional[str] = None  # Only for atomic capabilities
+    tags: List[str] = Field(default_factory=list)
     apis: List[Dict]
+    api_count: int = 0
     unified_schema: Dict
     lifecycle: Dict
     connectivity_score: float = 0.0
+    typical_workflow: Optional[str] = None
 
 
 class Stage1Output(BaseModel):

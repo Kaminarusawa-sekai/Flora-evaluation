@@ -1,0 +1,89 @@
+{
+  "entity_mappings": [
+    {
+      "table_name": "erp_bookkeeping_voucher",
+      "entity_name": "finance-statistics",
+      "relation_type": "association",
+      "relation_score": 72.0,
+      "field_mappings": []
+    },
+    {
+      "table_name": "erp_finance_payment",
+      "entity_name": "finance-statistics",
+      "relation_type": "irrelevant",
+      "relation_score": 45.0,
+      "field_mappings": []
+    },
+    {
+      "table_name": "erp_finance_receipt",
+      "entity_name": "finance-statistics",
+      "relation_type": "irrelevant",
+      "relation_score": 45.0,
+      "field_mappings": []
+    },
+    {
+      "table_name": "erp_finance_receipt_item",
+      "entity_name": "finance-statistics",
+      "relation_type": "irrelevant",
+      "relation_score": 35.0,
+      "field_mappings": []
+    },
+    {
+      "table_name": "erp_sale_out",
+      "entity_name": "finance-statistics",
+      "relation_type": "irrelevant",
+      "relation_score": 35.0,
+      "field_mappings": []
+    },
+    {
+      "table_name": "erp_finance_payment_item",
+      "entity_name": "finance-statistics",
+      "relation_type": "irrelevant",
+      "relation_score": 30.0,
+      "field_mappings": []
+    },
+    {
+      "table_name": "erp_purchase_in",
+      "entity_name": "finance-statistics",
+      "relation_type": "irrelevant",
+      "relation_score": 30.0,
+      "field_mappings": []
+    },
+    {
+      "table_name": "erp_purchase_return",
+      "entity_name": "finance-statistics",
+      "relation_type": "irrelevant",
+      "relation_score": 25.0,
+      "field_mappings": []
+    },
+    {
+      "table_name": "erp_sale_order",
+      "entity_name": "finance-statistics",
+      "relation_type": "irrelevant",
+      "relation_score": 25.0,
+      "field_mappings": []
+    },
+    {
+      "table_name": "erp_stock_check",
+      "entity_name": "finance-statistics",
+      "relation_type": "irrelevant",
+      "relation_score": 25.0,
+      "field_mappings": []
+    }
+  ],
+  "golden_sqls": [
+    {
+      "question": "查询所有finance-statistics",
+      "sql": "SELECT * FROM erp_bookkeeping_voucher WHERE deleted = 0",
+      "entity": "finance-statistics"
+    }
+  ],
+  "vanna_training_data": {},
+  "metadata": {
+    "stage": "database_mapping",
+    "version": "1.0.0",
+    "total_entities": 29,
+    "total_mappings": 10
+  },
+  "timestamp": "2026-03-12 15:31:11.481604"
+}

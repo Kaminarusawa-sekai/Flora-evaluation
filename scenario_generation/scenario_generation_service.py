@@ -1,8 +1,8 @@
 """Main service interface for scenario generation."""
 
 from typing import List, Dict, Any, Literal
-from scenario_generator import ScenarioGenerator
-from scenario_validator import ScenarioValidator
+from .scenario_generator import ScenarioGenerator
+from .scenario_validator import ScenarioValidator
 
 
 class ScenarioGenerationService:

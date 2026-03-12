@@ -178,6 +178,7 @@ class LLMClusterRefiner:
                     cluster_id = assignment.get('new_cluster_id', next_cluster_id)
                     api['cluster'] = cluster_id
                     api['cluster_type'] = 'llm_grouped'
+                    api['group_name'] = assignment.get('group_name', f'group_{cluster_id}')
                     api['llm_reason'] = assignment.get('reason', '')
                     print(f"  [{i}] GROUP into new cluster {cluster_id}: {assignment.get('reason', '')}")
                 else:

@@ -36,19 +36,44 @@ class EntiMapAdapter(ModuleAdapter):
         vanna_data = {}
 
         for entity in entities:
+            if entity['name']!=entities[0]['name']:
+                continue
             # 对齐实体
             results = self.engine.align_entity(entity, top_k=10)
 
-            # 收集映射
-            for result in results:
+            # 收集映射 - results 是字典 {table_name: alignment_result}
+            for table_name, result in results.items():
+                # 提取 field_mapping (注意是单数形式)
+                field_mapping_dict = result.get('field_mapping', {})
+                field_mappings = []
+                
+                # 将字典转换为 FieldMapping 列表
+                for api_field, db_field_info in field_mapping_dict.items():
+                    if isinstance(db_field_info, dict):
+                        # 从 columns_role 获取角色信息
+                        columns_role = result.get('columns_role', {})
+                        db_column = db_field_info.get('db_field', '')
+                        role = 'business'  # 默认值
+                        
+                        # 查找该列的角色
+                        for role_type, columns in columns_role.items():
+                            if db_column in columns:
+                                role = role_type
+                                break
+                        
+                        field_mappings.append(FieldMapping(
+                            db_column=db_column,
+                            api_field=api_field,
+                            role=role,
+                            confidence=db_field_info.get('confidence', 0.8)
+                        ))
+                
                 mapping = TableMapping(
-                    table_name=result['table_name'],
+                    table_name=table_name,
                     entity_name=entity['name'],
                     relation_type=result.get('relation_type', 'core'),
                     relation_score=result.get('relation_score', 0.0),
-                    field_mappings=[
-                        FieldMapping(**fm) for fm in result.get('field_mappings', [])
-                    ]
+                    field_mappings=field_mappings
                 )
                 all_mappings.append(mapping)
 
@@ -96,16 +121,23 @@ class EntiMapAdapter(ModuleAdapter):
 
         return entities
 
-    def _generate_golden_sqls(self, entity: Dict, mappings: list) -> list:
+    def _generate_golden_sqls(self, entity: Dict, mappings: Dict) -> list:
         """生成 Golden SQL"""
         golden_sqls = []
 
         entity_name = entity['name']
+        
+        # mappings 是字典 {table_name: alignment_result}
+        if not mappings:
+            return golden_sqls
+        
+        # 获取第一个表名（得分最高的）
+        first_table = next(iter(mappings.keys()))
 
         # 基础查询
         golden_sqls.append(GoldenSQL(
             question=f"查询所有{entity_name}",
-            sql=f"SELECT * FROM {mappings[0]['table_name']} WHERE is_deleted = 0",
+            sql=f"SELECT * FROM {first_table} WHERE deleted = 0",
             entity=entity_name
         ))
 

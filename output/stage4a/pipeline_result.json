@@ -1,0 +1,282 @@
+{
+  "layer2": {
+    "version": "1.0",
+    "timestamp": "2026-03-12T16:27:52.520432",
+    "domain": "HR",
+    "secondary_domains": [
+      "CRM",
+      "ERP",
+      "MES",
+      "Finance"
+    ],
+    "domain_weights": {
+      "HR": 0.19999999999999998,
+      "CRM": 0.19999999999999998,
+      "ERP": 0.19999999999999998,
+      "MES": 0.19999999999999998,
+      "Finance": 0.19999999999999998
+    },
+    "roles": [],
+    "contracts": [],
+    "statistics": {
+      "total_roles": 0,
+      "virtual_roles": 0,
+      "real_roles": 0,
+      "total_apis": 0,
+      "total_contracts": 0,
+      "total_constraints": 0,
+      "roles_by_level": {},
+      "avg_apis_per_role": 0
+    },
+    "gap_analysis": {
+      "report": "=== 角色调整报告 ===\n\n总角色数: 15\n有效角色数: 0\n空角色数: 15\n新增虚拟角色数: 0\n孤儿 API 数: 169\n\n冻结的空角色：\n  - HR专员: 无 API 支撑\n  - 薪酬专员: 无 API 支撑\n  - HR主管: 无 API 支撑\n  - 销售专员: 无 API 支撑\n  - 销售主管: 无 API 支撑\n  - 客户经理: 无 API 支撑\n  - 仓库专员: 无 API 支撑\n  - 采购专员: 无 API 支撑\n  - 供应链主管: 无 API 支撑\n  - 生产专员: 无 API 支撑\n  - 质检员: 无 API 支撑\n  - 生产主管: 无 API 支撑\n  - 会计专员: 无 API 支撑\n  - 出纳: 无 API 支撑\n  - 财务主管: 无 API 支撑\n\n=== 报告结束 ===",
+      "orphan_apis": []
+    }
+  },
+  "layer3": {
+    "blueprint_version": "1.0",
+    "timestamp": "2026-03-12T16:27:52.526315",
+    "capability_registry": {
+      "atomic_capabilities": [],
+      "composed_capabilities": [],
+      "strategic_capabilities": [],
+      "total_count": 0,
+      "shared_capabilities": []
+    },
+    "agent_definitions": [],
+    "topology": {
+      "nodes": [],
+      "edges": [],
+      "statistics": {
+        "total_nodes": 0,
+        "agent_nodes": 0,
+        "capability_nodes": 0,
+        "total_edges": 0,
+        "reference_edges": 0,
+        "management_edges": 0
+      }
+    },
+    "access_control_matrix": {},
+    "contracts": [],
+    "statistics": {
+      "agents": {
+        "total": 0,
+        "real": 0,
+        "virtual": 0,
+        "by_level": {}
+      },
+      "capabilities": {
+        "atomic": 0,
+        "composed": 0,
+        "strategic": 0,
+        "shared": 0,
+        "total": 0
+      },
+      "topology": {
+        "total_nodes": 0,
+        "agent_nodes": 0,
+        "capability_nodes": 0,
+        "total_edges": 0,
+        "reference_edges": 0,
+        "management_edges": 0
+      },
+      "composition_pattern": {
+        "horizontal_reuse": false,
+        "vertical_promotion": false,
+        "cross_domain": false
+      }
+    }
+  },
+  "layer4": {
+    "prompts_count": 0,
+    "manifest": {
+      "version": "1.0",
+      "environment": "production",
+      "agents": [],
+      "api_endpoints": {},
+      "authentication": {
+        "type": "bearer_token",
+        "token_env_var": "API_TOKEN",
+        "refresh_enabled": true,
+        "refresh_interval": 3600
+      },
+      "rag_config": {
+        "enabled": true,
+        "vector_store": {
+          "type": "faiss",
+          "index_path": "./data/rag_index"
+        },
+        "embedding_model": "text-embedding-ada-002",
+        "retrieval": {
+          "top_k": 5,
+          "similarity_threshold": 0.7
+        }
+      },
+      "runtime_config": {
+        "llm": {
+          "provider": "openai",
+          "model": "gpt-4",
+          "temperature": 0.3,
+          "max_tokens": 2000
+        },
+        "logging": {
+          "level": "INFO",
+          "format": "json",
+          "output": "stdout"
+        },
+        "monitoring": {
+          "enabled": true,
+          "metrics_port": 9090,
+          "health_check_interval": 60
+        }
+      }
+    },
+    "knowledge_links": {
+      "domain": "HR",
+      "knowledge_links": {},
+      "global_knowledge": [
+        "人力资源管理制度",
+        "劳动法规",
+        "绩效考核标准"
+      ]
+    },
+    "monitoring_config": {
+      "metrics": [
+        {
+          "name": "agent_total_requests",
+          "type": "counter",
+          "description": "Agent 总请求数",
+          "labels": [
+            "agent_id",
+            "agent_name"
+          ]
+        },
+        {
+          "name": "agent_request_duration_seconds",
+          "type": "histogram",
+          "description": "Agent 请求处理时长",
+          "labels": [
+            "agent_id",
+            "agent_name"
+          ],
+          "buckets": [
+            0.1,
+            0.5,
+            1.0,
+            2.0,
+            5.0,
+            10.0
+          ]
+        },
+        {
+          "name": "agent_errors_total",
+          "type": "counter",
+          "description": "Agent 错误总数",
+          "labels": [
+            "agent_id",
+            "agent_name",
+            "error_type"
+          ]
+        },
+        {
+          "name": "agent_active_tasks",
+          "type": "gauge",
+          "description": "Agent 当前活跃任务数",
+          "labels": [
+            "agent_id",
+            "agent_name"
+          ]
+        }
+      ],
+      "alerts": [
+        {
+          "name": "HighErrorRate",
+          "condition": "agent_errors_total / agent_total_requests > 0.1",
+          "duration": "5m",
+          "severity": "warning",
+          "description": "Agent 错误率超过 10%",
+          "actions": [
+            "notify_admin",
+            "log"
+          ]
+        },
+        {
+          "name": "SlowResponse",
+          "condition": "agent_request_duration_seconds > 10",
+          "duration": "2m",
+          "severity": "warning",
+          "description": "Agent 响应时间超过 10 秒",
+          "actions": [
+            "notify_admin"
+          ]
+        },
+        {
+          "name": "AgentDown",
+          "condition": "up{job='agents'} == 0",
+          "duration": "1m",
+          "severity": "critical",
+          "description": "Agent 服务不可用",
+          "actions": [
+            "notify_admin",
+            "page_oncall"
+          ]
+        }
+      ],
+      "dashboards": [
+        {
+          "name": "Agent System Overview",
+          "panels": [
+            {
+              "title": "总请求数",
+              "type": "graph",
+              "metric": "sum(agent_total_requests)"
+            },
+            {
+              "title": "平均响应时间",
+              "type": "graph",
+              "metric": "avg(agent_request_duration_seconds)"
+            },
+            {
+              "title": "错误率",
+              "type": "graph",
+              "metric": "sum(agent_errors_total) / sum(agent_total_requests)"
+            },
+            {
+              "title": "活跃 Agent 数",
+              "type": "gauge",
+              "metric": "count(up{job='agents'} == 1)"
+            }
+          ]
+        }
+      ],
+      "logging": {
+        "level": "INFO",
+        "format": "json",
+        "output": {
+          "type": "file",
+          "path": "./logs/agents.log",
+          "rotation": {
+            "max_size": "100MB",
+            "max_age": "30d",
+            "max_backups": 10
+          }
+        },
+        "fields": [
+          "timestamp",
+          "level",
+          "agent_id",
+          "agent_name",
+          "message",
+          "trace_id",
+          "duration_ms"
+        ],
+        "sampling": {
+          "enabled": true,
+          "rate": 0.1
+        }
+      }
+    }
+  },
+  "success": true,
+  "duration_seconds": 38.462686
+}

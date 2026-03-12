@@ -1,0 +1,650 @@
+{
+  "scenarios": [
+    {
+      "scenario_id": "scenario_0",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update-status",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_1",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update-status",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_2",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update-status",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_3",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update-status",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_4",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_5",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_6",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_7",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-order/update",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_8",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update-status",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_9",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update-status",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_10",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update-status",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_11",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update-status",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_12",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_13",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_14",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_15",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-in/update",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_16",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update-status",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_17",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update-status",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_18",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update-status",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_19",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update-status",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_20",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_21",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_22",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_23",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/purchase-return/update",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_24",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/warehouse/update-default-status",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_25",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/warehouse/update-default-status",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_26",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/warehouse/update-default-status",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_27",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/warehouse/update-default-status",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_28",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/warehouse/update",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_29",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/warehouse/update",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_30",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/warehouse/update",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_31",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/warehouse/update",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_32",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/product/update",
+        "get_/admin-api/erp/product/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_33",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/product/update",
+        "get_/admin-api/erp/product/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_34",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/product/update",
+        "get_/admin-api/erp/product/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_35",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/product/update",
+        "get_/admin-api/erp/product/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_36",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/product-unit/update",
+        "get_/admin-api/erp/product-unit/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_37",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/product-unit/update",
+        "get_/admin-api/erp/product-unit/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_38",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/product-unit/update",
+        "get_/admin-api/erp/product-unit/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    },
+    {
+      "scenario_id": "scenario_39",
+      "title": "",
+      "description": "",
+      "scenario_type": "normal",
+      "api_path": [
+        "put_/admin-api/erp/product-unit/update",
+        "get_/admin-api/erp/product-unit/export-excel"
+      ],
+      "steps": [],
+      "expected_outcome": "",
+      "validation_score": 1.0
+    }
+  ],
+  "paths": [
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-order/update-status",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-order/update",
+        "get_/admin-api/erp/purchase-order/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-in/update-status",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-in/update",
+        "get_/admin-api/erp/purchase-in/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-return/update-status",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/purchase-return/update",
+        "get_/admin-api/erp/purchase-return/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/warehouse/update-default-status",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/warehouse/update",
+        "get_/admin-api/erp/warehouse/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/product/update",
+        "get_/admin-api/erp/product/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    },
+    {
+      "path": [
+        "put_/admin-api/erp/product-unit/update",
+        "get_/admin-api/erp/product-unit/export-excel"
+      ],
+      "test_objective": "测试 Unknown Interface 到 Unknown Interface 的流程",
+      "description": "验证 Unknown Interface -> Unknown Interface 的业务流程",
+      "scenario_type": "normal",
+      "parameter_flow": {}
+    }
+  ],
+  "statistics": {
+    "total_paths": 10,
+    "total_scenarios": 40,
+    "valid_scenarios": 40
+  },
+  "metadata": {
+    "stage": "scenario_generation",
+    "version": "1.0.0",
+    "config": {
+      "neo4j_uri": "bolt://192.168.1.210:7687",
+      "neo4j_user": "neo4j",
+      "neo4j_password": "12345678",
+      "llm_client": null,
+      "max_paths": 10,
+      "max_path_length": 6,
+      "min_path_length": 2,
+      "scenario_types": [
+        "normal",
+        "exception"
+      ],
+      "count_per_type": 2
+    }
+  },
+  "timestamp": "2026-03-12 15:41:36.806004"
+}

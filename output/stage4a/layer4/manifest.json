@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "environment": "production",
+  "agents": [],
+  "api_endpoints": {},
+  "authentication": {
+    "type": "bearer_token",
+    "token_env_var": "API_TOKEN",
+    "refresh_enabled": true,
+    "refresh_interval": 3600
+  },
+  "rag_config": {
+    "enabled": true,
+    "vector_store": {
+      "type": "faiss",
+      "index_path": "./data/rag_index"
+    },
+    "embedding_model": "text-embedding-ada-002",
+    "retrieval": {
+      "top_k": 5,
+      "similarity_threshold": 0.7
+    }
+  },
+  "runtime_config": {
+    "llm": {
+      "provider": "openai",
+      "model": "gpt-4",
+      "temperature": 0.3,
+      "max_tokens": 2000
+    },
+    "logging": {
+      "level": "INFO",
+      "format": "json",
+      "output": "stdout"
+    },
+    "monitoring": {
+      "enabled": true,
+      "metrics_port": 9090,
+      "health_check_interval": 60
+    }
+  }
+}
