@@ -3,7 +3,7 @@ API 拓扑模块适配器
 """
 
 from core.module_adapter import ModuleAdapter
-from common.schemas import Stage2Output, APIDependency, EntityRelation
+from schemas.schemas import Stage2Output, APIDependency, EntityRelation
 from typing import Dict
 
 

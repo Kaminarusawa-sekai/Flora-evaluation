@@ -12,8 +12,8 @@
   "metadata": {
     "stage": "optimization",
     "version": "1.0.0",
-    "api_endpoint": "http://localhost:8100",
+    "method": "direct_call",
     "total_agents_optimized": 0
   },
-  "timestamp": "2026-03-12 16:48:14.310844"
+  "timestamp": "2026-03-13 15:35:14.959758"
 }

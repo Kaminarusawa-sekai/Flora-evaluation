@@ -1,20 +1,20 @@
 {
   "layer2": {
     "version": "1.0",
-    "timestamp": "2026-03-12T16:27:52.520432",
-    "domain": "HR",
+    "timestamp": "2026-03-13T15:54:40.321414",
+    "domain": "Finance",
     "secondary_domains": [
       "CRM",
+      "HR",
       "ERP",
-      "MES",
-      "Finance"
+      "MES"
     ],
     "domain_weights": {
-      "HR": 0.19999999999999998,
+      "Finance": 0.19999999999999998,
       "CRM": 0.19999999999999998,
+      "HR": 0.19999999999999998,
       "ERP": 0.19999999999999998,
-      "MES": 0.19999999999999998,
-      "Finance": 0.19999999999999998
+      "MES": 0.19999999999999998
     },
     "roles": [],
     "contracts": [],
@@ -29,13 +29,13 @@
       "avg_apis_per_role": 0
     },
     "gap_analysis": {
-      "report": "=== 角色调整报告 ===\n\n总角色数: 15\n有效角色数: 0\n空角色数: 15\n新增虚拟角色数: 0\n孤儿 API 数: 169\n\n冻结的空角色：\n  - HR专员: 无 API 支撑\n  - 薪酬专员: 无 API 支撑\n  - HR主管: 无 API 支撑\n  - 销售专员: 无 API 支撑\n  - 销售主管: 无 API 支撑\n  - 客户经理: 无 API 支撑\n  - 仓库专员: 无 API 支撑\n  - 采购专员: 无 API 支撑\n  - 供应链主管: 无 API 支撑\n  - 生产专员: 无 API 支撑\n  - 质检员: 无 API 支撑\n  - 生产主管: 无 API 支撑\n  - 会计专员: 无 API 支撑\n  - 出纳: 无 API 支撑\n  - 财务主管: 无 API 支撑\n\n=== 报告结束 ===",
+      "report": "=== 角色调整报告 ===\n\n总角色数: 15\n有效角色数: 0\n空角色数: 15\n新增虚拟角色数: 0\n孤儿 API 数: 169\n\n冻结的空角色：\n  - 会计专员: 无 API 支撑\n  - 出纳: 无 API 支撑\n  - 财务主管: 无 API 支撑\n  - 销售专员: 无 API 支撑\n  - 销售主管: 无 API 支撑\n  - 客户经理: 无 API 支撑\n  - HR专员: 无 API 支撑\n  - 薪酬专员: 无 API 支撑\n  - HR主管: 无 API 支撑\n  - 仓库专员: 无 API 支撑\n  - 采购专员: 无 API 支撑\n  - 供应链主管: 无 API 支撑\n  - 生产专员: 无 API 支撑\n  - 质检员: 无 API 支撑\n  - 生产主管: 无 API 支撑\n\n=== 报告结束 ===",
       "orphan_apis": []
     }
   },
   "layer3": {
     "blueprint_version": "1.0",
-    "timestamp": "2026-03-12T16:27:52.526315",
+    "timestamp": "2026-03-13T15:54:40.324497",
     "capability_registry": {
       "atomic_capabilities": [],
       "composed_capabilities": [],
@@ -132,12 +132,12 @@
       }
     },
     "knowledge_links": {
-      "domain": "HR",
+      "domain": "Finance",
       "knowledge_links": {},
       "global_knowledge": [
-        "人力资源管理制度",
-        "劳动法规",
-        "绩效考核标准"
+        "财务会计准则",
+        "税务法规",
+        "内部控制规范"
       ]
     },
     "monitoring_config": {
@@ -278,5 +278,5 @@
     }
   },
   "success": true,
-  "duration_seconds": 38.462686
+  "duration_seconds": 63.57178
 }

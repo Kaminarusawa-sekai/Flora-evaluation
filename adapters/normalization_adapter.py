@@ -3,7 +3,7 @@ API 规范化模块适配器
 """
 
 from core.module_adapter import ModuleAdapter
-from common.schemas import Stage1Output, Capability
+from schemas.schemas import Stage1Output, Capability
 from typing import Dict
 
 

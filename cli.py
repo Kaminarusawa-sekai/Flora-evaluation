@@ -146,7 +146,7 @@ def validate(input_file):
     """验证输入文件格式"""
 
     import json
-    from common.schemas import Stage1Output, Stage2Output, Stage3AOutput, Stage3BOutput
+    from schemas.schemas import Stage1Output, Stage2Output, Stage3AOutput, Stage3BOutput
 
     click.echo(f"🔍 Validating: {input_file}")
 

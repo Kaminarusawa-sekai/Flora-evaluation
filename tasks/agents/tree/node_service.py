@@ -2,6 +2,7 @@
 from typing import Dict, Any, Optional, List
 import logging
 from datetime import datetime, timedelta
+import os
 
 from external.repositories.agent_structure_repo import AgentStructureRepository
 
@@ -41,6 +42,7 @@ class NodeService:
                 from external.database.neo4j_client import Neo4jClient
 
                 if NEO4J_URI and NEO4J_USER and NEO4J_PASSWORD:
+                    
                     neo4j_client = Neo4jClient(
                         uri=NEO4J_URI,
                         user=NEO4J_USER,
@@ -48,10 +50,24 @@ class NodeService:
                     )
                     self.structure = AgentStructureRepository(neo4j_client=neo4j_client)
                     self.logger.info("Neo4j结构管理器初始化成功")
+                
+                    
                 else:
-                    self.logger.warning("Neo4j配置未找到，使用内存存储")
-                    # 这里可以实现一个内存版本的结构管理器
-                    self.structure = self._create_memory_structure()
+                    NEO4J_URI=os.getenv("NEO4J_URI"),
+                    NEO4J_USER=os.getenv("NEO4J_USER"),
+                    NEO4J_PASSWORD=os.getenv("NEO4J_PASSWORD")
+                    if NEO4J_URI and NEO4J_USER and NEO4J_PASSWORD:
+                        neo4j_client = Neo4jClient(
+                        uri=NEO4J_URI,
+                        user=NEO4J_USER,
+                        password=NEO4J_PASSWORD
+                        )
+                        self.structure = AgentStructureRepository(neo4j_client=neo4j_client)
+                        self.logger.info("Neo4j结构管理器初始化成功")
+                    else:
+                        self.logger.warning("Neo4j配置未找到，使用内存存储")
+                        # 这里可以实现一个内存版本的结构管理器
+                        self.structure = self._create_memory_structure()
             except Exception as e:
                 self.logger.error(f"初始化结构管理器失败: {e}")
                 self.structure = self._create_memory_structure()
@@ -61,38 +77,35 @@ class NodeService:
         创建内存版本的结构管理器
         用于开发和测试环境
         """
-        class MemoryAgentStructure():
-            def __init__(self):
-                self.agents = {}
-                self.relationships = {}
-            
-            def get_agent_relationship(self, agent_id):
-                return self.relationships.get(agent_id, {})
-            
-            def load_all_agents(self):
-                return list(self.agents.values())
-            
-            def close(self):
-                pass
-            
-            def add_agent_relationship(self, parent_id: str, child_id: str, relationship_type: str) -> bool:
-                if parent_id not in self.relationships:
-                    self.relationships[parent_id] = {'children': []}
-                self.relationships[parent_id]['children'].append(child_id)
-                return True
-            
-            def remove_agent(self, agent_id: str) -> bool:
-                if agent_id in self.agents:
-                    del self.agents[agent_id]
-                # Remove from relationships
-                for parent_id, rels in list(self.relationships.items()):
-                    if agent_id in rels.get('children', []):
-                        rels['children'].remove(agent_id)
-                    if parent_id == agent_id:
-                        del self.relationships[parent_id]
-                return True
-        
-        return MemoryAgentStructure()
+        try:
+            # 尝试从 eval_extensions 导入（评估环境）
+            import sys
+            import os
+            eval_ext_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "eval_extensions"))
+            if eval_ext_path not in sys.path:
+                sys.path.insert(0, eval_ext_path)
+
+            from memory_agent_structure import MemoryAgentStructure
+            return MemoryAgentStructure()
+        except ImportError:
+            self.logger.warning("无法导入 eval_extensions.MemoryAgentStructure，使用本地实现")
+            # 降级到本地简单实现
+            class SimpleMemoryStructure:
+                def __init__(self):
+                    self.agents = {}
+                    self.relationships = {}
+
+                def get_agent_relationship(self, agent_id):
+                    return self.relationships.get(agent_id, {})
+
+                def load_all_agents(self):
+                    return list(self.agents.values())
+
+                def close(self):
+                    pass
+
+            return SimpleMemoryStructure()
+
     
     def load_node(self, node_id: str) -> Optional[Dict[str, Any]]:
         """

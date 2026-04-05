@@ -3,7 +3,7 @@
 """
 
 from core.module_adapter import ModuleAdapter
-from common.schemas import Stage3AOutput, TableMapping, FieldMapping, GoldenSQL
+from schemas.schemas import Stage3AOutput, TableMapping, FieldMapping, GoldenSQL
 from typing import Dict
 
 

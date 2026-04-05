@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import logging
+import yaml
 from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
@@ -27,6 +28,9 @@ class CoopRunner:
         # 设置评估模式环境变量
         os.environ["COOP_EVAL_EXECUTION"] = "1"
 
+        # 从 pipeline_config.yaml 加载环境变量
+        self._load_env_from_pipeline_config()
+
         self.nodes = load_agents_into_tree(records_path, treeManager)
         roots = get_root_agents(self.nodes)
         self.root_agent_id = roots[0] if roots else "agent_root"
@@ -39,6 +43,57 @@ class CoopRunner:
 
         self.system = ActorSystem("simpleSystemBase")
         self.agent_actor_ref = self.system.createActor(AgentActor)
+
+    def _load_env_from_pipeline_config(self) -> None:
+        """从 pipeline_config.yaml 加载环境变量"""
+        pipeline_config_path = os.path.join(
+            os.path.dirname(__file__), "..", "config", "pipeline_config.yaml"
+        )
+
+        if not os.path.exists(pipeline_config_path):
+            logger.warning(f"pipeline_config.yaml 不存在: {pipeline_config_path}")
+            return
+
+        try:
+            with open(pipeline_config_path, 'r', encoding='utf-8') as f:
+                config = yaml.safe_load(f)
+
+            # 提取 Neo4j 配置
+            stages = config.get('stages', {})
+            for stage_name, stage_config in stages.items():
+                stage_cfg = stage_config.get('config', {})
+
+                # 设置 Neo4j 环境变量
+                if 'neo4j_uri' in stage_cfg:
+                    uri = stage_cfg['neo4j_uri']
+                    if uri.startswith('${') and uri.endswith('}'):
+                        env_var = uri[2:-1]
+                        if env_var in os.environ:
+                            os.environ['NEO4J_URI'] = os.environ[env_var]
+                    else:
+                        os.environ['NEO4J_URI'] = uri
+
+                if 'neo4j_user' in stage_cfg:
+                    user = stage_cfg['neo4j_user']
+                    if user.startswith('${') and user.endswith('}'):
+                        env_var = user[2:-1]
+                        if env_var in os.environ:
+                            os.environ['NEO4J_USER'] = os.environ[env_var]
+                    else:
+                        os.environ['NEO4J_USER'] = user
+
+                if 'neo4j_password' in stage_cfg:
+                    password = stage_cfg['neo4j_password']
+                    if password.startswith('${') and password.endswith('}'):
+                        env_var = password[2:-1]
+                        if env_var in os.environ:
+                            os.environ['NEO4J_PASSWORD'] = os.environ[env_var]
+                    else:
+                        os.environ['NEO4J_PASSWORD'] = password
+
+            logger.info("已从 pipeline_config.yaml 加载环境变量")
+        except Exception as e:
+            logger.error(f"加载 pipeline_config.yaml 失败: {e}")
 
     def shutdown(self) -> None:
         if self.system:

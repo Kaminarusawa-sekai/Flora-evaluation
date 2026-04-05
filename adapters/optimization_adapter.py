@@ -1,22 +1,27 @@
 """
-优化模块适配器 - 集成 automatic_prompt 服务
+优化模块适配器 - 集成 automatic_prompt 优化功能
 """
 
 from core.module_adapter import ModuleAdapter
-from common.schemas import Stage5Output, Stage6Output, OptimizationSuggestion
+from schemas.schemas import Stage5Output, Stage6Output, OptimizationSuggestion
 from typing import Dict, List
-import requests
-import time
+import sys
+import os
+
+# 添加 automatic_prompt 到 Python 路径
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'automatic_prompt'))
+
+from config import APOConfig, Task
+from optimizer import PromptOptimizer
 
 
 class OptimizationAdapter(ModuleAdapter):
     """
-    优化模块适配器 - 调用 automatic_prompt API 服务
+    优化模块适配器 - 直接调用 automatic_prompt 优化器
     """
 
     def __init__(self):
-        self.api_base_url = None
-        self.task_ids = {}
+        pass
 
     def process(self, input_data: Dict, config: Dict) -> Stage6Output:
         """
@@ -25,44 +30,38 @@ class OptimizationAdapter(ModuleAdapter):
         Args:
             input_data: Stage 5 的评估结果
             config: 优化配置
-                - api_endpoint: automatic_prompt API 地址
                 - max_iterations: 最大迭代次数
+                - num_candidates: 候选数量
+                - top_k: 保留的最优候选数
+                - early_stop_threshold: 早停阈值
                 - auto_augment_data: 是否自动增强数据
+                - fast_mode: 快速模式
         """
         # 提取评估结果
         evaluation_results = Stage5Output(**input_data)
 
-        # 设置 API 地址
-        self.api_base_url = config.get('api_endpoint', 'http://localhost:8100')
-
         # 分析失败的测试，识别需要优化的 Agent
         agents_to_optimize = self._identify_agents_to_optimize(evaluation_results)
 
-        # 为每个 Agent 创建优化任务
-        optimization_tasks = []
-        for agent_info in agents_to_optimize:
-            task_id = self._create_optimization_task(agent_info, config)
-            optimization_tasks.append({
-                'agent_id': agent_info['agent_id'],
-                'task_id': task_id,
-                'current_prompt': agent_info['current_prompt'],
-                'issues': agent_info['issues']
-            })
-
-        # 等待所有优化任务完成
+        # 为每个 Agent 执行优化
         optimized_prompts = {}
         suggestions = []
 
-        for task in optimization_tasks:
-            result = self._wait_for_optimization(task['task_id'])
+        for agent_info in agents_to_optimize:
+            print(f"\n优化 Agent: {agent_info['agent_id']}")
+            print(f"失败次数: {agent_info['failures']}")
+            print(f"问题: {agent_info['issues'][:3]}")
 
-            if result['status'] == 'completed':
-                optimized_prompts[task['agent_id']] = result['best_prompt']
+            # 直接调用优化器
+            result = self._optimize_agent(agent_info, config)
+
+            if result and result['best_score'] > 0:
+                optimized_prompts[agent_info['agent_id']] = result['best_prompt']
 
                 # 生成优化建议
                 suggestion = OptimizationSuggestion(
-                    target=task['agent_id'],
-                    issue=f"准确率低: {', '.join(task['issues'][:2])}",
+                    target=agent_info['agent_id'],
+                    issue=f"准确率低: {', '.join(agent_info['issues'][:2])}",
                     suggestion=f"使用优化后的 Prompt (改进: {result.get('improvement', 0):.2%})",
                     priority='high' if result.get('improvement', 0) > 0.1 else 'medium',
                     estimated_impact=result.get('improvement', 0)
@@ -83,7 +82,7 @@ class OptimizationAdapter(ModuleAdapter):
             metadata={
                 'stage': 'optimization',
                 'version': '1.0.0',
-                'api_endpoint': self.api_base_url,
+                'method': 'direct_call',
                 'total_agents_optimized': len(optimized_prompts)
             }
         )
@@ -129,77 +128,58 @@ class OptimizationAdapter(ModuleAdapter):
 
         return agents_to_optimize
 
-    def _create_optimization_task(self, agent_info: Dict, config: Dict) -> str:
+    def _optimize_agent(self, agent_info: Dict, config: Dict) -> Dict:
         """
-        调用 automatic_prompt API 创建优化任务
-        """
-        # 构建优化请求
-        request_data = {
-            "task_name": f"优化 Agent: {agent_info['agent_id']}",
-            "task_description": f"优化 Agent Prompt 以提高准确率",
-
-            # 从失败案例中提取训练样本
-            "examples": self._extract_examples_from_failures(agent_info['issues']),
-
-            # 使用测试场景作为验证数据
-            "validation_data": self._extract_validation_data(agent_info['agent_id']),
-
-            # 当前 Prompt 作为初始提示词
-            "initial_prompts": [agent_info['current_prompt']],
-
-            # 优化配置
-            "max_iterations": config.get('max_iterations', 10),
-            "num_candidates": config.get('num_candidates', 5),
-            "top_k": config.get('top_k', 3),
-            "early_stop_threshold": config.get('early_stop_threshold', 0.90),
-            "auto_augment_data": config.get('auto_augment_data', True),
-            "fast_mode": config.get('fast_mode', False)
-        }
-
-        # 调用 API
-        response = requests.post(
-            f"{self.api_base_url}/optimize",
-            json=request_data,
-            timeout=30
-        )
-
-        if response.status_code == 200:
-            result = response.json()
-            return result['task_id']
-        else:
-            raise Exception(f"优化任务创建失败: {response.text}")
-
-    def _wait_for_optimization(self, task_id: str, timeout: int = 600) -> Dict:
-        """
-        等待优化任务完成
+        直接调用优化器优化 Agent Prompt
 
         Args:
-            task_id: 任务 ID
-            timeout: 超时时间（秒）
-        """
-        start_time = time.time()
+            agent_info: Agent 信息
+            config: 优化配置
 
-        while time.time() - start_time < timeout:
-            # 查询任务状态
-            response = requests.get(
-                f"{self.api_base_url}/status/{task_id}",
-                timeout=10
+        Returns:
+            优化结果
+        """
+        try:
+            # 从失败案例中提取训练样本
+            examples = self._extract_examples_from_failures(agent_info['issues'])
+
+            # 使用测试场景作为验证数据
+            validation_data = self._extract_validation_data(agent_info['agent_id'])
+
+            # 创建任务定义
+            task = Task(
+                name=f"优化 Agent: {agent_info['agent_id']}",
+                description=f"优化 Agent Prompt 以提高准确率",
+                examples=examples,
+                validation_data=validation_data
             )
 
-            if response.status_code == 200:
-                result = response.json()
+            # 创建优化配置
+            apo_config = APOConfig(
+                max_iterations=config.get('max_iterations', 10),
+                num_candidates=config.get('num_candidates', 5),
+                top_k=config.get('top_k', 3),
+                early_stop_threshold=config.get('early_stop_threshold', 0.90),
+                generation_strategy="llm_rewrite" if not config.get('fast_mode', False) else "mutation",
+                use_llm_feedback=not config.get('fast_mode', False),
+                verbose=True
+            )
 
-                if result['status'] == 'completed':
-                    return result
-                elif result['status'] == 'failed':
-                    raise Exception(f"优化任务失败: {result.get('error')}")
+            # 创建优化器
+            optimizer = PromptOptimizer(apo_config, task)
 
-                # 等待 5 秒后重试
-                time.sleep(5)
-            else:
-                raise Exception(f"查询任务状态失败: {response.text}")
+            # 执行优化
+            result = optimizer.optimize(
+                initial_prompts=[agent_info['current_prompt']],
+                auto_augment_data=config.get('auto_augment_data', True) and not config.get('fast_mode', False),
+                target_validation_size=30 if not config.get('fast_mode', False) else len(validation_data)
+            )
 
-        raise TimeoutError(f"优化任务超时: {task_id}")
+            return result
+
+        except Exception as e:
+            print(f"优化 Agent {agent_info['agent_id']} 失败: {str(e)}")
+            return None
 
     def _extract_agent_from_error(self, errors: List[str]) -> str:
         """从错误信息中提取 Agent ID"""
@@ -270,8 +250,8 @@ class OptimizationAdapter(ModuleAdapter):
         return {
             'name': 'Automatic Prompt Optimization',
             'version': '1.0.0',
-            'description': 'Optimize agent prompts using automatic_prompt service',
+            'description': 'Optimize agent prompts using automatic_prompt optimizer (direct call)',
             'input_format': 'evaluation_results',
             'output_format': 'optimization_suggestions',
-            'api_service': 'automatic_prompt'
+            'method': 'direct_call'
         }

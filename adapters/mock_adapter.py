@@ -3,7 +3,7 @@ Mock 服务模块适配器
 """
 
 from core.module_adapter import ModuleAdapter
-from common.schemas import Stage4BOutput, MockEndpoint
+from schemas.schemas import Stage4BOutput, MockEndpoint
 from typing import Dict
 
 

@@ -78,7 +78,10 @@ class ConfigLoader:
         """应用环境变量覆盖"""
         # LLM API Key
         if 'OPENAI_API_KEY' in os.environ:
-            self.config['llm']['api_key'] = os.environ['OPENAI_API_KEY']
+            if self.config["llm"]["provider"] == "openai":
+                self.config['llm']['api_key'] = os.environ['OPENAI_API_KEY']
+            elif self.config["llm"]["provider"] == "qwen":
+                self.config['llm']['api_key'] = os.environ['DASHSCOPE_API_KEY']
 
         # LLM Provider
         if 'LLM_PROVIDER' in os.environ:

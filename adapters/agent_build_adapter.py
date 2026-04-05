@@ -3,7 +3,7 @@ Agent 构建模块适配器
 """
 
 from core.module_adapter import ModuleAdapter
-from common.schemas import Stage4AOutput
+from schemas.schemas import Stage4AOutput
 from typing import Dict, List
 
 
@@ -65,7 +65,10 @@ class AgentBuildAdapter(ModuleAdapter):
             prompt = agent.get('prompt', agent.get('description', ''))
             if agent_id:
                 prompts[agent_id] = str(prompt)
-        
+
+        # 生成 agent_records.json
+        self._generate_agent_records(result, config)
+
         return Stage4AOutput(
             org_blueprint=layer3,  # layer3 包含 agent_definitions
             role_manifest=result.get('layer2', {}),  # layer2 包含 roles
@@ -97,6 +100,34 @@ class AgentBuildAdapter(ModuleAdapter):
                 })
 
         return api_capabilities
+
+    def _generate_agent_records(self, result: Dict, config: Dict):
+        """生成 agent_records.json 文件供评估使用"""
+        import json
+        import os
+
+        output_dir = config.get('output_dir', './output/stage4a')
+        os.makedirs(output_dir, exist_ok=True)
+
+        layer3 = result.get('layer3', {})
+        agents = layer3.get('agent_definitions', [])
+
+        # 转换为 agent_records 格式
+        agent_records = []
+        for agent in agents:
+            record = {
+                'agent_id': agent.get('agent_id', agent.get('name', '')),
+                'name': agent.get('name', ''),
+                'role': agent.get('role', ''),
+                'prompt': agent.get('prompt', agent.get('description', '')),
+                'capabilities': agent.get('capabilities', [])
+            }
+            agent_records.append(record)
+
+        # 保存文件
+        records_path = os.path.join(output_dir, 'agent_records.json')
+        with open(records_path, 'w', encoding='utf-8') as f:
+            json.dump(agent_records, f, indent=2, ensure_ascii=False)
 
     def _save_to_neo4j(self, result: Dict, config: Dict) -> str:
         """保存 Agent 系统到 Neo4j"""

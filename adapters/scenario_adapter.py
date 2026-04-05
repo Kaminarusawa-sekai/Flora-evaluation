@@ -3,7 +3,7 @@
 """
 
 from core.module_adapter import ModuleAdapter
-from common.schemas import Stage3BOutput, TestScenario, TestStep
+from schemas.schemas import Stage3BOutput, TestScenario, TestStep
 from typing import Dict
 
 
